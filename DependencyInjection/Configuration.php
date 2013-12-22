@@ -29,6 +29,59 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('sonatra_gluon');
 
+        $rootNode
+            ->append($this->getFontNode())
+        ;
+
         return $treeBuilder;
+    }
+
+    /**
+     * Get fonts node.
+     *
+     * @return NodeDefinition
+     */
+    private function getFontNode()
+    {
+        $treeBuilder = new TreeBuilder();
+        $node = $treeBuilder->root('font');
+
+        $node
+            ->addDefaultsIfNotSet()
+            ->canBeDisabled()
+            ->children()
+                ->arrayNode('open_sans')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('light')->defaultFalse()->end()
+                        ->booleanNode('light_italic')->defaultFalse()->end()
+                        ->booleanNode('normal')->defaultTrue()->end()
+                        ->booleanNode('normal_italic')->defaultTrue()->end()
+                        ->booleanNode('semi_bold')->defaultFalse()->end()
+                        ->booleanNode('semi_bold_italic')->defaultFalse()->end()
+                        ->booleanNode('bold')->defaultTrue()->end()
+                        ->booleanNode('bold_italic')->defaultTrue()->end()
+                        ->booleanNode('extra_bold')->defaultFalse()->end()
+                        ->booleanNode('extra_bold_italic')->defaultFalse()->end()
+                    ->end()
+                ->end()
+                ->arrayNode('raleway')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('thin')->defaultTrue()->end()
+                        ->booleanNode('extra_light')->defaultFalse()->end()
+                        ->booleanNode('light')->defaultFalse()->end()
+                        ->booleanNode('normal')->defaultFalse()->end()
+                        ->booleanNode('medium')->defaultFalse()->end()
+                        ->booleanNode('semi_bold')->defaultFalse()->end()
+                        ->booleanNode('bold')->defaultFalse()->end()
+                        ->booleanNode('extra_bold')->defaultFalse()->end()
+                        ->booleanNode('ultra_bold')->defaultFalse()->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
+        return $node;
     }
 }
