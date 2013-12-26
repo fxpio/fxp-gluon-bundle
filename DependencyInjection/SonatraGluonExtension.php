@@ -16,6 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Definition;
 
 /**
  * This is the class that loads and manages your bundle configuration.
@@ -42,6 +43,32 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
         }
 
         $this->configFontAwesome($config['font_awesome'], $container);
+        $this->configCommonAssets($config['common_assets'], $container);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function prepend(ContainerBuilder $container)
+    {
+        $exts = $container->getExtensions();
+
+        if (isset($exts['sonatra_bootstrap'])) {
+            $container->prependExtensionConfig(
+                'sonatra_bootstrap',
+                array(
+                    'common_assets' => array(
+                        'stylesheets' => array(
+                            'bootstrap' => array(
+                                'components' => array(
+                                    'default_variables' => '@SonatraGluonBundle/Resources/assetic/less/variables.less'
+                                ),
+                            ),
+                        ),
+                    ),
+                )
+            );
+        }
     }
 
     /**
@@ -161,27 +188,65 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
     }
 
     /**
-     * {@inheritdoc}
+     * Configures the threedubmedia.
+     *
+     * @param array            $config
+     * @param ContainerBuilder $container
      */
-    public function prepend(ContainerBuilder $container)
+    protected function configCommonAssets(array &$config, ContainerBuilder $container)
     {
-        $exts = $container->getExtensions();
-
-        if (isset($exts['sonatra_bootstrap'])) {
-            $container->prependExtensionConfig(
-                'sonatra_bootstrap',
-                array(
-                    'common_assets' => array(
-                        'stylesheets' => array(
-                            'bootstrap' => array(
-                                'components' => array(
-                                    'default_variables' => '@SonatraGluonBundle/Resources/assetic/less/variables.less'
-                                ),
-                            ),
-                        ),
-                    ),
-                )
-            );
+        if (!$config['enabled']) {
+            return;
         }
+
+        $this->createAssetServices('stylesheet', $config['stylesheets'], $container);
+        $this->createAssetServices('javascript', $config['javascripts'], $container);
+    }
+
+    protected function createAssetServices($type, array &$config, ContainerBuilder $container)
+    {
+        $tag = sprintf('sonatra_bootstrap.%s.common', $type);
+
+        foreach ($config as $vendor => $vConfig) {
+            foreach ($vConfig as $component => $value) {
+                if (is_string($value)) {
+                    $id = sprintf('sonatra_gluon.assetic.common_%ss_resource.%s_%s', $type, $vendor, $component);
+                    $componentDef = $this->createFileResourceDefinition($value, $tag);
+
+                    $container->setDefinition($id, $componentDef);
+
+                } elseif (is_array($value)) {
+                    foreach ($value as $subComponent => $subValue) {
+                        if (is_string($subValue)) {
+                            $id = sprintf('sonatra_gluon.assetic.common_%ss_resource.%s_%s_%s', $type, $vendor, $component, $subComponent);
+                            $componentDef = $this->createFileResourceDefinition($subValue, $tag);
+
+                            $container->setDefinition($id, $componentDef);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Create assetic file resource definition.
+     *
+     * @param string $path
+     * @param string $tag
+     *
+     * @return Definition
+     */
+    protected function createFileResourceDefinition($path, $tag)
+    {
+        $definition = new Definition();
+        $definition
+            ->setClass('Assetic\Factory\Resource\FileResource')
+            ->setPublic(true)
+            ->addArgument($path)
+            ->addTag($tag)
+        ;
+
+        return $definition;
     }
 }
