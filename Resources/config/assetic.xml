@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sonatra_gluon.assetic.font_awesome_resource.class">Sonatra\Bundle\BootstrapBundle\Assetic\Factory\Resource\FontResource</parameter>
+        <parameter key="sonatra_gluon.assetic.font_awesome_resource.stylesheet.class">Sonatra\Bundle\GluonBundle\Assetic\Factory\Resource\FontAwesome\StylesheetResource</parameter>
+    </parameters>
+
+    <services>
+        <service id="sonatra_gluon.assetic.font_awesome_resource" class="%sonatra_gluon.assetic.font_awesome_resource.class%" public="false">
+            <tag name="assetic.formula_resource" loader="sonatra_bootstrap_font" />
+            <argument type="collection" />
+        </service>
+
+        <service id="sonatra_gluon.assetic.font_awesome_resource.stylesheet" class="%sonatra_gluon.assetic.font_awesome_resource.stylesheet.class%">
+            <tag name="sonatra_bootstrap.stylesheet.common" />
+            <argument />
+            <argument />
+            <argument type="collection" />
+        </service>
+    </services>
+</container>

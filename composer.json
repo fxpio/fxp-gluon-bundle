@@ -15,7 +15,8 @@
     "require": {
         "php": ">=5.3.2",
         "symfony/framework-bundle": "~2.1",
-        "sonatra/bootstrap-bundle": "~1.0"
+        "sonatra/bootstrap-bundle": "~1.0",
+        "fortawesome/font-awesome": "~4.0"
     },
     "require-dev": {
         "symfony/console": "~2.1",

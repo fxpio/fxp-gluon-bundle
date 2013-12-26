@@ -35,10 +35,13 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('response.xml');
         $loader->load('twig.xml');
+        $loader->load('assetic.xml');
 
         if ($config['font']['enabled']) {
             $this->configFonts($config['font'], $container);
         }
+
+        $this->configFontAwesome($config['font_awesome'], $container);
     }
 
     /**
@@ -130,6 +133,31 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
         $def = $container->getDefinition('sonatra_gluon.twig.extension.font');
         $def->addArgument(rtrim($openSans, ','));
         $def->addArgument(rtrim($raleway, ','));
+    }
+
+    /**
+     * Configures the font awesome resource.
+     *
+     * @param array            $config
+     * @param ContainerBuilder $container
+     */
+    protected function configFontAwesome(array &$config, ContainerBuilder $container)
+    {
+        if ($config['build']) {
+            if ($container->hasDefinition('sonatra_gluon.assetic.font_awesome_resource')) {
+                $container->getDefinition('sonatra_gluon.assetic.font_awesome_resource')->replaceArgument(0, $config['font']['paths']);
+            }
+
+            if ($container->hasDefinition('sonatra_gluon.assetic.font_awesome_resource.stylesheet')) {
+                $container->getDefinition('sonatra_gluon.assetic.font_awesome_resource.stylesheet')->replaceArgument(0, $config['cache_directory']);
+                $container->getDefinition('sonatra_gluon.assetic.font_awesome_resource.stylesheet')->replaceArgument(1, $config['directory']);
+                $container->getDefinition('sonatra_gluon.assetic.font_awesome_resource.stylesheet')->replaceArgument(2, $config['components']);
+            }
+
+        } else {
+            $container->removeDefinition('sonatra_gluon.assetic.font_awesome_resource');
+            $container->removeDefinition('sonatra_gluon.assetic.font_awesome_resource.stylesheet');
+        }
     }
 
     /**
