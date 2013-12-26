@@ -203,6 +203,13 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
         $this->createAssetServices('javascript', $config['javascripts'], $container);
     }
 
+    /**
+     * Create the resource asset service for stylesheet or javascript.
+     *
+     * @param unknown          $type
+     * @param array            $config
+     * @param ContainerBuilder $container
+     */
     protected function createAssetServices($type, array &$config, ContainerBuilder $container)
     {
         $tag = sprintf('sonatra_bootstrap.%s.common', $type);
