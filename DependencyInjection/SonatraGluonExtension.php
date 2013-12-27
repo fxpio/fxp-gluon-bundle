@@ -60,6 +60,7 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
                     'common_assets' => array(
                         'stylesheets' => array(
                             'bootstrap' => array(
+                                'theme' => '@SonatraGluonBundle/Resources/assetic/less/theme.less',
                                 'components' => array(
                                     'variables' => '@SonatraGluonBundle/Resources/assetic/less/variables.less'
                                 ),
