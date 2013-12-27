@@ -61,7 +61,7 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
                         'stylesheets' => array(
                             'bootstrap' => array(
                                 'components' => array(
-                                    'default_variables' => '@SonatraGluonBundle/Resources/assetic/less/variables.less'
+                                    'variables' => '@SonatraGluonBundle/Resources/assetic/less/variables.less'
                                 ),
                             ),
                         ),
