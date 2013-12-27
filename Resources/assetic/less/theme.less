@@ -5,3 +5,33 @@
 
 @import "@{SonatraGluonBundle}/Resources/assetic/less/variables.less";
 @import "@{symfony-vendor-dir}/twitter/bootstrap/less/mixins.less";
+
+
+// Navbar
+.navbar-brand {
+    width: 210px;
+}
+
+.navbar-brand span,
+.navbar-brand a {
+    font-size: 12px;
+}
+
+// Dropdown
+.dropdown-menu {
+    background-clip: none;
+    .box-shadow(1px 3px 4px rgba(0, 0, 0, 0.18));
+}
+
+.dropdown-menu {
+    > li > a {
+        padding: 5px 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    // Navbar
+    .navbar-brand {
+        width: auto;
+    }
+}
