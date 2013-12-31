@@ -41,7 +41,7 @@
 // -------------------------
 
 @link-color:            @brand-primary;
-//@link-hover-color:      darken(@link-color, 15%);
+@link-hover-color:      lighten(@link-color, 10%);
 
 // Typography
 // -------------------------
@@ -53,6 +53,7 @@
 
 @font-size-base:          13px;
 //@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-medium:        ceil((@font-size-base * 1.10)); // ~15px
 //@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
 //@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
@@ -132,7 +133,7 @@
 
 //@btn-primary-color:              #fff;
 //@btn-primary-bg:                 @brand-primary;
-//@btn-primary-border:             darken(@btn-primary-bg, 5%);
+@btn-primary-border:             lighten(@btn-primary-bg, 10%);
 
 //@btn-success-color:              #fff;
 //@btn-success-bg:                 @brand-success;
@@ -194,7 +195,7 @@
 
 //@dropdown-link-disabled-color:   @gray-light;
 
-//@dropdown-header-color:          @gray-light;
+@dropdown-header-color:          @brand-primary;
 
 
 // COMPONENT VARIABLES
@@ -290,7 +291,7 @@
 // Reset inverted navbar basics
 @navbar-inverse-color:                      #fff;
 @navbar-inverse-bg:                         @brand-primary;
-//@navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
+@navbar-inverse-border:                     @navbar-inverse-color;
 
 // Inverted navbar links
 @navbar-inverse-link-color:                 #fff;

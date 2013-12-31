@@ -1,0 +1,101 @@
+
+//
+// Load core variables and mixins
+// --------------------------------------------------
+
+@import "@{SonatraGluonBundle}/Resources/assetic/less/variables.less";
+@import "@{symfony-vendor-dir}/twitter/bootstrap/less/mixins.less";
+@import "@{SonatraGluonBundle}/Resources/assetic/less/mixins.less";
+
+// Global
+// --------------------------------------------------
+
+a:focus,
+a:hover,
+a:active {
+    outline: 0 none;
+    text-decoration: none;
+    color: @link-hover-color;
+}
+
+b {
+    font-weight: 400;
+}
+
+blockquote p {
+    font-size: @font-size-medium;
+}
+
+ul {
+    padding-left: 30px;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-margin-y {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.no-margin-x {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.no-margin-top {
+    margin-top: 0 !important;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
+
+.no-margin-left {
+    margin-left: 0 !important;
+}
+
+.no-margin-right {
+    margin-right: 0 !important;
+}
+
+.big-text {
+    font-size: 61px;
+    line-height: 70px !important;
+    padding-bottom: 5px;
+    .text-shadow(2px 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+// Text colors
+.color-primary {
+    color: @brand-primary;
+}
+
+.color-primary.fa {
+    color: lighten(@brand-primary, 20%);
+}
+
+.color-success {
+    color: @brand-success;
+}
+
+.color-warning {
+    color: @brand-warning;
+}
+
+.color-danger {
+    color: @brand-danger;
+}
+
+.color-info {
+    color: @brand-info;
+}
+
+.no-padding {
+    padding: 0 !important;
+}

@@ -1,0 +1,100 @@
+
+//
+// Load core variables and mixins
+// --------------------------------------------------
+
+@import "@{SonatraGluonBundle}/Resources/assetic/less/variables.less";
+@import "@{symfony-vendor-dir}/twitter/bootstrap/less/mixins.less";
+
+// Navbar
+// --------------------------------------------------
+
+.navbar {
+    padding-left: 10px;
+    padding-right: 25px;
+}
+
+.navbar .navbar-nav > li.button {
+    padding: 10px 6px;
+    float: left;
+
+    > a {
+        padding:4px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        .box-shadow(1px 1px 0 rgba(255, 255, 255, 0.2) inset);
+        text-align:center;
+    }
+}
+
+.navbar-collapse {
+    max-height: none;
+    position: relative;
+}
+
+.navbar-brand {
+    width: 210px;
+}
+
+.navbar-brand span,
+.navbar-brand a {
+    font-size: 12px;
+}
+
+// Responsive
+// --------------------------------------------------
+
+@media (max-width: 767px) {
+    .navbar {
+        padding-right: 10px;
+    }
+
+    .navbar-header {
+        padding: 0 10px;
+    }
+
+    .navbar-collapse {
+        padding: 0 !important;
+    }
+
+    .navbar-collapse.in {
+        overflow: visible;
+    }
+
+    .navbar-collapse .navbar-nav {
+        margin: 0;
+    }
+
+    .navbar-brand {
+        width: auto;
+    }
+
+    .navbar-fixed-top {
+        position: relative;
+        margin: 0;
+    }
+
+    .navbar-nav {
+        .dropdown-header {
+            color: @dropdown-link-hover-color;
+        }
+    }
+
+    .navbar-nav {
+        .col-menu-2 > li > ul > li a,
+        .col-menu-3 > li > ul > li a {
+            color: @dropdown-link-hover-color;
+            padding-left: 45px;
+        }
+    }
+
+    // Header
+    // -------------------------
+
+    #head-nav {
+        padding: 0;
+    }
+
+    #head-nav .navbar-nav {
+        padding: 0 10px;
+    }
+}

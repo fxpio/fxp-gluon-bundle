@@ -1,0 +1,133 @@
+
+//
+// Load core variables and mixins
+// --------------------------------------------------
+
+@import "@{SonatraGluonBundle}/Resources/assetic/less/variables.less";
+@import "@{symfony-vendor-dir}/twitter/bootstrap/less/mixins.less";
+
+// Dropdowns
+// --------------------------------------------------
+
+.dropdown-menu {
+    background-clip: none;
+    .box-shadow(1px 3px 4px rgba(0, 0, 0, 0.18));
+}
+
+.dropdown-menu {
+    > li > a,
+    li > a {
+        padding: 5px 20px;
+        display: block;
+        font-size: @font-size-small;
+    }
+
+    > li.dropdown {
+        > a:after {
+            display: block;
+            content: " ";
+            float: right;
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+            border-width: 5px 0 5px 5px;
+            border-left-color: @dropdown-link-hover-bg;
+            margin-top: 5px;
+            margin-right: -10px;
+        }
+
+        > a:hover:after,
+        > a:focus:after {
+            border-left-color: @dropdown-link-hover-color;
+        }
+
+        > a > .caret {
+            display: none;
+        }
+
+        .dropdown-menu {
+            margin-left: -1px;
+        }
+    }
+
+    > li.open {
+        > a:after {
+            -webkit-transform: rotate(90deg);
+                    transform: rotate(90deg);
+        }
+
+        > a:hover,
+        > a:focus {
+            background-color: @dropdown-link-hover-bg;
+        }
+    }
+}
+
+.dropdown-header {
+    color: @dropdown-header-color;
+    margin-top: 6px;
+    padding-left: 11px;
+    cursor: pointer;
+
+    i {
+        font-size: @font-size-base;
+        margin-right: @caret-width-base;
+        vertical-align: middle;
+    }
+}
+
+// Menu 2 col
+// --------------------------------------------------
+
+.col-menu-2 {
+    min-width: 410px;
+    padding-bottom: 10px;
+    padding-top: 7px;
+
+    > li:first-child ul {
+        border-right: 1px solid @gray-lighter;
+    }
+
+    > li:last-child ul {
+        border-right: none;
+    }
+
+    > li > ul {
+        padding:0;
+
+        > li {
+            list-style:none;
+
+            a {
+                padding-left: 32px;
+                color: @gray;
+            }
+
+            a:hover,
+            a:focus {
+                color: @dropdown-link-hover-color;
+                background-color: @dropdown-link-hover-bg;
+            }
+        }
+    }
+}
+
+// Responsive
+// --------------------------------------------------
+
+@media (max-width: 767px) {
+    .navbar-nav .open {
+        .dropdown-menu {
+            width: 100%;
+        }
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-menu {
+        display: block;
+
+        > li {
+            padding-left: 20px;
+        }
+    }
+}
