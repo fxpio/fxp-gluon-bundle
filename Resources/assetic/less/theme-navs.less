@@ -1,0 +1,21 @@
+
+//
+// Load core variables and mixins
+// --------------------------------------------------
+
+@import "@{SonatraGluonBundle}/Resources/assetic/less/variables.less";
+@import "@{symfony-vendor-dir}/twitter/bootstrap/less/mixins.less";
+
+// Navs
+// --------------------------------------------------
+
+.nav {
+    .open > a {
+        &,
+        &:hover,
+        &:focus {
+            color: @dropdown-link-hover-color;
+            background-color: @dropdown-link-hover-bg;
+        }
+    }
+}
