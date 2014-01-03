@@ -11,15 +11,29 @@
 
 .navbar {
     @media (min-width: @grid-float-breakpoint) {
+        .navbar-nav,
         .slimScrollDiv {
             overflow: inherit !important;
         }
+
+        .slimScrollBar,
+        .slimScrollRail {
+            display: none !important;
+        }
+    }
+}
+
+.navbar-fixed-top {
+    &.affix {
+        .box-shadow(0 3px 4px rgba(0, 0, 0, 0.18));
     }
 
     @media (max-width: @grid-float-breakpoint-max) {
-        .navbar-collapse,
-        > .slimScrollDiv {
-            .box-shadow(0 3px 4px rgba(0, 0, 0, 0.36));
+        &.affix-top {
+            > .navbar-collapse,
+            > .slimScrollDiv {
+                .box-shadow(0 3px 4px rgba(0, 0, 0, 0.18));
+            }
         }
     }
 }
