@@ -53,6 +53,17 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
     {
         $exts = $container->getExtensions();
 
+        if (isset($exts['sonatra_block'])) {
+            $resources = array(
+                'SonatraGluonBundle:Block:component_bootstrap.html.twig',
+            );
+
+            $container->prependExtensionConfig(
+                'sonatra_block',
+                array('block' => array('resources' => $resources))
+            );
+        }
+
         if (isset($exts['sonatra_bootstrap'])) {
             $container->prependExtensionConfig(
                 'sonatra_bootstrap',

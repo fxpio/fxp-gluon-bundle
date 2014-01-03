@@ -1,0 +1,10 @@
+{% use '@SonatraBootstrap/Block/component_bootstrap.html.twig' %}
+
+{% block navbar_header_toggle_button %}
+{% spaceless %}
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#{{ collapse_id }}">
+        <span class="sr-only">{{ label|trans({}, translation_domain) }}</span>
+        <i class="fa fa-bars"></i>
+    </button>
+{% endspaceless %}
+{% endblock navbar_header_toggle_button %}
