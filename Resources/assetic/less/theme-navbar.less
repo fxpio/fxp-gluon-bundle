@@ -63,7 +63,7 @@
 
     @media (max-width: @grid-float-breakpoint-max) {
         > li > a {
-            font-weight: bold;
+            font-weight: @font-family-weight;
         }
 
         > .open > a {
@@ -197,7 +197,7 @@
         }
 
         > .open > a {
-            color: @navbar-inverse-link-color;;
+            color: @navbar-inverse-link-color;
             background-color: inherit !important;
 
             &:hover,
@@ -213,6 +213,21 @@
             &:hover,
             &:focus {
                 color: @navbar-inverse-link-hover-color;
+            }
+        }
+    }
+}
+
+.navbar-inverse.navbar-fixed-top {
+    &.affix {
+        .box-shadow(0 3px 4px rgba(0, 0, 0, 0.32));
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+        &.affix-top {
+            > .navbar-collapse,
+            > .slimScrollDiv {
+                .box-shadow(0 3px 4px rgba(0, 0, 0, 0.32));
             }
         }
     }
