@@ -21,5 +21,10 @@
             <argument />
             <argument type="collection" />
         </service>
+
+        <service id="sonatra_gluon.assetic.slimscroll_resource.javascript" class="Assetic\Factory\Resource\FileResource">
+            <tag name="sonatra_bootstrap.javascript.common" />
+            <argument>%kernel.root_dir%/../vendor/sonatra_rochal/jquery-slim-scroll/jquery.slimscroll.js</argument>
+        </service>
     </services>
 </container>
