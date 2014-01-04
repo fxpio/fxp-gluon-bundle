@@ -263,13 +263,15 @@
 //@navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
 //@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 
+// Custom navbar dropdown link
+@navbar-dropdown-link-color:               @brand-primary;
+@navbar-dropdown-link-bg:                  transparent;
+@navbar-dropdown-link-hover-color:         lighten(@brand-primary, 5%);
+@navbar-dropdown-link-hover-bg:            transparent;
+
 //@navbar-default-color:             #777;
 //@navbar-default-bg:                #f8f8f8;
 @navbar-default-border:            darken(@navbar-default-bg, 5%);
-
-@navbar-dropdown-link-color:               @brand-primary;
-@navbar-dropdown-link-hover-color:         lighten(@brand-primary, 5%);
-@navbar-dropdown-link-hover-bg:            transparent;
 
 // Navbar links
 @navbar-default-link-color:                @gray;
@@ -280,16 +282,6 @@
 //@navbar-default-link-disabled-color:       #ccc;
 //@navbar-default-link-disabled-bg:          transparent;
 
-// Default navbar links in collape mode
-@navbar-default-collapse-link-color:       @navbar-dropdown-link-color;
-@navbar-default-collapse-link-hover-color: @navbar-dropdown-link-hover-color;
-@navbar-default-collapse-link-hover-bg:    @navbar-dropdown-link-hover-bg;
-
-// Default navbar dropdown links in collape mode
-@navbar-default-collapse-dropdown-link-color:       lighten(@navbar-default-link-color, 20%);
-@navbar-default-collapse-dropdown-link-hover-color: darken(@navbar-default-collapse-dropdown-link-color, 10%);
-@navbar-default-collapse-dropdown-link-hover-bg:    @navbar-dropdown-link-hover-bg;
-
 // Navbar brand label
 //@navbar-default-brand-color:               @navbar-default-link-color;
 //@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
@@ -297,9 +289,24 @@
 
 // Navbar toggle
 @navbar-default-toggle-hover-bg:           @gray-lighter;
-@navbar-default-toggle-icon-bar-bg:        @gray-light;
 @navbar-default-toggle-border-color:       transparent;
 @navbar-default-toggle-font-size:          @font-size-large;
+
+// Custom navbar toggle
+@navbar-default-toggle-icon-bar-bg:        @gray-light;
+@navbar-default-toggle-font-size:          @font-size-large;
+
+// Custom navbar links in collape mode
+@navbar-default-collapse-link-color:       @navbar-dropdown-link-color;
+@navbar-default-collapse-link-bg:          @navbar-dropdown-link-bg;
+@navbar-default-collapse-link-hover-color: @navbar-dropdown-link-hover-color;
+@navbar-default-collapse-link-hover-bg:    @navbar-dropdown-link-hover-bg;
+
+// Custom navbar dropdown links in collape mode
+@navbar-default-collapse-dropdown-link-color:       lighten(@navbar-default-link-color, 20%);
+@navbar-default-collapse-dropdown-link-bg:          @navbar-dropdown-link-bg;
+@navbar-default-collapse-dropdown-link-hover-color: darken(@navbar-default-collapse-dropdown-link-color, 10%);
+@navbar-default-collapse-dropdown-link-hover-bg:    @navbar-dropdown-link-hover-bg;
 
 
 // Inverted navbar
@@ -325,19 +332,23 @@
 
 // Inverted navbar toggle
 @navbar-inverse-toggle-hover-bg:            lighten(@brand-primary, 5%);
-@navbar-inverse-toggle-icon-bar-bg:         #fff;
 @navbar-inverse-toggle-border-color:        transparent;
 @navbar-inverse-toggle-font-size:           @navbar-default-toggle-font-size;
 
-// Inverse navbar links in collape mode
-@navbar-inverse-collapse-link-color:        @navbar-inverse-link-color;
-@navbar-inverse-collapse-link-hover-color:  @navbar-inverse-link-hover-color;
-@navbar-inverse-collapse-link-hover-bg:     @navbar-inverse-link-hover-bg;
+// Custom inverted navbar toggle
+@navbar-inverse-toggle-icon-bar-bg:         #fff;
 
-// Inverse navbar dropdown links in collape mode
+// Custom inverted navbar links in collape mode
+@navbar-inverse-collapse-link-color:        @navbar-inverse-link-color;
+@navbar-inverse-collapse-link-bg:           @navbar-dropdown-link-bg;
+@navbar-inverse-collapse-link-hover-color:  @navbar-inverse-link-hover-color;
+@navbar-inverse-collapse-link-hover-bg:     @navbar-dropdown-link-bg;
+
+// Custom inverted navbar dropdown links in collape mode
 @navbar-inverse-collapse-dropdown-link-color:       rgba(255, 255, 255, 0.5);
+@navbar-inverse-collapse-dropdown-link-bg:          @navbar-dropdown-link-bg;
 @navbar-inverse-collapse-dropdown-link-hover-color: rgba(255, 255, 255, 0.57);
-@navbar-inverse-collapse-dropdown-link-hover-bg:    @navbar-inverse-link-hover-bg;
+@navbar-inverse-collapse-dropdown-link-hover-bg:    @navbar-dropdown-link-bg;
 
 // Navs
 // -------------------------
