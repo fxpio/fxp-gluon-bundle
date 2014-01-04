@@ -293,8 +293,11 @@
 @navbar-default-toggle-font-size:          @font-size-large;
 
 // Custom navbar toggle
-@navbar-default-toggle-icon-bar-bg:        @gray-light;
-@navbar-default-toggle-font-size:          @font-size-large;
+@navbar-default-toggle-icon-bar-bg:        darken(@gray-lighter, 20%);
+@navbar-default-toggle-padding:            4px 10px;
+@navbar-default-toggle-margin-top:         8px;
+@navbar-default-toggle-margin-bottom:      8px;
+@navbar-default-toggle-fa-icon:            "\f0c9";
 
 // Custom navbar links in collape mode
 @navbar-default-collapse-link-color:       @navbar-dropdown-link-color;
@@ -333,7 +336,6 @@
 // Inverted navbar toggle
 @navbar-inverse-toggle-hover-bg:            lighten(@brand-primary, 5%);
 @navbar-inverse-toggle-border-color:        transparent;
-@navbar-inverse-toggle-font-size:           @navbar-default-toggle-font-size;
 
 // Custom inverted navbar toggle
 @navbar-inverse-toggle-icon-bar-bg:         #fff;

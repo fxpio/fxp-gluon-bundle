@@ -27,7 +27,13 @@
 .navbar-toggle {
     color: @navbar-default-toggle-icon-bar-bg;
     font-size: @navbar-default-toggle-font-size;
-    padding: 4px 10px;
+    padding: @navbar-default-toggle-padding;
+    margin-top: @navbar-default-toggle-margin-top;
+    margin-bottom: @navbar-default-toggle-margin-bottom;
+}
+
+.fa-navbar-toggle:before {
+    content: @navbar-default-toggle-fa-icon;
 }
 
 .navbar-inverse .navbar-toggle {
@@ -83,6 +89,14 @@
     }
 
     .navbar-nav {
+        .dropdown-toggle {
+            padding-bottom: 0;
+
+            + .dropdown-menu {
+               padding-top: 0;
+            }
+        }
+
         .dropdown-menu {
             > li.dropdown {
                 > a:after {
@@ -97,6 +111,11 @@
             &.pull-left,
             &.pull-right {
                 float: none !important;
+            }
+
+            > li > a,
+            li > a {
+                font-size: @font-size-base;
             }
         }
 
