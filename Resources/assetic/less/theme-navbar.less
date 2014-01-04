@@ -16,6 +16,7 @@
 }
 
 .navbar-brand {
+    width: @navbar-brand-width;
     padding-top: @navbar-brand-vertical-padding;
     padding-bottom: @navbar-brand-vertical-padding;
 
@@ -86,14 +87,12 @@
             display: none !important;
         }
     }
-
-    .navbar-brand {
-        width: @navbar-brand-width;
-    }
 }
 
 @media (max-width: @grid-float-breakpoint-max) {
     .navbar-brand.navbar-brand-swipe {
+        width: auto;
+
         img.navbar-brand-logo {
             display: none;
         }
