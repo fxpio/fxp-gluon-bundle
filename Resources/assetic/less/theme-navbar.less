@@ -98,6 +98,8 @@
         }
 
         .dropdown-menu {
+            padding-left: 15px;
+
             > li.dropdown {
                 > a:after {
                     display: none;
@@ -114,8 +116,10 @@
             }
 
             > li > a,
-            li > a {
+            li > a,
+            .dropdown-header {
                 font-size: @font-size-base;
+                padding-left: 15px;
             }
         }
 
@@ -130,11 +134,6 @@
             border: 0;
             box-shadow: none;
 
-            > li > a,
-            .dropdown-header {
-                padding: 5px 15px 5px 25px;
-            }
-
             > li > a {
                 line-height: @line-height-computed;
 
@@ -148,7 +147,7 @@
                 display: block;
         
                 > li {
-                    padding-left: 20px;
+                    //padding-left: 20px;
                 }
             }
         }
@@ -158,10 +157,6 @@
 
             > li:first-child ul {
                 border-right-color: transparent;
-            }
-
-            > li > ul > li a {
-                padding-left: 45px;
             }
         }
 
