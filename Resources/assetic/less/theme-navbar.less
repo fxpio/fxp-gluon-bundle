@@ -16,12 +16,22 @@
 }
 
 .navbar-brand {
-    width: 210px;
-}
+    padding-top: @navbar-brand-vertical-padding;
+    padding-bottom: @navbar-brand-vertical-padding;
 
-.navbar-brand span,
-.navbar-brand a {
-    font-size: 12px;
+    span,
+    a {
+        font-size: @navbar-brand-font-size;
+    }
+
+    .navbar-brand-logo,
+    .navbar-brand-badge {
+        height: @navbar-brand-img-height;
+    }
+
+    .navbar-brand-badge {
+        display: none;
+    }
 }
 
 .navbar-toggle {
@@ -76,9 +86,23 @@
             display: none !important;
         }
     }
+
+    .navbar-brand {
+        width: @navbar-brand-width;
+    }
 }
 
 @media (max-width: @grid-float-breakpoint-max) {
+    .navbar-brand.navbar-brand-swipe {
+        img.navbar-brand-logo {
+            display: none;
+        }
+
+        img.navbar-brand-badge {
+            display: inherit;
+        }
+    }
+
     .navbar-fixed-top {
         &.affix-top {
             > .navbar-collapse,
@@ -89,17 +113,12 @@
     }
 
     .navbar-nav {
-        .dropdown-toggle {
-            padding-bottom: 0;
-
-            + .dropdown-menu {
-               padding-top: 0;
-            }
+        .dropdown-header {
+            padding-top: 5px;
+            padding-bottom: 5px;
         }
 
         .dropdown-menu {
-            padding-left: 15px;
-
             > li.dropdown {
                 > a:after {
                     display: none;
@@ -119,6 +138,16 @@
             li > a,
             .dropdown-header {
                 font-size: @font-size-base;
+            }
+        }
+
+        .dropdown-menu,
+        .open .dropdown-menu {
+            padding-left: 15px;
+
+            > li > a,
+            li > a,
+            .dropdown-header {
                 padding-left: 15px;
             }
         }
@@ -145,10 +174,6 @@
 
             .dropdown-menu {
                 display: block;
-        
-                > li {
-                    //padding-left: 20px;
-                }
             }
         }
 
@@ -259,4 +284,11 @@
             }
         }
     }
+}
+
+@media (orientation: landscape) {
+    .navbar-collapse {
+        max-height: 230px;
+    }
+        }
 }
