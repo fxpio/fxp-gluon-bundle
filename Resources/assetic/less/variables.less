@@ -34,7 +34,7 @@
 // Scaffolding
 // -------------------------
 
-@body-bg:               #f6f6f6;
+@body-bg:               #f5f5f5;
 @text-color:            @gray;
 
 // Links
@@ -216,6 +216,14 @@
 //@zindex-modal-background:  1040;
 //@zindex-modal:             1050;
 
+// Custom Z-index
+// -------------------------
+
+@zindex-sidebar-toggle:        @zindex-navbar + 1;
+@zindex-sidebar-wrapper:       @zindex-navbar + 1;
+@zindex-sidebar-toggle-fixed:  @zindex-navbar-fixed + 1;
+@zindex-sidebar-wrapper-fixed: @zindex-navbar-fixed - 1;
+
 // Media queries breakpoints
 // --------------------------------------------------
 
@@ -276,7 +284,7 @@
 @navbar-dropdown-link-hover-bg:            transparent;
 
 //@navbar-default-color:             #777;
-//@navbar-default-bg:                #f8f8f8;
+@navbar-default-bg:                #fafafa;
 @navbar-default-border:            darken(@navbar-default-bg, 5%);
 
 // Navbar links
@@ -385,6 +393,29 @@
 //@nav-pills-border-radius:                   @border-radius-base;
 //@nav-pills-active-link-hover-bg:            @component-active-bg;
 //@nav-pills-active-link-hover-color:         @component-active-color;
+
+
+// Custom Sidebar
+// -------------------------
+@sidebar-wrapper-width:              @navbar-brand-width;
+@sidebar-wrapper-width-mini:         50px;
+@sidebar-toggle-default-color:       @navbar-default-toggle-icon-bar-bg;
+@sidebar-toggle-default-hover-color: @navbar-default-link-hover-color;
+@sidebar-default-color:              @navbar-default-color;
+@sidebar-default-bg:                 #fff;
+@sidebar-default-link-color:         @sidebar-default-color;
+@sidebar-default-link-bg:            @sidebar-default-bg;
+@sidebar-default-link-hover-color:   @navbar-default-link-hover-color;
+@sidebar-default-link-hover-bg:      @gray-lighter;
+
+@sidebar-toggle-inverse-color:       @navbar-inverse-toggle-icon-bar-bg;
+@sidebar-toggle-inverse-hover-color: @navbar-inverse-link-hover-color;
+@sidebar-inverse-color:              @navbar-inverse-color;
+@sidebar-inverse-bg:                 #2a3542;
+@sidebar-inverse-link-color:         @sidebar-inverse-color;
+@sidebar-inverse-link-bg:            @sidebar-inverse-bg;
+@sidebar-inverse-link-hover-color:   @navbar-inverse-link-hover-color;
+@sidebar-inverse-link-hover-bg:      lighten(@sidebar-inverse-link-bg, 5%);
 
 
 // Pagination
