@@ -17,6 +17,7 @@
         "symfony/framework-bundle": "~2.1",
         "sonatra/bootstrap-bundle": "~1.0",
         "fortawesome/font-awesome": "~4.0",
+        "sonatra_eightmedia/hammer.js": "dev-master",
         "sonatra_rochal/jquery-slim-scroll": "dev-master"
     },
     "require-dev": {
