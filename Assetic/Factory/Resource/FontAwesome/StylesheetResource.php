@@ -11,39 +11,17 @@
 
 namespace Sonatra\Bundle\GluonBundle\Assetic\Factory\Resource\FontAwesome;
 
-use Sonatra\Bundle\BootstrapBundle\Assetic\Factory\Resource\DynamicResourceInterface;
-use Sonatra\Bundle\BootstrapBundle\Assetic\Util\ContainerUtils;
-use Symfony\Component\Filesystem\Filesystem;
+use Sonatra\Bundle\BootstrapBundle\Assetic\Factory\Resource\AbstractDynamicResource;
 
 /**
  * Font Awesome stylesheet resource.
  *
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
-class StylesheetResource implements DynamicResourceInterface
+class StylesheetResource extends AbstractDynamicResource
 {
     /**
-     * @var string
-     */
-    protected $path;
-
-    /**
-     * @var string
-     */
-    protected $directory;
-
-    /**
-     * @var array
-     */
-    protected $components;
-
-    /**
-     * @var Filesystem
-     */
-    protected $filesystem;
-
-    /**
-     * Preserves the order of loading of font awesome.
+     * Preserves the order of loading.
      * @var array
      */
     protected $orderComponents = array(
@@ -67,81 +45,10 @@ class StylesheetResource implements DynamicResourceInterface
      * @param string $cacheDir   The cache directory
      * @param string $directory  The bootstrap less directory
      * @param array  $components The bootstrap less components configuration
-     */
-    public function __construct($cacheDir, $directory, array $components)
+     * @param array  $bundles    The bundles directories
+    */
+    public function __construct($cacheDir, $directory, array $components, array $bundles)
     {
-        $this->path = sprintf('%s/font-awesome.less', $cacheDir);
-        $this->directory = rtrim($directory, '/');
-        $this->components = $components;
-        $this->filesystem = new Filesystem();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isFresh($timestamp)
-    {
-        return file_exists($this->path) && filemtime($this->path) <= $timestamp;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getContent()
-    {
-        $this->compile();
-
-        return file_get_contents($this->path);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function compile()
-    {
-        if (!file_exists($this->path)) {
-            $content = '';
-
-            foreach ($this->orderComponents as $component) {
-                $content = $this->addImport($content, $component, $this->components[$component]);
-            }
-
-            $this->filesystem->dumpFile($this->path, $content);
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return $this->path;
-    }
-
-    /**
-     * Add import file in content.
-     *
-     * @param string      $content   The content
-     * @param string      $component The name of component
-     * @param string|bool $value     The value of component
-     *
-     * @return string The content
-     */
-    protected function addImport($content, $component, $value)
-    {
-        if (is_string($value)) {
-            $value = ContainerUtils::filterBundles($value, function ($matches) {
-                return '@{' . $matches[1] . 'Bundle}';
-            });
-
-            $content .= sprintf('@import "%s";', $value);
-            $content .= PHP_EOL;
-
-        } elseif ($value) {
-            $content .= sprintf('@import "%s/%s.less";', $this->directory, str_replace('_', '-', $component));
-            $content .= PHP_EOL;
-        }
-
-        return $content;
+        parent::__construct(sprintf('%s/font-awesome.less', $cacheDir), $directory, $components, $bundles);
     }
 }

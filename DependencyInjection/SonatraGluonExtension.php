@@ -71,7 +71,6 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
                     'common_assets' => array(
                         'stylesheets' => array(
                             'bootstrap' => array(
-                                'theme' => '@SonatraGluonBundle/Resources/assetic/less/theme.less',
                                 'components' => array(
                                     'variables' => '@SonatraGluonBundle/Resources/assetic/less/variables.less'
                                 ),
@@ -200,7 +199,7 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
     }
 
     /**
-     * Configures the threedubmedia.
+     * Configures the common assets.
      *
      * @param array            $config
      * @param ContainerBuilder $container
@@ -212,35 +211,28 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
         }
 
         $this->createAssetServices('stylesheet', $config['stylesheets'], $container);
+        $this->createThemeAssetServices($config['theme_stylesheets'], $container);
         $this->createAssetServices('javascript', $config['javascripts'], $container);
     }
 
     /**
      * Create the resource asset service for stylesheet or javascript.
      *
-     * @param unknown          $type
+     * @param string           $type
      * @param array            $config
      * @param ContainerBuilder $container
      */
     protected function createAssetServices($type, array &$config, ContainerBuilder $container)
     {
-        $tag = sprintf('sonatra_bootstrap.%s.common', $type);
-
         foreach ($config as $vendor => $vConfig) {
             foreach ($vConfig as $component => $value) {
                 if (is_string($value)) {
-                    $id = sprintf('sonatra_gluon.assetic.common_%ss_resource.%s_%s', $type, $vendor, $component);
-                    $componentDef = $this->createFileResourceDefinition($value, $tag);
-
-                    $container->setDefinition($id, $componentDef);
+                    $this->injectFileResourceDefinition($type, $vendor, $component, $value, $container);
 
                 } elseif (is_array($value)) {
                     foreach ($value as $subComponent => $subValue) {
                         if (is_string($subValue)) {
-                            $id = sprintf('sonatra_gluon.assetic.common_%ss_resource.%s_%s_%s', $type, $vendor, $component, $subComponent);
-                            $componentDef = $this->createFileResourceDefinition($subValue, $tag);
-
-                            $container->setDefinition($id, $componentDef);
+                            $this->injectFileResourceDefinition($type, $vendor, $component . '_' . $subComponent, $subValue, $container);
                         }
                     }
                 }
@@ -249,23 +241,56 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
     }
 
     /**
-     * Create assetic file resource definition.
+     * Create the resource asset service for theme stylesheet.
      *
-     * @param string $path
-     * @param string $tag
-     *
-     * @return Definition
+     * @param array            $config
+     * @param ContainerBuilder $container
      */
-    protected function createFileResourceDefinition($path, $tag)
+    protected function createThemeAssetServices(array &$config, ContainerBuilder $container)
     {
+        foreach ($config['components'] as $component => $value) {
+            $id = sprintf('sonatra_gluon.assetic.common_stylesheets_resource.sonatra_theme_%s', $component);
+            $definition = new Definition();
+
+            $definition
+                ->setClass('Sonatra\Bundle\GluonBundle\Assetic\Factory\Resource\StylesheetThemeResource')
+                ->setPublic(true)
+                ->addTag('sonatra_bootstrap.stylesheet.common')
+                ->addArgument(sprintf('%s/%s.less', $config['cache_directory'], str_replace('_', '-', $component)))
+                ->addArgument($config['directory'])
+                ->addArgument(array(
+                    'variables'     => $config['variables'],
+                    'mixins'        => $config['mixins'],
+                    $component      => $value,
+                ))
+                ->addArgument($container->getParameter('kernel.bundles'))
+            ;
+
+            $container->setDefinition($id, $definition);
+        }
+    }
+
+    /**
+     * Injects assetic file resource definition in container.
+     *
+     * @param string           $type      The type of asset (javascript or stylesheet)
+     * @param string           $vendor    The vendor name
+     * @param string           $component The component name
+     * @param string           $path      The path of file component
+     * @param ContainerBuilder $container The container service
+     */
+    protected function injectFileResourceDefinition($type, $vendor, $component, $path, ContainerBuilder $container)
+    {
+        $id = sprintf('sonatra_gluon.assetic.common_%ss_resource.%s_%s', $type, $vendor, $component);
         $definition = new Definition();
+
         $definition
             ->setClass('Assetic\Factory\Resource\FileResource')
             ->setPublic(true)
             ->addArgument($path)
-            ->addTag($tag)
+            ->addTag(sprintf('sonatra_bootstrap.%s.common', $type))
         ;
 
-        return $definition;
+        $container->setDefinition($id, $definition);
     }
 }
