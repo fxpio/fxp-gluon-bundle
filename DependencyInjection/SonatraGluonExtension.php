@@ -37,6 +37,7 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
         $loader->load('response.xml');
         $loader->load('twig.xml');
         $loader->load('assetic.xml');
+        $loader->load('block.xml');
 
         if ($config['font']['enabled']) {
             $this->configFonts($config['font'], $container);
@@ -56,6 +57,7 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
         if (isset($exts['sonatra_block'])) {
             $resources = array(
                 'SonatraGluonBundle:Block:component_bootstrap.html.twig',
+                'SonatraGluonBundle:Block:component_gluon.html.twig',
             );
 
             $container->prependExtensionConfig(
