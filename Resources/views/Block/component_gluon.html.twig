@@ -24,13 +24,13 @@
 
 {% block sidebar_group_widget %}
 {% spaceless %}
-    {% set group_attr = group_attr|merge({'class': ('sidebar-item ' ~ group_attr.class|default(''))|trim}) %}
+    {% set attr = attr|merge({'class': ('sidebar-group ' ~ attr.class|default(''))|trim}) %}
     <li {{ block('widget_container_attributes') }}>
         <span{% for attrname, attrvalue in group_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
             {{- label|trans({}, translation_domain) }}
             {{- value|raw -}}
         </span>
-        <ul class="sidebar-group">
+        <ul class="sidebar-group-menu">
             {{- block('block_rows') -}}
         </ul>
     </li>
@@ -39,7 +39,7 @@
 
 {% block sidebar_item_widget %}
 {% spaceless %}
-    {% set link_attr = link_attr|merge({'class': ('sidebar-item ' ~ link_attr.class|default(''))|trim}) %}
+    {% set attr = attr|merge({'class': ('sidebar-item ' ~ attr.class|default(''))|trim}) %}
     {% if active and not disabled %}
         {% set link_attr = link_attr|merge({'class': (link_attr.class|default('') ~ ' active')|trim}) %}
     {% endif %}
