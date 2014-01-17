@@ -3,9 +3,12 @@
 {% block sidebar_widget %}
 {% spaceless %}
     {% set attr = attr|merge({'class': ('sidebar-trigger ' ~ attr.class|default(''))|trim}) %}
+    {% if opened is sameas('force') %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-force-open')|trim}) %}
+    {% endif %}
     <div {{ block('widget_container_attributes') }}>
         <a class="sidebar-toggle" href="#"><span class="sr-only">{{ toggle_label|trans({}, translation_domain) }}</span><i class="fa fa-sidebar-toggle"></i></a>
-        <div class="sidebar-wrapper sidebar-{{ style }}">
+        <div class="sidebar-wrapper sidebar-{{ style }}{% if opened %} sidebar-open{% endif %}">
 	        <div class="sidebar-scroller">
 	            <ul class="sidebar-menu">
 			        {{- value|raw -}}

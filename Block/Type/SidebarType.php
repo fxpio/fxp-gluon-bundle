@@ -44,6 +44,7 @@ class SidebarType extends AbstractType
             'style'        => $options['style'],
             'attr'         => $attr,
             'toggle_label' => $options['toggle_label'],
+            'opened'       => $options['opened'],
         ));
     }
 
@@ -58,6 +59,7 @@ class SidebarType extends AbstractType
             'min_lock_width' => null,
             'style'          => 'default',
             'toggle_label'   => 'Sidebar toggle',
+            'opened'         => false,
         ));
 
         $resolver->setAllowedTypes(array(
@@ -66,10 +68,12 @@ class SidebarType extends AbstractType
             'min_lock_width' => array('null', 'int'),
             'style'          => 'string',
             'toggle_label'   => 'string',
+            'opened'         => array('bool', 'string'),
         ));
 
         $resolver->setAllowedValues(array(
-            'style' => array('default', 'inverse'),
+            'style'  => array('default', 'inverse'),
+            'opened' => array(false, true, 'force'),
         ));
     }
 
