@@ -41,10 +41,11 @@ class SidebarType extends AbstractType
         }
 
         $view->vars = array_replace($view->vars, array(
-            'style'        => $options['style'],
-            'attr'         => $attr,
-            'toggle_label' => $options['toggle_label'],
-            'opened'       => $options['opened'],
+            'style'         => $options['style'],
+            'attr'          => $attr,
+            'sticky_header' => $options['sticky_header'],
+            'toggle_label'  => $options['toggle_label'],
+            'opened'        => $options['opened'],
         ));
     }
 
@@ -57,6 +58,7 @@ class SidebarType extends AbstractType
             'open_on_hover'  => null,
             'force_toggle'   => true,
             'min_lock_width' => null,
+            'sticky_header'  => true,
             'style'          => 'default',
             'toggle_label'   => 'Sidebar toggle',
             'opened'         => false,
@@ -66,6 +68,7 @@ class SidebarType extends AbstractType
             'open_on_hover'  => array('null', 'bool'),
             'force_toggle'   => 'bool',
             'min_lock_width' => array('null', 'int'),
+            'sticky_header'  => array('null', 'bool'),
             'style'          => 'string',
             'toggle_label'   => 'string',
             'opened'         => array('bool', 'string'),
