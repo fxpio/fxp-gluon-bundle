@@ -7,6 +7,9 @@ Features include:
 
 - Fonts install command
 - Optimiser HTML response (remove space, breakline, etc...)
+- Font Awasome assetic loader (fonts and stylesheet)
+- configurator for stylesheets of theme
+- Configurator for plugins and stylesheets dependencies
 - Components:
   - Sidebar
 - Plugins:
