@@ -7,6 +7,11 @@ Features include:
 
 - Fonts install command
 - Optimiser HTML response (remove space, breakline, etc...)
+- Components:
+  - Sidebar
+- Plugins:
+  - Sidebar
+  - Sticky header
 
 Documentation
 -------------
