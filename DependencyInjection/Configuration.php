@@ -288,6 +288,7 @@ class Configuration implements ConfigurationInterface
                             ->children()
                                 ->booleanNode('wrapper')->defaultTrue()->end()
                                 ->booleanNode('global')->defaultTrue()->end()
+                                ->booleanNode('buttons')->defaultTrue()->end()
                                 ->booleanNode('dropdowns')->defaultTrue()->end()
                                 ->booleanNode('navs')->defaultTrue()->end()
                                 ->booleanNode('navbar')->defaultTrue()->end()
