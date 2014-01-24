@@ -5,7 +5,8 @@
 {% set btn_style = btn_style|default('default') %}
 {% set btn_text = btn_text|default('Return to the homepage') %}
 {% set btn_ref = btn_ref|default('/') %}
-{% set logo = logo|default('bundles/sonatragluon/logo_black.svg') %}
+{% set logo_src = logo_src|default('bundles/sonatragluon/logo_black.svg') %}
+{% set logo_alt = logo_alt|default('Sonatra') %}
 
 {% if status_code >= 500 and status_code <= 520 %}
 	{% set is_server_error = true %}
@@ -42,7 +43,7 @@
 				    <a class="btn btn-lg btn-{{ btn_style }}-outline" href="{{ btn_ref }}"><i class="fa fa-home"></i> {{ btn_text }}</a>
 
 				    <div class="footer-badge">
-				        <img src="{{ asset(logo) }}"/>
+				        <img src="{{ asset(logo_src) }}" alt="{{ logo_alt }}" />
 				    </div>
 				    {% endblock button_homepage %}
 			    {% endblock error_wrapper %}
