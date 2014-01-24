@@ -29,6 +29,6 @@ class ErrorController extends Controller
         $status = Response::$statusTexts;
         $text = isset($status[$code]) ? $status[$code] : null;
 
-        return $this->render('@SonatraGluon/Exception/error.html.twig', array('status_code' => $code, 'status_text' => $text));
+        return $this->render('@Twig/Exception/error.html.twig', array('status_code' => $code, 'status_text' => $text));
     }
 }
