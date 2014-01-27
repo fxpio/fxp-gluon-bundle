@@ -20,6 +20,23 @@
             text-shadow: @shadow;
 }
 
+.text-longshadow (@color, @size, @darken: 10%) {
+    .text-longshadowloop (@loopColor, @loopSize, @loopDarken, @initSize, @previousShadow: '') when (@loopSize >= 0) {
+        .text-longshadowfinish (@string, @index) when (@index < 0) {
+            .text-shadow(@string);
+        }
+
+        @percent: (1 - (@loopSize / @initSize)) * @loopDarken;
+        @shadowColor: darken(@loopColor, @percent);
+        @shadow: ~"@{shadowColor} @{loopSize}px @{loopSize}px@{previousShadow}";
+
+        .text-longshadowfinish(@shadow, @loopSize - 1);
+        .text-longshadowloop(@loopColor, @loopSize - 1, @loopDarken, @initSize, ", @{shadow}");
+    }
+
+    .text-longshadowloop(@color, unit(@size) - 1, unit(@darken), unit(@size) - 1);
+}
+
 
 // Button variants
 // -------------------------
