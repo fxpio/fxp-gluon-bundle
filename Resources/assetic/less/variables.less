@@ -26,6 +26,7 @@
 // -------------------------
 
 @brand-primary:         #0071ce;
+@brand-secondary:       @gray-light;
 //@brand-success:         #5cb85c;
 //@brand-warning:         #f0ad4e;
 //@brand-danger:          #d9534f;
@@ -136,6 +137,10 @@
 //@btn-primary-bg:                 @brand-primary;
 @btn-primary-border:             @btn-primary-bg;
 
+@btn-secondary-color:            #fff;
+@btn-secondary-bg:               @brand-secondary;
+@btn-secondary-border:           @btn-secondary-bg;
+
 //@btn-success-color:              #fff;
 //@btn-success-bg:                 @brand-success;
 @btn-success-border:             @btn-success-bg;
@@ -163,8 +168,8 @@
 
 //@input-color:                    @gray;
 //@input-border:                   #ccc;
-//@input-border-radius:            @border-radius-base;
-//@input-border-focus:             #66afe9;
+@input-border-radius:            0px;
+@input-border-focus:             lighten(@brand-primary, 14%);
 
 //@input-color-placeholder:        @gray-light;
 
@@ -526,6 +531,7 @@
 
 //@label-default-bg:            @gray-light;
 //@label-primary-bg:            @brand-primary;
+@label-secondary-bg:          @brand-secondary;
 //@label-success-bg:            @brand-success;
 //@label-info-bg:               @brand-info;
 //@label-warning-bg:            @brand-warning;
@@ -584,6 +590,7 @@
 //@progress-bar-color:          #fff;
 
 //@progress-bar-bg:             @brand-primary;
+@progress-bar-secondary-bg:   @brand-secondary;
 //@progress-bar-success-bg:     @brand-success;
 //@progress-bar-warning-bg:     @brand-warning;
 //@progress-bar-danger-bg:      @brand-danger;
@@ -610,6 +617,7 @@
 //@panel-bg:                    #fff;
 //@panel-body-padding:          15px;
 //@panel-border-radius:         @border-radius-base;
+@panel-shadow:                  1px 1px 3px rgba(0, 0, 0, 0.14);
 
 //@panel-inner-border:          #ddd;
 //@panel-footer-bg:             #f5f5f5;
@@ -621,6 +629,10 @@
 //@panel-primary-text:          #fff;
 //@panel-primary-border:        @brand-primary;
 //@panel-primary-heading-bg:    @brand-primary;
+
+@panel-secondary-text:        #fff;
+@panel-secondary-border:      @brand-secondary;
+@panel-secondary-heading-bg:  @brand-secondary;
 
 //@panel-success-text:          @state-success-text;
 //@panel-success-border:        @state-success-border;

@@ -6,6 +6,9 @@
 // Alternate buttons
 // --------------------------------------------------
 
+.btn-secondary {
+  .button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
+}
 
 
 // Alternate outline buttons
@@ -16,6 +19,9 @@
 }
 .btn-primary-outline {
   .button-variant-outline(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+.btn-secondary-outline {
+  .button-variant-outline(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
 }
 // Success appears as green
 .btn-success-outline {
@@ -43,6 +49,9 @@
 }
 .btn-primary-outline-inverse {
   .button-variant-outline-inverse(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+.btn-secondary-outline-inverse {
+  .button-variant-outline-inverse(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
 }
 // Success appears as green
 .btn-success-outline-inverse {
