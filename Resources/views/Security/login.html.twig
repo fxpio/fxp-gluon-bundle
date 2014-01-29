@@ -66,12 +66,11 @@
     </div>
 {% endblock body %}
 
+{% block javascripts %}
+{% endblock javascripts %}
 
-{% block jquery_content %}
-{% endblock jquery_content %}
-
-{% asset_javascript %}
+{% block jquery %}
 <script type="text/javascript">
-$('#username').focus();
+    document.getElementById('username').focus();
 </script>
-{% endasset %}
+{% endblock jquery %}
