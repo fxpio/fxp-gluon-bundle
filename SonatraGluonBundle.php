@@ -12,10 +12,20 @@
 namespace Sonatra\Bundle\GluonBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler\BlockTemplatePass;
+use Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler\BootstrapStylesheetPass;
 
 /**
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
 class SonatraGluonBundle extends Bundle
 {
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new BlockTemplatePass());
+        $container->addCompilerPass(new BootstrapStylesheetPass());
+    }
 }

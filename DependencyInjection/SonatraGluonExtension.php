@@ -14,7 +14,6 @@ namespace Sonatra\Bundle\GluonBundle\DependencyInjection;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Definition;
 
@@ -23,7 +22,7 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
-class SonatraGluonExtension extends Extension implements PrependExtensionInterface
+class SonatraGluonExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -45,43 +44,6 @@ class SonatraGluonExtension extends Extension implements PrependExtensionInterfa
 
         $this->configFontAwesome($config['font_awesome'], $container);
         $this->configCommonAssets($config['common_assets'], $container);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function prepend(ContainerBuilder $container)
-    {
-        $exts = $container->getExtensions();
-
-        if (isset($exts['sonatra_block'])) {
-            $resources = array(
-                'SonatraGluonBundle:Block:component_bootstrap.html.twig',
-                'SonatraGluonBundle:Block:component_gluon.html.twig',
-            );
-
-            $container->prependExtensionConfig(
-                'sonatra_block',
-                array('block' => array('resources' => $resources))
-            );
-        }
-
-        if (isset($exts['sonatra_bootstrap'])) {
-            $container->prependExtensionConfig(
-                'sonatra_bootstrap',
-                array(
-                    'common_assets' => array(
-                        'stylesheets' => array(
-                            'bootstrap' => array(
-                                'components' => array(
-                                    'variables' => '@SonatraGluonBundle/Resources/assetic/less/variables.less'
-                                ),
-                            ),
-                        ),
-                    ),
-                )
-            );
-        }
     }
 
     /**
