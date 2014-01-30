@@ -22,3 +22,11 @@
     </label>
 {% endspaceless %}
 {% endblock radio_widget_content %}
+
+
+{% block file_widget %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': ('filestyle ' ~ attr.class|default(''))|trim, 'data-classButton': 'btn btn-default btn-file-input-text', 'data-classInput':'form-control', 'data-buttonText':'form.input.file.choose-file'|trans({}, 'SonatraGluonBundle')}) %}
+    {{ block('form_widget_simple') }}
+{% endspaceless %}
+{% endblock file_widget %}

@@ -91,3 +91,37 @@ fieldset[disabled] input[type="radio"] {
         }
     }
 }
+
+
+// Input
+// --------------------------------------------------
+
+.input-lg {
+    border-radius: @input-border-radius-large;
+}
+
+.input-sm {
+    border-radius: @input-border-radius-small;
+}
+
+// Input file
+// --------------------------------------------------
+
+.form-control + .btn-file-input-text {
+    float: right;
+    margin-top: -@input-height-base;
+}
+
+.form-control.input-lg + .btn-file-input-text {
+    float: right;
+    margin-top: -@input-height-large;
+    height: @input-height-large;
+    .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @input-border-radius-large);
+}
+
+.form-control.input-sm + .btn-file-input-text {
+    float: right;
+    margin-top: -@input-height-small;
+    height: @input-height-small;
+    .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @input-border-radius-small);
+}
