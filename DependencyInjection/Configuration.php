@@ -292,6 +292,7 @@ class Configuration implements ConfigurationInterface
                                 ->booleanNode('forms')->defaultTrue()->end()
                                 ->booleanNode('buttons')->defaultTrue()->end()
                                 ->booleanNode('dropdowns')->defaultTrue()->end()
+                                ->booleanNode('input_groups')->defaultTrue()->end()
                                 ->booleanNode('navs')->defaultTrue()->end()
                                 ->booleanNode('navbar')->defaultTrue()->end()
                                 ->booleanNode('labels')->defaultTrue()->end()
