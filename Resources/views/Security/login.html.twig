@@ -45,8 +45,13 @@
 
 	                    <section class="account-links clearfix">
 	                        <div class="pull-left">
-	                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" checked="checked" />
-		                        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+	                            <div class="checkbox">
+	                                <label>
+	                                    <input type="checkbox" id="remember_me" name="_remember_me" class="form-control-fa" value="on" checked="checked" />
+	                                    <i class="fa form-control-fa-style"></i>
+	                                    <span>{{ 'security.login.remember_me'|trans }}</span>
+                                    </label>
+                                </div>
 	                        </div>
 	                        <div class="pull-right">
 	                            <a href="{{ path("fos_user_resetting_request") }}" class="pull-right help">{{ 'security.login.forget_password'|trans }}</a>

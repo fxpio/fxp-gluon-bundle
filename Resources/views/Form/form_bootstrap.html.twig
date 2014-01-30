@@ -1,0 +1,24 @@
+{% use '@SonatraBootstrap/Form/form_bootstrap.html.twig' %}
+
+{% block checkbox_widget_content %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': ('form-control-fa ' ~ attr.class|default(''))|trim}) %}
+    <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+        <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        <i class="fa form-control-fa-style"></i>
+        <span>{{ label|trans({}, translation_domain) }}</span>
+    </label>
+{% endspaceless %}
+{% endblock checkbox_widget_content %}
+
+
+{% block radio_widget_content %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': ('form-control-fa ' ~ attr.class|default(''))|trim}) %}
+    <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+        <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        <i class="fa form-control-fa-style"></i>
+        <span>{{ label|trans({}, translation_domain) }}</span>
+    </label>
+{% endspaceless %}
+{% endblock radio_widget_content %}

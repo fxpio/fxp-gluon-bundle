@@ -1,9 +1,93 @@
-
+//
 // Forms
 // --------------------------------------------------
 
-input[type=checkbox],
-input[type=radio] {
-    position: absolute;
-    opacity: 0;
+// Checkbox / Radio
+// --------------------------------------------------
+
+input[type="checkbox"],
+input[type="radio"] {
+    &.form-control-fa {
+        opacity: 0;
+
+        + .form-control-fa-style {
+            display: inline-block;
+            position: absolute;
+            margin: -1px 0 0 -20px;
+            width: 22px;
+            height: 22px;
+            font-size: 21px;
+            background-color: @input-bg;
+            border: 1px solid @input-border;
+            border-radius: @input-border-radius;
+            .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+            .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+            &:hover {
+                cursor: default;
+            }
+
+            + span {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+input[type="radio"] {
+    &.form-control-fa {
+        + .form-control-fa-style {
+            font-size: 12px;
+            border-radius: 11px;
+        }
+    }
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+    &.form-control-fa {
+        + .form-control-fa-style {
+            .tab-focus();
+        }
+    }
+}
+
+input[type="checkbox"]:checked {
+    &.form-control-fa {
+        + .form-control-fa-style {
+            &:before {
+                content: "\f00c";
+            }
+        }
+    }
+}
+
+input[type="radio"]:checked {
+    &.form-control-fa {
+        + .form-control-fa-style {
+            &:before {
+                content: "\f111";
+                vertical-align: -35%;
+                padding: 0 5px;
+            }
+        }
+    }
+}
+
+input[type="checkbox"][disabled],
+input[type="radio"][disabled],
+fieldset[disabled] input[type="checkbox"],
+fieldset[disabled] input[type="radio"] {
+    &.form-control-fa {
+        cursor: not-allowed;
+
+        + .form-control-fa-style {
+            cursor: not-allowed;
+            background-color: @input-bg-disabled;
+
+            &:before {
+                opacity: 0.5;
+            }
+        }
+    }
 }
