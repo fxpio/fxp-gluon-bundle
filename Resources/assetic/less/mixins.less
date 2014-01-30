@@ -129,3 +129,94 @@
         }
     }
 }
+
+
+// Utilities
+// -------------------------
+.tab-focus() {
+  outline: thin dotted;
+  outline-offset: -2px;
+}
+
+
+// Form control focus state
+// -------------------------
+.form-control-focus(@color: @input-border-focus) {
+  &:focus {
+    .box-shadow(none);
+  }
+}
+
+
+// Form control color (checkbox/radio)
+// -------------------------
+
+.form-control-color(@style: default) {
+    @border-focus: "input-@{style}-border-focus";
+    @checked-color: "input-@{style}-checked-color";
+    @checked-bg: "input-@{style}-checked-bg";
+    @checked-border-focus: "input-@{style}-checked-border-focus";
+
+    input[type="checkbox"].input-@{style},
+    input[type="radio"].input-@{style} {
+        &.form-control-fa {
+            + .form-control-fa-style {
+                &:hover {
+                    border-color: @@border-focus;
+                }
+            }
+        }
+    }
+
+    input[type="checkbox"].input-@{style}:checked,
+    input[type="radio"].input-@{style}:checked {
+        &.form-control-fa {
+            + .form-control-fa-style {
+                color: @@checked-color;
+                background-color: @@checked-bg;
+                border-color:  @@checked-bg;
+
+                &:hover {
+                    border-color: @@checked-border-focus;
+                }
+            }
+        }
+    }
+
+    input[type="checkbox"].input-@{style}:focus,
+    input[type="radio"].input-@{style}:focus {
+        &.form-control-fa {
+            + .form-control-fa-style {
+                border-color: @@border-focus;
+            }
+        }
+    }
+
+    input[type="checkbox"].input-@{style}:checked:focus,
+    input[type="radio"].input-@{style}:checked:focus {
+        &.form-control-fa {
+            + .form-control-fa-style {
+                border-color: @@checked-border-focus;
+            }
+        }
+    }
+}
+
+.form-control-disabled-color(@style: default) {
+    input[type="checkbox"][disabled].input-@{style},
+    input[type="radio"][disabled].input-@{style},
+    fieldset[disabled] input[type="checkbox"].input-@{style},
+    fieldset[disabled] input[type="radio"].input-@{style} {
+        &.form-control-fa {
+            + .form-control-fa-style {
+                background-color: @input-bg-disabled;
+                border-color: @input-border;
+                color: inherit;
+
+                &:hover {
+                    border-color: @input-border;
+                }
+            }
+        }
+    }
+}

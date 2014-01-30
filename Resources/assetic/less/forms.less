@@ -2,6 +2,18 @@
 // Forms
 // --------------------------------------------------
 
+// Input
+// --------------------------------------------------
+
+.input-lg {
+    border-radius: @input-border-radius-large;
+}
+
+.input-sm {
+    border-radius: @input-border-radius-small;
+}
+
+
 // Checkbox / Radio
 // --------------------------------------------------
 
@@ -16,7 +28,6 @@ input[type="radio"] {
             margin: -1px 0 0 -20px;
             width: 22px;
             height: 22px;
-            font-size: 21px;
             background-color: @input-bg;
             border: 1px solid @input-border;
             border-radius: @input-border-radius;
@@ -25,6 +36,7 @@ input[type="radio"] {
 
             &:hover {
                 cursor: default;
+                border-color: @input-border-focus;
             }
 
             + span {
@@ -37,26 +49,28 @@ input[type="radio"] {
 input[type="radio"] {
     &.form-control-fa {
         + .form-control-fa-style {
-            font-size: 12px;
             border-radius: 11px;
         }
     }
 }
 
-input[type="checkbox"]:focus,
-input[type="radio"]:focus {
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
     &.form-control-fa {
         + .form-control-fa-style {
-            .tab-focus();
-        }
-    }
-}
+            font-size: 15px;
+            color: @input-checked-color;
+            background-color: @input-checked-bg;
+            border-color:  @input-checked-bg;
 
-input[type="checkbox"]:checked {
-    &.form-control-fa {
-        + .form-control-fa-style {
+            &:hover {
+                border-color: @input-checked-border-focus;
+            }
+
             &:before {
                 content: "\f00c";
+                vertical-align: -18%;
+                padding: 0 3px;
             }
         }
     }
@@ -65,11 +79,31 @@ input[type="checkbox"]:checked {
 input[type="radio"]:checked {
     &.form-control-fa {
         + .form-control-fa-style {
+            font-size: 13px;
+
             &:before {
-                content: "\f111";
-                vertical-align: -35%;
-                padding: 0 5px;
+                vertical-align: -30%;
+                padding: 0 4px;
             }
+        }
+    }
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+    &.form-control-fa {
+        + .form-control-fa-style {
+            .form-control-focus();
+            border-color: @input-border-focus;
+        }
+    }
+}
+
+input[type="checkbox"]:checked:focus,
+input[type="radio"]:checked:focus {
+    &.form-control-fa {
+        + .form-control-fa-style {
+            border-color: @input-checked-border-focus;
         }
     }
 }
@@ -84,32 +118,48 @@ fieldset[disabled] input[type="radio"] {
         + .form-control-fa-style {
             cursor: not-allowed;
             background-color: @input-bg-disabled;
+            border-color: @input-border;
+            color: inherit;
+
+            &:hover {
+                border-color: @input-border;
+            }
 
             &:before {
-                opacity: 0.5;
+                opacity: 0.3;
             }
         }
     }
 }
 
+.form-control-color(default);
+.form-control-disabled-color(default);
+.form-control-color(primary);
+.form-control-disabled-color(primary);
+.form-control-color(secondary);
+.form-control-disabled-color(secondary);
+.form-control-color(success);
+.form-control-disabled-color(success);
+.form-control-color(info);
+.form-control-disabled-color(info);
+.form-control-color(warning);
+.form-control-disabled-color(warning);
+.form-control-color(danger);
+.form-control-disabled-color(danger);
 
-// Input
-// --------------------------------------------------
-
-.input-lg {
-    border-radius: @input-border-radius-large;
-}
-
-.input-sm {
-    border-radius: @input-border-radius-small;
-}
 
 // Input file
 // --------------------------------------------------
 
-.form-control + .btn-file-input-text {
-    float: right;
-    margin-top: -@input-height-base;
+.form-control {
+    + .btn-file-input-text {
+        float: right;
+        margin-top: -@input-height-base;
+    }
+
+    + .bootstrap-filestyle {
+        outline-color: @input-border-focus;
+    }
 }
 
 .form-control.input-lg + .btn-file-input-text {
