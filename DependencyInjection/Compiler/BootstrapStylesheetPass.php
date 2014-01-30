@@ -37,6 +37,7 @@ class BootstrapStylesheetPass implements CompilerPassInterface
 
         if (!isset($configs[0]['common_assets']['stylesheets']['bootstrap']['components']['variables'])) {
             $components['variables'] = '@SonatraGluonBundle/Resources/assetic/less/variables.less';
+            $components['mixins'] = '@SonatraGluonBundle/Resources/assetic/less/mixins.less';
         }
 
         $def->replaceArgument(2, $components);
