@@ -1,0 +1,48 @@
+//
+// Blocks
+// --------------------------------------------------
+
+// Checkbox / Radio
+// --------------------------------------------------
+
+.block-control-fa-checkbox,
+.block-control-fa-radio {
+    display: inline-block;
+    position: absolute;
+    margin-top: -2px;
+    width: 22px;
+    height: 22px;
+    font-size: 15px;
+    color: @brand-primary;
+    background-color: @input-bg;
+    border: 1px dotted @input-border;
+
+    &.checked {
+        &:before {
+            content: "\f00c";
+            position: absolute;
+            padding: 0 3px;
+            margin-top: 3px;
+        }
+    }
+}
+
+.block-control-fa-radio {
+    border-radius: 11px;
+    font-size: 12px;
+
+    &.checked {
+        &:before {
+            padding: 0 4px;
+            margin-top: 5px;
+        }
+    }
+}
+
+.block-control-color(default);
+.block-control-color(primary);
+.block-control-color(secondary);
+.block-control-color(success);
+.block-control-color(info);
+.block-control-color(warning);
+.block-control-color(danger);

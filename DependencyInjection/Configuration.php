@@ -298,6 +298,7 @@ class Configuration implements ConfigurationInterface
                                 ->booleanNode('labels')->defaultTrue()->end()
                                 ->booleanNode('progress_bars')->defaultTrue()->end()
                                 ->booleanNode('panels')->defaultTrue()->end()
+                                ->booleanNode('blocks')->defaultTrue()->end()
                                 ->booleanNode('sidebar')->defaultTrue()->end()
                                 ->booleanNode('account')->defaultTrue()->end()
                                 ->booleanNode('errors')->defaultTrue()->end()

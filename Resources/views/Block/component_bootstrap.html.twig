@@ -8,3 +8,29 @@
     </button>
 {% endspaceless %}
 {% endblock navbar_header_toggle_button %}
+
+
+{% block checkbox_widget_content %}
+{% spaceless %}
+    {% if value %}
+        {% set value = 'checked' %}
+    {% else %}
+            {% set value = '' %}
+    {% endif %}
+    {% set attr = attr|merge({'class': ('fa block-control-fa-checkbox ' ~ value ~ ' ' ~ attr.class|default(''))|trim}) %}
+    <i {{ block('widget_attributes') }}></i>
+{% endspaceless %}
+{% endblock checkbox_widget_content %}
+
+
+{% block radio_widget_content %}
+{% spaceless %}
+    {% if value %}
+        {% set value = 'checked' %}
+    {% else %}
+            {% set value = '' %}
+    {% endif %}
+    {% set attr = attr|merge({'class': ('fa block-control-fa-radio ' ~ value ~ ' ' ~ attr.class|default(''))|trim}) %}
+    <i {{ block('widget_attributes') }}></i>
+{% endspaceless %}
+{% endblock radio_widget_content %}

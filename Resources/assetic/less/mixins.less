@@ -220,3 +220,15 @@
         }
     }
 }
+
+// Block control (checkbox/radio)
+// -------------------------
+
+.block-control-color(@style: default) {
+    @color: "input-@{style}-checked-bg";
+
+    .block-control-fa-checkbox.block-@{style},
+    .block-control-fa-radio.block-@{style} {
+        color: @@color;
+    }
+}
