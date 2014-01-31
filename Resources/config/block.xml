@@ -5,16 +5,32 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="sonatra_gluon.type.sidebar" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarType">
+        <service id="sonatra_gluon.block.type.sidebar" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarType">
             <tag name="sonatra_block.type" alias="sidebar" />
         </service>
 
-        <service id="sonatra_gluon.type.sidebar_group" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarGroupType">
+        <service id="sonatra_gluon.block.type.sidebar_group" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarGroupType">
             <tag name="sonatra_block.type" alias="sidebar_group" />
         </service>
 
-        <service id="sonatra_gluon.type.sidebar_item" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarItemType">
+        <service id="sonatra_gluon.block.type.sidebar_item" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarItemType">
             <tag name="sonatra_block.type" alias="sidebar_item" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.button" class="Sonatra\Bundle\GluonBundle\Block\Extension\ButtonExtension">
+            <tag name="block.type_extension" alias="button" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.label" class="Sonatra\Bundle\GluonBundle\Block\Extension\LabelExtension">
+            <tag name="block.type_extension" alias="label" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.progress_bar" class="Sonatra\Bundle\GluonBundle\Block\Extension\ProgressBarExtension">
+            <tag name="block.type_extension" alias="progress_bar" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.panel" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelExtension">
+            <tag name="block.type_extension" alias="panel" />
         </service>
     </services>
 </container>
