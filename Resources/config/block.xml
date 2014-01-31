@@ -18,19 +18,19 @@
         </service>
 
         <service id="sonatra_gluon.block.type_extension.button" class="Sonatra\Bundle\GluonBundle\Block\Extension\ButtonExtension">
-            <tag name="block.type_extension" alias="button" />
+            <tag name="sonatra_block.type_extension" alias="button" />
         </service>
 
         <service id="sonatra_gluon.block.type_extension.label" class="Sonatra\Bundle\GluonBundle\Block\Extension\LabelExtension">
-            <tag name="block.type_extension" alias="label" />
+            <tag name="sonatra_block.type_extension" alias="label" />
         </service>
 
         <service id="sonatra_gluon.block.type_extension.progress_bar" class="Sonatra\Bundle\GluonBundle\Block\Extension\ProgressBarExtension">
-            <tag name="block.type_extension" alias="progress_bar" />
+            <tag name="sonatra_block.type_extension" alias="progress_bar" />
         </service>
 
         <service id="sonatra_gluon.block.type_extension.panel" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelExtension">
-            <tag name="block.type_extension" alias="panel" />
+            <tag name="sonatra_block.type_extension" alias="panel" />
         </service>
     </services>
 </container>
