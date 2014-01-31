@@ -32,5 +32,9 @@
         <service id="sonatra_gluon.block.type_extension.panel" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelExtension">
             <tag name="sonatra_block.type_extension" alias="panel" />
         </service>
+
+        <service id="sonatra_gluon.block.type_extension.checkbox" class="Sonatra\Bundle\GluonBundle\Block\Extension\CheckboxExtension">
+            <tag name="sonatra_block.type_extension" alias="checkbox" />
+        </service>
     </services>
 </container>
