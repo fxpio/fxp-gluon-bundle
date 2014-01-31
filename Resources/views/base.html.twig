@@ -1,5 +1,31 @@
 {% extends "@SonatraBootstrap/base.html.twig" %}
 
+{% set fluidicon_src = fluidicon_src|default('bundles/sonatragluon/fluidicon.png') %}
+{% set fluidicon_title = fluidicon_title|default('Sonatra') %}
+{% set touchicon114_src = touchicon114_src|default('bundles/sonatragluon/apple-touch-icon-114.png') %}
+{% set touchicon144_src = touchicon144_src|default('bundles/sonatragluon/apple-touch-icon-144.png') %}
+{% set msapplication_src = msapplication_src|default('bundles/sonatragluon/windows-tile.png') %}
+{% set msapplication_color = msapplication_color|default('#0071ce') %}
+
+{% block metadata %}
+{% spaceless %}
+    {{ parent() }}
+    <meta name="msapplication-TileImage" content="{{ asset(msapplication_src) }}">
+    <meta name="msapplication-TileColor" content="{{ msapplication_color }}">
+{% endspaceless %}
+{% endblock metadata %}
+
+{% block links %}
+{% spaceless %}
+    <link rel="fluid-icon" href="{{ asset(fluidicon_src) }}" title="{{ fluidicon_title }}">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset(touchicon114_src) }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset(touchicon144_src) }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset(touchicon114_src) }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset(touchicon144_src) }}">
+    {{ parent() }}
+{% endspaceless %}
+{% endblock links %}
+
 {% block stylesheets %}
 {% spaceless %}
     {{ parent() }}
