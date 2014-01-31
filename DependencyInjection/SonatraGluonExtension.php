@@ -37,6 +37,7 @@ class SonatraGluonExtension extends Extension
         $loader->load('twig.xml');
         $loader->load('assetic.xml');
         $loader->load('block.xml');
+        $loader->load('form.xml');
 
         if ($config['font']['enabled']) {
             $this->configFonts($config['font'], $container);
