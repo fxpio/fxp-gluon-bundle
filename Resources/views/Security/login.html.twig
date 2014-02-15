@@ -23,43 +23,43 @@
                     {% endif %}
 
                     <form action="{{ path("fos_user_security_check") }}" method="post">
-	                    <section class="panel">
-	                        <div class="input-group">
-	                            <label class="input-group-addon" for="username">
-	                                <span class="sr-only">{{ 'security.login.username'|trans|replace({':': ''}) }}</span>
-	                                <i class="fa fa-user"></i>
-	                            </label>
-	                            <input type="text" class="form-control input-lg" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.username'|trans|replace({':': ''}) }}" />
-	                        </div>
+                        <section class="panel">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="username">
+                                    <span class="sr-only">{{ 'security.login.username'|trans|replace({':': ''}) }}</span>
+                                    <i class="fa fa-user"></i>
+                                </label>
+                                <input type="text" class="form-control input-lg" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.username'|trans|replace({':': ''}) }}" />
+                            </div>
 
-	                        <div class="input-group">
-	                           <label class="input-group-addon" for="password">
-	                                <span class="sr-only">{{ 'security.login.password'|trans|replace({':': ''}) }}</span>
-	                                <i class="fa fa-key"></i>
-	                            </label>
-	                            <input type="password" class="form-control input-lg" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans|replace({':': ''}) }}" />
-	                        </div>
-	                    </section>
+                            <div class="input-group">
+                               <label class="input-group-addon" for="password">
+                                    <span class="sr-only">{{ 'security.login.password'|trans|replace({':': ''}) }}</span>
+                                    <i class="fa fa-key"></i>
+                                </label>
+                                <input type="password" class="form-control input-lg" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans|replace({':': ''}) }}" />
+                            </div>
+                        </section>
 
-	                    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-lg btn-primary btn-block" />
+                        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-lg btn-primary btn-block" />
 
-	                    <section class="account-links clearfix">
-	                        <div class="pull-left">
-	                            <div class="checkbox">
-	                                <label>
-	                                    <input type="checkbox" id="remember_me" name="_remember_me" class="form-control-fa input-danger" value="on" checked="checked" />
-	                                    <i class="fa form-control-fa-style"></i>
-	                                    <span>{{ 'security.login.remember_me'|trans }}</span>
+                        <section class="account-links clearfix">
+                            <div class="pull-left">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="remember_me" name="_remember_me" class="form-control-fa input-danger" value="on" checked="checked" />
+                                        <i class="fa form-control-fa-style"></i>
+                                        <span>{{ 'security.login.remember_me'|trans }}</span>
                                     </label>
                                 </div>
-	                        </div>
-	                        <div class="pull-right">
-	                            <a href="{{ path("fos_user_resetting_request") }}" class="pull-right help">{{ 'security.login.forget_password'|trans }}</a>
-	                        </div>
-	                    </section>
+                            </div>
+                            <div class="pull-right">
+                                <a href="{{ path("fos_user_resetting_request") }}" class="pull-right help">{{ 'security.login.forget_password'|trans }}</a>
+                            </div>
+                        </section>
 
-	                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-	                </form>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    </form>
 
                     <span class="or" data-text="{{ 'security.login.or'|trans }}"></span>
 

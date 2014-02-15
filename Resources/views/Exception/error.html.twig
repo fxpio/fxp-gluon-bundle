@@ -9,8 +9,8 @@
 {% set logo_alt = logo_alt|default('Sonatra') %}
 
 {% if status_code >= 500 and status_code <= 520 %}
-	{% set is_server_error = true %}
-	{% set btn_style = 'default' %}
+    {% set is_server_error = true %}
+    {% set btn_style = 'default' %}
 {% endif %}
 
 {% block conditional_comments %}
@@ -27,28 +27,28 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-		    <div class="error-wrapper">
-		        {% block error_wrapper %}
-			        <h1>{{ status_code }}</h1>
-				    <h2>
-				        {% set status_icon = 'road' %}
-		                {% if is_server_error %}
-	                        {% set status_icon = 'unlink' %}
+            <div class="error-wrapper">
+                {% block error_wrapper %}
+                    <h1>{{ status_code }}</h1>
+                    <h2>
+                        {% set status_icon = 'road' %}
+                        {% if is_server_error %}
+                            {% set status_icon = 'unlink' %}
                         {% elseif status_code in [401, 402, 403] %}
                             {% set status_icon = 'shield' %}
-		                {% endif %}
-	                    <i class="fa fa-{{ status_icon }}"></i> {{ status_text }}{{ status_text_exclamation }}
-		            </h2>
-				    {% block button_homepage %}
-				    <a class="btn btn-lg btn-{{ btn_style }}-outline" href="{{ btn_ref }}"><i class="fa fa-home"></i> {{ btn_text }}</a>
+                        {% endif %}
+                        <i class="fa fa-{{ status_icon }}"></i> {{ status_text }}{{ status_text_exclamation }}
+                    </h2>
+                    {% block button_homepage %}
+                    <a class="btn btn-lg btn-{{ btn_style }}-outline" href="{{ btn_ref }}"><i class="fa fa-home"></i> {{ btn_text }}</a>
 
-				    <div class="footer-badge">
-				        <img src="{{ asset(logo_src) }}" alt="{{ logo_alt }}" />
-				    </div>
-				    {% endblock button_homepage %}
-			    {% endblock error_wrapper %}
-		    </div>
-	    </div>
+                    <div class="footer-badge">
+                        <img src="{{ asset(logo_src) }}" alt="{{ logo_alt }}" />
+                    </div>
+                    {% endblock button_homepage %}
+                {% endblock error_wrapper %}
+            </div>
+        </div>
     </div>
 </div>
 {% endspaceless %}
