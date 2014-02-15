@@ -1,4 +1,6 @@
-{% use '@SonatraBootstrap/Form/form_bootstrap.html.twig' %}
+{% use '@SonatraBootstrap/Form/form_bootstrap.html.twig' with   datetime_widget as base_datetime_widget,
+                                                                date_widget as base_date_widget,
+                                                                time_widget as base_time_widget %}
 
 {% block checkbox_widget_content %}
 {% spaceless %}
@@ -36,3 +38,31 @@
     {{ block('form_widget_simple') }}
 {% endspaceless %}
 {% endblock file_widget %}
+
+
+{% block datetime_widget %}
+{% spaceless %}
+    {% set append_icon = append_icon|default('fa fa-calendar-o') %}
+    {% set append_type = 'btn' %}
+    {% set append_string %}
+        <button class="btn btn-default" type="button" id="{{ id ~ '_datetime_btn' }}">
+            <span class="{{ append_icon }}"></span>
+        </button>
+    {% endset %}
+    {{ block('base_datetime_widget') }}
+{% endspaceless %}
+{% endblock datetime_widget %}
+
+{% block date_widget %}
+{% spaceless %}
+    {{ block('datetime_widget') }}
+{% endspaceless %}
+{% endblock date_widget %}
+
+{% block time_widget %}
+{% spaceless %}
+    {% set append_icon = append_icon|default('fa fa-clock-o') %}
+    {% set type= 'text' %}
+    {{ block('datetime_widget') }}
+{% endspaceless %}
+{% endblock time_widget %}

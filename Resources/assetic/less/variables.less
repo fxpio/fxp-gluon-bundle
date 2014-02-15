@@ -268,6 +268,42 @@
 @panel-secondary-heading-bg:  @brand-secondary;
 
 
+// Datetime picker
+// --------------------------------------------------
+
+@datetime-picker-color: @gray;
+@datetime-picker-bg: #fff;
+@datetime-picker-border: rgba(0,0,0,.15);
+@datetime-picker-fallback-border: #ccc;
+@datetime-picker-title-font-familly: @font-family-sans-serif;
+@datetime-picker-title-font-weight: @font-family-weight;
+@datetime-picker-title-border-color: @brand-primary;
+
+@datetime-picker-tab-color: lighten(@datetime-picker-color, 32%);
+@datetime-picker-tab-bg: darken(@datetime-picker-btn-bg, 3%);
+@datetime-picker-tab-selected-color: @datetime-picker-title-border-color;
+
+@datetime-picker-choice-btn-color: @datetime-picker-title-border-color;
+
+@datetime-picker-btn-bg: @datetime-picker-bg;
+@datetime-picker-btn-hover-bg: darken(@datetime-picker-btn-bg, 5%);
+
+@datetime-picker-header-days-color: @datetime-picker-tab-color;
+@datetime-picker-day-out-color: lighten(@datetime-picker-tab-color, 10%);
+@datetime-picker-day-selected-color: #fff;
+@datetime-picker-day-selected-bg: @datetime-picker-tab-selected-color;
+@datetime-picker-day-today-bg: darken(@datetime-picker-btn-bg, 5%);
+
+@datetime-picker-time-item-height: 32px;
+@datetime-picker-time-btn-color: @datetime-picker-title-border-color;
+@datetime-picker-time-btn-bg: @datetime-picker-btn-bg;
+@datetime-picker-time-btn-hover-bg: @datetime-picker-btn-hover-bg;
+
+@zindex-datetime-picker: 1000;
+@screen-sm-min: 768px;
+@screen-xs-max: (@screen-sm-min - 1);
+
+
 // Account
 // --------------------------------------------------
 
