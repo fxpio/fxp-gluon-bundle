@@ -1,6 +1,11 @@
+{% use '@SonatraFormExtensions/Form/form_div_layout.html.twig' %}
 {% use '@SonatraBootstrap/Form/form_bootstrap.html.twig' with   datetime_widget as base_datetime_widget,
                                                                 date_widget as base_date_widget,
-                                                                time_widget as base_time_widget %}
+                                                                time_widget as base_time_widget,
+                                                                choice_widget as base_choice_widget,
+                                                                collection_widget as base_collection_widget %}
+
+
 
 {% block checkbox_widget_content %}
 {% spaceless %}
@@ -38,6 +43,37 @@
     {{ block('form_widget_simple') }}
 {% endspaceless %}
 {% endblock file_widget %}
+
+
+{% block choice_widget %}
+{% spaceless %}
+    {% if select2 is defined %}
+        {% if select2.ajax or select2.tags is defined %}
+            {% set form_widget_simple_block_name = 'select2_widget_content' %}
+            {{ block('form_widget_simple') }}
+        {% else %}
+            {{ block('select2_widget_content') }}
+        {% endif %}
+    {% else %}
+        {{ block('base_choice_widget') }}
+    {% endif %}
+{% endspaceless %}
+{% endblock choice_widget %}
+
+{% block collection_widget %}
+{% spaceless %}
+    {% if select2 is defined %}
+        {% if select2.ajax or select2.tags is defined %}
+            {% set form_widget_simple_block_name = 'select2_widget_content' %}
+            {{ block('form_widget_simple') }}
+        {% else %}
+            {{ block('select2_widget_content') }}
+        {% endif %}
+    {% else %}
+        {{ block('base_collection_widget') }}
+    {% endif %}
+{% endspaceless %}
+{% endblock collection_widget %}
 
 
 {% block datetime_widget %}
