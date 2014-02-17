@@ -55,6 +55,7 @@
         {% else %}
             {{ block('select2_widget_content') }}
         {% endif %}
+        {{ block('select2_event_content') }}
     {% else %}
         {{ block('base_choice_widget') }}
     {% endif %}
@@ -71,11 +72,43 @@
         {% else %}
             {{ block('select2_widget_content') }}
         {% endif %}
+        {{ block('select2_event_content') }}
     {% else %}
         {{ block('base_collection_widget') }}
     {% endif %}
 {% endspaceless %}
 {% endblock collection_widget %}
+
+{% block select2_event_content %}
+{% spaceless %}
+    {% asset_javascript %}
+    <script type="text/javascript">
+    $( '#{{ id }}' ).on('select2-open', function (event) {
+        var $dropdown = $(event.target).data('select2').dropdown;
+
+        if (0 == $('.select2-drop-footer', $dropdown).size()) {
+            $dropdown.append([
+	            '{{ '<div class="select2-drop-footer">'|raw }}',
+	                '{{ '<span class="select2-drop-footer-btn select2-btn-cancel">'|raw }}',
+	                    '{{ '<a href="#" role="button" tabindex="-1">'|raw }}{{ 'form.select2.cancel'|trans({}, 'SonatraGluonBundle') }}{{ '</a>'|raw }}',
+	                '{{ '</span>'|raw }}',
+	            '{{ '</div>'|raw }}'
+	        ].join(''));
+        }
+
+        $dropdown.on('click', '.select2-drop-footer .select2-btn-cancel', $(event.target).data('select2'), function(event) {
+	        event.preventDefault();
+	        event.stopPropagation();
+	        event.data.close();
+        });
+
+    }).on('select2-close', function (event) {
+        $(event.target).data('select2').dropdown.off('click', '.select2-drop-footer .select2-btn-cancel');
+    });
+    </script>
+    {% endasset %}
+{% endspaceless %}
+{% endblock select2_event_content %}
 
 
 {% block datetime_widget %}
