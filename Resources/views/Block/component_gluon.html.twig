@@ -3,12 +3,15 @@
 {% block sidebar_widget %}
 {% spaceless %}
     {% set attr = attr|merge({'class': ('sidebar-trigger ' ~ attr.class|default(''))|trim}) %}
-    {% if opened is sameas('force') %}
+    {% if opened is sameas('force') or locked %}
         {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-force-open')|trim}) %}
+    {% endif %}
+    {% if locked %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-locked')|trim}) %}
     {% endif %}
     <div {{ block('widget_container_attributes') }}>
         <a class="sidebar-toggle" href="#"><span class="sr-only">{{ toggle_label|trans({}, translation_domain) }}</span><i class="fa fa-sidebar-toggle"></i></a>
-        <div class="sidebar-wrapper sidebar-{{ style }}{% if opened %} sidebar-open-init{% endif %}">
+        <div class="sidebar-wrapper sidebar-{{ style }}{% if opened or locked %} sidebar-open-init{% endif %}">
             <div class="sidebar-scroller"{% if sticky_header %} data-sticky-header="true"{% endif %}>
                 <ul class="sidebar-menu">
                     {{- value|raw -}}
