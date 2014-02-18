@@ -50,6 +50,10 @@ class SidebarType extends AbstractType
             $attr['data-min-lock-width'] = $options['min_lock_width'];
         }
 
+        if (null !== $options['toggle_id']) {
+            $attr['data-toggle-id'] = $options['toggle_id'];
+        }
+
         $view->vars = array_replace($view->vars, array(
             'style'         => $options['style'],
             'attr'          => $attr,
@@ -89,6 +93,7 @@ class SidebarType extends AbstractType
             'sticky_header'    => true,
             'style'            => 'default',
             'toggle_label'     => 'Sidebar toggle',
+            'toggle_id'        => null,
             'opened'           => false,
             'locked'           => false,
             'position'         => null,
@@ -102,6 +107,7 @@ class SidebarType extends AbstractType
             'sticky_header'    => array('null', 'bool'),
             'style'            => 'string',
             'toggle_label'     => 'string',
+            'toggle_id'        => array('null', 'string'),
             'opened'           => array('bool', 'string'),
             'locked'           => 'bool',
             'position'         => array('null', 'string'),
