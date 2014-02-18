@@ -30,7 +30,7 @@ class SidebarType extends AbstractType
     {
         $attr = $view->vars['attr'];
         $attr['data-sidebar'] = $this->formatBoolean(true);
-        $attr['data-force-toggle'] = $this->formatBoolean($options['force_toggle']);
+        $attr['data-force-toggle'] = is_bool($options['force_toggle']) ? $this->formatBoolean($options['force_toggle']) : $options['force_toggle'];
 
         if (null !== $options['open_on_hover']) {
             $attr['data-open-on-hover'] = $this->formatBoolean($options['open_on_hover']);
@@ -66,7 +66,7 @@ class SidebarType extends AbstractType
 
         $resolver->setAllowedTypes(array(
             'open_on_hover'  => array('null', 'bool'),
-            'force_toggle'   => 'bool',
+            'force_toggle'   => array('bool', 'string'),
             'min_lock_width' => array('null', 'int'),
             'sticky_header'  => array('null', 'bool'),
             'style'          => 'string',
@@ -75,6 +75,7 @@ class SidebarType extends AbstractType
         ));
 
         $resolver->setAllowedValues(array(
+            'force_toggle' => array(false, true, 'always'),
             'style'  => array('default', 'inverse'),
             'opened' => array(false, true, 'force'),
         ));
