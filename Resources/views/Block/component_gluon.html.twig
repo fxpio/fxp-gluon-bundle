@@ -3,6 +3,9 @@
 {% block sidebar_widget %}
 {% spaceless %}
     {% set attr = attr|merge({'class': ('sidebar-trigger ' ~ attr.class|default(''))|trim}) %}
+    {% if 'right' == position %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-right')|trim}) %}
+    {% endif %}
     {% if opened is sameas('force') or locked %}
         {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-force-open')|trim}) %}
     {% endif %}

@@ -15,6 +15,7 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\Options;
 
 /**
  * Sidebar Block Type.
@@ -33,6 +34,14 @@ class SidebarType extends AbstractType
         $attr['data-force-toggle'] = is_bool($options['force_toggle']) ? $this->formatBoolean($options['force_toggle']) : $options['force_toggle'];
         $attr['data-locked'] = $this->formatBoolean($options['locked']);
 
+        if (null !== $options['position']) {
+            $attr['data-position'] = $options['position'];
+        }
+
+        if (null !== $options['disable_keyboard']) {
+            $attr['data-disabled-keyboard'] = $options['disable_keyboard'];
+        }
+
         if (null !== $options['open_on_hover']) {
             $attr['data-open-on-hover'] = $this->formatBoolean($options['open_on_hover']);
         }
@@ -48,6 +57,7 @@ class SidebarType extends AbstractType
             'toggle_label'  => $options['toggle_label'],
             'opened'        => $options['opened'],
             'locked'        => $options['locked'],
+            'position'      => 'right' === $options['position'] ? $options['position'] : 'left',
         ));
     }
 
@@ -56,32 +66,53 @@ class SidebarType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        $disableKeyboard = function (Options $options, $value) {
+            if ('right' === $options['position']) {
+                return true;
+            }
+
+            return $value;
+        };
+
+        $forceToggle = function (Options $options, $value) {
+            if ('right' === $options['position']) {
+                return false;
+            }
+
+            return true;
+        };
+
         $resolver->setDefaults(array(
-            'open_on_hover'  => null,
-            'force_toggle'   => true,
-            'min_lock_width' => null,
-            'sticky_header'  => true,
-            'style'          => 'default',
-            'toggle_label'   => 'Sidebar toggle',
-            'opened'         => false,
-            'locked'         => false,
+            'open_on_hover'    => null,
+            'force_toggle'     => $forceToggle,
+            'min_lock_width'   => null,
+            'sticky_header'    => true,
+            'style'            => 'default',
+            'toggle_label'     => 'Sidebar toggle',
+            'opened'           => false,
+            'locked'           => false,
+            'position'         => null,
+            'disable_keyboard' => $disableKeyboard,
         ));
 
         $resolver->setAllowedTypes(array(
-            'open_on_hover'  => array('null', 'bool'),
-            'force_toggle'   => array('bool', 'string'),
-            'min_lock_width' => array('null', 'int'),
-            'sticky_header'  => array('null', 'bool'),
-            'style'          => 'string',
-            'toggle_label'   => 'string',
-            'opened'         => array('bool', 'string'),
-            'locked'         => 'bool',
+            'open_on_hover'    => array('null', 'bool'),
+            'force_toggle'     => array('bool', 'string'),
+            'min_lock_width'   => array('null', 'int'),
+            'sticky_header'    => array('null', 'bool'),
+            'style'            => 'string',
+            'toggle_label'     => 'string',
+            'opened'           => array('bool', 'string'),
+            'locked'           => 'bool',
+            'position'         => array('null', 'string'),
+            'disable_keyboard' => array('null', 'bool'),
         ));
 
         $resolver->setAllowedValues(array(
             'force_toggle' => array(false, true, 'always'),
-            'style'  => array('default', 'inverse'),
-            'opened' => array(false, true, 'force'),
+            'style'        => array('default', 'inverse'),
+            'opened'       => array(false, true, 'force'),
+            'position'     => array('left', 'right'),
         ));
     }
 
