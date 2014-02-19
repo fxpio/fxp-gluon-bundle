@@ -39,6 +39,7 @@ class SidebarItemType extends AbstractType
             'link_attr' => $linkAttr,
             'active'    => $options['active'],
             'disabled'  => $options['disabled'],
+            'mini'      => $options['mini'],
         ));
     }
 
@@ -53,6 +54,7 @@ class SidebarItemType extends AbstractType
             'active'        => false,
             'disabled'      => false,
             'chained_block' => true,
+            'mini'          => false,
         ));
 
         $resolver->setAllowedTypes(array(
@@ -60,6 +62,7 @@ class SidebarItemType extends AbstractType
             'link_attr' => 'array',
             'active'    => 'bool',
             'disabled'  => 'bool',
+            'mini'      => 'bool',
         ));
 
         $resolver->setNormalizers(array(
