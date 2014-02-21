@@ -34,6 +34,10 @@ class SidebarType extends AbstractType
         $attr['data-force-toggle'] = is_bool($options['force_toggle']) ? $this->formatBoolean($options['force_toggle']) : $options['force_toggle'];
         $attr['data-locked'] = $this->formatBoolean($options['locked']);
 
+        if (null !== $options['sticky_header']) {
+            $attr['data-sidebar-sticky-header'] = $this->formatBoolean($options['sticky_header']);
+        }
+
         if (null !== $options['position']) {
             $attr['data-position'] = $options['position'];
         }
