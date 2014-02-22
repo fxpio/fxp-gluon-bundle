@@ -42,6 +42,10 @@ class SidebarType extends AbstractType
             $attr['data-position'] = $options['position'];
         }
 
+        if (null !== $options['scrollbar']) {
+            $attr['data-hammer-scrollbar'] = $this->formatBoolean($options['scrollbar']);
+        }
+
         if (null !== $options['disable_keyboard']) {
             $attr['data-disabled-keyboard'] = $options['disable_keyboard'];
         }
@@ -94,13 +98,14 @@ class SidebarType extends AbstractType
             'open_on_hover'    => null,
             'force_toggle'     => $forceToggle,
             'min_lock_width'   => null,
-            'sticky_header'    => true,
+            'sticky_header'    => false,
             'style'            => 'default',
             'toggle_label'     => 'Sidebar toggle',
             'toggle_id'        => null,
             'opened'           => false,
             'locked'           => false,
             'position'         => null,
+            'scrollbar'        => null,
             'disable_keyboard' => $disableKeyboard,
         ));
 
@@ -115,6 +120,7 @@ class SidebarType extends AbstractType
             'opened'           => array('bool', 'string'),
             'locked'           => 'bool',
             'position'         => array('null', 'string'),
+            'scrollbar'        => array('null', 'bool'),
             'disable_keyboard' => array('null', 'bool'),
         ));
 

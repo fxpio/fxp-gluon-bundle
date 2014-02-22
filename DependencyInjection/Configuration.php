@@ -302,6 +302,7 @@ class Configuration implements ConfigurationInterface
                                 ->booleanNode('sidebar')->defaultTrue()->end()
                                 ->booleanNode('forms_select2')->defaultTrue()->end()
                                 ->scalarNode('datetime_picker')->defaultValue('@SonatraFormExtensionsBundle/Resources/assetic/less/datetime-picker.less')->end()
+                                ->scalarNode('hammer_scroll')->defaultValue('@SonatraGluonBundle/Resources/assetic/less/hammer-scroll.less')->end()
                                 ->booleanNode('account')->defaultTrue()->end()
                                 ->booleanNode('errors')->defaultTrue()->end()
                             ->end()

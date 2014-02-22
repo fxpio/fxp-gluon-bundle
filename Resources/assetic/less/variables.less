@@ -130,6 +130,8 @@
 @zindex-sidebar-wrapper:       @zindex-navbar - 1;
 @zindex-sidebar-toggle-fixed:  @zindex-navbar-fixed + 1;
 @zindex-sidebar-wrapper-fixed: @zindex-navbar-fixed - 1;
+@zindex-datetime-picker:       @zindex-navbar;
+@zindex-hammer-scrollbar:      1000;
 
 // Navbar
 // -------------------------
@@ -236,6 +238,7 @@
 @sidebar-default-link-hover-bg:      @gray-lighter;
 @sidebar-default-link-active-color:  @brand-primary;
 @sidebar-default-link-active-bg:     @sidebar-default-link-bg;
+@sidebar-default-scrollbar-bg:       #000;
 
 @sidebar-toggle-inverse-color:       @navbar-inverse-toggle-icon-bar-bg;
 @sidebar-toggle-inverse-hover-color: @navbar-inverse-link-hover-color;
@@ -250,6 +253,7 @@
 @sidebar-inverse-link-hover-bg:      lighten(@sidebar-inverse-link-bg, 5%);
 @sidebar-inverse-link-active-color:  lighten(@brand-primary, 46%);
 @sidebar-inverse-link-active-bg:     @sidebar-inverse-link-bg;
+@sidebar-inverse-scrollbar-bg:       #fff;
 
 // Labels
 // -------------------------
@@ -332,9 +336,15 @@
 @datetime-picker-time-btn-bg: @datetime-picker-btn-bg;
 @datetime-picker-time-btn-hover-bg: @datetime-picker-btn-hover-bg;
 
-@zindex-datetime-picker: 1000;
-@screen-sm-min: 768px;
-@screen-xs-max: (@screen-sm-min - 1);
+
+// Hammer Scroll
+// --------------------------------------------------
+
+@hammer-scrollbar-bg: #000;
+@hammer-scrollbar-opacity: 0.32;
+@hammer-scrollbar-width: 3px;
+@hammer-scrollbar-radius: 2px;
+@hammer-scrollbar-margin: 2px;
 
 
 // Account
