@@ -22,7 +22,15 @@
      * @this
      */
     var Select2HammerScroll = function (element, options) {
-        
+        this.guid     = jQuery.guid;
+        this.options  = $.extend({}, $.fn.hammerScroll.Constructor.DEFAULTS, Select2HammerScroll.DEFAULTS, options);
+        this.$element = $(element);
+        this.dropdown = undefined;
+        this.$content = undefined;
+
+        this.$element.on('select2-open.st.select2hammerscroll', $.proxy(onOpen, this));
+        this.$element.on('select2-close.st.select2hammerscroll', $.proxy(onClose, this));
+        this.$element.on('select2-loaded.st.select2hammerscroll', $.proxy(onLoaded, this));
     };
 
     /**
@@ -31,7 +39,8 @@
      * @type Array
      */
     Select2HammerScroll.DEFAULTS = {
-        
+        contentWrapperClass: 'select2-hammer-scroll-content',
+        useScroll:           true
     };
 
     /**
@@ -40,8 +49,81 @@
      * @this
      */
     Select2HammerScroll.prototype.destroy = function () {
-        
+        var select2 = $(event.delegateTarget).data('select2');
+        var $dropdown = $(select2.dropdown);
+
+        $dropdown.off('DOMMouseScroll.st.select2hammerscroll mousewheel.st.select2hammerscroll touchmove.st.select2hammerscroll', $.proxy(blockEvent, this));
+        this.$element.off('select2-open.st.select2hammerscroll', $.proxy(onOpen, this));
+        this.$element.off('select2-close.st.select2hammerscroll', $.proxy(onClose, this));
+        this.$element.off('select2-loaded.st.select2hammerscroll', $.proxy(onLoaded, this));
+
+        if (undefined != this.$content) {
+            this.$content.hammerScroll('destroy');
+        }
+
+        this.$element.removeData('st.select2hammerscroll');
     };
+
+    /**
+     * Action on opened select2 dropdown.
+     *
+     * @param jQuery.Event event
+     *
+     * @this
+     * @private
+     */
+    function onOpen (event) {
+        var select2 = $(event.delegateTarget).data('select2');
+        var $dropdown = $(select2.dropdown);
+        var $results = $('.select2-results', $dropdown);
+
+        $dropdown.on('DOMMouseScroll.st.select2hammerscroll mousewheel.st.select2hammerscroll touchmove.st.select2hammerscroll', $.proxy(blockEvent, this));
+        this.$content = $results.hammerScroll(this.options);
+        this.$content.hammerScroll('resizeScrollbar');
+    }
+
+    /**
+     * Action on closed select2 dropdown.
+     *
+     * @param jQuery.Event event
+     *
+     * @this
+     * @private
+     */
+    function onClose (event) {
+        var select2 = $(event.delegateTarget).data('select2');
+        var $dropdown = $(select2.dropdown);
+
+        $dropdown.off('DOMMouseScroll.st.select2hammerscroll mousewheel.st.select2hammerscroll touchmove.st.select2hammerscroll', $.proxy(blockEvent, this));
+        this.$content.hammerScroll('destroy');
+        this.$content = undefined;
+    }
+
+    /**
+     * Action on loaded data of select2 dropdown.
+     *
+     * @param jQuery.Event event
+     *
+     * @this
+     * @private
+     */
+    function onLoaded (event) {
+        if (undefined != this.$content) {
+            this.$content.hammerScroll('resizeScrollbar');
+        }
+    }
+
+    /**
+     * Prevents the default event.
+     *
+     * @param jQuery.Event event
+     *
+     * @this
+     * @private
+     */
+    function blockEvent (event) {
+        event.preventDefault();
+    }
 
 
     // SELECT2 HAMMER SCROLL PLUGIN DEFINITION

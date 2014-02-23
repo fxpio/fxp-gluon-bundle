@@ -1,4 +1,4 @@
-{% use '@SonatraFormExtensions/Form/form_div_layout.html.twig' %}
+{% use '@SonatraFormExtensions/Form/form_div_layout.html.twig' with select2_widget_content as base_select2_widget_content %}
 {% use '@SonatraBootstrap/Form/form_bootstrap.html.twig' with   datetime_widget as base_datetime_widget,
                                                                 date_widget as base_date_widget,
                                                                 time_widget as base_time_widget,
@@ -137,3 +137,10 @@
     {{ block('datetime_widget') }}
 {% endspaceless %}
 {% endblock time_widget %}
+
+{% block select2_widget_content %}
+{% spaceless %}
+{% set attr = attr|merge({'data-select2-hammer-scroll': 'true'}) %}
+    {{ block('base_select2_widget_content') }}
+{% endspaceless %}
+{% endblock select2_widget_content %}
