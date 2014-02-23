@@ -31,6 +31,12 @@
         this.$element.on('select2-open.st.select2hammerscroll', $.proxy(onOpen, this));
         this.$element.on('select2-close.st.select2hammerscroll', $.proxy(onClose, this));
         this.$element.on('select2-loaded.st.select2hammerscroll', $.proxy(onLoaded, this));
+
+        var select2 = this.$element.data('select2');
+
+        if (select2.opts.ajax) {
+            this.options.useScroll = true;
+        }
     };
 
     /**
@@ -40,7 +46,7 @@
      */
     Select2HammerScroll.DEFAULTS = {
         contentWrapperClass: 'select2-hammer-scroll-content',
-        useScroll:           true
+        useScroll:           false
     };
 
     /**
