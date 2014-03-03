@@ -39,6 +39,7 @@
 
         if (!this.options.useScroll) {
             $(window).on('resize.st.hammerscroll' + this.guid, $.proxy(this.resizeScroll, this));
+            this.$element.on('scroll.st.hammerscroll', $.proxy(preventScroll, this));
         }
 
         if (this.options.scrollbar) {
@@ -155,6 +156,7 @@
         this.$element.off('DOMMouseScroll mousewheel', $.proxy(onMouseScroll, this));
         $(window).off('resize.st.hammerscroll' + this.guid, $.proxy(this.resizeScroll, this));
         $(window).off('resize.st.hammerscroll-bar' + this.guid, $.proxy(this.resizeScrollbar, this));
+        this.$element.off('scroll.st.hammerscroll', $.proxy(preventScroll, this));
 
         if (!this.options.eventDelegated) {
             this.hammer.dispose();
@@ -455,6 +457,19 @@
         if (undefined != this.stickyHeader) {
             this.stickyHeader.checkPosition();
         }
+    }
+
+    /**
+     * Prevent scroll event (blocks the scroll on the tab keyboard event with
+     * the item is outside the wrapper).
+     *
+     * @param jQuery.Event event
+     *
+     * @this
+     * @private
+     */
+    function preventScroll (event) {
+        $(event.target).scrollTop(0);
     }
 
     /**
