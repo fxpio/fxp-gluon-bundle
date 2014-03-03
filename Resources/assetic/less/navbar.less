@@ -67,15 +67,17 @@
 // Navbar Responsive
 // --------------------------------------------------
 @media (max-width: @grid-float-breakpoint-max) {
-    .navbar-brand.navbar-brand-swipe {
+    .navbar-brand {
         width: auto;
 
-        img.navbar-brand-logo {
-            display: none;
-        }
+        &.navbar-brand-switch {
+            img.navbar-brand-logo {
+                display: none;
+            }
 
-        img.navbar-brand-badge {
-            display: inherit;
+            img.navbar-brand-badge {
+                display: inherit;
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-{% use '@SonatraBootstrap/Block/component_bootstrap.html.twig' %}
+{% use '@SonatraBootstrap/Block/component_bootstrap.html.twig' with navbar_brand_widget as base_navbar_brand_widget %}
 
 {% block navbar_header_toggle_button %}
 {% spaceless %}
@@ -8,6 +8,16 @@
     </button>
 {% endspaceless %}
 {% endblock navbar_header_toggle_button %}
+
+
+{% block navbar_brand_widget %}
+{% spaceless %}
+    {% if switchable %}
+        {% set attr = attr|merge({'class': (attr.class|default('')  ~ ' navbar-brand-switch')|trim}) %}
+    {% endif %}
+    {{ block('base_navbar_brand_widget') }}
+{% endspaceless %}
+{% endblock navbar_brand_widget %}
 
 
 {% block checkbox_widget_content %}

@@ -64,3 +64,15 @@
     </li>
 {% endspaceless %}
 {% endblock sidebar_item_widget %}
+
+{% block navbar_scrollable_widget %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': ('navbar-scrollable ' ~ attr.class|default(''))|trim, 'data-navbar-scroll': 'true'}) %}
+    <div {{ block('widget_container_attributes') }}>
+        {{- value|raw -}}
+	    {% for child in block %}
+	        {{ block_widget(child) }}
+	    {% endfor %}
+    </div>
+{% endspaceless %}
+{% endblock navbar_scrollable_widget %}

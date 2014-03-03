@@ -17,6 +17,10 @@
             <tag name="sonatra_block.type" alias="sidebar_item" />
         </service>
 
+        <service id="sonatra_gluon.block.type.navbar_scrollable" class="Sonatra\Bundle\GluonBundle\Block\Type\NavbarScrollableType">
+            <tag name="sonatra_block.type" alias="navbar_scrollable" />
+        </service>
+
         <service id="sonatra_gluon.block.type_extension.button" class="Sonatra\Bundle\GluonBundle\Block\Extension\ButtonExtension">
             <tag name="sonatra_block.type_extension" alias="button" />
         </service>
@@ -35,6 +39,10 @@
 
         <service id="sonatra_gluon.block.type_extension.checkbox" class="Sonatra\Bundle\GluonBundle\Block\Extension\CheckboxExtension">
             <tag name="sonatra_block.type_extension" alias="checkbox" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.navbar_brand" class="Sonatra\Bundle\GluonBundle\Block\Extension\NavbarBrandExtension">
+            <tag name="sonatra_block.type_extension" alias="navbar_brand" />
         </service>
     </services>
 </container>
