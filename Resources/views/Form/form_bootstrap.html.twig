@@ -84,7 +84,17 @@
     {% asset_javascript %}
     <script type="text/javascript">
     $( '#{{ id }}' ).on('select2-open', function (event) {
-        var $dropdown = $(event.target).data('select2').dropdown;
+        var select2 = $(event.target).data('select2');
+        var $dropdown = select2.dropdown;
+        select2.openIsInit = (undefined != select2.opts.ajax);
+        $dropdown.off('mouseup', '.select2-results');
+        $dropdown.on('mouseup', '.select2-results', $.proxy(function (e) {
+            if (this.openIsInit && $(e.target).closest(".select2-result-selectable").length > 0) {
+                this.highlightUnderEvent(e);
+                this.selectHighlighted(e);
+            }
+            this.openIsInit = true;
+        }, select2));
 
         if (0 == $('.select2-drop-footer', $dropdown).size()) {
             $dropdown.append([
