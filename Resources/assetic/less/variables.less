@@ -156,6 +156,7 @@
 @navbar-default-link-color:                @gray;
 @navbar-default-link-hover-color:          lighten(@gray, 20%);
 @navbar-default-link-active-color:         @brand-primary;
+@navbar-default-link-active-shadow-color:  @navbar-default-link-active-color;
 @navbar-default-link-active-bg:            transparent;
 
 // Navbar brand label
@@ -194,7 +195,9 @@
 // Inverted navbar links
 @navbar-inverse-link-color:                 #fff;
 @navbar-inverse-link-hover-color:           @gray-lighter;
-@navbar-inverse-link-active-bg:             lighten(@navbar-inverse-bg, 5%);
+@navbar-inverse-link-active-color:          @navbar-inverse-link-color;
+@navbar-inverse-link-active-shadow-color:   @navbar-inverse-link-active-color;
+@navbar-inverse-link-active-bg:             transparent;
 
 // Inverted navbar brand label
 @navbar-inverse-brand-hover-bg:             lighten(@navbar-inverse-bg, 3%);
@@ -350,8 +353,9 @@
 // Navbar Scroll
 // --------------------------------------------------
 
-@navbar-scroll-inner-shadow-color: lighten(@gray-light, 20%);
 @navbar-scroll-inner-shadow-size:  23px;
+@navbar-scroll-default-inner-shadow-color: lighten(@gray-light, 20%);
+@navbar-scroll-inverse-inner-shadow-color: lighten(@navbar-inverse-bg, 5%);
 
 
 // Account
