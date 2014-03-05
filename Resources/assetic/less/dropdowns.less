@@ -38,10 +38,6 @@
         > a > .caret {
             display: none;
         }
-
-        .dropdown-menu {
-            margin-left: -1px;
-        }
     }
 
     > li.open {
@@ -49,6 +45,30 @@
             border-left-color: @dropdown-link-hover-color;
             -webkit-transform: rotate(90deg);
                     transform: rotate(90deg);
+        }
+    }
+    
+    .dropdown {
+        > a:after {
+            .rotate(90deg);
+        }
+
+        > .dropdown-menu {
+            display: block;
+            position: relative;
+            width: 100%;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+            padding-left: 20px;
+            .border-top-radius(0);
+            .box-shadow(none);
+        }
+
+        &.open {
+            > a:after {
+                border-left-color: inherit;
+            }
         }
     }
 }
