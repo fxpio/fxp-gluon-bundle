@@ -41,10 +41,6 @@
     content: @navbar-default-toggle-fa-icon;
 }
 
-.navbar-inverse .navbar-toggle {
-    color: @navbar-inverse-toggle-icon-bar-bg;
-}
-
 .navbar-nav {
     > .dropdown > a {
         color: @navbar-dropdown-link-color;
@@ -54,6 +50,22 @@
             color: @navbar-dropdown-link-hover-color;
             background-color: @navbar-dropdown-link-hover-bg;
         }
+    }
+}
+
+.navbar-default {
+    .navbar-nav > .active > a {
+        .box-shadow(inset 0 5px 0px @navbar-default-link-active-color);
+    }
+}
+
+.navbar-inverse {
+    .navbar-nav > .active > a {
+        .box-shadow(inset 0 5px 0px @navbar-inverse-link-active-color);
+    }
+
+    .navbar-toggle {
+        color: @navbar-inverse-toggle-icon-bar-bg;
     }
 }
 
