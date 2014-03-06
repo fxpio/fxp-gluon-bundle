@@ -44,5 +44,20 @@
         <service id="sonatra_gluon.block.type_extension.navbar_brand" class="Sonatra\Bundle\GluonBundle\Block\Extension\NavbarBrandExtension">
             <tag name="sonatra_block.type_extension" alias="navbar_brand" />
         </service>
+
+        <service id="sonatra_gluon.block.type_extension.panel_header" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelContentExtension">
+            <tag name="sonatra_block.type_extension" alias="panel_header" />
+            <argument>header</argument>
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.panel_body" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelContentExtension">
+            <tag name="sonatra_block.type_extension" alias="panel_body" />
+            <argument>body</argument>
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.panel_footer" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelContentExtension">
+            <tag name="sonatra_block.type_extension" alias="panel_footer" />
+            <argument>footer</argument>
+        </service>
     </services>
 </container>

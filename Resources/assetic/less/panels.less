@@ -3,10 +3,43 @@
 // --------------------------------------------------
 
 .panel {
-  .box-shadow(@panel-shadow);
+    .box-shadow(@panel-shadow);
+
+    > .panel-heading {
+        border-color: @panel-inner-border;
+    }
+}
+
+.panel-title {
+    font-size: ceil((@font-size-large * 1.4));
 }
 
 // Contextual variations
 .panel-secondary {
-  .panel-variant(@panel-secondary-border; @panel-secondary-text; @panel-secondary-heading-bg; @panel-secondary-border);
+    .panel-variant(@panel-secondary-border; @panel-secondary-text; @panel-secondary-heading-bg; @panel-secondary-border);
 }
+
+.panel {
+    &.panel-default,
+    &.panel-primary,
+    &.panel-secondary,
+    &.panel-success,
+    &.panel-info,
+    &.panel-warning,
+    &.panel-danger {
+        > .panel-heading {
+            border-color: @panel-inner-border;
+        }
+    }
+}
+
+
+// Variantes
+// -------------------------
+
+.panel-variant-box(primary, @brand-primary, @brand-primary, lighten(@brand-primary, 3%), #fff);
+.panel-variant-box(secondary, @brand-secondary, @brand-secondary, lighten(@brand-secondary, 3%), #fff);
+.panel-variant-box(success, @brand-success, @brand-success, lighten(@brand-success, 3%), #fff);
+.panel-variant-box(info, @brand-info, @brand-info, lighten(@brand-info, 3%), #fff);
+.panel-variant-box(warning, @brand-warning, @brand-warning, lighten(@brand-warning, 3%), #fff);
+.panel-variant-box(danger, @brand-danger, @brand-danger, lighten(@brand-danger, 3%), #fff);

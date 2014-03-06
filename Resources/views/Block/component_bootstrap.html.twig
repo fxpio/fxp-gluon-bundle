@@ -1,4 +1,7 @@
-{% use '@SonatraBootstrap/Block/component_bootstrap.html.twig' with navbar_brand_widget as base_navbar_brand_widget %}
+{% use '@SonatraBootstrap/Block/component_bootstrap.html.twig' with navbar_brand_widget as base_navbar_brand_widget,
+                                                                    panel_header_widget as base_panel_header_widget,
+                                                                    panel_body_widget as base_panel_body_widget,
+                                                                    panel_footer_widget as base_panel_footer_widget %}
 
 {% block navbar_header_toggle_button %}
 {% spaceless %}
@@ -50,3 +53,33 @@
     <i {{ block('widget_attributes') }}></i>
 {% endspaceless %}
 {% endblock radio_widget_content %}
+
+
+{% block panel_header_widget %}
+{% spaceless %}
+    {% if style is not null %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ style)|trim}) %}
+    {% endif %}
+    {{ block('base_panel_header_widget') }}
+{% endspaceless %}
+{% endblock panel_header_widget %}
+
+
+{% block panel_body_widget %}
+{% spaceless %}
+    {% if style is not null %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ style)|trim}) %}
+    {% endif %}
+    {{ block('base_panel_body_widget') }}
+{% endspaceless %}
+{% endblock panel_body_widget %}
+
+
+{% block panel_footer_widget %}
+{% spaceless %}
+    {% if style is not null %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ style)|trim}) %}
+    {% endif %}
+    {{ block('base_panel_footer_widget') }}
+{% endspaceless %}
+{% endblock panel_footer_widget %}

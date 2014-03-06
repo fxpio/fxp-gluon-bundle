@@ -232,3 +232,61 @@
         color: @@color;
     }
 }
+
+// Panel variants
+// -------------------------
+
+.panel-variant-box(@style; @border; @bg-color; @border-inner-color; @text-color) {
+    .panel {
+        &.panel-@{style}-box {
+            border-color: @border;
+            background-color: @bg-color;
+            color: @text-color;
+
+            a,
+            a:hover,
+            a:focus {
+                color: @text-color;
+            }
+
+            .panel-heading {
+                border-bottom-color: @border-inner-color;
+            }
+
+            .panel-footer {
+                border-top-color: @border-inner-color;
+                background-color: @bg-color;
+            }
+        }
+    }
+
+    .panel-heading.panel-@{style}-box {
+        border-bottom-color: @border-inner-color !important;
+        background-color: @bg-color;
+        color: @text-color;
+        margin: -1px -1px 0 -1px;
+        .border-top-radius(@panel-border-radius);
+    }
+
+    .panel-body.panel-@{style}-box {
+        background-color: @bg-color;
+        color: @text-color;
+        margin: 0 -1px;
+
+        &:first-child {
+            .border-top-radius(@panel-border-radius);
+        }
+
+        &:last-child {
+            .border-bottom-radius(@panel-border-radius);
+        }
+    }
+
+    .panel-footer.panel-@{style}-box {
+        border-top-color: @border-inner-color !important;
+        background-color: @bg-color;
+        color: @text-color;
+        margin: 0 -1px -1px -1px;
+        .border-bottom-radius(@panel-border-radius);
+    }
+}

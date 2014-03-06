@@ -12,23 +12,57 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
+use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * Panel Block Extension.
+ * Panel Content Block Extension.
  *
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
-class PanelExtension extends AbstractTypeExtension
+class PanelContentExtension extends AbstractTypeExtension
 {
+    /**
+     * @var string
+     */
+    protected $type;
+
+    /**
+     * Constructor.
+     *
+     * @param string $type
+     */
+    public function __construct($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function buildView(BlockView $view, BlockInterface $block, array $options)
+    {
+        $view->vars = array_replace($view->vars, array(
+            'style' => $options['style'],
+        ));
+    }
+
     /**
      * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        $resolver->setDefaults(array(
+            'style' => null,
+        ));
+
+        $resolver->addAllowedTypes(array(
+            'style' => array('null', 'string'),
+        ));
+
         $resolver->addAllowedValues(array(
             'style' => array(
-                'secondary',
                 'primary-box',
                 'secondary-box',
                 'success-box',
@@ -44,6 +78,6 @@ class PanelExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'panel';
+        return 'panel_' . $this->type;
     }
 }
