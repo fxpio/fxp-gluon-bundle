@@ -339,7 +339,9 @@
         var self = this;
 
         if (this.options.useScroll) {
-            this.$content.before(this.$element);
+            if (1 == this.$content.find(this.$element).size()) {
+                this.$content.before(this.$element);
+            }
 
         } else {
             this.$content.children().each(function () {
