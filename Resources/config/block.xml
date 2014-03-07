@@ -17,8 +17,8 @@
             <tag name="sonatra_block.type" alias="sidebar_item" />
         </service>
 
-        <service id="sonatra_gluon.block.type.navbar_scrollable" class="Sonatra\Bundle\GluonBundle\Block\Type\NavbarScrollableType">
-            <tag name="sonatra_block.type" alias="navbar_scrollable" />
+        <service id="sonatra_gluon.block.type.nav_scrollable" class="Sonatra\Bundle\GluonBundle\Block\Type\NavScrollableType">
+            <tag name="sonatra_block.type" alias="nav_scrollable" />
         </service>
 
         <service id="sonatra_gluon.block.type_extension.button" class="Sonatra\Bundle\GluonBundle\Block\Extension\ButtonExtension">

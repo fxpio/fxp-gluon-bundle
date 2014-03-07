@@ -17,11 +17,11 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Symfony\Component\OptionsResolver\Options;
 
 /**
- * Navbar Scrollable Block Type.
+ * Nav Scrollable Block Type.
  *
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
-class NavbarScrollableType extends AbstractType
+class NavScrollableType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -30,7 +30,7 @@ class NavbarScrollableType extends AbstractType
     {
         if (null !== $view->parent && in_array('navbar', $view->parent->vars['block_prefixes'])) {
             $class = isset($view->parent->vars['attr']['class']) ? $view->parent->vars['attr']['class'] : '';
-            $class .= ' has-navbar-scrollable';
+            $class .= ' has-nav-scrollable';
 
             $view->parent->vars['attr']['class'] = trim($class);
         }
@@ -39,8 +39,26 @@ class NavbarScrollableType extends AbstractType
     /**
      * {@inheritdoc}
      */
+    public function finishView(BlockView $view, BlockInterface $block, array $options)
+    {
+        $class = isset($view->vars['attr']['class']) ? $view->vars['attr']['class'] : '';
+
+        foreach ($view->children as $name => $child) {
+            if (in_array('nav', $child->vars['block_prefixes'])) {
+                $class = trim('is-nav-' . $child->vars['style'] . ' ' . $class);
+            }
+        }
+
+        if ('' !== $class) {
+            $view->vars['attr']['class'] = $class;
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
-        return 'navbar_scrollable';
+        return 'nav_scrollable';
     }
 }

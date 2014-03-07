@@ -65,9 +65,9 @@
 {% endspaceless %}
 {% endblock sidebar_item_widget %}
 
-{% block navbar_scrollable_widget %}
+{% block nav_scrollable_widget %}
 {% spaceless %}
-    {% set attr = attr|merge({'class': ('navbar-scrollable ' ~ attr.class|default(''))|trim, 'data-navbar-scroll': 'true'}) %}
+    {% set attr = attr|merge({'class': ('nav-scrollable ' ~ attr.class|default(''))|trim, 'data-nav-scroll': 'true'}) %}
     <div {{ block('widget_container_attributes') }}>
         {{- value|raw -}}
 	    {% for child in block %}
@@ -75,4 +75,4 @@
 	    {% endfor %}
     </div>
 {% endspaceless %}
-{% endblock navbar_scrollable_widget %}
+{% endblock nav_scrollable_widget %}
