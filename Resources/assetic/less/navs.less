@@ -11,4 +11,60 @@
             background-color: @dropdown-link-hover-bg;
         }
     }
+
+    &.nav-tabs {
+        border-bottom: none;
+
+        > li {
+            > a {
+                border: none;
+                border-top: 2px solid @nav-tabs-border-color;
+                padding-top: 8px;
+                .border-top-radius(0);
+
+                &:hover,
+                &:focus {
+                    border: none;
+                    border-top: 2px solid @nav-tabs-border-color;
+                    background-color: transparent;
+                }
+            }
+
+            &.open > a {
+                &,
+                &:hover,
+                &:focus {
+                    color: @link-hover-color;
+                    background-color: @nav-tabs-active-link-hover-bg;
+                    z-index: @zindex-dropdown + 1;
+                    .box-shadow(@nav-tabs-shadow);
+                }
+            }
+
+            &.active {
+                > a {
+                    border-top-color: @nav-tabs-active-link-border-color;
+                    .box-shadow(@nav-tabs-shadow);
+
+                    &:hover,
+                    &:focus {
+                        background-color: @nav-tabs-active-link-hover-bg;
+                    }
+                }
+            }
+        }
+
+        & + .panel {
+            &,
+            > .panel-heading,
+            > .panel-body,
+            > .panel-footer {
+                .border-top-radius(0);
+            }
+        }
+    }
+
+    &.nav-pills {
+        margin-bottom: 10px;
+    }
 }
