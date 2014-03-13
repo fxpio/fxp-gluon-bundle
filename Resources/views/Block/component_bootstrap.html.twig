@@ -1,7 +1,8 @@
 {% use '@SonatraBootstrap/Block/component_bootstrap.html.twig' with navbar_brand_widget as base_navbar_brand_widget,
                                                                     panel_header_widget as base_panel_header_widget,
                                                                     panel_body_widget as base_panel_body_widget,
-                                                                    panel_footer_widget as base_panel_footer_widget %}
+                                                                    panel_footer_widget as base_panel_footer_widget,
+                                                                    table_widget as base_table_widget %}
 
 {% block navbar_header_toggle_button %}
 {% spaceless %}
@@ -83,3 +84,20 @@
     {{ block('base_panel_footer_widget') }}
 {% endspaceless %}
 {% endblock panel_footer_widget %}
+
+
+{% block table_widget %}
+{% spaceless %}
+    {% if footable_options is defined %}
+        {% set striped = false %}
+    {% endif %}
+    {{ block('base_table_widget') }}
+    {% if footable_options is defined %}
+        {% asset_javascript %}
+	    <script type="text/javascript">
+	    $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
+		</script>
+	    {% endasset %}
+    {% endif %}
+{% endspaceless %}
+{% endblock table_widget %}

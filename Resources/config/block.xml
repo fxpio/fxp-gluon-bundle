@@ -59,5 +59,17 @@
             <tag name="sonatra_block.type_extension" alias="panel_footer" />
             <argument>footer</argument>
         </service>
+
+        <service id="sonatra_gluon.block.type_extension.table_column" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnExtension">
+            <tag name="sonatra_block.type_extension" alias="table_column" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.footable" class="Sonatra\Bundle\GluonBundle\Block\Extension\FootableExtension">
+            <tag name="sonatra_block.type_extension" alias="table" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.footable_column" class="Sonatra\Bundle\GluonBundle\Block\Extension\FootableColumnExtension">
+            <tag name="sonatra_block.type_extension" alias="table_column" />
+        </service>
     </services>
 </container>

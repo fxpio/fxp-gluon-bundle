@@ -18,7 +18,8 @@
         "sonatra/bootstrap-bundle": "~1.0",
         "fortawesome/font-awesome": "~4.0",
         "sonatra_markusslima/bootstrap-filestyle": "dev-master",
-        "sonatra_eightmedia/hammer-js": "dev-master"
+        "sonatra_eightmedia/hammer-js": "dev-master",
+        "fooplugins/footable": "~2.0"
     },
     "require-dev": {
         "symfony/console": "~2.1",
