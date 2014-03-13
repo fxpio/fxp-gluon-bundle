@@ -60,6 +60,10 @@
             <argument>footer</argument>
         </service>
 
+        <service id="sonatra_gluon.block.type_extension.table" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableExtension">
+            <tag name="sonatra_block.type_extension" alias="table" />
+        </service>
+
         <service id="sonatra_gluon.block.type_extension.table_column" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnExtension">
             <tag name="sonatra_block.type_extension" alias="table_column" />
         </service>
