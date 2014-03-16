@@ -17,7 +17,7 @@
 
 {% block links %}
 {% spaceless %}
-    <link rel="fluid-icon" href="{{ asset(fluidicon_src) }}" title="{{ fluidicon_title }}">
+    <link rel="fluid-icon" type="image/png" href="{{ app.request.uriForPath(asset(fluidicon_src)) }}" title="{{ fluidicon_title }}">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset(touchicon114_src) }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset(touchicon144_src) }}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{ asset(touchicon114_src) }}">
