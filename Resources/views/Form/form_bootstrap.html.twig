@@ -16,7 +16,9 @@
     <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
         <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
         <i class="fa form-control-fa-style"></i>
-        <span>{{ label|trans({}, translation_domain) }}</span>
+        {% if label != ' ' %}
+            <span>{{ label|trans({}, translation_domain) }}</span>
+        {% endif %}
     </label>
 {% endspaceless %}
 {% endblock checkbox_widget_content %}
@@ -31,7 +33,9 @@
     <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
         <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
         <i class="fa form-control-fa-style"></i>
-        <span>{{ label|trans({}, translation_domain) }}</span>
+        {% if label != ' ' %}
+            <span>{{ label|trans({}, translation_domain) }}</span>
+        {% endif %}
     </label>
 {% endspaceless %}
 {% endblock radio_widget_content %}
