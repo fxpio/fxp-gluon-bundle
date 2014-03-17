@@ -49,19 +49,7 @@ class TableExtension extends AbstractTypeExtension
             $cols = &$view->vars['header']->vars['header_columns'];
 
             if (!isset($cols[0]) || (isset($cols[0]) && '_row_number' !== $cols[0]->vars['index'])) {
-                $num = $this->factory->createNamed('_row_number', 'table_column', null, array(
-                    'index'      => '_row_number',
-                    'max_width'  => 1,
-                    'footable'   => array(
-                        'ignore' => true,
-                    ),
-                    'label_attr' => array(
-                        'class'  => 'table-row-number',
-                    ),
-                    'attr' => array(
-                        'class'  => 'table-row-number',
-                    ),
-                ));
+                $num = $this->factory->createNamed('_row_number', 'table_column_row_number');
                 array_unshift($cols, $num->createView($view));
             }
         }
