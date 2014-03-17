@@ -1,9 +1,9 @@
 {% use '@SonatraFormExtensions/Form/form_div_layout.html.twig' with select2_widget_content as base_select2_widget_content %}
-{% use '@SonatraBootstrap/Form/form_bootstrap.html.twig' with   datetime_widget as base_datetime_widget,
-                                                                date_widget as base_date_widget,
-                                                                time_widget as base_time_widget,
+{% use '@SonatraBootstrap/Form/form_bootstrap.html.twig' with   datetime_widget as base2_datetime_widget,
+                                                                date_widget as base2_date_widget,
+                                                                time_widget as base2_time_widget,
                                                                 choice_widget as base_choice_widget,
-                                                                collection_widget as base_collection_widget %}
+                                                                collection_widget as base2_collection_widget %}
 
 
 
@@ -74,7 +74,7 @@
         {% endif %}
         {{ block('select2_event_content') }}
     {% else %}
-        {{ block('base_collection_widget') }}
+        {{ block('base2_collection_widget') }}
     {% endif %}
 {% endspaceless %}
 {% endblock collection_widget %}
@@ -130,7 +130,7 @@
             <span class="{{ append_icon }}"></span>
         </button>
     {% endset %}
-    {{ block('base_datetime_widget') }}
+    {{ block('base2_datetime_widget') }}
 {% endspaceless %}
 {% endblock datetime_widget %}
 
