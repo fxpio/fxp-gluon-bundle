@@ -4,6 +4,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <parameters>
+        <parameter key="sonatra_gluon.block.resource.content_formatter">@SonatraGluon/Block/content_formatter.html.twig</parameter>
+    </parameters>
+
     <services>
         <service id="sonatra_gluon.block.type.sidebar" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarType">
             <tag name="sonatra_block.type" alias="sidebar" />
@@ -79,6 +83,11 @@
 
         <service id="sonatra_gluon.block.type.table_column_row_number" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnRowNumberType">
             <tag name="sonatra_block.type" alias="table_column_row_number" />
+        </service>
+
+        <service id="sonatra_gluon.block.type.table_column_link" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnLinkType">
+            <tag name="sonatra_block.type" alias="table_column_link" />
+            <argument>%sonatra_gluon.block.resource.content_formatter%</argument>
         </service>
     </services>
 </container>
