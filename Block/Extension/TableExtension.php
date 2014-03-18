@@ -61,6 +61,7 @@ class TableExtension extends AbstractTypeExtension
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
+            'render_id'  => true,
             'responsive' => true,
             'row_number' => true,
         ));
