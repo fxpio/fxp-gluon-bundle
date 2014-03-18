@@ -15,6 +15,7 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\Options;
 
 /**
  * Table Block Extension.
@@ -31,6 +32,13 @@ class TableExtension extends AbstractTypeExtension
         if ($options['row_number']) {
             $builder->add('_row_number', 'table_column_row_number');
         }
+
+        if ($options['selectable']) {
+            $builder->add('_selectable', 'table_column_select', array(
+                'multiple' => $options['multi_selectable'],
+                'selected' => $options['selected'],
+            ));
+        }
     }
 
     /**
@@ -39,13 +47,29 @@ class TableExtension extends AbstractTypeExtension
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'render_id'  => true,
-            'responsive' => true,
-            'row_number' => true,
+            'render_id'        => true,
+            'responsive'       => true,
+            'row_number'       => true,
+            'selectable'       => false,
+            'multi_selectable' => false,
+            'selected'         => false,
         ));
 
         $resolver->addAllowedTypes(array(
-            'row_number' => 'bool',
+            'row_number'       => 'bool',
+            'selectable'       => 'bool',
+            'multi_selectable' => 'bool',
+            'selected'         => 'bool',
+        ));
+
+        $resolver->setNormalizers(array(
+            'selectable' => function (Options $options, $value) {
+                if ($options['multi_selectable']) {
+                    return true;
+                }
+
+                return $value;
+            },
         ));
     }
 

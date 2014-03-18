@@ -17,3 +17,10 @@
 {{ sblock('link', link_options) }}
 {% endspaceless %}
 {% endblock table_column_link_content %}
+
+
+{% block table_column_select_content %}
+{% spaceless %}
+{{ sblock('form_checkbox', options) }}
+{% endspaceless %}
+{% endblock table_column_select_content %}
