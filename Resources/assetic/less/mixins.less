@@ -157,65 +157,58 @@
     @checked-bg: "input-@{style}-checked-bg";
     @checked-border-focus: "input-@{style}-checked-border-focus";
 
-    input[type="checkbox"].input-@{style},
-    input[type="radio"].input-@{style} {
+    label {
         &.form-control-fa {
-            + .form-control-fa-style {
-                &:hover {
-                    border-color: @@border-focus;
+            > input[type="checkbox"],
+            > input[type="radio"] {
+                &.input-@{style} {
+                    + .form-control-fa-style {
+                        &:hover {
+                            border-color: @@border-focus;
+                        }
+                    }
+
+                    &:checked {
+                        + .form-control-fa-style {
+                            color: @@checked-color;
+                            background-color: @@checked-bg;
+                            border-color:  @@checked-bg;
+
+                            &:hover {
+                                border-color: @@checked-border-focus;
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        + .form-control-fa-style {
+                            border-color: @@border-focus;
+                        }
+                    }
+
+                    &:checked:focus {
+                        + .form-control-fa-style {
+                            border-color: @@checked-border-focus;
+                        }
+                    }
                 }
-            }
-        }
-    }
-
-    input[type="checkbox"].input-@{style}:checked,
-    input[type="radio"].input-@{style}:checked {
-        &.form-control-fa {
-            + .form-control-fa-style {
-                color: @@checked-color;
-                background-color: @@checked-bg;
-                border-color:  @@checked-bg;
-
-                &:hover {
-                    border-color: @@checked-border-focus;
-                }
-            }
-        }
-    }
-
-    input[type="checkbox"].input-@{style}:focus,
-    input[type="radio"].input-@{style}:focus {
-        &.form-control-fa {
-            + .form-control-fa-style {
-                border-color: @@border-focus;
-            }
-        }
-    }
-
-    input[type="checkbox"].input-@{style}:checked:focus,
-    input[type="radio"].input-@{style}:checked:focus {
-        &.form-control-fa {
-            + .form-control-fa-style {
-                border-color: @@checked-border-focus;
             }
         }
     }
 }
 
 .form-control-disabled-color(@style: default) {
-    input[type="checkbox"][disabled].input-@{style},
-    input[type="radio"][disabled].input-@{style},
-    fieldset[disabled] input[type="checkbox"].input-@{style},
-    fieldset[disabled] input[type="radio"].input-@{style} {
-        &.form-control-fa {
-            + .form-control-fa-style {
-                background-color: @input-bg-disabled;
-                border-color: @input-border;
-                color: inherit;
+    label.form-control-fa > input[type="checkbox"][disabled],
+    label.form-control-fa > input[type="radio"][disabled],
+    fieldset[disabled] label.form-control-fa > input[type="checkbox"],
+    fieldset[disabled] label.form-control-fa > input[type="radio"] {
+        + .form-control-fa-style {
+            background-color: @input-bg-disabled;
+            border-color: @input-border;
+            color: inherit;
 
-                &:hover {
-                    border-color: @input-border;
-                }
+            &:hover {
+                border-color: @input-border;
             }
         }
     }

@@ -9,7 +9,7 @@
 
 {% block checkbox_widget_content %}
 {% spaceless %}
-    {% set attr = attr|merge({'class': ('form-control-fa ' ~ attr.class|default(''))|trim}) %}
+    {% set label_attr = label_attr|merge({'class': ('form-control-fa ' ~ label_attr.class|default(''))|trim}) %}
     {% if style %}
         {% set attr = attr|merge({'class': (attr.class|default('') ~ ' input-' ~ style)|trim}) %}
     {% endif %}
@@ -26,7 +26,7 @@
 
 {% block radio_widget_content %}
 {% spaceless %}
-    {% set attr = attr|merge({'class': ('form-control-fa ' ~ attr.class|default(''))|trim}) %}
+    {% set label_attr = label_attr|merge({'class': ('form-control-fa ' ~ label_attr.class|default(''))|trim}) %}
     {% if style %}
         {% set attr = attr|merge({'class': (attr.class|default('') ~ ' input-' ~ style)|trim}) %}
     {% endif %}
