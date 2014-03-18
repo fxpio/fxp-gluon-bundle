@@ -12,9 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
-use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
-use Sonatra\Bundle\BlockBundle\Block\BlockView;
-use Sonatra\Bundle\BlockBundle\Block\BlockFactoryInterface;
+use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
@@ -26,32 +24,12 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class TableExtension extends AbstractTypeExtension
 {
     /**
-     * @var BlockFactoryInterface
-     */
-    protected $factory;
-
-    /**
-     * Constructor.
-     *
-     * @param BlockFactoryInterface $factory
-     */
-    public function __construct(BlockFactoryInterface $factory)
-    {
-        $this->factory = $factory;
-    }
-
-    /**
      * {@inheritdoc}
      */
-    public function finishView(BlockView $view, BlockInterface $block, array $options)
+    public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
-        if (isset($view->vars['header']->vars['header_columns'])) {
-            $cols = &$view->vars['header']->vars['header_columns'];
-
-            if (!isset($cols[0]) || (isset($cols[0]) && '_row_number' !== $cols[0]->vars['index'])) {
-                $num = $this->factory->createNamed('_row_number', 'table_column_row_number');
-                array_unshift($cols, $num->createView($view));
-            }
+        if ($options['row_number']) {
+            $builder->add('_row_number', 'table_column_row_number');
         }
     }
 

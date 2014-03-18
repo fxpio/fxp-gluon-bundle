@@ -66,7 +66,6 @@
 
         <service id="sonatra_gluon.block.type_extension.table" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableExtension">
             <tag name="sonatra_block.type_extension" alias="table" />
-            <argument type="service" id="sonatra_block.factory" />
         </service>
 
         <service id="sonatra_gluon.block.type_extension.table_column" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnExtension">
