@@ -76,23 +76,3 @@
     </div>
 {% endspaceless %}
 {% endblock nav_scrollable_widget %}
-
-{% block table_column_link_label %}
-{% spaceless %}
-    {{ block('table_column_label') }}
-    {% if block.parent.vars.footable_options is defined %}
-	    {% asset_javascript %}
-	    <script type="text/javascript">
-	    $('#{{ block.parent.vars.id }}').on('mouseup', 'td.col-{{ name }} a', function (event) {
-	        event.preventDefault();
-	        if (2 == event.which) {
-	            window.open($(event.target).prop('href'), '_blank');
-	        } else {
-	            window.location.replace($(event.target).prop('href'));
-	        }
-	    });
-	    </script>
-	    {% endasset %}
-    {% endif %}
-{% endspaceless %}
-{% endblock table_column_link_label %}
