@@ -12,8 +12,6 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
-use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
-use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -25,48 +23,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class TableColumnExtension extends AbstractTypeExtension
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildView(BlockView $view, BlockInterface $block, array $options)
-    {
-        $labelAttr = $view->vars['label_attr'];
-        $attr = $view->vars['attr'];
-        $labelClass = isset($view->vars['label_attr']['class']) ? $view->vars['label_attr']['class'] : '';
-        $class = isset($view->vars['attr']['class']) ? $view->vars['attr']['class'] : '';
-        $labelStyle = isset($view->vars['label_attr']['style']) ? $view->vars['label_attr']['style'] : '';
-
-        if (null !== $options['align']) {
-            $labelClass = trim($labelClass . ' table-' . $options['align']);
-            $class = trim($class . ' table-' . $options['align']);
-        }
-
-        if (null !== $options['min_width']) {
-            $labelStyle = trim($labelStyle . ' min-width:' . $options['min_width'] . 'px;');
-        }
-
-        if (null !== $options['max_width']) {
-            $labelStyle = trim($labelStyle . ' max-width:' . $options['max_width'] . 'px;');
-        }
-
-        if ('' !== $labelClass) {
-            $labelAttr['class'] = $labelClass;
-        }
-
-        if ('' !== $class) {
-            $attr['class'] = $class;
-        }
-
-        if ('' !== $labelStyle) {
-            $labelAttr['style'] = $labelStyle;
-        }
-
-        $view->vars = array_replace($view->vars, array(
-            'label_attr' => $labelAttr,
-            'attr'       => $attr,
-        ));
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -86,6 +42,48 @@ class TableColumnExtension extends AbstractTypeExtension
 
         $resolver->addAllowedValues(array(
             'align' => array('left', 'center', 'right'),
+        ));
+
+        $resolver->setNormalizers(array(
+            'label_attr' => function (Options $options, $value) {
+                $class = isset($value['class']) ? $value['class'] : '';
+                $style = isset($value['style']) ? $value['style'] : '';
+
+                if ($options['align']) {
+                    $class = trim($class . ' table-' . $options['align']);
+                }
+
+                if (null !== $options['min_width']) {
+                    $style = trim($style . ' min-width:' . $options['min_width'] . 'px;');
+                }
+
+                if (null !== $options['max_width']) {
+                    $style = trim($style . ' max-width:' . $options['max_width'] . 'px;');
+                }
+
+                if ('' !== $class) {
+                   $value['class'] = $class;
+                }
+
+                if ('' !== $style) {
+                    $value['style'] = $style;
+                }
+
+                return $value;
+            },
+            'attr' => function (Options $options, $value) {
+                $class = isset($value['class']) ? $value['class'] : '';
+
+                if ($options['align']) {
+                    $class = trim($class . ' table-' . $options['align']);
+                }
+
+                if ('' !== $class) {
+                   $value['class'] = $class;
+                }
+
+                return $value;
+            },
         ));
     }
 
