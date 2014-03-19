@@ -49,6 +49,7 @@ class TableColumnSelectType extends AbstractType
                 'required' => false,
                 'label'    => ' ',
                 'data'     => $options['selected'],
+                'style'    => $options['style'],
                 'attr'     => array(
                     'data-multi-selectable-all' => 'true',
                 ),
@@ -64,6 +65,7 @@ class TableColumnSelectType extends AbstractType
         $resolver->setDefaults(array(
             'multiple'  => false,
             'selected'  => false,
+            'style'     => 'secondary',
             'options'   => array(),
             'max_width' => 1,
             'width'     => 1,
@@ -81,6 +83,7 @@ class TableColumnSelectType extends AbstractType
                 $variables['options']['data'] = $options['selected'];
                 $variables['options']['required'] = false;
                 $variables['options']['label'] = ' ';
+                $variables['options']['style'] = $options['style'];
                 $variables['max_width'] = $options['max_width'];
 
                 $value['variables'] = $variables;
@@ -95,6 +98,7 @@ class TableColumnSelectType extends AbstractType
         $resolver->addAllowedTypes(array(
             'multiple' => 'bool',
             'selected' => 'bool',
+            'style'    => array('null', 'string'),
             'options'  => 'array',
         ));
     }
