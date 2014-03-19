@@ -13,6 +13,8 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
+use Sonatra\Bundle\BlockBundle\Block\BlockView;
+use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\OptionsResolver\Options;
@@ -60,18 +62,34 @@ class TableColumnSelectType extends AbstractType
     /**
      * {@inheritdoc}
      */
+    public function buildView(BlockView $view, BlockInterface $block, array $options)
+    {
+        if (null !== $view->parent && in_array('table', $view->parent->vars['block_prefixes'])) {
+            $view->parent->vars['attr']['data-table-select'] = 'true';
+            $view->parent->vars['attr']['data-class-selectable'] = 'col-' . $block->getName();
+
+            if (null !== $options['max_selection']) {
+                $view->parent->vars['attr']['data-max-selection'] = $options['max_selection'];
+            }
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'multiple'  => false,
-            'selected'  => false,
-            'style'     => 'secondary',
-            'options'   => array(),
-            'max_width' => 1,
-            'width'     => 1,
-            'formatter' => 'twig',
-            'footable'   => array(
-                'ignore' => true,
+            'multiple'      => false,
+            'selected'      => false,
+            'max_selection' => null,
+            'style'         => 'secondary',
+            'options'       => array(),
+            'max_width'     => 1,
+            'width'         => 1,
+            'formatter'     => 'twig',
+            'footable'      => array(
+                'ignore'    => true,
             ),
         ));
 
@@ -96,10 +114,11 @@ class TableColumnSelectType extends AbstractType
         ));
 
         $resolver->addAllowedTypes(array(
-            'multiple' => 'bool',
-            'selected' => 'bool',
-            'style'    => array('null', 'string'),
-            'options'  => 'array',
+            'multiple'      => 'bool',
+            'selected'      => 'bool',
+            'max_selection' => array('null', 'int'),
+            'style'         => array('null', 'string'),
+            'options'       => 'array',
         ));
     }
 
