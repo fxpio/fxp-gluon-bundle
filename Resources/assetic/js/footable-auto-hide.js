@@ -118,9 +118,9 @@
         for (var i = 0; i < $columns.size(); i++) {
             var $column = $columns.eq(i);
 
-            contentWidth += $column.outerWidth();
-
             if ($column.is(":visible")) {
+                contentWidth += $column.outerWidth();
+
                 if (contentWidth >= tableWidth) {
                     var data = ft.getColumnData($column.get(0));
                     data.hide[breakpointName] = true;
