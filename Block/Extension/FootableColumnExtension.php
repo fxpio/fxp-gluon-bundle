@@ -104,7 +104,7 @@ class FootableColumnExtension extends AbstractTypeExtension
 
                 $footableResolver->setNormalizers(array(
                     'hide' => function (Options $options, $value) {
-                        $allowed = array('phone', 'tablet', 'all');
+                        $allowed = array('phone', 'tablet', 'default', 'all');
                         $value = (array) $value;
 
                         foreach ($value as $type) {
