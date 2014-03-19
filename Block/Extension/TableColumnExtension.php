@@ -32,6 +32,7 @@ class TableColumnExtension extends AbstractTypeExtension
             'align'     => null,
             'min_width' => null,
             'max_width' => null,
+            'width'     => null,
         ));
 
         $resolver->addAllowedTypes(array(
@@ -59,6 +60,10 @@ class TableColumnExtension extends AbstractTypeExtension
 
                 if (null !== $options['max_width']) {
                     $style = trim($style . ' max-width:' . $options['max_width'] . 'px;');
+                }
+
+                if (null !== $options['width']) {
+                    $style = trim($style . ' width:' . $options['width'] . 'px;');
                 }
 
                 if ('' !== $class) {

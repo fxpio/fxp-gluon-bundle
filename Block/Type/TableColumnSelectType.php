@@ -66,7 +66,11 @@ class TableColumnSelectType extends AbstractType
             'selected'  => false,
             'options'   => array(),
             'max_width' => 1,
+            'width'     => 1,
             'formatter' => 'twig',
+            'footable'   => array(
+                'ignore' => true,
+            ),
         ));
 
         $resolver->setNormalizers(array(
