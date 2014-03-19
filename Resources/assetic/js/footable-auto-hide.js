@@ -113,6 +113,8 @@
         var breakpointName = $table.data('breakpoint');
         var hasHiddenCol = false;
 
+        $table.addClass('breakpoint');
+
         for (var i = 0; i < $columns.size(); i++) {
             var $column = $columns.eq(i);
 
@@ -130,11 +132,10 @@
             }
         }
 
+        $table.removeClass('default breakpoint').removeClass(ft.breakpointNames);
+
         if (hasHiddenCol) {
-            $table
-                .removeClass('default breakpoint').removeClass(ft.breakpointNames)
-                .addClass(breakpointName + ' breakpoint');
-            ;
+            $table.addClass(breakpointName + ' breakpoint');
         }
 
         event.ft.redraw();
