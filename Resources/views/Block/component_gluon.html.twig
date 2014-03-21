@@ -12,7 +12,7 @@
     {% if locked %}
         {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-locked')|trim}) %}
     {% endif %}
-    <div {{ block('widget_container_attributes') }}>
+    <div{{ block('widget_container_attributes') }}>
         <a class="sidebar-toggle" href="#"><span class="sr-only">{{ toggle_label|trans({}, translation_domain) }}</span><i class="fa fa-sidebar-toggle"></i></a>
         <div class="sidebar-wrapper sidebar-{{ style }}{% if opened or locked %} sidebar-open-init{% endif %}">
             <div class="sidebar-scroller">
@@ -31,7 +31,7 @@
 {% block sidebar_group_widget %}
 {% spaceless %}
     {% set attr = attr|merge({'class': ('sidebar-group ' ~ attr.class|default(''))|trim}) %}
-    <li {{ block('widget_container_attributes') }}>
+    <li{{ block('widget_container_attributes') }}>
         <span{% for attrname, attrvalue in group_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
             {{- label|trans({}, translation_domain) }}
             {{- value|raw -}}
@@ -55,7 +55,7 @@
     {% if disabled %}
         {% set link_attr = link_attr|merge({'class': (link_attr.class|default('') ~ ' disabled')|trim}) %}
     {% endif %}
-    <li {{ block('widget_container_attributes') }}>
+    <li{{ block('widget_container_attributes') }}>
         <a{% for attrname, attrvalue in link_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
             {{- label|trans({}, translation_domain) }}
             {{- value|raw -}}
@@ -68,7 +68,7 @@
 {% block nav_scrollable_widget %}
 {% spaceless %}
     {% set attr = attr|merge({'class': ('nav-scrollable ' ~ attr.class|default(''))|trim, 'data-nav-scroll': 'true'}) %}
-    <div {{ block('widget_container_attributes') }}>
+    <div{{ block('widget_container_attributes') }}>
         {{- value|raw -}}
 	    {% for child in block %}
 	        {{ block_widget(child) }}
