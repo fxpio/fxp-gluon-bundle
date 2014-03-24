@@ -85,8 +85,8 @@ class TableColumnSelectType extends AbstractType
             'max_selection' => null,
             'style'         => 'secondary',
             'options'       => array(),
-            'max_width'     => 1,
-            'width'         => 1,
+            'max_width'     => 20,
+            'width'         => 20,
             'formatter'     => 'twig',
             'footable'      => array(
                 'ignore'    => true,
