@@ -44,7 +44,7 @@
     TablePagerFootable.prototype.destroy = function () {
         this.$element
             .off('table-pager-refreshed.st.tablepagerfootable', $.proxy(onPagerRefreshed, this))
-            .$element.removeData('st.tablepagerfootable')
+            .removeData('st.tablepagerfootable')
         ;
     };
 
