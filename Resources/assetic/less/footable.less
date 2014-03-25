@@ -25,6 +25,10 @@
                 .box-shadow(@footable-detail-inner-shadow);
             }
 
+            > td.footable-first-column {
+                padding-left: @font-size-small + ceil((@font-size-small / 3));
+            }
+
             > td > span.footable-toggle {
                 display: inline-block;
                 font-family: @footable-font-family;
@@ -38,6 +42,7 @@
                 padding-right: 5px;
                 color: @footable-toggle-color;
                 float: left;
+                margin-left: @font-size-small + ceil((@font-size-small / 3));
                 font-size: @font-size-small;
                 width: @font-size-small + ceil((@font-size-small / 3));
 

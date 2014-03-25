@@ -28,6 +28,7 @@ class TableColumnRowNumberType extends AbstractType
     {
         $resolver->setDefaults(array(
             'max_width'  => 1,
+            'min_width'  => 1,
             'footable'   => array(
                 'ignore' => true,
             ),
