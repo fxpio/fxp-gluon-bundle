@@ -102,18 +102,18 @@
 
         if (0 == $('.select2-drop-footer', $dropdown).size()) {
             $dropdown.append([
-	            '{{ '<div class="select2-drop-footer">'|raw }}',
-	                '{{ '<span class="select2-drop-footer-btn select2-btn-cancel">'|raw }}',
-	                    '{{ '<a href="#" role="button" tabindex="-1">'|raw }}{{ 'form.select2.cancel'|trans({}, 'SonatraGluonBundle') }}{{ '</a>'|raw }}',
-	                '{{ '</span>'|raw }}',
-	            '{{ '</div>'|raw }}'
-	        ].join(''));
+                '{{ '<div class="select2-drop-footer">'|raw }}',
+                    '{{ '<span class="select2-drop-footer-btn select2-btn-cancel">'|raw }}',
+                        '{{ '<a href="#" role="button" tabindex="-1">'|raw }}{{ 'form.select2.cancel'|trans({}, 'SonatraGluonBundle') }}{{ '</a>'|raw }}',
+                    '{{ '</span>'|raw }}',
+                '{{ '</div>'|raw }}'
+            ].join(''));
         }
 
         $dropdown.on('click', '.select2-drop-footer .select2-btn-cancel', $(event.target).data('select2'), function(event) {
-	        event.preventDefault();
-	        event.stopPropagation();
-	        event.data.close();
+            event.preventDefault();
+            event.stopPropagation();
+            event.data.close();
         });
 
     }).on('select2-close', function (event) {

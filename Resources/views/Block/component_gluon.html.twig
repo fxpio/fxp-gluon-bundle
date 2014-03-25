@@ -70,9 +70,9 @@
     {% set attr = attr|merge({'class': ('nav-scrollable ' ~ attr.class|default(''))|trim, 'data-nav-scroll': 'true'}) %}
     <div{{ block('widget_container_attributes') }}>
         {{- value|raw -}}
-	    {% for child in block %}
-	        {{ block_widget(child) }}
-	    {% endfor %}
+        {% for child in block %}
+            {{ block_widget(child) }}
+        {% endfor %}
     </div>
 {% endspaceless %}
 {% endblock nav_scrollable_widget %}

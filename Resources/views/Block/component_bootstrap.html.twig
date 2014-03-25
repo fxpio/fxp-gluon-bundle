@@ -94,10 +94,10 @@
     {{ block('base_table_widget') }}
     {% if footable_options is defined %}
         {% asset_javascript %}
-	    <script type="text/javascript">
-	    $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
-		</script>
-	    {% endasset %}
+        <script type="text/javascript">
+        $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
+        </script>
+        {% endasset %}
     {% endif %}
 {% endspaceless %}
 {% endblock table_widget %}
