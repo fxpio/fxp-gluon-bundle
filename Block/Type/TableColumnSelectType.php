@@ -67,6 +67,7 @@ class TableColumnSelectType extends AbstractType
         if (null !== $view->parent && in_array('table', $view->parent->vars['block_prefixes'])) {
             $view->parent->vars['attr']['data-table-select'] = 'true';
             $view->parent->vars['attr']['data-class-selectable'] = 'col-' . $block->getName();
+            $view->parent->vars['column_selection_stype'] = $options['style'];
 
             if (null !== $options['max_selection']) {
                 $view->parent->vars['attr']['data-max-selection'] = $options['max_selection'];
