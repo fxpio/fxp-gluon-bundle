@@ -66,45 +66,6 @@
             }
         }
     }
-
-    /** SORTING **/
-    > thead > tr > th {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: -moz-none;
-        -ms-user-select: none;
-        user-select: none;
-
-        &.footable-sortable:hover {
-            cursor: pointer;
-        }
-
-        &.footable-sorted > span.footable-sort-indicator:before {
-            content: @footable-sort-asc;
-        }
-
-        &.footable-sorted-desc > span.footable-sort-indicator:before {
-            content: @footable-sort-desc;
-        }
-
-        > span.footable-sort-indicator {
-            display: inline-block;
-            font-family: @footable-font-family;
-            font-style: normal;
-            font-weight: normal;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            speak: none;
-            padding-left: 5px;
-            color: @footable-sort-color;
-
-            &:before {
-                content: @footable-sort;
-            }
-        }
-    }
 }
 
 .footable-row-detail-inner {
