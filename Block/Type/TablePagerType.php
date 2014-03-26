@@ -84,6 +84,10 @@ class TablePagerType extends AbstractType
                 break;
             }
         }
+
+        if ('true' === $view->parent->vars['attr']['data-table-select']) {
+            $view->vars['attr']['data-table-id'] = $view->parent->vars['id'];
+        }
     }
 
     /**

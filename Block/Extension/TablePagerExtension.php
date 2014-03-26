@@ -40,13 +40,11 @@ class TablePagerExtension extends AbstractTypeExtension
      */
     public function finishView(BlockView $view, BlockInterface $block, array $options)
     {
-        if (isset($view->vars['header'])) {
-            foreach ($view->children as $name => $child) {
-                if (in_array('table_pager', $child->vars['block_prefixes'])) {
-                    $view->vars['header']->children[$name] = $child;
-                    unset($view->children[$name]);
-                    break;
-                }
+        foreach ($view->children as $name => $child) {
+            if (in_array('table_pager', $child->vars['block_prefixes'])) {
+                $view->vars['pager'] = $child;
+                unset($view->children[$name]);
+                break;
             }
         }
     }

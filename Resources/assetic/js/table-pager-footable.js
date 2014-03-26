@@ -23,7 +23,7 @@
      */
     var TablePagerFootable = function (element, options) {
         this.$element = $(element);
-        this.$table = this.$element.parents('table:first');
+        this.$table   = $('#' + this.$element.attr('data-table-id'));
         this.footable = this.$table.data('footable');
 
         if (undefined != this.footable) {

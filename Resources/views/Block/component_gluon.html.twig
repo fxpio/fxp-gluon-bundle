@@ -80,8 +80,7 @@
 {% block table_pager_widget %}
 {% spaceless %}
     {% set attr = attr|merge({'class': ('table-pager ' ~ attr.class|default(''))|trim, 'colspan': block.parent.vars.header.vars.header_columns|length}) %}
-    <tr data-table-pager-wrapper="true">
-        <td{{ block('widget_container_attributes') }}>
+        <div{{ block('widget_container_attributes') }}>
             <div class="table-pager-group group1">
                 <div class="btn-group">
                     <select disabled="disabled" class="table-pager-size-list btn btn-default form-control">
@@ -115,7 +114,7 @@
                         <span class="table-pager-size">{{ source.size }}</span>
                     </div>
                 </div>
-                {% if true %}
+                {% if block.parent.vars.attr['data-table-select'] == 'true' %}
                 <div class="btn-group">
                     <span class="btn btn-{{ block.parent.vars.column_selection_stype|default('secondary') }} table-select-count disabled"></span>
                     <button class="btn btn-{{ block.parent.vars.column_selection_stype|default('secondary') }} table-select-clear fa fa-times"></button>
@@ -124,7 +123,6 @@
             </div>
             {{- value|raw -}}
             {{- block('block_rows') -}}
-        </td>
-    </tr>
+        </div>
 {% endspaceless %}
 {% endblock table_pager_widget %}

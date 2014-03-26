@@ -91,6 +91,9 @@
     {% if footable_options is defined %}
         {% set striped = false %}
     {% endif %}
+    {% if pager is defined %}
+        {{ block_widget(pager) }}
+    {% endif %}
     {{ block('base_table_widget') }}
     {% if footable_options is defined %}
         {% asset_javascript %}
