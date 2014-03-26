@@ -56,20 +56,34 @@ class TablePagerType extends AbstractType
         $source = $block->getParent()->getData();
         $event = new GetAjaxTableEvent($view->parent->vars['id'], $this->request, $source);
         $this->dispatcher->dispatch(AjaxEvents::INJECTION, $event);
+        $sortOrder = array();
+
+        foreach ($source->getSortColumns() as $i => $def) {
+            $sortOrder[] = $def['name'];
+        }
 
         $view->vars = array_replace($view->vars, array(
             'source' => $source,
             'attr'   => array_replace($view->vars['attr'], array(
-                'data-table-pager' => 'true',
-                'data-locale'      => $source->getLocale(),
-                'data-page-size'   => $source->getPageSize(),
-                'data-page-number' => $source->getPageNumber(),
-                'data-size'        => $source->getSize(),
-                'data-parameters'  => json_encode($source->getParameters()),
-                'data-ajax-id'     => $view->parent->vars['id'],
-                'data-url'         => $options['url'],
+                'data-table-pager'    => 'true',
+                'data-locale'         => $source->getLocale(),
+                'data-page-size'      => $source->getPageSize(),
+                'data-page-number'    => $source->getPageNumber(),
+                'data-size'           => $source->getSize(),
+                'data-parameters'     => json_encode($source->getParameters()),
+                'data-ajax-id'        => $view->parent->vars['id'],
+                'data-url'            => $options['url'],
+                'data-multi-sortable' => $options['multi_sortable'] ? 'true' : 'false',
+                'data-sort-order'     => json_encode($sortOrder),
             )),
         ));
+
+        foreach ($source->getColumns() as $name => $child) {
+            if ($child->getConfig()->getOption('sortable')) {
+                $view->vars['attr']['data-sortable'] = 'true';
+                break;
+            }
+        }
     }
 
     /**
@@ -78,17 +92,19 @@ class TablePagerType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'locale'      => \Locale::getDefault(),
-            'page_size'   => null,
-            'page_number' => null,
-            'url'         => $this->request->getRequestUri(),
+            'locale'         => \Locale::getDefault(),
+            'page_size'      => null,
+            'page_number'    => null,
+            'url'            => $this->request->getRequestUri(),
+            'multi_sortable' => false,
         ));
 
         $resolver->addAllowedTypes(array(
-            'locale'      => 'string',
-            'page_size'   => array('null', 'int'),
-            'page_number' => array('null', 'int'),
-            'url'         => 'string',
+            'locale'         => 'string',
+            'page_size'      => array('null', 'int'),
+            'page_number'    => array('null', 'int'),
+            'url'            => 'string',
+            'multi_sortable' => 'bool',
         ));
     }
 

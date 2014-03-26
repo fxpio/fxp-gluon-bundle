@@ -76,6 +76,10 @@
             <tag name="sonatra_block.type_extension" alias="table_column" />
         </service>
 
+        <service id="sonatra_gluon.block.type_extension.table_column_pager" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnPagerExtension">
+            <tag name="sonatra_block.type_extension" alias="table_column" />
+        </service>
+
         <service id="sonatra_gluon.block.type_extension.footable" class="Sonatra\Bundle\GluonBundle\Block\Extension\FootableExtension">
             <tag name="sonatra_block.type_extension" alias="table" />
         </service>

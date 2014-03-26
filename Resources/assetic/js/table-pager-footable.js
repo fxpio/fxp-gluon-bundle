@@ -31,6 +31,10 @@
                 .on('table-pager-refreshed.st.tablepagerfootable', $.proxy(onPagerRefreshed, this))
             ;
 
+            this.$table
+                .on('footable_row_detail_updated.st.tablepagerfootable', $.proxy(onFootableRowDetailUpdated, this))
+            ;
+
         } else {
             this.destroy();
         }
@@ -42,6 +46,10 @@
      * @this
      */
     TablePagerFootable.prototype.destroy = function () {
+        this.$table
+            .off('footable_row_detail_updated.st.tablepagerfootable', $.proxy(onFootableRowDetailUpdated, this))
+        ;
+
         this.$element
             .off('table-pager-refreshed.st.tablepagerfootable', $.proxy(onPagerRefreshed, this))
             .removeData('st.tablepagerfootable')
@@ -58,6 +66,57 @@
      */
     function onPagerRefreshed (event) {
         this.footable.resize();
+    }
+
+    /**
+     * Action on footable row detail is updated.
+     *
+     * @param Event event
+     *
+     * @this
+     * @private
+     */
+    function onFootableRowDetailUpdated (event) {
+        var $cols = this.$table.find('> thead > tr:last > th:not(:visible)');
+        var $detailNames = $(event.detail).find('div.footable-row-detail-name');
+
+        if ($cols.size() != $detailNames.size()) {
+            return;
+        }
+
+        for (var i = 0; i < $detailNames.size(); i++) {
+            var $col = $cols.eq(i);
+            var $detail = $detailNames.eq(i);
+            var $icon = $col.find('> i.table-sort-icon');
+
+            if (undefined != $col.attr('data-col-name')) {
+                $detail.attr('data-col-name', $col.attr('data-col-name'));
+            }
+
+            if (undefined != $col.attr('data-table-pager-sortable')) {
+                $detail.attr('data-table-pager-sortable', $col.attr('data-table-pager-sortable'));
+            }
+
+            if (undefined != $col.attr('data-table-sort')) {
+                $detail.attr('data-table-sort', $col.attr('data-table-sort'));
+            }
+
+            if ($icon.size() > 0) {
+                $detail.append($icon.clone());
+            }
+        }
+    }
+
+
+    // TABLE PAGER FOOTABLE OVERRIDE TABLE PAGER DEFAULT OPTIONS DEFINITION
+    // ====================================================================
+
+    if (undefined != $.fn.tablePager) {
+        $.fn.tablePager.Constructor.DEFAULTS = $.extend(true, $.fn.tablePager.Constructor.DEFAULTS, {
+            selectors: {
+                sortable: $.fn.tablePager.Constructor.DEFAULTS.selectors.sortable + ', > tbody > tr.footable-row-detail div.footable-row-detail-name[data-table-pager-sortable=true]'
+            }
+        });
     }
 
 

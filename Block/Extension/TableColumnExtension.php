@@ -12,6 +12,8 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
+use Sonatra\Bundle\BlockBundle\Block\BlockView;
+use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -23,6 +25,21 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class TableColumnExtension extends AbstractTypeExtension
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function buildView(BlockView $view, BlockInterface $block, array $options)
+    {
+        $source = $block->getParent()->getData();
+        $sort = $source->getSortColumn($block->getName());
+
+        if (null !== $sort) {
+            $view->vars['label_attr']['data-table-sort'] = $sort;
+            $view->vars['value'] = is_string($view->vars['value']) ? $view->vars['value'] : '';
+            $view->vars['value'] .= '<i class="table-sort-icon fa"></i>';
+        }
+    }
+
     /**
      * {@inheritdoc}
      */
