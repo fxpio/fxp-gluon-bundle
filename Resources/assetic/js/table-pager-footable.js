@@ -27,11 +27,8 @@
         this.footable = this.$table.data('footable');
 
         if (undefined != this.footable) {
-            this.$element
-                .on('table-pager-refreshed.st.tablepagerfootable', $.proxy(onPagerRefreshed, this))
-            ;
-
             this.$table
+                .on('table-pager-refreshed.st.tablepagerfootable', $.proxy(onPagerRefreshed, this))
                 .on('footable_row_detail_updated.st.tablepagerfootable', $.proxy(onFootableRowDetailUpdated, this))
             ;
 
@@ -47,11 +44,11 @@
      */
     TablePagerFootable.prototype.destroy = function () {
         this.$table
+            .off('table-pager-refreshed.st.tablepagerfootable', $.proxy(onPagerRefreshed, this))
             .off('footable_row_detail_updated.st.tablepagerfootable', $.proxy(onFootableRowDetailUpdated, this))
         ;
 
         this.$element
-            .off('table-pager-refreshed.st.tablepagerfootable', $.proxy(onPagerRefreshed, this))
             .removeData('st.tablepagerfootable')
         ;
     };
