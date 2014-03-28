@@ -114,7 +114,7 @@
                         <span class="table-pager-size">{{ source.size }}</span>
                     </div>
                 </div>
-                {% if block.parent.vars.attr['data-table-select'] == 'true' %}
+                {% if block.parent.vars.attr['data-table-select'] is defined and block.parent.vars.attr['data-table-select'] == 'true' %}
                 <div class="btn-group">
                     <span class="btn btn-{{ block.parent.vars.column_selection_stype|default('secondary') }} table-select-count disabled"></span>
                     <button class="btn btn-{{ block.parent.vars.column_selection_stype|default('secondary') }} table-select-clear fa fa-times"></button>

@@ -85,7 +85,8 @@ class TablePagerType extends AbstractType
             }
         }
 
-        if ('true' === $view->parent->vars['attr']['data-table-select']) {
+        if (array_key_exists('data-table-select', $view->parent->vars['attr'])
+                && 'true' === $view->parent->vars['attr']['data-table-select']) {
             $view->vars['attr']['data-table-id'] = $view->parent->vars['id'];
         }
     }
