@@ -1,4 +1,5 @@
 {% use '@SonatraBootstrap/Block/component_bootstrap.html.twig' with navbar_brand_widget as base_navbar_brand_widget,
+                                                                    panel_widget as base_panel_widget,
                                                                     panel_header_widget as base_panel_header_widget,
                                                                     panel_body_widget as base_panel_body_widget,
                                                                     panel_footer_widget as base_panel_footer_widget,
@@ -54,6 +55,16 @@
     <i{{ block('widget_attributes') }}></i>
 {% endspaceless %}
 {% endblock radio_widget_content %}
+
+
+{% block panel_widget %}
+{% spaceless %}
+    {{ block('base_panel_widget') }}
+    {% for panel in related_panels %}
+        {{ block_widget(panel) }}
+    {% endfor %}
+{% endspaceless %}
+{% endblock panel_widget %}
 
 
 {% block panel_header_widget %}

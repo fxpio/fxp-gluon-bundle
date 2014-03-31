@@ -12,6 +12,8 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
+use Sonatra\Bundle\BlockBundle\Block\BlockView;
+use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
@@ -21,6 +23,23 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class PanelExtension extends AbstractTypeExtension
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function finishView(BlockView $view, BlockInterface $block, array $options)
+    {
+        $relatedPanels = array();
+
+        foreach ($view->children as $name => $child) {
+            if (in_array('panel', $child->vars['block_prefixes'])) {
+                $relatedPanels[] = $child;
+                unset($view->children[$name]);
+            }
+        }
+
+        $view->vars['related_panels'] = $relatedPanels;
+    }
+
     /**
      * {@inheritdoc}
      */
