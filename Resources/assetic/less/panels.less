@@ -7,6 +7,28 @@
 
     > .panel-heading {
         border-color: @panel-inner-border;
+        padding: 0;
+
+        > .panel-title {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+        }
+    }
+
+    > .panel-heading,
+    > .panel-footer {
+        > .panel-actions {
+            float: right;
+            max-width: 68%;
+            text-align: right;
+            line-height: ceil((@font-size-base * 1.125));
+            padding: 10px 0;
+
+            > .btn {
+                margin: 2px;
+            }
+        }
     }
 }
 
@@ -29,6 +51,10 @@
     &.panel-danger {
         > .panel-heading {
             border-color: @panel-inner-border;
+
+            .panel-actions {
+                color: @text-color;
+            }
         }
     }
 }

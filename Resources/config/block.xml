@@ -64,6 +64,10 @@
             <argument>footer</argument>
         </service>
 
+        <service id="sonatra_gluon.block.type.panel_actions" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelActionsType">
+            <tag name="sonatra_block.type" alias="panel_actions" />
+        </service>
+
         <service id="sonatra_gluon.block.type_extension.table" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableExtension">
             <tag name="sonatra_block.type_extension" alias="table" />
         </service>

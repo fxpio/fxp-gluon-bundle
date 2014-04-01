@@ -236,14 +236,31 @@
             background-color: @bg-color;
             color: @text-color;
 
-            a,
-            a:hover,
-            a:focus {
-                color: @text-color;
+            &,
+            .panel-heading,
+            .panel-body,
+            .panel-footer {
+                > a {
+                    color: @text-color;
+
+                    &:hover,
+                    &:focus {
+                        color: darken(@text-color, 2%);
+                    }
+                }
             }
 
             .panel-heading {
                 border-bottom-color: @border-inner-color;
+
+                > .panel-actions {
+                    >.btn {
+                        &:hover,
+                        &:focus {
+                            color: darken(@text-color, 10%);
+                        }
+                    }
+                }
             }
 
             .panel-footer {

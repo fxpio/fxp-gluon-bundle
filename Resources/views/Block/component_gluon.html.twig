@@ -126,3 +126,15 @@
         </div>
 {% endspaceless %}
 {% endblock table_pager_widget %}
+
+{% block panel_actions_widget %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': ('panel-actions ' ~ attr.class|default(''))|trim}) %}
+    <div{{ block('widget_container_attributes') }}>
+        {{- value|raw -}}
+        {% for child in block %}
+            {{ block_widget(child) }}
+        {% endfor %}
+    </div>
+{% endspaceless %}
+{% endblock panel_actions_widget %}
