@@ -1,0 +1,7 @@
+# Form
+form:
+    select2:
+        cancel: "Annuler"
+    input:
+        file:
+            choose-file: "Choisir"
