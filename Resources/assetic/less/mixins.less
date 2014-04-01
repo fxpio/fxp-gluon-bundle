@@ -283,3 +283,22 @@
         .border-bottom-radius(@panel-border-radius);
     }
 }
+
+.panel-variant-top(@style; @border-color; @border-height) {
+    .panel {
+        &.panel-@{style}-top {
+            padding-top: @border-height;
+            .border-top-radius(0);
+
+            &:before {
+                content: "";
+                float: left;
+                width: 100%;
+                margin-top: -@border-height;
+                height: @border-height - 2;
+                outline: 1px solid @border-color;
+                background-color: @border-color;
+            }
+        }
+    }
+}

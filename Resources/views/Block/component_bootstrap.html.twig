@@ -59,6 +59,9 @@
 
 {% block panel_widget %}
 {% spaceless %}
+    {% if border_top_style is not null %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ border_top_style ~ '-top')|trim}) %}
+    {% endif %}
     {{ block('base_panel_widget') }}
     {% for panel in related_panels %}
         {{ block_widget(panel) }}

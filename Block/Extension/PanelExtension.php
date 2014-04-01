@@ -26,6 +26,16 @@ class PanelExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
+    public function buildView(BlockView $view, BlockInterface $block, array $options)
+    {
+        $view->vars = array_replace($view->vars, array(
+            'border_top_style' => $options['border_top_style'],
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function finishView(BlockView $view, BlockInterface $block, array $options)
     {
         $relatedPanels = array();
@@ -45,6 +55,14 @@ class PanelExtension extends AbstractTypeExtension
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        $resolver->setDefaults(array(
+            'border_top_style' => null,
+        ));
+
+        $resolver->addAllowedTypes(array(
+            'border_top_style' => array('null', 'string'),
+        ));
+
         $resolver->addAllowedValues(array(
             'style' => array(
                 'secondary',
@@ -54,6 +72,15 @@ class PanelExtension extends AbstractTypeExtension
                 'info-box',
                 'warning-box',
                 'danger-box',
+            ),
+            'border_top_style' => array(
+                'default',
+                'primary',
+                'secondary',
+                'success',
+                'info',
+                'warning',
+                'danger',
             ),
         ));
     }
