@@ -1,6 +1,5 @@
 {% use '@SonatraBootstrap/Block/component_bootstrap.html.twig' with navbar_brand_widget as base_navbar_brand_widget,
                                                                     panel_widget as base_panel_widget,
-                                                                    panel_header_widget as base_panel_header_widget,
                                                                     panel_body_widget as base_panel_body_widget,
                                                                     panel_footer_widget as base_panel_footer_widget,
                                                                     table_widget as base_table_widget %}
@@ -75,7 +74,22 @@
     {% if style is not null %}
         {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ style)|trim}) %}
     {% endif %}
-    {{ block('base_panel_header_widget') }}
+    {% set attr = attr|merge({'class': ('panel-heading ' ~ attr.class|default(''))|trim}) %}
+    <div{{ block('widget_container_attributes') }}>
+        {% if panel_actions is defined %}
+            {{ block_widget(panel_actions) }}
+        {% endif %}
+        {% if label is not empty %}
+            <h3 class="panel-title">{{- label|trans({}, translation_domain)|raw -}}</h3>
+        {% endif %}
+        {% if panel_actions is defined %}
+            <div class="clearfix"></div>
+        {% endif %}
+        {{- value|raw -}}
+        {% for child in block %}
+            {{ block_widget(child) }}
+        {% endfor %}
+    </div>
 {% endspaceless %}
 {% endblock panel_header_widget %}
 
