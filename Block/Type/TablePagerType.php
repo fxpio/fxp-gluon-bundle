@@ -79,7 +79,7 @@ class TablePagerType extends AbstractType
         ));
 
         foreach ($source->getColumns() as $name => $child) {
-            if ($child->getConfig()->getOption('sortable')) {
+            if ($child->getOption('sortable')) {
                 $view->vars['attr']['data-sortable'] = 'true';
                 break;
             }
