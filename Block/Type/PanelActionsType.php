@@ -14,7 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
-use Sonatra\Bundle\GluonBundle\Block\Util\PanelUtil;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 
 /**
  * Panel Actions Block Type.
@@ -28,7 +28,7 @@ class PanelActionsType extends AbstractType
      */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
-        if (!PanelUtil::isValidBlock('panel_header', $parent)) {
+        if (!BlockUtil::isValidBlock('panel_header', $parent)) {
             $msg = 'The "panel_actions" parent block (name: "%s") must be a "panel_header" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }
