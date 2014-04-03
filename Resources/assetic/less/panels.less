@@ -29,6 +29,32 @@
                 margin: 2px;
             }
         }
+
+        > .panel-buttons {
+            border-top: 1px solid @panel-inner-border;
+            margin: 0 -1px;
+            background-color: darken(@panel-bg, 1%);
+
+            > .nav-scrollable > .nav-btn-group {
+                white-space: nowrap;
+                display: inline-block;
+            }
+
+            > .btn,
+            > .btn-group > .btn,
+            > .nav-scrollable > .nav-btn-group > .btn,
+            > .nav-scrollable > .nav-btn-group > .btn-group > .btn {
+                margin: 5px 2px;
+
+                &:first-child {
+                    margin-left: 2px;
+                }
+
+                &:last-child {
+                    margin-right: 2px;
+                }
+            }
+        }
     }
 }
 

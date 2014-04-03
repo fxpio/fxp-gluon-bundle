@@ -141,3 +141,15 @@
     </div>
 {% endspaceless %}
 {% endblock panel_actions_widget %}
+
+{% block panel_buttons_widget %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': ('panel-buttons ' ~ attr.class|default(''))|trim}) %}
+    <div{{ block('widget_container_attributes') }}>
+        {{- value|raw -}}
+        {% for child in block %}
+            {{ block_widget(child) }}
+        {% endfor %}
+    </div>
+{% endspaceless %}
+{% endblock panel_buttons_widget %}

@@ -261,11 +261,21 @@
                         }
                     }
                 }
+
+                > .panel-buttons {
+                    border-top-color: @border-inner-color;
+                    background-color: lighten(@bg-color, 3%);
+                }
             }
 
             .panel-footer {
                 border-top-color: @border-inner-color;
                 background-color: @bg-color;
+
+                > .panel-buttons {
+                    border-bottom-color: @border-inner-color;
+                    background-color: lighten(@bg-color, 3%);
+                }
             }
         }
     }
@@ -276,6 +286,11 @@
         color: @text-color;
         margin: -1px -1px 0 -1px;
         .border-top-radius(@panel-border-radius);
+
+        > .panel-buttons {
+            border-top-color: @border-inner-color;
+            background-color: lighten(@bg-color, 3%);
+        }
     }
 
     .panel-body.panel-@{style}-box {
@@ -298,6 +313,11 @@
         color: @text-color;
         margin: 0 -1px -1px -1px;
         .border-bottom-radius(@panel-border-radius);
+
+        > .panel-buttons {
+            border-bottom-color: @border-inner-color;
+            background-color: lighten(@bg-color, 3%);
+        }
     }
 }
 
