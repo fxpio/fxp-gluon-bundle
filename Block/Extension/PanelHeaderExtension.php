@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 
 /**
  * Panel Header Block Extension.
@@ -22,6 +23,27 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
  */
 class PanelHeaderExtension extends AbstractTypeExtension
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function addChild(BlockInterface $child, BlockInterface $block, array $options)
+    {
+        if (BlockUtil::isValidBlock('panel_actions', $child)) {
+            if ($block->getAttribute('already_actions')) {
+                $actions = $block->get($block->getAttribute('already_actions'));
+
+                foreach ($actions->all() as $name => $action) {
+                    $child->add($action);
+                }
+
+                $block->remove($block->getAttribute('already_actions'));
+
+            } else {
+                $block->setAttribute('already_actions', $child->getName());
+            }
+        }
+    }
+
     /**
      * {@inheritdoc}
      */
