@@ -52,10 +52,14 @@ class PanelActionsType extends AbstractType
     {
         foreach ($view->children as $name => $child) {
             if (in_array('button', $child->vars['block_prefixes'])) {
-                $view->vars['panel_button_collapse'] = $child;
+                $class = isset($child->vars['attr']['class']) ? $child->vars['attr']['class'] : '';
 
-                unset($view->children[$name]);
-                break;
+                if (false !== strpos($class, 'btn-panel-collapse')) {
+                    $view->vars['panel_button_collapse'] = $child;
+
+                    unset($view->children[$name]);
+                    break;
+                }
             }
         }
     }
