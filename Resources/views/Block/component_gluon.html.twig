@@ -135,6 +135,9 @@
         {% for child in block %}
             {{ block_widget(child) }}
         {% endfor %}
+        {% if panel_button_collapse is defined %}
+            {{ block_widget(panel_button_collapse) }}
+        {% endif %}
     </div>
 {% endspaceless %}
 {% endblock panel_actions_widget %}

@@ -14,7 +14,9 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\Options;
 
 /**
  * Panel Block Extension.
@@ -26,10 +28,27 @@ class PanelExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
+    public function addChild(BlockInterface $child, BlockInterface $block, array $options)
+    {
+        if ($options['collapsible'] && BlockUtil::isValidBlock('panel_header', $child)) {
+            $child->add('_panel_actions', 'panel_actions', array());
+            $child->get('_panel_actions')->add('_button_collapse', 'button', array(
+                'label'       => '',
+                'attr'        => array('class' => 'btn-panel-collapse'),
+                'prepend'     => '<span class="caret"></span>'
+            ));
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
         $view->vars = array_replace($view->vars, array(
             'border_top_style' => $options['border_top_style'],
+            'collapsible'      => $options['collapsible'],
+            'collapsed'        => $options['collapsed'],
         ));
     }
 
@@ -57,10 +76,14 @@ class PanelExtension extends AbstractTypeExtension
     {
         $resolver->setDefaults(array(
             'border_top_style' => null,
+            'collapsible'      => false,
+            'collapsed'        => false,
         ));
 
         $resolver->addAllowedTypes(array(
             'border_top_style' => array('null', 'string'),
+            'collapsible'      => 'bool',
+            'collapsed'        => 'bool',
         ));
 
         $resolver->addAllowedValues(array(

@@ -61,6 +61,12 @@
     {% if border_top_style is not null %}
         {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ border_top_style ~ '-top')|trim}) %}
     {% endif %}
+    {% if collapsible %}
+        {% set attr = attr|merge({'data-panel-collapse': 'true'}) %}
+    {% endif %}
+    {% if collapsed %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-collapsed')|trim}) %}
+    {% endif %}
     {{ block('base_panel_widget') }}
     {% for panel in related_panels %}
         {{ block_widget(panel) }}
@@ -69,29 +75,23 @@
 {% endblock panel_widget %}
 
 
-{% block panel_header_widget %}
+{% block panel_header_widget_content %}
 {% spaceless %}
-    {% if style is not null %}
-        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ style)|trim}) %}
+    {% if panel_actions is defined %}
+        {{ block_widget(panel_actions) }}
     {% endif %}
-    {% set attr = attr|merge({'class': ('panel-heading ' ~ attr.class|default(''))|trim}) %}
-    <div{{ block('widget_container_attributes') }}>
-        {% if panel_actions is defined %}
-            {{ block_widget(panel_actions) }}
-        {% endif %}
-        {% if label is not empty %}
-            <h3 class="panel-title">{{- label|trans({}, translation_domain)|raw -}}</h3>
-        {% endif %}
-        {% if panel_actions is defined %}
-            <div class="clearfix"></div>
-        {% endif %}
-        {{- value|raw -}}
-        {% for child in block %}
-            {{ block_widget(child) }}
-        {% endfor %}
-    </div>
+    {% if panel_heading is defined %}
+        {{ block_widget(panel_heading) }}
+    {% endif %}
+    {% if panel_actions is defined %}
+        <div class="clearfix"></div>
+    {% endif %}
+    {{- value|raw -}}
+    {% for child in block %}
+        {{ block_widget(child) }}
+    {% endfor %}
 {% endspaceless %}
-{% endblock panel_header_widget %}
+{% endblock panel_header_widget_content %}
 
 
 {% block panel_body_widget %}

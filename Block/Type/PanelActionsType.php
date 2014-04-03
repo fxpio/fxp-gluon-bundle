@@ -13,6 +13,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 
@@ -26,11 +27,36 @@ class PanelActionsType extends AbstractType
     /**
      * {@inheritdoc}
      */
+    public function addChild(BlockInterface $child, BlockInterface $block, array $options)
+    {
+        if (BlockUtil::isValidBlock('button', $child)) {
+            $child->setOption('size', 'xs');
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
         if (!BlockUtil::isValidBlock('panel_header', $parent)) {
             $msg = 'The "panel_actions" parent block (name: "%s") must be a "panel_header" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function finishView(BlockView $view, BlockInterface $block, array $options)
+    {
+        foreach ($view->children as $name => $child) {
+            if (in_array('button', $child->vars['block_prefixes'])) {
+                $view->vars['panel_button_collapse'] = $child;
+
+                unset($view->children[$name]);
+                break;
+            }
         }
     }
 
