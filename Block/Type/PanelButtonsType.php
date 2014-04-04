@@ -14,7 +14,6 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
-use Sonatra\Bundle\BlockBundle\Block\BlockFactoryInterface;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -26,21 +25,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class PanelButtonsType extends AbstractType
 {
-    /**
-     * @var BlockFactoryInterface
-     */
-    protected $blockFactory;
-
-    /**
-     * Constructor.
-     *
-     * @param BlockFactoryInterface $blockFactory
-     */
-    public function __construct(BlockFactoryInterface $blockFactory)
-    {
-        $this->blockFactory = $blockFactory;
-    }
-
     /**
      * {@inheritdoc}
      */

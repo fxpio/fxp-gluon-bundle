@@ -74,7 +74,6 @@
 
         <service id="sonatra_gluon.block.type.panel_buttons" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelButtonsType">
             <tag name="sonatra_block.type" alias="panel_buttons" />
-            <argument type="service" id="sonatra_block.factory" />
         </service>
 
         <service id="sonatra_gluon.block.type_extension.table" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableExtension">
