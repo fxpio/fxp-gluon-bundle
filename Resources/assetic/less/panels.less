@@ -5,19 +5,10 @@
 .panel {
     .box-shadow(@panel-shadow);
 
-    > .panel-heading {
-        border-color: @panel-inner-border;
-        padding: 0;
-
-        > .panel-title {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 15px;
-        }
-    }
-
     > .panel-heading,
     > .panel-footer {
+        border-color: @panel-inner-border;
+
         > .panel-actions {
             float: right;
             max-width: 68%;
@@ -31,8 +22,7 @@
         }
 
         > .panel-buttons {
-            border-top: 1px solid @panel-inner-border;
-            margin: 0 -1px;
+            margin: 10px -16px;
             background-color: darken(@panel-bg, 1%);
 
             > .nav-scrollable > .nav-btn-group {
@@ -52,6 +42,59 @@
 
                 &:last-child {
                     margin-right: 2px;
+                }
+            }
+        }
+    }
+
+    > .panel-heading {
+        > .clearfix {
+            height: 0;
+        }
+
+        > .panel-actions {
+            margin-top: -10px;
+            margin-right: -15px;
+        }
+
+        > .panel-buttons {
+            border-top: 1px solid @panel-inner-border;
+            border-bottom: 1px solid @panel-inner-border;
+
+            &:first-child {
+                border-top: none;
+                margin-top: -11px;
+                .border-top-radius(@panel-border-radius);
+
+                > .nav-scrollable {
+                    .border-top-radius(@panel-border-radius);
+                }
+            }
+
+            &:last-child {
+                border-bottom: none;
+                margin-bottom: -10px;
+            }
+        }
+    }
+
+    > .panel-footer {
+        > .panel-buttons {
+            border-top: 1px solid @panel-inner-border;
+            border-bottom: 1px solid @panel-inner-border;
+
+            &:first-child {
+                border-top: none;
+                margin-top: -10px;
+            }
+
+            &:last-child {
+                border-bottom: none;
+                margin-bottom: -11px;
+                .border-bottom-radius(@panel-border-radius);
+
+                > .nav-scrollable {
+                    .border-bottom-radius(@panel-border-radius);
                 }
             }
         }
