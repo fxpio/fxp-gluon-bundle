@@ -339,3 +339,100 @@
         }
     }
 }
+
+.panel-variant-wire(@style; @heading-color) {
+    .panel {
+        &.panel-@{style}-wire {
+            background-color: transparent;
+            border-color: @panel-inner-border;
+            .box-shadow(none);
+
+            > .panel-heading {
+                color: @heading-color;
+
+                .panel-actions {
+                    color: @text-color;
+                }
+            }
+
+            > .panel-heading,
+            > .panel-footer {
+                background-color: transparent;
+
+                > .panel-buttons {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+.panel-variant-frame(@style; @heading-color) {
+    .panel {
+        &.panel-@{style}-frame {
+            > .panel-heading {
+                color: @heading-color;
+                border-color: transparent;
+
+                .panel-actions {
+                    color: @text-color;
+                }
+            }
+
+            > .panel-heading,
+            > .panel-footer {
+                border-color: transparent;
+
+                > .panel-buttons {
+                    border-color: transparent;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+.panel-variant-lite(@style; @heading-color) {
+    .panel {
+        &.panel-@{style}-lite {
+            background-color: transparent;
+            .box-shadow(none);
+            &:before {
+                float: none;
+                width: inherit;
+                margin-top: inherit;
+                height: inherit;
+                outline: inherit;
+                background-color: inherit;
+            }
+
+            > div {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            > .panel-heading {
+                color: @heading-color;
+                border-color: transparent;
+
+                .panel-actions {
+                    color: @text-color;
+                    margin-right: 0;
+                }
+            }
+
+            > .panel-heading,
+            > .panel-footer {
+                border-color: transparent;
+                background-color: transparent;
+
+                > .panel-buttons {
+                    border-color: transparent;
+                    background-color: transparent;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

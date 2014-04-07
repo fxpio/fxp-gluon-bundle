@@ -37,6 +37,11 @@ class PanelExtension extends AbstractTypeExtension
                 'attr'        => array('class' => 'btn-panel-collapse'),
                 'prepend'     => '<span class="caret"></span>'
             ));
+
+        } elseif (BlockUtil::isValidBlock('panel', $child)) {
+            if ($block->getOption('recursive_style')) {
+                $child->setOption('style', $block->getOption('style'));
+            }
         }
     }
 
@@ -49,6 +54,9 @@ class PanelExtension extends AbstractTypeExtension
             'border_top_style' => $options['border_top_style'],
             'collapsible'      => $options['collapsible'],
             'collapsed'        => $options['collapsed'],
+            'panels_rendered'  => $options['panels_rendered'],
+            'hidden_if_empty'  => $options['hidden_if_empty'],
+            'recursive_style'  => $options['recursive_style'],
         ));
     }
 
@@ -78,12 +86,18 @@ class PanelExtension extends AbstractTypeExtension
             'border_top_style' => null,
             'collapsible'      => false,
             'collapsed'        => false,
+            'panels_rendered'  => true,
+            'hidden_if_empty'  => true,
+            'recursive_style'  => false,
         ));
 
         $resolver->addAllowedTypes(array(
             'border_top_style' => array('null', 'string'),
             'collapsible'      => 'bool',
             'collapsed'        => 'bool',
+            'panels_rendered'  => 'bool',
+            'hidden_if_empty'  => 'bool',
+            'recursive_style'  => 'bool',
         ));
 
         $resolver->addAllowedValues(array(
@@ -95,6 +109,27 @@ class PanelExtension extends AbstractTypeExtension
                 'info-box',
                 'warning-box',
                 'danger-box',
+                'default-wire',
+                'primary-wire',
+                'secondary-wire',
+                'success-wire',
+                'info-wire',
+                'warning-wire',
+                'danger-wire',
+                'default-frame',
+                'primary-frame',
+                'secondary-frame',
+                'success-frame',
+                'info-frame',
+                'warning-frame',
+                'danger-frame',
+                'default-lite',
+                'primary-lite',
+                'secondary-lite',
+                'success-lite',
+                'info-lite',
+                'warning-lite',
+                'danger-lite',
             ),
             'border_top_style' => array(
                 'default',
