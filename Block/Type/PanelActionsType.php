@@ -39,8 +39,8 @@ class PanelActionsType extends AbstractType
      */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock('panel_header', $parent)) {
-            $msg = 'The "panel_actions" parent block (name: "%s") must be a "panel_header" block type';
+        if (!BlockUtil::isValidBlock(array('panel_header', 'panel_section'), $parent)) {
+            $msg = 'The "panel_actions" parent block (name: "%s") must be a "panel_header" or "panel_section" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }
     }

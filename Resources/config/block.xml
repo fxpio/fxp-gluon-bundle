@@ -76,6 +76,10 @@
             <tag name="sonatra_block.type" alias="panel_buttons" />
         </service>
 
+        <service id="sonatra_gluon.block.type.panel_section" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelSectionType">
+            <tag name="sonatra_block.type" alias="panel_section" />
+        </service>
+
         <service id="sonatra_gluon.block.type_extension.table" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableExtension">
             <tag name="sonatra_block.type_extension" alias="table" />
         </service>

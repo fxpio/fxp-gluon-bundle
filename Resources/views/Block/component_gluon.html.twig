@@ -153,3 +153,34 @@
     </div>
 {% endspaceless %}
 {% endblock panel_buttons_widget %}
+
+{% block panel_section_widget %}
+{% spaceless %}
+    {% if rendered %}
+	    {% set attr = attr|merge({'class': ('panel-section ' ~ attr.class|default(''))|trim}) %}
+	    {% if collapsible %}
+	        {% set attr = attr|merge({'data-panel-collapse': 'true', 'data-collapse-selector': '> .panel-section-heading > .panel-actions > .btn-panel-collapse'}) %}
+	    {% endif %}
+	    {% if collapsed %}
+	        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-collapsed')|trim}) %}
+	    {% endif %}
+	    <div{{ block('widget_container_attributes') }}>
+	        {% if panel_section_heading is defined or panel_section_actions is defined %}
+	            {% set label_attr = label_attr|merge({'class': ('panel-section-heading ' ~ label_attr.class|default(''))|trim}) %}
+                <div{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+			        {% if panel_section_actions is defined %}
+			            {{- block_widget(panel_section_actions) -}}
+			        {% endif %}
+			        {% if panel_section_heading is defined %}
+			            {{- block_widget(panel_section_heading) -}}
+			        {% endif %}
+		        </div>
+	        {% endif %}
+	        {{- value|raw -}}
+	        {% for child in block %}
+	            {{ block_widget(child) }}
+	        {% endfor %}
+	    </div>
+    {% endif %}
+{% endspaceless %}
+{% endblock panel_section_widget %}
