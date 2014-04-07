@@ -253,6 +253,20 @@
             .panel-heading {
                 border-bottom-color: @border-inner-color;
 
+                > .panel-buttons {
+                    border-top-color: @border-inner-color;
+                    background-color: lighten(@bg-color, 3%);
+                }
+            }
+
+            .panel-section-heading {
+                > .panel-section-title {
+                    color: darken(@text-color, 14%);
+                }
+            }
+
+            .panel-heading,
+            .panel-section-heading {
                 > .panel-actions {
                     >.btn {
                         &:hover,
@@ -260,11 +274,6 @@
                             color: darken(@text-color, 10%);
                         }
                     }
-                }
-
-                > .panel-buttons {
-                    border-top-color: @border-inner-color;
-                    background-color: lighten(@bg-color, 3%);
                 }
             }
 
