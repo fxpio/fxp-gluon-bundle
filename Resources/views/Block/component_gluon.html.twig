@@ -156,7 +156,7 @@
 
 {% block panel_section_widget %}
 {% spaceless %}
-    {% if rendered %}
+    {% if rendered and (not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0)) %}
 	    {% set attr = attr|merge({'class': ('panel-section ' ~ attr.class|default(''))|trim}) %}
 	    {% if collapsible %}
 	        {% set attr = attr|merge({'data-panel-collapse': 'true', 'data-collapse-selector': '> .panel-section-heading > .panel-actions > .btn-panel-collapse'}) %}

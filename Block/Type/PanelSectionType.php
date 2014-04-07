@@ -99,6 +99,7 @@ class PanelSectionType extends AbstractType
             'rendered'    => $options['rendered'],
             'collapsible' => $options['collapsible'],
             'collapsed'   => $options['collapsed'],
+            'hidden_if_empty' => $options['hidden_if_empty'],
         ));
     }
 
@@ -134,17 +135,19 @@ class PanelSectionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'inherit_data' => true,
-            'compound'     => true,
-            'rendered'     => true,
-            'collapsible'  => false,
-            'collapsed'    => false,
+            'inherit_data'    => true,
+            'compound'        => true,
+            'rendered'        => true,
+            'collapsible'     => false,
+            'collapsed'       => false,
+            'hidden_if_empty' => true,
         ));
 
         $resolver->addAllowedTypes(array(
-            'rendered'    => 'bool',
-            'collapsible' => 'bool',
-            'collapsed'   => 'bool',
+            'rendered'        => 'bool',
+            'collapsible'     => 'bool',
+            'collapsed'       => 'bool',
+            'hidden_if_empty' => 'bool',
         ));
 
         $resolver->addAllowedValues(array(
