@@ -96,9 +96,9 @@ class PanelSectionType extends AbstractType
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
         $view->vars = array_replace($view->vars, array(
-            'rendered'    => $options['rendered'],
-            'collapsible' => $options['collapsible'],
-            'collapsed'   => $options['collapsed'],
+            'rendered'        => $options['rendered'],
+            'collapsible'     => $options['collapsible'],
+            'collapsed'       => $options['collapsed'],
             'hidden_if_empty' => $options['hidden_if_empty'],
         ));
     }
