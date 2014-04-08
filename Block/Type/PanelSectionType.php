@@ -149,10 +149,6 @@ class PanelSectionType extends AbstractType
             'collapsed'       => 'bool',
             'hidden_if_empty' => 'bool',
         ));
-
-        $resolver->addAllowedValues(array(
-
-        ));
     }
 
     /**
