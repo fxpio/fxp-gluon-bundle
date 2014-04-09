@@ -97,12 +97,23 @@ class PanelButtonsType extends AbstractType
     /**
      * {@inheritdoc}
      */
+    public function finishView(BlockView $view, BlockInterface $block, array $options)
+    {
+        if (!is_scalar($view->vars['value'])) {
+            $view->vars['value'] = '';
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'scrollable'  => true,
-            'class_nav'   => 'nav-btn-group',
-            'button_size' => 'sm',
+            'inherit_data' => true,
+            'scrollable'   => true,
+            'class_nav'    => 'nav-btn-group',
+            'button_size'  => 'sm',
         ));
 
         $resolver->setAllowedTypes(array(

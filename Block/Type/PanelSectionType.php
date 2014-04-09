@@ -15,7 +15,6 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
-use Sonatra\Bundle\BlockBundle\Block\Extension\Core\DataMapper\WrapperMapper;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -32,8 +31,6 @@ class PanelSectionType extends AbstractType
      */
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
-        $builder->setDataMapper(new WrapperMapper());
-
         if (!BlockUtil::isEmpty($options['label'])) {
             $builder->add('_heading', 'heading', array(
                 'size'  => 6,
@@ -127,6 +124,10 @@ class PanelSectionType extends AbstractType
                 break;
             }
         }
+
+        if (!is_scalar($view->vars['value'])) {
+            $view->vars['value'] = '';
+        }
     }
 
     /**
@@ -136,7 +137,6 @@ class PanelSectionType extends AbstractType
     {
         $resolver->setDefaults(array(
             'inherit_data'    => true,
-            'compound'        => true,
             'rendered'        => true,
             'collapsible'     => false,
             'collapsed'       => false,
