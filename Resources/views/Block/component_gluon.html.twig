@@ -157,7 +157,7 @@
 {% block panel_section_widget %}
 {% spaceless %}
     {% if rendered and (not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0)) %}
-	    {% set attr = attr|merge({'class': ('panel-section ' ~ attr.class|default(''))|trim}) %}
+	    {% set attr = attr|merge({'class': ('panel-section container-fluid ' ~ attr.class|default(''))|trim}) %}
 	    {% if collapsible %}
 	        {% set attr = attr|merge({'data-panel-collapse': 'true', 'data-collapse-selector': '> .panel-section-heading > .panel-actions > .btn-panel-collapse'}) %}
 	    {% endif %}
@@ -184,3 +184,59 @@
     {% endif %}
 {% endspaceless %}
 {% endblock panel_section_widget %}
+
+{% block panel_row_widget %}
+{% spaceless %}
+    {% if rendered %}
+	    {% set attr = attr|merge({'class': ('panel-row row ' ~ attr.class|default(''))|trim}) %}
+	    <div{{ block('widget_container_attributes') }}>
+	        {{- value|raw -}}
+	        {% for child in block %}
+	            {{ block_widget(child) }}
+	        {% endfor %}
+	    </div>
+	{% endif %}
+{% endspaceless %}
+{% endblock panel_row_widget %}
+
+{% block panel_row_spacer_widget %}
+{% spaceless %}
+    {% set attr = attr|merge({'class': ('panel-row-spacer' ~ attr.class|default(''))|trim}) %}
+    {{ block('panel_row_widget') }}
+{% endspaceless %}
+{% endblock panel_row_spacer_widget %}
+
+{% block panel_cell_widget %}
+{% spaceless %}
+    {% if rendered %}
+	    {% set attr = attr|merge({'class': ('panel-cell block-horizontal ' ~ attr.class|default(''))|trim}) %}
+	    {% set control_attr = control_attr|merge({'class': (control_attr.class|default('') ~ ' block-control')|trim}) %}
+	    <div{{ block('widget_container_attributes') }}>
+	        {% if hidden %}
+	            <div class="col-{{ layout_col_size }}-{{ layout_col_label + layout_col_control }}"></div>
+	        {% else %}
+		        {{ block_label(block) }}
+		        <div class="col-{{ layout_col_size }}-{{ layout_col_control }}">
+			        <div{% for attrname, attrvalue in control_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+				        {{- value|raw -}}
+				        {% for child in block %}
+				            {{ block_widget(child) }}
+				        {% endfor %}
+			        </div>
+		        </div>
+	        {% endif %}
+	    </div>
+	{% endif %}
+{% endspaceless %}
+{% endblock panel_cell_widget %}
+
+{% block panel_cell_spacer_widget %}
+{% spaceless %}
+    {% if rendered %}
+	    {% set attr = attr|merge({'class': ('panel-cell panel-cell-spacer block-horizontal ' ~ attr.class|default(''))|trim}) %}
+	    <div{{ block('widget_container_attributes') }}>
+	        <div class="col-{{ layout_col_size }}-{{ layout_col_label + layout_col_control }}"></div>
+	    </div>
+	{% endif %}
+{% endspaceless %}
+{% endblock panel_cell_spacer_widget %}

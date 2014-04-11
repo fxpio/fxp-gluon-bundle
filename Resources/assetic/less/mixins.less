@@ -277,6 +277,24 @@
                 }
             }
 
+            .panel-row {
+                > .panel-cell {
+                    color: #ffffff;
+
+                    > .block-label {
+                        color: @text-color;
+                    }
+
+                    .block-control {
+                        color: @text-color;
+                    }
+                }
+
+                + .panel-row {
+                    border-top: 1px solid @border-inner-color;
+                }
+            }
+
             .panel-footer {
                 border-top-color: @border-inner-color;
                 background-color: @bg-color;
@@ -398,6 +416,14 @@
                     background-color: transparent;
                 }
             }
+
+            > .panel-section {
+                > .panel-row {
+                    + .panel-row {
+                        border-top: 1px solid transparent;
+                    }
+                }
+            }
         }
     }
 }
@@ -416,7 +442,7 @@
                 background-color: inherit;
             }
 
-            > div {
+            > div:not(.alert) {
                 padding-left: 0;
                 padding-right: 0;
             }
@@ -442,6 +468,34 @@
                     margin-left: 0;
                     margin-right: 0;
                 }
+            }
+
+            > .panel-section {
+                > div {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+
+                > .panel-row {
+                    + .panel-row {
+                        border-top: 1px solid transparent;
+                    }
+                }
+            }
+
+            > .alert {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.panel-variant-label(@style; @color) {
+    .panel {
+        .panel-cell {
+            .block-label-@{style} {
+                color: @color;
             }
         }
     }

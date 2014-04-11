@@ -18,6 +18,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\Options;
 
 /**
  * Panel Section Block Type.
@@ -41,9 +42,9 @@ class PanelSectionType extends AbstractType
         if ($options['collapsible']) {
             $builder->add('_panel_section_actions', 'panel_actions', array());
             $builder->get('_panel_section_actions')->add('_button_collapse', 'button', array(
-                'label'       => '',
-                'attr'        => array('class' => 'btn-panel-collapse'),
-                'prepend'     => '<span class="caret"></span>'
+                'label'   => '',
+                'attr'    => array('class' => 'btn-panel-collapse'),
+                'prepend' => '<span class="caret"></span>'
             ));
 
         }
@@ -84,6 +85,35 @@ class PanelSectionType extends AbstractType
             } else {
                 $block->setAttribute('already_actions', $child->getName());
             }
+
+        } elseif (BlockUtil::isValidBlock('panel_row', $child)) {
+            $cOptions = array();
+
+            if (null !== $block->getOption('column')) {
+                $cOptions['column'] = $block->getOption('column');
+            }
+
+            if (null !== $block->getOption('layout_max')) {
+                $cOptions['layout_max'] = $block->getOption('layout_max');
+            }
+
+            if (null !== $block->getOption('layout_label')) {
+                $cOptions['layout_label'] = $block->getOption('layout_label');
+            }
+
+            if (null !== $block->getOption('layout_size')) {
+                $cOptions['layout_size'] = $block->getOption('layout_size');
+            }
+
+            if (null !== $block->getOption('cell_label_style') && null === $child->getOption('cell_label_style')) {
+                $cOptions['cell_label_style'] = $block->getOption('cell_label_style');
+            }
+
+            $child->setOptions($cOptions);
+
+        } elseif (BlockUtil::isValidBlock('panel_cell', $child)) {
+            $msg = 'The panel cell block "%s" can be added in a panel row block.';
+            throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }
     }
 
@@ -93,10 +123,15 @@ class PanelSectionType extends AbstractType
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
         $view->vars = array_replace($view->vars, array(
-            'rendered'        => $options['rendered'],
-            'collapsible'     => $options['collapsible'],
-            'collapsed'       => $options['collapsed'],
-            'hidden_if_empty' => $options['hidden_if_empty'],
+            'rendered'         => $options['rendered'],
+            'collapsible'      => $options['collapsible'],
+            'collapsed'        => $options['collapsed'],
+            'hidden_if_empty'  => $options['hidden_if_empty'],
+            'column'           => $options['column'],
+            'layout_max'       => $options['layout_max'],
+            'layout_label'     => $options['layout_label'],
+            'layout_size'      => $options['layout_size'],
+            'cell_label_style' => $options['cell_label_style'],
         ));
     }
 
@@ -105,6 +140,9 @@ class PanelSectionType extends AbstractType
      */
     public function finishView(BlockView $view, BlockInterface $block, array $options)
     {
+        $hasRow = 0;
+        $hasRenderedRow = false;
+
         foreach ($view->children as $name => $child) {
             if (in_array('heading', $child->vars['block_prefixes'])) {
                 $class = isset($child->vars['attr']['class']) ? $child->vars['attr']['class'] : '';
@@ -121,12 +159,24 @@ class PanelSectionType extends AbstractType
                 }
 
                 unset($view->children[$name]);
-                break;
+
+            } elseif (in_array('panel_row', $child->vars['block_prefixes'])) {
+                $hasRow++;
+
+                if (!$hasRenderedRow && $child->vars['rendered']) {
+                    $hasRenderedRow = true;
+                }
             }
         }
 
         if (!is_scalar($view->vars['value'])) {
             $view->vars['value'] = '';
+        }
+
+        if ($view->vars['hidden_if_empty'] && BlockUtil::isEmpty($view->vars['value'])
+            && $hasRow === count($view->children)
+            && !$hasRenderedRow) {
+                $view->vars['rendered'] = false;
         }
     }
 
@@ -136,18 +186,28 @@ class PanelSectionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'inherit_data'    => true,
-            'rendered'        => true,
-            'collapsible'     => false,
-            'collapsed'       => false,
-            'hidden_if_empty' => true,
+            'inherit_data'     => true,
+            'rendered'         => true,
+            'collapsible'      => false,
+            'collapsed'        => false,
+            'hidden_if_empty'  => true,
+            'column'           => null,
+            'layout_max'       => null,
+            'layout_label'     => null,
+            'layout_size'      => null,
+            'cell_label_style' => null,
         ));
 
         $resolver->addAllowedTypes(array(
-            'rendered'        => 'bool',
-            'collapsible'     => 'bool',
-            'collapsed'       => 'bool',
-            'hidden_if_empty' => 'bool',
+            'rendered'         => 'bool',
+            'collapsible'      => 'bool',
+            'collapsed'        => 'bool',
+            'hidden_if_empty'  => 'bool',
+            'column'           => array('null', 'int'),
+            'layout_max'       => array('null', 'int'),
+            'layout_label'     => array('null', 'int'),
+            'layout_size'      => array('null', 'string'),
+            'cell_label_style' => array('null', 'string'),
         ));
     }
 

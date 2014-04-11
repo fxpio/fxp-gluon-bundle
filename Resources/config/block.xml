@@ -80,6 +80,22 @@
             <tag name="sonatra_block.type" alias="panel_section" />
         </service>
 
+        <service id="sonatra_gluon.block.type.panel_row" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelRowType">
+            <tag name="sonatra_block.type" alias="panel_row" />
+        </service>
+
+        <service id="sonatra_gluon.block.type.panel_row_spacer" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelRowSpacerType">
+            <tag name="sonatra_block.type" alias="panel_row_spacer" />
+        </service>
+
+        <service id="sonatra_gluon.block.type.panel_cell" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellType">
+            <tag name="sonatra_block.type" alias="panel_cell" />
+        </service>
+
+        <service id="sonatra_gluon.block.type.panel_cell_spacer" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellSpacerType">
+            <tag name="sonatra_block.type" alias="panel_cell_spacer" />
+        </service>
+
         <service id="sonatra_gluon.block.type_extension.table" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableExtension">
             <tag name="sonatra_block.type_extension" alias="table" />
         </service>

@@ -124,10 +124,34 @@
 
             + .panel-body {
                 padding-top: 0;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        > .panel-row {
+            + .panel-row {
+                border-top: 1px solid @panel-inner-row-border;
+            }
+
+            &.panel-row-spacer {
+                min-height: @input-height-base;
+            }
+
+            &:last-child {
+                margin-bottom: 10px;
+            }
+
+            > .panel-cell-spacer {
+                > div[class*="col-"] {
+                    min-height: @input-height-base;
+                }
             }
         }
 
         + .panel-section {
+            margin-top: 15px;
+
             > .panel-section-heading {
                 border-top: 1px dashed @panel-inner-border;
             }
@@ -152,6 +176,18 @@
                 }
             }
         }
+
+        &.container,
+        &.container-fluid {
+            > .panel-section-heading {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+        }
+    }
+
+    > .alert {
+        margin: 10px;
     }
 }
 
@@ -230,3 +266,11 @@
 .panel-variant-lite(info, @brand-info);
 .panel-variant-lite(warning, @brand-warning);
 .panel-variant-lite(danger, @brand-danger);
+
+.panel-variant-label(default, @text-color);
+.panel-variant-label(primary, @brand-primary);
+.panel-variant-label(secondary, @brand-secondary);
+.panel-variant-label(success, @brand-success);
+.panel-variant-label(info, @brand-info);
+.panel-variant-label(warning, @brand-warning);
+.panel-variant-label(danger, @brand-danger);

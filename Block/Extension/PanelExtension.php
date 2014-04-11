@@ -42,6 +42,21 @@ class PanelExtension extends AbstractTypeExtension
             if ($block->getOption('recursive_style')) {
                 $child->setOption('style', $block->getOption('style'));
             }
+
+        } elseif (BlockUtil::isValidBlock('panel_section', $child)) {
+            $cOptions = array();
+
+            if (null !== $block->getOption('cell_label_style') && null === $child->getOption('cell_label_style')) {
+                $cOptions['cell_label_style'] = $block->getOption('cell_label_style');
+            }
+
+            if (null !== $block->getOption('cell_layout_size') && null === $child->getOption('layout_size')) {
+                $cOptions['layout_size'] = $block->getOption('cell_layout_size');
+            }
+
+            if (count($cOptions) > 0) {
+                $child->setOptions($cOptions);
+            }
         }
     }
 
@@ -84,6 +99,8 @@ class PanelExtension extends AbstractTypeExtension
     {
         $resolver->setDefaults(array(
             'border_top_style' => null,
+            'cell_label_style' => null,
+            'cell_layout_size' => null,
             'collapsible'      => false,
             'collapsed'        => false,
             'panels_rendered'  => true,
@@ -93,6 +110,8 @@ class PanelExtension extends AbstractTypeExtension
 
         $resolver->addAllowedTypes(array(
             'border_top_style' => array('null', 'string'),
+            'cell_label_style' => array('null', 'string'),
+            'cell_layout_size' => array('null', 'string'),
             'collapsible'      => 'bool',
             'collapsed'        => 'bool',
             'panels_rendered'  => 'bool',
