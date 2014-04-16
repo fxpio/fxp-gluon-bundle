@@ -34,10 +34,45 @@
 
         var select2 = this.$element.data('select2');
 
+        if (!select2.opts.multiple) {
+            select2.selection.off('mousedown touchstart');
+            select2.selection.on("mousedown touchend", $.proxy(onSelect2Open, select2));
+        }
+
         if (select2.opts.ajax) {
             this.options.useScroll = true;
         }
     };
+
+    /**
+     * Action on open select2 dropdown.
+     *
+     * @param jQuery.Event event
+     *
+     * @this (is select2 instance)
+     * @private
+     */
+    function onSelect2Open (event) {
+        // Prevent IE from generating a click event on the body
+        var placeholder = $(document.createTextNode(''));
+
+        this.selection.before(placeholder);
+        placeholder.before(this.selection);
+        placeholder.remove();
+
+        if (!this.container.hasClass("select2-container-active")) {
+            this.opts.element.trigger($.Event("select2-focus"));
+        }
+
+        if (this.opened()) {
+            this.close();
+        } else if (this.isInterfaceEnabled()) {
+            this.open();
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+    }
 
     /**
      * Defaults options.
@@ -57,6 +92,10 @@
     Select2HammerScroll.prototype.destroy = function () {
         var select2 = $(event.delegateTarget).data('select2');
         var $dropdown = $(select2.dropdown);
+
+        if (!select2.opts.multiple) {
+            select2.selection.off("mousedown touchend", $.proxy(onSelect2Open, select2));
+        }
 
         $dropdown.off('DOMMouseScroll.st.select2hammerscroll mousewheel.st.select2hammerscroll touchmove.st.select2hammerscroll', $.proxy(blockEvent, this));
         this.$element.off('select2-open.st.select2hammerscroll', $.proxy(onOpen, this));
