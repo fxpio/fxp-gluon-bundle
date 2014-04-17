@@ -88,6 +88,7 @@
         inertiaFunction:     'ease',
         scrollbar:           true,
         scrollbarInverse:    false,
+        scrollbarMinHeight:  14,
         useScroll:           false,
         scrollTop:           null
     };
@@ -239,7 +240,7 @@
             this.$scrollbar.removeClass('hammer-scroll-active');
         }
 
-        this.$scrollbar.height(height);
+        this.$scrollbar.height(Math.max(height, this.options.scrollbarMinHeight));
         $.proxy(refreshScrollbarPosition, this)(false, top);
     };
 
