@@ -1,7 +1,5 @@
 # Form
 form:
-    select2:
-        cancel: "Cancel"
     input:
         file:
             choose-file: "Choose file"
