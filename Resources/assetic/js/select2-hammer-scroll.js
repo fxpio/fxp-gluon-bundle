@@ -40,9 +40,8 @@
             select2.selection.on("mousedown touchend", $.proxy(onSelect2Open, select2));
         }
 
-        if (select2.opts.ajax) {
-            this.options.useScroll = true;
-        }
+        // force use scroll
+        this.options.useScroll = true;
     };
 
     /**
@@ -52,7 +51,7 @@
      */
     Select2HammerScroll.DEFAULTS = {
         contentWrapperClass: 'select2-hammer-scroll-content',
-        useScroll:           false
+        useScroll:           true
     };
 
     /**
@@ -140,9 +139,11 @@
         var select2 = $(event.delegateTarget).data('select2');
         var $dropdown = $(select2.dropdown);
         var $results = $('.select2-results', $dropdown);
+        var scrollTop = $results.scrollTop();
 
         $dropdown.on('DOMMouseScroll.st.select2hammerscroll mousewheel.st.select2hammerscroll touchmove.st.select2hammerscroll', $.proxy(blockEvent, this));
-        this.$content = $results.hammerScroll(this.options);
+        $results.addClass('select2-hammer-scroll');
+        this.$content = $results.hammerScroll($.extend(this.options, {'scrollTop': scrollTop}));
         this.$content.hammerScroll('resizeScrollbar');
     }
 
@@ -157,8 +158,10 @@
     function onClose (event) {
         var select2 = $(event.delegateTarget).data('select2');
         var $dropdown = $(select2.dropdown);
+        var $results = $('.select2-results', $dropdown);
 
         $dropdown.off('DOMMouseScroll.st.select2hammerscroll mousewheel.st.select2hammerscroll touchmove.st.select2hammerscroll', $.proxy(blockEvent, this));
+        $results.removeClass('select2-hammer-scroll');
         this.$content.hammerScroll('destroy');
         this.$content = undefined;
     }

@@ -38,6 +38,7 @@
         }
 
         if (!this.options.useScroll) {
+            this.$element.scrollTop(0);
             $(window).on('resize.st.hammerscroll' + this.guid, $.proxy(this.resizeScroll, this));
             this.$element.on('scroll.st.hammerscroll', $.proxy(preventScroll, this));
         }
@@ -66,6 +67,10 @@
             .on('drag', $.proxy(this.onDrag, this))
             .on('dragend', $.proxy(this.onDragEnd, this));
         }
+
+        if (this.options.useScroll && null != this.options.scrollTop && 0 < this.options.scrollTop) {
+            this.scrollTop(this.options.scrollTop);
+        }
     };
 
     /**
@@ -83,7 +88,8 @@
         inertiaFunction:     'ease',
         scrollbar:           true,
         scrollbarInverse:    false,
-        useScroll:           false
+        useScroll:           false,
+        scrollTop:           null
     };
 
     /**
@@ -93,14 +99,17 @@
      */
     HammerScroll.prototype.onDrag = function (event) {
         if ('up' == event.gesture.direction || 'down' == event.gesture.direction) {
+            event.preventDefault();
+            event.stopPropagation();
+
             if (this.options.useScroll) {
-                var vertical = $.proxy(limitVerticalValue, this)(event, 0);
+                var vertical = $.proxy(limitVerticalValue, this)(event.gesture.deltaY, 0);
 
                 this.$element.scrollTop(vertical);
                 $.proxy(refreshScrollbarPosition, this)(false, this.$element.scrollTop());
 
             } else {
-                var vertical = $.proxy(limitVerticalValue, this)(event, this.options.maxBounce);
+                var vertical = $.proxy(limitVerticalValue, this)(event.gesture.deltaY, this.options.maxBounce);
 
                 $.proxy(changeTransition, this)(this.$content, 'none');
                 $.proxy(changeTransform, this)(this.$content, 'translate3d(0px, ' + -vertical + 'px, 0px)');
@@ -121,7 +130,10 @@
     HammerScroll.prototype.onDragEnd = function (event) {
         if (this.options.useScroll) {
             if ('up' == event.gesture.direction || 'down' == event.gesture.direction) {
-                var vertical = $.proxy(limitVerticalValue, this)(event, 0, true);
+                event.preventDefault();
+                event.stopPropagation();
+
+                var vertical = $.proxy(limitVerticalValue, this)(event.gesture.deltaY, 0, true, event.gesture.velocityY);
 
                 this.$element.animate({
                     scrollTop: vertical
@@ -134,7 +146,10 @@
             $.proxy(changeTransition, this)(this.$content);
 
             if ('up' == event.gesture.direction || 'down' == event.gesture.direction) {
-                var vertical = $.proxy(limitVerticalValue, this)(event, 0, true);
+                event.preventDefault();
+                event.stopPropagation();
+
+                var vertical = $.proxy(limitVerticalValue, this)(event.gesture.deltaY, 0, true, event.gesture.velocityY);
 
                 this.$content.on('transitionend msTransitionEnd oTransitionEnd', $.proxy(dragTransitionEnd, this));
                 $.proxy(changeTransform, this)(this.$content, 'translate3d(0px, ' + -vertical + 'px, 0px)');
@@ -229,6 +244,27 @@
     };
 
     /**
+     * Scroll the content.
+     *
+     * @param Number top
+     *
+     * @this
+     */
+    HammerScroll.prototype.scrollTop = function (top) {
+        if (this.options.useScroll) {
+            this.$element.scrollTop(top);
+            $.proxy(refreshScrollbarPosition, this)(false, this.$element.scrollTop());
+
+        } else {
+            var vertical = $.proxy(limitVerticalValue, this)(event.gesture.deltaY, 0);
+
+            $.proxy(changeTransition, this)(this.$content, 'none');
+            $.proxy(changeTransform, this)(this.$content, 'translate3d(0px, ' + -vertical + 'px, 0px)');
+            $.proxy(refreshScrollbarPosition, this)(false, -vertical);
+        }
+    };
+
+    /**
      * Refresh the sticky header on end of scroll inertia transition.
      *
      * @this
@@ -249,16 +285,17 @@
      * Limits the vertical value with top or bottom wrapper position (with or
      * without the max bounce).
      *
-     * @param Event   event
+     * @param Integer delta
      * @param Integer maxBounce
      * @param Boolean inertia
+     * @param Integer velocity
      *
      * @return Integer The limited vertical value
      *
      * @this
      * @private
      */
-    function limitVerticalValue (event, maxBounce, inertia) {
+    function limitVerticalValue (delta, maxBounce, inertia, velocity) {
         var useScroll = this.options.useScroll;
 
         if (undefined == this.dragStartPosition) {
@@ -268,11 +305,11 @@
         var wrapperHeight = this.$element.innerHeight();
         var height = useScroll ? this.$element.get(0).scrollHeight : this.$content.outerHeight();
         var maxScroll = height - wrapperHeight + maxBounce;
-        var vertical = -Math.round(event.gesture.deltaY + this.dragStartPosition);
+        var vertical = -Math.round(delta + this.dragStartPosition);
 
         // inertia
         if (inertia) {
-            var inertiaVal = -event.gesture.deltaY * event.gesture.velocityY * (1 + this.options.inertiaVelocity);
+            var inertiaVal = -delta * velocity * (1 + this.options.inertiaVelocity);
             vertical = Math.round(vertical + inertiaVal);
         }
 
@@ -574,7 +611,7 @@
             }
 
             if (typeof option == 'string') {
-                data[option]();
+                data[option](_relatedTarget);
             }
         });
     };
