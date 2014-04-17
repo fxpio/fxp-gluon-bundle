@@ -52,7 +52,7 @@
 {% block choice_widget %}
 {% spaceless %}
     {% if select2 is defined %}
-        {% set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim, 'data-select2-responsive': 'true'})}) %}
+        {% set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim})}) %}
         {% if select2.ajax or select2.tags is defined %}
             {% set form_widget_simple_block_name = 'select2_widget_content' %}
             {{ block('form_widget_simple') }}
@@ -68,7 +68,7 @@
 {% block collection_widget %}
 {% spaceless %}
     {% if select2 is defined %}
-        {% set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim, 'data-select2-responsive': 'true'})}) %}
+        {% set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim})}) %}
         {% if select2.ajax or select2.tags is defined %}
             {% set form_widget_simple_block_name = 'select2_widget_content' %}
             {{ block('form_widget_simple') }}
@@ -111,7 +111,7 @@
 
 {% block select2_widget_content %}
 {% spaceless %}
-{% set attr = attr|merge({'data-select2-hammer-scroll': 'true'}) %}
+{% set attr = attr|merge({'data-select2-hammer-scroll': 'true', 'data-select2-responsive': 'true'}) %}
     {{ block('base_select2_widget_content') }}
 {% endspaceless %}
 {% endblock select2_widget_content %}
