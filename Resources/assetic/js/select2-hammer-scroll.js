@@ -60,7 +60,7 @@
      * @this
      */
     Select2HammerScroll.prototype.destroy = function () {
-        var select2 = $(event.delegateTarget).data('select2');
+        var select2 = this.$element.data('select2');
         var $dropdown = $(select2.dropdown);
 
         if (!select2.opts.multiple) {
@@ -136,7 +136,7 @@
      * @private
      */
     function onOpen (event) {
-        var select2 = $(event.delegateTarget).data('select2');
+        var select2 = this.$element.data('select2');
         var $dropdown = $(select2.dropdown);
         var $results = $('.select2-results', $dropdown);
         var scrollTop = $results.scrollTop();
@@ -156,7 +156,7 @@
      * @private
      */
     function onClose (event) {
-        var select2 = $(event.delegateTarget).data('select2');
+        var select2 = this.$element.data('select2');
         var $dropdown = $(select2.dropdown);
         var $results = $('.select2-results', $dropdown);
 
