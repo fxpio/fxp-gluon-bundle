@@ -30,18 +30,32 @@
             this.stickyHeader = this.$element.stickyheader().data('st.stickyheader');
         }
 
-        this.$element.css('overflow-y', 'hidden');
-        this.$content = wrapContent.apply(this);
-
-        if (null != this.$element.css('right')) {
-            this.$element.css('right', 0);
-        }
-
         if (!this.options.useScroll) {
+            this.options.nativeScroll = false;
             this.$element.scrollTop(0);
             $(window).on('resize.st.hammerscroll' + this.guid, $.proxy(this.resizeScroll, this));
             this.$element.on('scroll.st.hammerscroll', $.proxy(preventScroll, this));
         }
+
+        if (this.options.nativeScroll) {
+            this.options.eventDelegated = true;
+
+            if (isIE() || mobileCheck()) {
+                this.options.scrollbar = false;
+
+            } else {
+                this.$element.on('scroll.st.hammerscroll', $.proxy(onScrolling, this));
+            }
+
+        } else {
+            this.$element.css('overflow-y', 'hidden');
+
+            if (null != this.$element.css('right')) {
+                this.$element.css('right', 0);
+            }
+        }
+
+        this.$content = wrapContent.apply(this);
 
         if (this.options.scrollbar) {
             this.$scrollbar = generateScrollbar.apply(this);
@@ -50,7 +64,7 @@
             $(window).on('resize.st.hammerscroll-bar' + this.guid, $.proxy(this.resizeScrollbar, this));
         }
 
-        this.$element.on('DOMMouseScroll mousewheel', $.proxy(onMouseScroll, this));
+        this.$element.on('DOMMouseScroll.st.hammerscroll mousewheel.st.hammerscroll', $.proxy(onMouseScroll, this));
 
         if (!this.options.eventDelegated) {
             this.hammer = new Hammer(this.$element.get(0), {
@@ -60,7 +74,7 @@
                 hold: false,
                 swipe: false,
                 drag_block_vertical: true,
-                drag_lock_to_axis: true,
+                drag_lock_to_axis: false,
                 drag_min_distance: 3
             })
 
@@ -90,6 +104,7 @@
         scrollbarInverse:    false,
         scrollbarMinHeight:  14,
         useScroll:           false,
+        nativeScroll:        false,
         scrollTop:           null
     };
 
@@ -169,7 +184,8 @@
     HammerScroll.prototype.destroy = function () {
         this.$content = unwrapContent.apply(this);
         this.$element.css('overflow-y', '');
-        this.$element.off('DOMMouseScroll mousewheel', $.proxy(onMouseScroll, this));
+        this.$element.off('scroll.st.hammerscroll', $.proxy(onScrolling, this));
+        this.$element.off('DOMMouseScroll.st.hammerscroll mousewheel.st.hammerscroll', $.proxy(onMouseScroll, this));
         $(window).off('resize.st.hammerscroll' + this.guid, $.proxy(this.resizeScroll, this));
         $(window).off('resize.st.hammerscroll-bar' + this.guid, $.proxy(this.resizeScrollbar, this));
         this.$element.off('scroll.st.hammerscroll', $.proxy(preventScroll, this));
@@ -230,7 +246,7 @@
         var useScroll = this.options.useScroll;
         var wrapperHeight = this.$element.innerHeight();
         var contentHeight = useScroll ? this.$element.get(0).scrollHeight : this.$content.outerHeight();
-        var height = Math.round(wrapperHeight * Math.min(wrapperHeight / contentHeight, 1));
+        var height = Math.max(this.options.scrollbarMinHeight, Math.round(wrapperHeight * Math.min(wrapperHeight / contentHeight, 1)));
         var top = useScroll ? this.$element.scrollTop() : this.$content.position()['top'];
 
         if (height < wrapperHeight) {
@@ -240,7 +256,7 @@
             this.$scrollbar.removeClass('hammer-scroll-active');
         }
 
-        this.$scrollbar.height(Math.max(height, this.options.scrollbarMinHeight));
+        this.$scrollbar.height(height);
         $.proxy(refreshScrollbarPosition, this)(false, top);
     };
 
@@ -346,6 +362,10 @@
      * @private
      */
     function wrapContent () {
+        if (this.options.nativeScroll && !this.options.scrollbar) {
+            return this.$element;
+        }
+
         var $content = $([
             '<div class="' + this.options.contentWrapperClass + '"></div>'
         ].join(''));
@@ -353,6 +373,20 @@
         if (this.options.useScroll) {
             this.$element.before($content);
             $content.append(this.$element);
+
+            if (this.options.nativeScroll && !isIE()) {
+                var sbDiv = document.createElement("div");
+                sbDiv.style.width = '100px';
+                sbDiv.style.height = '100px';
+                sbDiv.style.overflow = 'scroll';
+                sbDiv.style.position = '100px';
+                sbDiv.style.top = '-9999px';
+
+                document.body.appendChild(sbDiv);
+                $content.css('overflow-x', 'hidden');
+                this.$element.css('margin-right', -(sbDiv.offsetWidth - sbDiv.clientWidth) + 'px');
+                document.body.removeChild(sbDiv);
+            }
 
         } else {
             this.$element.children().each(function () {
@@ -366,6 +400,15 @@
     }
 
     /**
+     * Check is browser is IE.
+     *
+     * @return Boolean
+     */
+    function isIE () {
+        return -1 != navigator.userAgent.toLowerCase().indexOf('trident');
+    }
+
+    /**
      * Unwraps the content.
      *
      * @return null
@@ -375,6 +418,10 @@
      */
     function unwrapContent () {
         var self = this;
+
+        if (this.options.nativeScroll && !this.options.scrollbar) {
+            return null;
+        }
 
         if (this.options.useScroll) {
             if (1 == this.$content.find(this.$element).size()) {
@@ -444,6 +491,22 @@
     }
 
     /**
+     * Action on native scrolling.
+     *
+     * @param jQuery.Event event
+     *
+     * @this
+     * @private
+     */
+    function onScrolling (event) {
+        $.proxy(refreshScrollbarPosition, this)(false, this.$element.scrollTop());
+
+        if (undefined != this.stickyHeader) {
+            this.stickyHeader.checkPosition();
+        }
+    }
+
+    /**
      * Action on mouse scroll event.
      *
      * @param jQuery.Event event
@@ -453,23 +516,48 @@
      */
     function onMouseScroll (event) {
         if (this.options.useScroll) {
-            var delta = (event.originalEvent.type == 'DOMMouseScroll' ?
-                    event.originalEvent.detail * -40 :
-                        event.originalEvent.wheelDelta);
-            var position = this.$element.scrollTop() - delta;
+            $.proxy(onMouseScrollNative, this)(event);
 
-            event.stopPropagation();
-            event.preventDefault();
-            this.$element.scrollTop(position);
-            $.proxy(refreshScrollbarPosition, this)(false, this.$element.scrollTop());
-
-            if (undefined != this.stickyHeader) {
-                this.stickyHeader.checkPosition();
-            }
-
-            return;
+        } else {
+            $.proxy(onMouseScrollCssTransform, this)(event);
         }
+    }
 
+    /**
+     * Action on mouse scroll event.
+     *
+     * @param jQuery.Event event
+     *
+     * @this
+     * @private
+     */
+    function onMouseScrollNative (event) {
+        var delta = (event.originalEvent.type == 'DOMMouseScroll' ?
+                event.originalEvent.detail * -40 :
+                    event.originalEvent.wheelDelta);
+        var position = this.$element.scrollTop();
+        var maxPosition = this.$element.get(0).scrollHeight - this.$element.innerHeight();
+
+        if (!this.options.nativeScroll) {
+            this.$element.scrollTop(this.$element.scrollTop() - delta);
+
+        } else {
+            if ((delta > 0 && position <= 0) || (delta < 0 && position >= maxPosition)) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+        }
+    }
+
+    /**
+     * Action on mouse scroll event.
+     *
+     * @param jQuery.Event event
+     *
+     * @this
+     * @private
+     */
+    function onMouseScrollCssTransform (event) {
         var position = -this.$content.position()['top'];
         var wrapperHeight = this.$element.innerHeight();
         var contentHeight = this.$content.outerHeight();
@@ -589,6 +677,27 @@
     function changeTransform ($target, transform) {
         $target.css('-webkit-transform', transform);
         $target.css('transform', transform);
+    }
+
+    /**
+     * Check if is a mobile device.
+     *
+     * @return Boolean
+     *
+     * @this
+     * @private
+     */
+    function mobileCheck () {
+        var check = false;
+
+        (function (a) {
+            if(/(android|ipad|playbook|silk|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) {
+                check = true;
+            }
+
+        })(navigator.userAgent || navigator.vendor || window.opera);
+
+        return check;
     }
 
 

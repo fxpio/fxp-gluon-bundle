@@ -31,9 +31,6 @@
         this.$element.on('select2-open.st.select2hammerscroll', $.proxy(onOpen, this));
         this.$element.on('select2-close.st.select2hammerscroll', $.proxy(onClose, this));
         this.$element.on('select2-loaded.st.select2hammerscroll', $.proxy(onLoaded, this));
-
-        // force use scroll
-        this.options.useScroll = true;
     };
 
     /**
@@ -43,7 +40,8 @@
      */
     Select2HammerScroll.DEFAULTS = {
         contentWrapperClass: 'select2-hammer-scroll-content',
-        useScroll:           true
+        useScroll:           true,
+        nativeScroll:        true,
     };
 
     /**
@@ -55,7 +53,7 @@
         var select2 = this.$element.data('select2');
         var $dropdown = $(select2.dropdown);
 
-        $dropdown.off('DOMMouseScroll.st.select2hammerscroll mousewheel.st.select2hammerscroll touchmove.st.select2hammerscroll', $.proxy(blockEvent, this));
+        //$dropdown.off('touchmove.st.select2hammerscroll MSPointerMove.st.select2hammerscroll', $.proxy(blockEvent, this));
         this.$element.off('select2-open.st.select2hammerscroll', $.proxy(onOpen, this));
         this.$element.off('select2-close.st.select2hammerscroll', $.proxy(onClose, this));
         this.$element.off('select2-loaded.st.select2hammerscroll', $.proxy(onLoaded, this));
@@ -81,8 +79,16 @@
         var $results = $('.select2-results', $dropdown);
         var scrollTop = $results.scrollTop();
 
-        $dropdown.on('DOMMouseScroll.st.select2hammerscroll mousewheel.st.select2hammerscroll touchmove.st.select2hammerscroll', $.proxy(blockEvent, this));
-        $results.addClass('select2-hammer-scroll');
+        $dropdown.off('touchstart touchend touchmove mousemove-filtered');
+        //$dropdown.on('touchmove.st.select2hammerscroll MSPointerMove.st.select2hammerscroll', $.proxy(blockEvent, this));
+
+        if (this.options.nativeScroll) {
+            $results.addClass('select2-hammer-scroll-native');
+
+        } else {
+            $results.addClass('select2-hammer-scroll');
+        }
+
         this.$content = $results.hammerScroll($.extend(this.options, {'scrollTop': scrollTop}));
         this.$content.hammerScroll('resizeScrollbar');
     }
@@ -100,8 +106,9 @@
         var $dropdown = $(select2.dropdown);
         var $results = $('.select2-results', $dropdown);
 
-        $dropdown.off('DOMMouseScroll.st.select2hammerscroll mousewheel.st.select2hammerscroll touchmove.st.select2hammerscroll', $.proxy(blockEvent, this));
+        //$dropdown.off('touchmove.st.select2hammerscroll MSPointerMove.st.select2hammerscroll', $.proxy(blockEvent, this));
         $results.removeClass('select2-hammer-scroll');
+        $results.removeClass('select2-hammer-scroll-native');
         this.$content.hammerScroll('destroy');
         this.$content = undefined;
     }
