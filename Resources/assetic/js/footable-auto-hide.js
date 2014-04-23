@@ -7,67 +7,48 @@
  * file that was distributed with this source code.
  */
 
-+function ($, w) {
+/*global jQuery*/
+/*global window*/
+/*global document*/
+/*global CustomEvent*/
+/*global Footable*/
+/*global AutoHide*/
+
+/**
+ * @param {jQuery} $
+ * @param {window} w
+ *
+ * @typedef {AutoHide} AutoHide
+ */
+(function ($, w) {
     'use strict';
 
-    if (w.footable === undefined) {
+    if (undefined === w.footable) {
         throw new Error('Please check and make sure footable.js is included in the page and is loaded prior to this script.');
-    }
-
-    /**
-     * Defaults options.
-     *
-     * @type Array
-     */
-    var defaults = {
-        autoHide: {
-            enabled: true,
-            minWidth: 90
-        }
-    };
-
-    // FOOTABLE AUTO HIDE COLUMN CLASS DEFINITION
-    // ==========================================
-
-    /**
-     * @constructor
-     *
-     * @this
-     */
-    function AutoHide () {
-        this.name = "Sonatra Footable Auto Hide";
-        this.init = function (ft) {
-            if (!ft.options.autoHide.enabled) {
-                return;
-            }
-
-            var $table = $(ft.table);
-            var $responsive = $table.parent('.table-responsive');
-
-            if (1 == $responsive.size()) {
-                $table.on('footable_initialized.autohide', $.proxy(onInitializedTable, ft.table));
-                $table.on('footable_resizing.autohide', $.proxy(onResizingTable, ft.table));
-                $table.on('footable_resized.autohide', $.proxy(onResizedTable, ft.table));
-            }
-        };
     }
 
     /**
      * Initialize the config.
      *
-     * @param Event event
+     * @param {Event} event
+     *
+     * @typedef {Footable} event.ft
      *
      * @private
      */
-    function onInitializedTable (event) {
-        var ft = event.ft;
+    function onInitializedTable(event) {
+        var ft = event.ft,
+            $table,
+            $columns,
+            data,
+            i;
 
         if (!ft.hasAnyBreakpointColumn()) {
-            var $table = $(this);
-            var $columns = $table.find(ft.options.columnDataSelector);
+            $table = $(event.target);
+            $columns = $table.find(ft.options.columnDataSelector);
 
-            for (var i = 0; i < $columns.size(); i++) {
-                var data = ft.getColumnData($columns.get(i));
+            for (i = 0; i < $columns.size(); i += 1) {
+                data = ft.getColumnData($columns.get(i));
                 data.hasBreakpoint = true;
 
                 ft.columns[data.index] = data;
@@ -80,17 +61,21 @@
     /**
      * Restore all column.
      *
-     * @param Event event
+     * @param {Event} event
+     *
+     * @typedef {Footable} event.ft
      *
      * @private
      */
-    function onResizingTable (event) {
-        var ft = event.ft;
-        var $table = $(this);
-        var $columns = $table.find(ft.options.columnDataSelector);
+    function onResizingTable(event) {
+        var ft = event.ft,
+            $table = $(event.target),
+            $columns = $table.find(ft.options.columnDataSelector),
+            data,
+            i;
 
-        for (var i = 0; i < $columns.size(); i++) {
-            var data = ft.getColumnData($columns.get(i));
+        for (i = 0; i < $columns.size(); i += 1) {
+            data = ft.getColumnData($columns.get(i));
             ft.columns[data.index] = data;
         }
 
@@ -100,29 +85,34 @@
     /**
      * Hides the columns in the scroll.
      *
-     * @param Event event
+     * @param {Event} event
+     *
+     * @typedef {Footable} event.ft
      *
      * @private
      */
-    function onResizedTable (event) {
-        var ft = event.ft;
-        var $table = $(this);
-        var $columns = $table.find(event.ft.options.columnDataSelector);
-        var tableWidth = $table.parent().innerWidth();
-        var contentWidth = 0;
-        var breakpointName = $table.data('breakpoint');
-        var hasHiddenCol = false;
+    function onResizedTable(event) {
+        var ft = event.ft,
+            $table = $(event.target),
+            $columns = $table.find(ft.options.columnDataSelector),
+            tableWidth = $table.parent().innerWidth(),
+            contentWidth = 0,
+            breakpointName = $table.data('breakpoint'),
+            hasHiddenCol = false,
+            $column,
+            data,
+            i;
 
         $table.addClass('breakpoint');
 
-        for (var i = 0; i < $columns.size(); i++) {
-            var $column = $columns.eq(i);
+        for (i = 0; i < $columns.size(); i += 1) {
+            $column = $columns.eq(i);
 
             if ($column.is(":visible")) {
                 contentWidth += $column.outerWidth();
 
                 if (contentWidth >= tableWidth) {
-                    var data = ft.getColumnData($column.get(0));
+                    data = ft.getColumnData($column.get(0));
                     data.hide[breakpointName] = true;
                     data.hasBreakpoint = true;
 
@@ -138,7 +128,45 @@
             $table.addClass(breakpointName + ' breakpoint');
         }
 
-        event.ft.redraw();
+        ft.redraw();
+    }
+
+    /**
+     * Defaults options.
+     *
+     * @type {object}
+     */
+    var defaults = {
+        autoHide: {
+            enabled: true,
+            minWidth: 90
+        }
+    };
+
+    // FOOTABLE AUTO HIDE COLUMN CLASS DEFINITION
+    // ==========================================
+
+    /**
+     * @constructor
+     *
+     * @this AutoHide
+     */
+    function AutoHide() {
+        this.name = "Sonatra Footable Auto Hide";
+        this.init = function (ft) {
+            if (!ft.options.autoHide.enabled) {
+                return;
+            }
+
+            var $table = $(ft.table),
+                $responsive = $table.parent('.table-responsive');
+
+            if (1 === $responsive.size()) {
+                $table.on('footable_initialized.autohide', onInitializedTable);
+                $table.on('footable_resizing.autohide', onResizingTable);
+                $table.on('footable_resized.autohide', onResizedTable);
+            }
+        };
     }
 
 
@@ -147,4 +175,4 @@
 
     w.footable.plugins.register(AutoHide, defaults);
 
-}(jQuery, window);
+}(jQuery, window));
