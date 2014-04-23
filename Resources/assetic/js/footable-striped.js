@@ -7,17 +7,60 @@
  * file that was distributed with this source code.
  */
 
-+function ($, w) {
+/*global jQuery*/
+/*global window*/
+/*global Footable*/
+/*global Striped*/
+
+/**
+ * @param {jQuery} $
+ * @param {window} w
+ *
+ * @typedef {Striped} Striped
+ */
+(function ($, w) {
     'use strict';
 
-    if (w.footable === undefined) {
+    if (undefined === w.footable) {
         throw new Error('Please check and make sure footable.js is included in the page and is loaded prior to this script.');
+    }
+
+    /**
+     * Stripping table.
+     *
+     * @param {Event} event
+     *
+     * @typedef {Footable} event.ft
+     *
+     * @private
+     */
+    function stripingTable(event) {
+        var ft = event.ft,
+            rowIndex = 0;
+
+        $(ft.table).find('> tbody > tr:not(.footable-row-detail)').each(function () {
+            var $row = $(this);
+
+            // clean off old classes
+            $row
+                .removeClass(ft.options.classes.striping.even)
+                .removeClass(ft.options.classes.striping.odd);
+
+            if (rowIndex % 2 === 0) {
+                $row.addClass(ft.options.classes.striping.even);
+
+            } else {
+                $row.addClass(ft.options.classes.striping.odd);
+            }
+
+            rowIndex += 1;
+        });
     }
 
     /**
      * Defaults options.
      *
-     * @type Array
+     * @type {object}
      */
     var defaults = {
         striped: {
@@ -37,9 +80,9 @@
     /**
      * @constructor
      *
-     * @this
+     * @this Striped
      */
-    function Striped () {
+    function Striped() {
         this.name = "Sonatra Footable Striped";
         this.init = function (ft) {
             if (!ft.options.striped.enabled) {
@@ -52,34 +95,10 @@
         };
     }
 
-    function stripingTable (event) {
-        var ft = event.ft;
-        var rowIndex = 0;
-
-        $(ft.table).find('> tbody > tr:not(.footable-row-detail)').each(function () {
-            var $row = $(this);
-
-            // clean off old classes
-            $row
-                .removeClass(ft.options.classes.striping.even)
-                .removeClass(ft.options.classes.striping.odd)
-            ;
-
-            if (rowIndex % 2 === 0) {
-                $row.addClass(ft.options.classes.striping.even);
-
-            } else {
-                $row.addClass(ft.options.classes.striping.odd);
-            }
-
-            rowIndex++;
-        });
-    }
-
 
     // FOOTABLE STRIPED PLUGIN DEFINITION
     // ==================================
 
     w.footable.plugins.register(Striped, defaults);
 
-}(jQuery, window);
+}(jQuery, window));
