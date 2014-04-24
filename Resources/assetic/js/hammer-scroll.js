@@ -472,8 +472,8 @@
 
         var self = this;
 
-        if (this.options.hammerStickyHeader && $.fn.stickyheader) {
-            this.stickyHeader = this.$element.stickyheader().data('st.stickyheader');
+        if (this.options.hammerStickyHeader && $.fn.stickyHeader) {
+            this.stickyHeader = this.$element.stickyHeader().data('st.stickyheader');
         }
 
         if (!this.options.useScroll) {
