@@ -7,8 +7,84 @@
  * file that was distributed with this source code.
  */
 
-+function ($) {
+/*global jQuery*/
+/*global window*/
+/*global Select2HammerScroll*/
+
+/**
+ * @param {jQuery} $
+ *
+ * @typedef {Select2HammerScroll} Select2HammerScroll
+ */
+(function ($) {
     'use strict';
+
+    /**
+     * Action on opened select2 dropdown.
+     *
+     * @param {jQuery.Event|Event} event
+     *
+     * @typedef {Select2HammerScroll} Event.data The select2 hammer scroll instance
+     *
+     * @private
+     */
+    function onOpen(event) {
+        var self = event.data,
+            select2 = self.$element.data('select2'),
+            $dropdown = $(select2.dropdown),
+            $results = $('.select2-results', $dropdown).eq(0),
+            scrollTop = $results.scrollTop();
+
+        $dropdown.off('touchstart touchend touchmove mousemove-filtered');
+
+        if (self.options.nativeScroll) {
+            $results.addClass('select2-hammer-scroll-native');
+
+        } else {
+            $results.addClass('select2-hammer-scroll');
+        }
+
+        self.$content = $results.hammerScroll($.extend(self.options, {'scrollTop': scrollTop}));
+        self.$content.hammerScroll('resizeScrollbar');
+    }
+
+    /**
+     * Action on closed select2 dropdown.
+     *
+     * @param {jQuery.Event|Event} event
+     *
+     * @typedef {Select2HammerScroll} Event.data The select2 hammer scroll instance
+     *
+     * @private
+     */
+    function onClose(event) {
+        var self = event.data,
+            select2 = self.$element.data('select2'),
+            $dropdown = $(select2.dropdown),
+            $results = $('.select2-results', $dropdown);
+
+        $results.removeClass('select2-hammer-scroll');
+        $results.removeClass('select2-hammer-scroll-native');
+        self.$content.hammerScroll('destroy');
+        self.$content = undefined;
+    }
+
+    /**
+     * Action on loaded data of select2 dropdown.
+     *
+     * @param {jQuery.Event|Event} event
+     *
+     * @typedef {Select2HammerScroll} Event.data The select2 hammer scroll instance
+     *
+     * @private
+     */
+    function onLoaded(event) {
+        var self = event.data;
+
+        if (undefined !== self.$content) {
+            self.$content.hammerScroll('resizeScrollbar');
+        }
+    }
 
     // SELECT2 HAMMER SCROLL CLASS DEFINITION
     // ======================================
@@ -16,10 +92,10 @@
     /**
      * @constructor
      *
-     * @param htmlString|Element|Array|jQuery element
-     * @param Array                           options
+     * @param {string|elements|object|jQuery} element
+     * @param {object}                        options
      *
-     * @this
+     * @this Select2HammerScroll
      */
     var Select2HammerScroll = function (element, options) {
         this.guid     = jQuery.guid;
@@ -28,130 +104,55 @@
         this.dropdown = undefined;
         this.$content = undefined;
 
-        this.$element.on('select2-open.st.select2hammerscroll', $.proxy(onOpen, this));
-        this.$element.on('select2-close.st.select2hammerscroll', $.proxy(onClose, this));
-        this.$element.on('select2-loaded.st.select2hammerscroll', $.proxy(onLoaded, this));
-    };
+        this.$element.on('select2-open.st.select2hammerscroll', null, this, onOpen);
+        this.$element.on('select2-close.st.select2hammerscroll', null, this, onClose);
+        this.$element.on('select2-loaded.st.select2hammerscroll', null, this, onLoaded);
+    },
+        old;
 
     /**
      * Defaults options.
      *
-     * @type Array
+     * @type {object}
      */
     Select2HammerScroll.DEFAULTS = {
         contentWrapperClass: 'select2-hammer-scroll-content',
         useScroll:           true,
-        nativeScroll:        true,
+        nativeScroll:        true
     };
 
     /**
      * Destroy instance.
      *
-     * @this
+     * @this Select2HammerScroll
      */
     Select2HammerScroll.prototype.destroy = function () {
         var select2 = this.$element.data('select2');
-        var $dropdown = $(select2.dropdown);
 
-        //$dropdown.off('touchmove.st.select2hammerscroll MSPointerMove.st.select2hammerscroll', $.proxy(blockEvent, this));
-        this.$element.off('select2-open.st.select2hammerscroll', $.proxy(onOpen, this));
-        this.$element.off('select2-close.st.select2hammerscroll', $.proxy(onClose, this));
-        this.$element.off('select2-loaded.st.select2hammerscroll', $.proxy(onLoaded, this));
+        this.$element.off('select2-open.st.select2hammerscroll', onOpen);
+        this.$element.off('select2-close.st.select2hammerscroll', onClose);
+        this.$element.off('select2-loaded.st.select2hammerscroll', onLoaded);
 
-        if (undefined != this.$content) {
+        if (undefined !== this.$content) {
             this.$content.hammerScroll('destroy');
         }
 
         this.$element.removeData('st.select2hammerscroll');
     };
 
-    /**
-     * Action on opened select2 dropdown.
-     *
-     * @param jQuery.Event event
-     *
-     * @this
-     * @private
-     */
-    function onOpen (event) {
-        var select2 = this.$element.data('select2');
-        var $dropdown = $(select2.dropdown);
-        var $results = $('.select2-results', $dropdown);
-        var scrollTop = $results.scrollTop();
-
-        $dropdown.off('touchstart touchend touchmove mousemove-filtered');
-        //$dropdown.on('touchmove.st.select2hammerscroll MSPointerMove.st.select2hammerscroll', $.proxy(blockEvent, this));
-
-        if (this.options.nativeScroll) {
-            $results.addClass('select2-hammer-scroll-native');
-
-        } else {
-            $results.addClass('select2-hammer-scroll');
-        }
-
-        this.$content = $results.hammerScroll($.extend(this.options, {'scrollTop': scrollTop}));
-        this.$content.hammerScroll('resizeScrollbar');
-    }
-
-    /**
-     * Action on closed select2 dropdown.
-     *
-     * @param jQuery.Event event
-     *
-     * @this
-     * @private
-     */
-    function onClose (event) {
-        var select2 = this.$element.data('select2');
-        var $dropdown = $(select2.dropdown);
-        var $results = $('.select2-results', $dropdown);
-
-        //$dropdown.off('touchmove.st.select2hammerscroll MSPointerMove.st.select2hammerscroll', $.proxy(blockEvent, this));
-        $results.removeClass('select2-hammer-scroll');
-        $results.removeClass('select2-hammer-scroll-native');
-        this.$content.hammerScroll('destroy');
-        this.$content = undefined;
-    }
-
-    /**
-     * Action on loaded data of select2 dropdown.
-     *
-     * @param jQuery.Event event
-     *
-     * @this
-     * @private
-     */
-    function onLoaded (event) {
-        if (undefined != this.$content) {
-            this.$content.hammerScroll('resizeScrollbar');
-        }
-    }
-
-    /**
-     * Prevents the default event.
-     *
-     * @param jQuery.Event event
-     *
-     * @this
-     * @private
-     */
-    function blockEvent (event) {
-        event.preventDefault();
-    }
-
 
     // SELECT2 HAMMER SCROLL PLUGIN DEFINITION
     // =======================================
 
-    var old = $.fn.select2HammerScroll;
+    old = $.fn.select2HammerScroll;
 
-    $.fn.select2HammerScroll = function (option, _relatedTarget) {
+    $.fn.select2HammerScroll = function (option, value) {
         return this.each(function () {
-            var $this   = $(this);
-            var data    = $this.data('st.select2hammerscroll');
-            var options = typeof option == 'object' && option;
+            var $this   = $(this),
+                data    = $this.data('st.select2hammerscroll'),
+                options = typeof option === 'object' && option;
 
-            if (!data && option == 'destroy') {
+            if (!data && option === 'destroy') {
                 return;
             }
 
@@ -159,8 +160,8 @@
                 $this.data('st.select2hammerscroll', (data = new Select2HammerScroll(this, options)));
             }
 
-            if (typeof option == 'string') {
-                data[option]();
+            if (typeof option === 'string') {
+                data[option](value);
             }
         });
     };
@@ -188,4 +189,4 @@
         });
     });
 
-}(jQuery);
+}(jQuery));
