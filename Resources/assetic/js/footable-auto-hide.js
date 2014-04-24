@@ -15,6 +15,11 @@
 /*global AutoHide*/
 
 /**
+ * @name Event
+ * @property {Footable} ft
+ */
+
+/**
  * @param {jQuery} $
  * @param {window} w
  *
@@ -31,8 +36,6 @@
      * Initialize the config.
      *
      * @param {Event} event
-     *
-     * @typedef {Footable} event.ft
      *
      * @private
      */
@@ -63,8 +66,6 @@
      *
      * @param {Event} event
      *
-     * @typedef {Footable} event.ft
-     *
      * @private
      */
     function onResizingTable(event) {
@@ -86,8 +87,6 @@
      * Hides the columns in the scroll.
      *
      * @param {Event} event
-     *
-     * @typedef {Footable} event.ft
      *
      * @private
      */

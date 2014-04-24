@@ -13,6 +13,11 @@
 /*global Striped*/
 
 /**
+ * @name Event
+ * @property {Footable} ft
+ */
+
+/**
  * @param {jQuery} $
  * @param {window} w
  *
@@ -29,8 +34,6 @@
      * Stripping table.
      *
      * @param {Event} event
-     *
-     * @typedef {Footable} event.ft
      *
      * @private
      */
@@ -91,7 +94,7 @@
 
             var eventType = 'footable_initialized.striped footable_row_removed.striped footable_redrawn.striped footable_sorted.striped footable_filtered.striped';
 
-            $(ft.table).on(eventType, $.proxy(stripingTable, ft.table));
+            $(ft.table).on(eventType, stripingTable);
         };
     }
 
