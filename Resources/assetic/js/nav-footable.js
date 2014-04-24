@@ -7,7 +7,15 @@
  * file that was distributed with this source code.
  */
 
-+function ($) {
+/*global jQuery*/
+/*global document*/
+
+/**
+ * @param {jQuery} $
+ *
+ * @typedef {NavFootable} NavFootable
+ */
+(function ($) {
     'use strict';
 
     // NAV FOOTABLE CLASS DEFINITION
@@ -16,10 +24,10 @@
     /**
      * @constructor
      *
-     * @param htmlString|Element|Array|jQuery element
-     * @param Array                           options
+     * @param {string|elements|object|jQuery} element
+     * @param {object}                        options
      *
-     * @this
+     * @this NavFootable
      */
     var NavFootable = function (element, options) {
         this.guid     = jQuery.guid;
@@ -27,12 +35,13 @@
         this.$element = $(element);
         this.$content = $('.' + this.options.classFootable, this.$element.attr('href'));
         this.footable = this.$content.data('footable');
-    };
+    },
+        old;
 
     /**
      * Defaults options.
      *
-     * @type Array
+     * @type {object}
      */
     NavFootable.DEFAULTS = {
         classFootable: 'footable'
@@ -41,10 +50,10 @@
     /**
      * Refresh the footable.
      *
-     * @this
+     * @this NavFootable
      */
-    NavFootable.prototype.refresh = function (event) {
-        if (null != this.footable) {
+    NavFootable.prototype.refresh = function () {
+        if (null !== this.footable) {
             this.footable.resize();
         }
     };
@@ -52,7 +61,7 @@
     /**
      * Destroy instance.
      *
-     * @this
+     * @this NavFootable
      */
     NavFootable.prototype.destroy = function () {
         $(document).off('shown.bs.tab.data-api.st.navfootable', '[data-toggle="tab"], [data-toggle="pill"]');
@@ -63,15 +72,15 @@
     // NAV FOOTABLE PLUGIN DEFINITION
     // ==============================
 
-    var old = $.fn.navFootable;
+    old = $.fn.navFootable;
 
-    $.fn.navFootable = function (option, _relatedTarget) {
+    $.fn.navFootable = function (option, value) {
         return this.each(function () {
-            var $this   = $(this);
-            var data    = $this.data('st.navfootable');
-            var options = typeof option == 'object' && option;
+            var $this   = $(this),
+                data    = $this.data('st.navfootable'),
+                options = typeof option === 'object' && option;
 
-            if (!data && option == 'destroy') {
+            if (!data && option === 'destroy') {
                 return;
             }
 
@@ -79,8 +88,8 @@
                 $this.data('st.navfootable', (data = new NavFootable(this, options)));
             }
 
-            if (typeof option == 'string') {
-                data[option]();
+            if (typeof option === 'string') {
+                data[option](value);
             }
         });
     };
@@ -101,8 +110,8 @@
     // NAV FOOTABLE DATA-API
     // =====================
 
-    $(document).on('shown.bs.tab.data-api.st.navfootable', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
+    $(document).on('shown.bs.tab.data-api.st.navfootable', '[data-toggle="tab"], [data-toggle="pill"]', function () {
         $(this).navFootable('refresh');
     });
 
-}(jQuery);
+}(jQuery));
