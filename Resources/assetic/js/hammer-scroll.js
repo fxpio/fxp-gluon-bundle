@@ -470,6 +470,8 @@
         this.options  = $.extend({}, HammerScroll.DEFAULTS, options);
         this.$element = $(element).eq(0);
 
+        var self = this;
+
         if (this.options.hammerStickyHeader && $.fn.stickyheader) {
             this.stickyHeader = this.$element.stickyheader().data('st.stickyheader');
         }
@@ -522,8 +524,12 @@
                 drag_min_distance: 5
             })
 
-                .on('drag', null, this, this.onDrag)
-                .on('dragend', null, this, this.onDragEnd);
+                .on('drag', function (event) {
+                    self.onDrag(event);
+                })
+                .on('dragend', function (event) {
+                    self.onDragEnd(event);
+                });
         }
 
         if (this.options.useScroll && null !== this.options.scrollTop && 0 < this.options.scrollTop) {
@@ -599,8 +605,7 @@
      * @this HammerScroll
      */
     HammerScroll.prototype.onDragEnd = function (event) {
-        var self = this,
-            dragStartPosition = 'dragStartPosition',
+        var dragStartPosition = 'dragStartPosition',
             vertical;
 
         if (this.options.useScroll) {
@@ -608,13 +613,13 @@
                 event.preventDefault();
                 event.stopPropagation();
 
-                vertical = limitVerticalValue(self, event.gesture.deltaY, 0, true, event.gesture.velocityY);
+                vertical = limitVerticalValue(this, event.gesture.deltaY, 0, true, event.gesture.velocityY);
 
                 this.$element.animate({
                     scrollTop: vertical
                 }, this.options.inertiaDuration * 1000, function () {
                     var event = new CustomEvent('dragendanimate');
-                    event.data = self;
+                    event.data = this;
                     dragTransitionEnd(event);
                 });
 
