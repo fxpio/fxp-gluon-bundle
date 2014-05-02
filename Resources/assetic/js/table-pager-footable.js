@@ -7,94 +7,68 @@
  * file that was distributed with this source code.
  */
 
-+function ($) {
+/*global jQuery*/
+/*global window*/
+/*global TablePagerFootable*/
+
+/**
+ * @param {jQuery} $
+ *
+ * @typedef {TablePagerFootable} TablePagerFootable
+ */
+(function ($) {
     'use strict';
-
-    // TABLE PAGER FOOTABLE CLASS DEFINITION
-    // =====================================
-
-    /**
-     * @constructor
-     *
-     * @param htmlString|Element|Array|jQuery element
-     * @param Array                           options
-     *
-     * @this
-     */
-    var TablePagerFootable = function (element, options) {
-        this.$element = $(element);
-        this.$table   = $('#' + this.$element.attr('data-table-id'));
-        this.footable = this.$table.data('footable');
-
-        if (undefined != this.footable) {
-            this.$table
-                .on('table-pager-refreshed.st.tablepagerfootable', $.proxy(onPagerRefreshed, this))
-                .on('footable_row_detail_updated.st.tablepagerfootable', $.proxy(onFootableRowDetailUpdated, this))
-            ;
-
-        } else {
-            this.destroy();
-        }
-    };
-
-    /**
-     * Destroy instance.
-     *
-     * @this
-     */
-    TablePagerFootable.prototype.destroy = function () {
-        this.$table
-            .off('table-pager-refreshed.st.tablepagerfootable', $.proxy(onPagerRefreshed, this))
-            .off('footable_row_detail_updated.st.tablepagerfootable', $.proxy(onFootableRowDetailUpdated, this))
-        ;
-
-        this.$element
-            .removeData('st.tablepagerfootable')
-        ;
-    };
 
     /**
      * Action on pager refreshed.
      *
-     * @param jQuery.Event event
+     * @param {jQuery.Event|Event} event
      *
-     * @this
+     * @typedef {TablePagerFootable} Event.data The table pager footable instance
+     *
      * @private
      */
-    function onPagerRefreshed (event) {
-        this.footable.resize();
+    function onPagerRefreshed(event) {
+        event.data.footable.resize();
     }
 
     /**
      * Action on footable row detail is updated.
      *
-     * @param Event event
+     * @param {jQuery.Event|Event} event
      *
-     * @this
+     * @typedef {TablePagerFootable} Event.data   The table pager footable instance
+     * @typedef {jQuery}             Event.detail The table pager detail
+     *
      * @private
      */
-    function onFootableRowDetailUpdated (event) {
-        var $cols = this.$table.find('> thead > tr:last > th:not(:visible)');
-        var $detailNames = $(event.detail).find('div.footable-row-detail-name');
+    function onFootableRowDetailUpdated(event) {
+        var self = event.data,
+            $cols = self.$table.find('> thead > tr:last > th:not(:visible)'),
+            $detailNames = $(event.detail).find('div.footable-row-detail-name'),
+            $col,
+            $detail,
+            $icon,
+            i;
 
-        if ($cols.size() != $detailNames.size()) {
+        if ($cols.size() !== $detailNames.size()) {
             return;
         }
 
-        for (var i = 0; i < $detailNames.size(); i++) {
-            var $col = $cols.eq(i);
-            var $detail = $detailNames.eq(i);
-            var $icon = $col.find('> i.table-sort-icon');
+        for (i = 0; i < $detailNames.size(); i += 1) {
+            $col = $cols.eq(i);
+            $detail = $detailNames.eq(i);
+            $icon = $col.find('> i.table-sort-icon');
 
-            if (undefined != $col.attr('data-col-name')) {
+            if (undefined !== $col.attr('data-col-name')) {
                 $detail.attr('data-col-name', $col.attr('data-col-name'));
             }
 
-            if (undefined != $col.attr('data-table-pager-sortable')) {
+            if (undefined !== $col.attr('data-table-pager-sortable')) {
                 $detail.attr('data-table-pager-sortable', $col.attr('data-table-pager-sortable'));
             }
 
-            if (undefined != $col.attr('data-table-sort')) {
+            if (undefined !== $col.attr('data-table-sort')) {
                 $detail.attr('data-table-sort', $col.attr('data-table-sort'));
             }
 
@@ -104,11 +78,50 @@
         }
     }
 
+    // TABLE PAGER FOOTABLE CLASS DEFINITION
+    // =====================================
+
+    /**
+     * @constructor
+     *
+     * @param {string|elements|object|jQuery} element
+     *
+     * @this TablePagerFootable
+     */
+    var TablePagerFootable = function (element) {
+        this.$element = $(element);
+        this.$table   = $('#' + this.$element.attr('data-table-id'));
+        this.footable = this.$table.data('footable');
+
+        if (undefined !== this.footable) {
+            this.$table
+                .on('table-pager-refreshed.st.tablepagerfootable', null, this, onPagerRefreshed)
+                .on('footable_row_detail_updated.st.tablepagerfootable', null, this, onFootableRowDetailUpdated);
+
+        } else {
+            this.destroy();
+        }
+    },
+        old;
+
+    /**
+     * Destroy instance.
+     *
+     * @this TablePagerFootable
+     */
+    TablePagerFootable.prototype.destroy = function () {
+        this.$table
+            .off('table-pager-refreshed.st.tablepagerfootable', onPagerRefreshed)
+            .off('footable_row_detail_updated.st.tablepagerfootable', onFootableRowDetailUpdated);
+
+        this.$element.removeData('st.tablepagerfootable');
+    };
+
 
     // TABLE PAGER FOOTABLE OVERRIDE TABLE PAGER DEFAULT OPTIONS DEFINITION
     // ====================================================================
 
-    if (undefined != $.fn.tablePager) {
+    if (undefined !== $.fn.tablePager) {
         $.fn.tablePager.Constructor.DEFAULTS = $.extend(true, $.fn.tablePager.Constructor.DEFAULTS, {
             selectors: {
                 sortable: $.fn.tablePager.Constructor.DEFAULTS.selectors.sortable + ', > tbody > tr.footable-row-detail div.footable-row-detail-name[data-table-pager-sortable=true]'
@@ -120,24 +133,23 @@
     // TABLE PAGER FOOTABLE PLUGIN DEFINITION
     // ======================================
 
-    var old = $.fn.tablePagerFootable;
+    old = $.fn.tablePagerFootable;
 
-    $.fn.tablePagerFootable = function (option, _relatedTarget) {
+    $.fn.tablePagerFootable = function (option, value) {
         return this.each(function () {
-            var $this   = $(this);
-            var data    = $this.data('st.tablepagerfootable');
-            var options = typeof option == 'object' && option;
+            var $this = $(this),
+                data  = $this.data('st.tablepagerfootable');
 
-            if (!data && option == 'destroy') {
+            if (!data && option === 'destroy') {
                 return;
             }
 
             if (!data) {
-                $this.data('st.tablepagerfootable', (data = new TablePagerFootable(this, options)));
+                $this.data('st.tablepagerfootable', (data = new TablePagerFootable(this)));
             }
 
-            if (typeof option == 'string') {
-                data[option]();
+            if (typeof option === 'string') {
+                data[option](value);
             }
         });
     };
@@ -165,4 +177,4 @@
         });
     });
 
-}(jQuery);
+}(jQuery));
