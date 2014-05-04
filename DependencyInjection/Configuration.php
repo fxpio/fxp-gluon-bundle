@@ -11,6 +11,7 @@
 
 namespace Sonatra\Bundle\GluonBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -273,6 +274,13 @@ class Configuration implements ConfigurationInterface
                                     ->beforeNormalization()
                                     ->ifTrue(function ($v) { return true === $v; })
                                         ->then(function ($v) { return '%kernel.root_dir%/../vendor/sonatra_ivaynberg/select2/select2.js'; })
+                                    ->end()
+                                ->end()
+                                ->scalarNode('knob')
+                                    ->defaultValue('%kernel.root_dir%/../vendor/sonatra_aterrien/jquery-knob/js/jquery.knob.js')
+                                    ->beforeNormalization()
+                                    ->ifTrue(function ($v) { return true === $v; })
+                                        ->then(function ($v) { return '%kernel.root_dir%/../vendor/sonatra_aterrien/jquery-knob/js/jquery.knob.js'; })
                                     ->end()
                                 ->end()
                                 ->scalarNode('datetime_picker')
