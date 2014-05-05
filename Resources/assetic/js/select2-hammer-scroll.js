@@ -144,9 +144,7 @@
     // SELECT2 HAMMER SCROLL PLUGIN DEFINITION
     // =======================================
 
-    old = $.fn.select2HammerScroll;
-
-    $.fn.select2HammerScroll = function (option, value) {
+    function Plugin(option, value) {
         return this.each(function () {
             var $this   = $(this),
                 data    = $this.data('st.select2hammerscroll'),
@@ -164,8 +162,11 @@
                 data[option](value);
             }
         });
-    };
+    }
 
+    old = $.fn.select2HammerScroll;
+
+    $.fn.select2HammerScroll             = Plugin;
     $.fn.select2HammerScroll.Constructor = Select2HammerScroll;
 
 
@@ -185,7 +186,7 @@
     $(window).on('load', function () {
         $('[data-select2-hammer-scroll="true"]').each(function () {
             var $this = $(this);
-            $this.select2HammerScroll($this.data());
+            Plugin.call($this, $this.data());
         });
     });
 

@@ -72,9 +72,7 @@
     // NAV FOOTABLE PLUGIN DEFINITION
     // ==============================
 
-    old = $.fn.navFootable;
-
-    $.fn.navFootable = function (option, value) {
+    function Plugin(option, value) {
         return this.each(function () {
             var $this   = $(this),
                 data    = $this.data('st.navfootable'),
@@ -92,8 +90,11 @@
                 data[option](value);
             }
         });
-    };
+    }
 
+    old = $.fn.navFootable;
+
+    $.fn.navFootable             = Plugin;
     $.fn.navFootable.Constructor = NavFootable;
 
 
@@ -111,7 +112,7 @@
     // =====================
 
     $(document).on('shown.bs.tab.data-api.st.navfootable', '[data-toggle="tab"], [data-toggle="pill"]', function () {
-        $(this).navFootable('refresh');
+        Plugin.call($(this), 'refresh');
     });
 
 }(jQuery));

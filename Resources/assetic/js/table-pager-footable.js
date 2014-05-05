@@ -133,9 +133,7 @@
     // TABLE PAGER FOOTABLE PLUGIN DEFINITION
     // ======================================
 
-    old = $.fn.tablePagerFootable;
-
-    $.fn.tablePagerFootable = function (option, value) {
+    function Plugin(option, value) {
         return this.each(function () {
             var $this = $(this),
                 data  = $this.data('st.tablepagerfootable');
@@ -152,8 +150,11 @@
                 data[option](value);
             }
         });
-    };
+    }
 
+    old = $.fn.tablePagerFootable;
+
+    $.fn.tablePagerFootable             = Plugin;
     $.fn.tablePagerFootable.Constructor = TablePagerFootable;
 
 
@@ -173,7 +174,7 @@
     $(window).on('load', function () {
         $('[data-table-pager="true"]').each(function () {
             var $this = $(this);
-            $this.tablePagerFootable($this.data());
+            Plugin.call($this, $this.data());
         });
     });
 
