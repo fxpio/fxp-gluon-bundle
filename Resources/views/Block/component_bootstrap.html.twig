@@ -59,22 +59,22 @@
 {% block panel_widget %}
 {% spaceless %}
     {% if not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0) %}
-	    {% if border_top_style is not null %}
-	        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ border_top_style ~ '-top')|trim}) %}
-	    {% endif %}
-	    {% if collapsible %}
-	        {% set attr = attr|merge({'data-panel-collapse': 'true'}) %}
-	    {% endif %}
-	    {% if collapsed %}
-	        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-collapsed')|trim}) %}
-	    {% endif %}
-	    {{ block('base_panel_widget') }}
-	    {% if panels_rendered %}
-		    {% for panel in related_panels %}
-		        {{ block_widget(panel) }}
-		    {% endfor %}
-		{% endif %}
-	{% endif %}
+        {% if border_top_style is not null %}
+            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ border_top_style ~ '-top')|trim}) %}
+        {% endif %}
+        {% if collapsible %}
+            {% set attr = attr|merge({'data-panel-collapse': 'true'}) %}
+        {% endif %}
+        {% if collapsed %}
+            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-collapsed')|trim}) %}
+        {% endif %}
+        {{ block('base_panel_widget') }}
+        {% if panels_rendered %}
+            {% for panel in related_panels %}
+                {{ block_widget(panel) }}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
 {% endspaceless %}
 {% endblock panel_widget %}
 
