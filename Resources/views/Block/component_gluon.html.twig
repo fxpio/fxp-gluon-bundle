@@ -216,6 +216,9 @@
 	            <div class="col-{{ layout_col_size }}-{{ layout_col_label + layout_col_control }}"></div>
 	        {% else %}
 		        {{ block_label(block) }}
+                {% if button_help is defined %}
+                    {{ block_widget(button_help) }}
+                {% endif %}
 		        <div class="col-{{ layout_col_size }}-{{ layout_col_control }}">
 			        <div{% for attrname, attrvalue in control_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
 				        {{- value|raw -}}

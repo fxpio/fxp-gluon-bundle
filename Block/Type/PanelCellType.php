@@ -41,6 +41,18 @@ class PanelCellType extends AbstractType
 
             $builder->add($builder->getName(), $options['type'], $cOpts);
         }
+
+        if (null !== $options['help']) {
+            $hOpts = array_replace($options['options'], array(
+                'label'   => '?',
+                'style'   => 'info',
+                'size'    => 'xs',
+                'attr'    => array('class' => 'panel-cell-help'),
+                'popover' => $options['help'],
+            ));
+
+            $builder->add($builder->getName() . '_help', 'button', $hOpts);
+        }
     }
 
     /**
@@ -87,8 +99,9 @@ class PanelCellType extends AbstractType
     public function finishView(BlockView $view, BlockInterface $block, array $options)
     {
         foreach ($view->children as $name => $child) {
-            if (in_array('heading', $child->vars['block_prefixes'])) {
-
+            if (in_array('button', $child->vars['block_prefixes'])) {
+                $view->vars['button_help'] = $child;
+                unset($view->children[$name]);
             }
         }
 
@@ -107,12 +120,13 @@ class PanelCellType extends AbstractType
             'type'           => null,
             'options'        => array(),
             'control_attr'   => array(),
-            'layout_size'    => 'lg',
+            'layout_size'    => 'sm',
             'layout_label'   => 2,
             'layout_control' => 10,
             'label_style'    => null,
             'rendered'       => true,
             'hidden'         => false,
+            'help'           => null,
         ));
 
         $resolver->addAllowedTypes(array(
@@ -125,6 +139,7 @@ class PanelCellType extends AbstractType
             'label_style'    => array('null', 'string'),
             'rendered'       => 'bool',
             'hidden'         => 'bool',
+            'help'           => array('null', 'string', 'array'),
         ));
 
         $resolver->addAllowedValues(array(
@@ -157,6 +172,23 @@ class PanelCellType extends AbstractType
 
                 return $value;
             },
+            'help' => function (Options $options, $value) {
+                    if (null === $value) {
+                        return $value;
+
+                    } elseif (is_string($value)) {
+                        $value = array(
+                            'content' => $value,
+                        );
+                    }
+
+                    $value = array_replace(array(
+                        'html'      => true,
+                        'placement' => 'auto top',
+                    ), $value);
+
+                    return $value;
+                },
         ));
     }
 
