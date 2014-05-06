@@ -53,7 +53,7 @@
      * @this NavFootable
      */
     NavFootable.prototype.refresh = function () {
-        if (null !== this.footable) {
+        if (this.footable) {
             this.footable.resize();
         }
     };
