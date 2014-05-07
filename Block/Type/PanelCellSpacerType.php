@@ -12,6 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Panel Cell Spacer Block Type.
@@ -20,6 +21,16 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractType;
  */
 class PanelCellSpacerType extends AbstractType
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'hidden' => true,
+        ));
+    }
+
     /**
      * {@inheritdoc}
      */

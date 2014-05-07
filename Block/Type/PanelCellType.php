@@ -81,15 +81,14 @@ class PanelCellType extends AbstractType
         }
 
         $view->vars = array_replace($view->vars, array(
-            'control_attr'       => $options['control_attr'],
-            'layout'             => 'horizontal',
-            'layout_col_size'    => $options['layout_size'],
-            'layout_col_label'   => $options['layout_label'],
-            'layout_col_control' => $options['layout_control'],
-            'label_style'        => $options['label_style'],
-            'label_attr'         => $labelAttr,
-            'rendered'           => $options['rendered'],
-            'hidden'             => $options['hidden'],
+            'control_attr'     => $options['control_attr'],
+            'layout_col_size'  => $options['layout_size'],
+            'layout_col_width' => $options['layout'],
+            'layout_col_max'   => $options['layout_max'],
+            'label_style'      => $options['label_style'],
+            'label_attr'       => $labelAttr,
+            'rendered'         => $options['rendered'],
+            'hidden'           => $options['hidden'],
         ));
     }
 
@@ -121,8 +120,8 @@ class PanelCellType extends AbstractType
             'options'        => array(),
             'control_attr'   => array(),
             'layout_size'    => 'sm',
-            'layout_label'   => 2,
-            'layout_control' => 10,
+            'layout'         => 12,
+            'layout_max'     => 12,
             'label_style'    => null,
             'rendered'       => true,
             'hidden'         => false,
@@ -134,8 +133,8 @@ class PanelCellType extends AbstractType
             'options'        => 'array',
             'control_attr'   => 'array',
             'layout_size'    => 'string',
-            'layout_label'   => 'int',
-            'layout_control' => 'int',
+            'layout'         => 'int',
+            'layout_max'     => 'int',
             'label_style'    => array('null', 'string'),
             'rendered'       => 'bool',
             'hidden'         => 'bool',
@@ -143,7 +142,7 @@ class PanelCellType extends AbstractType
         ));
 
         $resolver->addAllowedValues(array(
-            'layout_size' => array('xs', 'sm', 'md', 'lg'),
+            'layout_size' => array('sm', 'md', 'lg'),
             'label_style' => array(
                 'default',
                 'primary',
@@ -156,23 +155,13 @@ class PanelCellType extends AbstractType
         ));
 
         $resolver->setNormalizers(array(
-            'layout_label'   => function (Options $options, $value) {
-                if ($value < 1) {
-                    $msg = 'The "layout_label" option must be greater than 1, given %s.';
-                    throw new InvalidConfigurationException(sprintf($msg, $value));
-                }
+            'layout' => function (Options $options, $value) {
+                $value = max($value, 1);
+                $value = min($value, $options['layout_max']);
 
                 return $value;
             },
-            'layout_control' => function (Options $options, $value) {
-                if ($value < 1) {
-                    $msg = 'The "layout_control" option must be greater than 1, given %s';
-                    throw new InvalidConfigurationException(sprintf($msg, $value));
-                }
-
-                return $value;
-            },
-            'help' => function (Options $options, $value) {
+            'help'   => function (Options $options, $value) {
                     if (null === $value) {
                         return $value;
 

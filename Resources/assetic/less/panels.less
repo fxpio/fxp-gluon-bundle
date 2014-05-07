@@ -143,12 +143,44 @@
             }
 
             > .panel-cell {
-                > .panel-cell-help {
-                    position: absolute;
-                    margin-left: -3px;
-                    margin-top: 6px;
-                    padding: 0 3px;
-                    z-index: 1;
+                > .panel-cell-wrapper {
+                    display: table;
+                    width: 100%;
+
+                    > .block-label {
+                        display: table-cell;
+                        vertical-align: top;
+                        width: 150px;
+                        text-align: right;
+                        margin-top: 0;
+                        margin-bottom: 0;
+                        padding-top: 7px;
+                        padding-right: 14px;
+
+                        + .block-control {
+                            padding-left: 16px;
+                        }
+                    }
+
+                    > .block-control {
+                        display: table-cell;
+                        vertical-align: top;
+                        width: auto;
+                    }
+
+                    > .panel-block-help {
+                        display: table-cell;
+                        vertical-align: top;
+                        width: 16px;
+                        text-align: right;
+                        padding-top: 6px;
+                        padding-right: 2px;
+
+                        > .panel-cell-help {
+                            padding: 0 3px;
+                            z-index: 1;
+                        }
+                    }
                 }
             }
 
@@ -229,6 +261,39 @@
 
             .panel-actions {
                 color: @text-color;
+            }
+        }
+    }
+}
+
+@media (max-width: (@screen-xs-min - 1)) {
+    .panel {
+        > .panel-section {
+            > .panel-row {
+                > .panel-cell {
+                    > .panel-cell-wrapper {
+                        display: block;
+
+                        > .block-label {
+                            display: inline-block;
+                            width: auto;
+                            text-align: left;
+
+                            + .block-control {
+                                padding-left: 0;
+                            }
+                        }
+
+                        > .block-control {
+                            display: block;
+                            width: 100%;
+                        }
+
+                        > .panel-block-help {
+                            display: inline-block;
+                        }
+                    }
+                }
             }
         }
     }

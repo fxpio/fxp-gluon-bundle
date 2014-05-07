@@ -209,17 +209,17 @@
 {% block panel_cell_widget %}
 {% spaceless %}
     {% if rendered %}
-        {% set attr = attr|merge({'class': ('panel-cell block-horizontal ' ~ attr.class|default(''))|trim}) %}
-        {% set control_attr = control_attr|merge({'class': (control_attr.class|default('') ~ ' block-control')|trim}) %}
+        {% set attr = attr|merge({'class': ('panel-cell col-' ~ layout_col_size ~ '-' ~ layout_col_width ~ ' ' ~ attr.class|default(''))|trim}) %}
         <div{{ block('widget_container_attributes') }}>
-            {% if hidden %}
-                <div class="col-{{ layout_col_size }}-{{ layout_col_label + layout_col_control }}"></div>
-            {% else %}
-                {{ block_label(block) }}
-                {% if button_help is defined %}
-                    {{ block_widget(button_help) }}
-                {% endif %}
-                <div class="col-{{ layout_col_size }}-{{ layout_col_control }}">
+            {% if not(hidden) %}
+                <div class="panel-cell-wrapper">
+                    {{ block_label(block) }}
+                    {% if button_help is defined %}
+                        <div class="panel-block-help">
+                        {{ block_widget(button_help) }}
+                        </div>
+                    {% endif %}
+                    {% set control_attr = control_attr|merge({'class': (control_attr.class|default('') ~ ' block-control')|trim}) %}
                     <div{% for attrname, attrvalue in control_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
                         {{- value|raw -}}
                         {% for child in block %}
@@ -235,11 +235,7 @@
 
 {% block panel_cell_spacer_widget %}
 {% spaceless %}
-    {% if rendered %}
-        {% set attr = attr|merge({'class': ('panel-cell panel-cell-spacer block-horizontal ' ~ attr.class|default(''))|trim}) %}
-        <div{{ block('widget_container_attributes') }}>
-            <div class="col-{{ layout_col_size }}-{{ layout_col_label + layout_col_control }}"></div>
-        </div>
-    {% endif %}
+    {% set attr = attr|merge({'class': ('panel-cell-spacer ' ~ attr.class|default(''))|trim}) %}
+    {{ block('panel_cell_widget') }}
 {% endspaceless %}
 {% endblock panel_cell_spacer_widget %}

@@ -61,13 +61,8 @@ class PanelRowType extends AbstractType
             throw new InvalidConfigurationException(sprintf($msg, $block->getName(), $options['column']));
         }
 
-        $columnSize = $block->getOption('column');
-        $labelWidth = $block->getOption('layout_label');
-        $contentWidth = ($block->getOption('layout_max') - ($labelWidth * $columnSize)) / $columnSize;
-
         $cOptions = array(
-            'layout_label'   => $labelWidth,
-            'layout_control' => $contentWidth,
+            'layout' => $block->getOption('layout_max') / $block->getOption('column'),
         );
 
         if (null !== $block->getOption('layout_size')) {
@@ -91,7 +86,6 @@ class PanelRowType extends AbstractType
             'hidden_if_empty'  => $options['hidden_if_empty'],
             'column'           => $options['column'],
             'layout_max'       => $options['layout_max'],
-            'layout_label'     => $options['layout_label'],
             'layout_size'      => $options['layout_size'],
             'cell_label_style' => $options['cell_label_style'],
         ));
@@ -137,7 +131,6 @@ class PanelRowType extends AbstractType
             'hidden_if_empty'  => true,
             'column'           => 1,
             'layout_max'       => 12,
-            'layout_label'     => 2,
             'layout_size'      => null,
             'cell_label_style' => null,
         ));
@@ -147,7 +140,6 @@ class PanelRowType extends AbstractType
             'hidden_if_empty'  => 'bool',
             'column'           => 'int',
             'layout_max'       => 'int',
-            'layout_label'     => 'int',
             'layout_size'      => array('null', 'string'),
             'cell_label_style' => array('null', 'string'),
         ));

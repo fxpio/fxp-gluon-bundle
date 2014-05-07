@@ -97,10 +97,6 @@ class PanelSectionType extends AbstractType
                 $cOptions['layout_max'] = $block->getOption('layout_max');
             }
 
-            if (null !== $block->getOption('layout_label')) {
-                $cOptions['layout_label'] = $block->getOption('layout_label');
-            }
-
             if (null !== $block->getOption('layout_size')) {
                 $cOptions['layout_size'] = $block->getOption('layout_size');
             }
@@ -129,7 +125,6 @@ class PanelSectionType extends AbstractType
             'hidden_if_empty'  => $options['hidden_if_empty'],
             'column'           => $options['column'],
             'layout_max'       => $options['layout_max'],
-            'layout_label'     => $options['layout_label'],
             'layout_size'      => $options['layout_size'],
             'cell_label_style' => $options['cell_label_style'],
         ));
@@ -193,7 +188,6 @@ class PanelSectionType extends AbstractType
             'hidden_if_empty'  => true,
             'column'           => null,
             'layout_max'       => null,
-            'layout_label'     => null,
             'layout_size'      => null,
             'cell_label_style' => null,
         ));
@@ -205,7 +199,6 @@ class PanelSectionType extends AbstractType
             'hidden_if_empty'  => 'bool',
             'column'           => array('null', 'int'),
             'layout_max'       => array('null', 'int'),
-            'layout_label'     => array('null', 'int'),
             'layout_size'      => array('null', 'string'),
             'cell_label_style' => array('null', 'string'),
         ));
