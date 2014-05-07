@@ -1,0 +1,73 @@
+// Form control focus state
+
+.form-control-focus(@color: @input-border-focus) {
+    &:focus {
+        .box-shadow(none);
+    }
+}
+
+
+// Form control color (checkbox/radio)
+
+.form-control-color(@style: default) {
+    @border-focus: "input-@{style}-border-focus";
+    @checked-color: "input-@{style}-checked-color";
+    @checked-bg: "input-@{style}-checked-bg";
+    @checked-border-focus: "input-@{style}-checked-border-focus";
+
+    label {
+        &.form-control-fa {
+            > input[type="checkbox"],
+            > input[type="radio"] {
+                &.input-@{style} {
+                    + .form-control-fa-style {
+                        &:hover {
+                            border-color: @@border-focus;
+                        }
+                    }
+
+                    &:checked {
+                        + .form-control-fa-style {
+                            color: @@checked-color;
+                            background-color: @@checked-bg;
+                            border-color:  @@checked-bg;
+
+                            &:hover {
+                                border-color: @@checked-border-focus;
+                            }
+                        }
+                    }
+
+                    &:focus {
+                        + .form-control-fa-style {
+                            border-color: @@border-focus;
+                        }
+                    }
+
+                    &:checked:focus {
+                        + .form-control-fa-style {
+                            border-color: @@checked-border-focus;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.form-control-disabled-color(@style: default) {
+    label.form-control-fa > input[type="checkbox"][disabled],
+    label.form-control-fa > input[type="radio"][disabled],
+    fieldset[disabled] label.form-control-fa > input[type="checkbox"],
+    fieldset[disabled] label.form-control-fa > input[type="radio"] {
+        + .form-control-fa-style {
+            background-color: @input-bg-disabled;
+            border-color: @input-border;
+            color: inherit;
+
+            &:hover {
+                border-color: @input-border;
+            }
+        }
+    }
+}
