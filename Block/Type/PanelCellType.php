@@ -72,13 +72,14 @@ class PanelCellType extends AbstractType
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
         $labelAttr = $view->vars['label_attr'];
+        $class = isset($labelAttr['class']) ? $labelAttr['class'] : '';
+        $class = trim('control-label ' . $class);
 
         if (null !== $options['label_style']) {
-            $class = isset($labelAttr['class']) ? $labelAttr['class'] : '';
-            $class .= ' block-label-' . $options['label_style'];
-
-            $labelAttr['class'] = trim($class);
+            $class .= ' control-label-' . $options['label_style'];
         }
+
+        $labelAttr['class'] = trim($class);
 
         $view->vars = array_replace($view->vars, array(
             'control_attr'     => $options['control_attr'],

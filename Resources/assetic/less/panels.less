@@ -147,7 +147,7 @@
                     display: table;
                     width: 100%;
 
-                    > .block-label {
+                    > .control-label {
                         display: table-cell;
                         vertical-align: top;
                         width: 150px;
@@ -156,6 +156,10 @@
                         margin-bottom: 0;
                         padding-top: 7px;
                         padding-right: 14px;
+
+                        &.required:after {
+                            top: 0;
+                        }
 
                         + .block-control {
                             padding-left: 16px;
@@ -274,7 +278,7 @@
                     > .panel-cell-wrapper {
                         display: block;
 
-                        > .block-label {
+                        > .control-label {
                             display: inline-block;
                             width: auto;
                             text-align: left;
