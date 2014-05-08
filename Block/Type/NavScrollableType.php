@@ -14,7 +14,6 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
-use Symfony\Component\OptionsResolver\Options;
 
 /**
  * Nav Scrollable Block Type.
@@ -43,7 +42,7 @@ class NavScrollableType extends AbstractType
     {
         $class = isset($view->vars['attr']['class']) ? $view->vars['attr']['class'] : '';
 
-        foreach ($view->children as $name => $child) {
+        foreach ($view->children as $child) {
             if (in_array('nav', $child->vars['block_prefixes'])) {
                 $class = trim('is-nav-' . $child->vars['style'] . ' ' . $class);
             }

@@ -32,7 +32,7 @@ class PanelHeaderExtension extends AbstractTypeExtension
             if ($block->getAttribute('already_actions')) {
                 $actions = $block->get($block->getAttribute('already_actions'));
 
-                foreach ($actions->all() as $name => $action) {
+                foreach ($actions->all() as $action) {
                     $child->add($action);
                 }
 

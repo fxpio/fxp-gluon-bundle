@@ -16,6 +16,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\AjaxBundle\AjaxEvents;
 use Sonatra\Bundle\GluonBundle\Event\GetAjaxTableEvent;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,7 +41,7 @@ class TablePagerType extends AbstractType
     /**
      * Constructor.
      *
-     * @param Request $request
+     * @param ContainerInterface $container
      */
     public function __construct(ContainerInterface $container)
     {
@@ -58,7 +59,7 @@ class TablePagerType extends AbstractType
         $this->dispatcher->dispatch(AjaxEvents::INJECTION, $event);
         $sortOrder = array();
 
-        foreach ($source->getSortColumns() as $i => $def) {
+        foreach ($source->getSortColumns() as $def) {
             $sortOrder[] = $def['name'];
         }
 
@@ -78,7 +79,8 @@ class TablePagerType extends AbstractType
             )),
         ));
 
-        foreach ($source->getColumns() as $name => $child) {
+        foreach ($source->getColumns() as $child) {
+            /* @var BlockInterface $child */
             if ($child->getOption('sortable')) {
                 $view->vars['attr']['data-sortable'] = 'true';
                 break;

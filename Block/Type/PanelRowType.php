@@ -99,7 +99,7 @@ class PanelRowType extends AbstractType
         $hasCell = 0;
         $hasRenderedCell = false;
 
-        foreach ($view->children as $name => $child) {
+        foreach ($view->children as $child) {
             if (in_array('panel_cell', $child->vars['block_prefixes'])) {
                 $hasCell++;
 

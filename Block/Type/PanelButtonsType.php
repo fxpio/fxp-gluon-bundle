@@ -51,7 +51,7 @@ class PanelButtonsType extends AbstractType
             if ($block->getAttribute('already_nav_scrollable')) {
                 $navScrollable = $block->get($block->getAttribute('already_nav_scrollable'));
 
-                foreach ($navScrollable->all() as $name => $action) {
+                foreach ($navScrollable->all() as $action) {
                     $child->add($action);
                 }
 
@@ -147,9 +147,11 @@ class PanelButtonsType extends AbstractType
         $parent = $block;
 
         if ($block->getOption('scrollable')) {
-            foreach ($block->all() as $name => $child) {
+            /* @var BlockInterface $block */
+            foreach ($block->all() as $child) {
                 if (BlockUtil::isValidBlock('nav_scrollable', $child)) {
-                    foreach ($child->all() as $name => $subChild) {
+                    /* @var BlockInterface $child */
+                    foreach ($child->all() as $subChild) {
                         if (BlockUtil::isValidBlock('block', $subChild)) {
                             $parent = $subChild;
                             break;
