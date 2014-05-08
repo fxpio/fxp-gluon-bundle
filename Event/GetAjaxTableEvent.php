@@ -33,9 +33,10 @@ class GetAjaxTableEvent extends GetAjaxEvent
     /**
      * Constructor.
      *
-     * @param string  $id
-     * @param Request $request
-     * @param string  $format
+     * @param string              $id
+     * @param Request             $request
+     * @param DataSourceInterface $source
+     * @param string              $format
      */
     public function __construct($id, Request $request, DataSourceInterface $source, $format = 'json')
     {
