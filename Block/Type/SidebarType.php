@@ -86,12 +86,8 @@ class SidebarType extends AbstractType
             return $value;
         };
 
-        $forceToggle = function (Options $options, $value) {
-            if ('right' === $options['position']) {
-                return false;
-            }
-
-            return true;
+        $forceToggle = function (Options $options) {
+            return ('right' === $options['position']) ? false : true;
         };
 
         $resolver->setDefaults(array(
