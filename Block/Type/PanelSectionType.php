@@ -18,7 +18,6 @@ use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\OptionsResolver\Options;
 
 /**
  * Panel Section Block Type.
@@ -106,10 +105,12 @@ class PanelSectionType extends AbstractType
             }
 
             $child->setOptions($cOptions);
+            $this->setLastRow($block, $child);
 
         } elseif (BlockUtil::isValidBlock('panel_cell', $child)) {
-            $msg = 'The panel cell block "%s" can be added in a panel row block.';
-            throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
+            $row = $this->getLastRow($block);
+            $row->add($child);
+            $block->remove($child->getName());
         }
     }
 
@@ -210,5 +211,43 @@ class PanelSectionType extends AbstractType
     public function getName()
     {
         return 'panel_section';
+    }
+
+    /**
+     * Set the last row.
+     *
+     * @param BlockInterface $block
+     * @param BlockInterface $row
+     */
+    protected function setLastRow(BlockInterface $block, BlockInterface $row)
+    {
+        if (!BlockUtil::isValidBlock('panel_row_spacer', $row)) {
+            $block->setAttribute('last_row', $row->getName());
+        }
+    }
+
+    /**
+     * Get the last row.
+     *
+     * @param BlockInterface $block
+     *
+     * @return BlockInterface
+     */
+    protected function getLastRow(BlockInterface $block)
+    {
+        if ($block->hasAttribute('last_row')) {
+            $row = $block->get($block->getAttribute('last_row'));
+
+            // return current row
+            if (count($row) < $row->getOption('column')) {
+                return $row;
+            }
+        }
+
+        // new row
+        $rowName = BlockUtil::createUniqueName();
+        $block->add($rowName, 'panel_row');
+
+        return $block->get($rowName);
     }
 }
