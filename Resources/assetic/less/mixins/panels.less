@@ -49,20 +49,20 @@
             }
 
             .panel-row {
-                > .panel-cell {
-                    color: #ffffff;
-
-                    > .control-label {
-                        color: @text-color;
-                    }
-
-                    .block-control {
-                        color: @text-color;
-                    }
-                }
-
                 + .panel-row {
                     border-top: 1px solid @border-inner-color;
+                }
+            }
+
+            .panel-cell {
+                color: #ffffff;
+
+                > .control-label {
+                    color: @text-color;
+                }
+
+                .block-control {
+                    color: @text-color;
                 }
             }
 
@@ -188,11 +188,9 @@
                 }
             }
 
-            > .panel-section {
-                > .panel-row {
-                    + .panel-row {
-                        border-top: 1px solid transparent;
-                    }
+            .panel-row {
+                + .panel-row {
+                    border-top: 1px solid transparent;
                 }
             }
         }
@@ -247,10 +245,24 @@
                     padding-right: 0;
                 }
 
-                > .panel-row {
-                    + .panel-row {
-                        border-top: 1px solid transparent;
+                > .panel-section-heading {
+                    > .panel-actions {
+                        margin-right: 0;
                     }
+                }
+
+                &.container,
+                &.container-fluid {
+                    > .panel-section-heading {
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            .panel-row {
+                + .panel-row {
+                    border-top: 1px solid transparent;
                 }
             }
 
