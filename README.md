@@ -11,9 +11,27 @@ Features include:
 - configurator for stylesheets of theme
 - Configurator for plugins and stylesheets dependencies
 - Components:
-  - Sidebar
+  - Sidebar (with group items)
+  - Nav scrollable
+  - Panel actions
+  - Panel buttons
+  - Panel sections
+  - Panel rows (with spacer)
+  - Panel cell (with spacer)
+  - Responsive table and dynamic with pager
 - Plugins:
   - Sidebar
+  - Hammer scroll
+  - Table pager (compatibility with footable)
+  - Table select
+  - Dropdown position
+  - Panel collapse
+  - Nav scroll
+  - Select2 hammer scroll
+  - Select2 responsive
+  - Footable auto hide column (responsive)
+  - Footable striped
+  - Footable (compatibility with nav plugin)
   - Sticky header
 
 Documentation
