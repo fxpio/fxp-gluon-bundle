@@ -239,3 +239,9 @@
     {{ block('panel_cell_widget') }}
 {% endspaceless %}
 {% endblock panel_cell_spacer_widget %}
+
+{% block panel_list_widget %}
+    {% spaceless %}
+        {{ block('panel_widget') }}
+    {% endspaceless %}
+{% endblock panel_list_widget %}

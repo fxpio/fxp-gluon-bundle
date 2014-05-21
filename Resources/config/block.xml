@@ -96,6 +96,10 @@
             <tag name="sonatra_block.type" alias="panel_cell_spacer" />
         </service>
 
+        <service id="sonatra_gluon.block.type.panel_list" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelListType">
+            <tag name="sonatra_block.type" alias="panel_list" />
+        </service>
+
         <service id="sonatra_gluon.block.type_extension.table" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableExtension">
             <tag name="sonatra_block.type_extension" alias="table" />
         </service>
