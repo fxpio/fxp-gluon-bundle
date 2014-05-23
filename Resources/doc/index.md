@@ -9,15 +9,15 @@ This version of the bundle requires Symfony 2.4+ and Sonatra BootstrapBundle.
 
 Installation is a quick, 2 step process:
 
-1. Download Sonatra GluonBundle using composer
+1. Download the bundle using composer
 2. Enable the bundle
-3. Configure the bundle (optionnal)
+3. Configure the bundle (optional)
 
-### Step 1: Download Sonatra GluonBundle using composer
+### Step 1: Download the bundle using composer
 
 Add Sonatra GluonBundle in your composer.json:
 
-``` js
+```js
 {
     "require": {
         "sonatra/gluon-bundle": "~1.0"
@@ -27,7 +27,7 @@ Add Sonatra GluonBundle in your composer.json:
 
 Or tell composer to download the bundle by running the command:
 
-``` bash
+```bash
 $ php composer.phar update sonatra/web-interface-bundle
 ```
 
@@ -37,8 +37,7 @@ Composer will install the bundle to your project's `vendor/sonatra` directory.
 
 Enable the bundle in the kernel:
 
-``` php
-<?php
+```php
 // app/AppKernel.php
 
 public function registerBundles()
@@ -50,13 +49,13 @@ public function registerBundles()
 }
 ```
 
-### Step 3: Configure the bundle (optionnal)
+### Step 3: Configure the bundle (optional)
 
 You can override the default configuration adding `sonatra_web_interface` tree in `app/config/config.yml`.
 For see the reference of Sonatra Gluon Configuration, execute command:
 
-``` bash
-$ php app/console config:dump-reference SonatraGluonBundle 
+```bash
+$ php app/console config:dump-reference SonatraGluonBundle
 ```
 
 ### Next Steps
