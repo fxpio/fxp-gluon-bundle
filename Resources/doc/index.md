@@ -3,7 +3,7 @@ Getting Started With Sonatra GluonBundle
 
 ## Prerequisites
 
-This version of the bundle requires Symfony 2.1+ and Twitter bootstrap.
+This version of the bundle requires Symfony 2.4+ and Sonatra BootstrapBundle.
 
 ## Installation
 
