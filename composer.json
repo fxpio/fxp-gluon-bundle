@@ -16,6 +16,7 @@
         "php": ">=5.3.2",
         "symfony/framework-bundle": "~2.4",
         "sonatra/bootstrap-bundle": "~1.0",
+        "sonatra/ajax-bundle": "~1.0",
         "fortawesome/font-awesome": "~4.0",
         "sonatra_markusslima/bootstrap-filestyle": "~1.1",
         "sonatra_eightmedia/hammer-js": "~1.1",
