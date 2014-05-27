@@ -13,6 +13,7 @@ namespace Sonatra\Bundle\GluonBundle\Event;
 
 use Sonatra\Bundle\AjaxBundle\Event\GetAjaxEvent;
 use Sonatra\Bundle\BootstrapBundle\Block\DataSource\DataSourceInterface;
+use Sonatra\Bundle\GluonBundle\Block\Helper\AjaxDataSourceHelper;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -51,18 +52,6 @@ class GetAjaxTableEvent extends GetAjaxEvent
      */
     public function getData()
     {
-        $this->source->setPageSize(intval($this->request->get($this->getId() . '_ps')));
-        $this->source->setPageNumber(intval($this->request->get($this->getId() . '_pn')));
-        $this->source->setSortColumns($this->request->get($this->getId() . '_sc', array()));
-        $this->source->setParameters($this->request->get($this->getId() . '_p', array()));
-
-        return array(
-            'rows' => $this->source->getRows(),
-            'size' => $this->source->getSize(),
-            'pageSize' => $this->source->getPageSize(),
-            'pageNumber' => $this->source->getPageNumber(),
-            'pageCount' => $this->source->getPageCount(),
-            'sortColumns' => $this->source->getSortColumns(),
-        );
+        return AjaxDataSourceHelper::getData($this->request, $this->source, $this->getId().'_');
     }
 }
