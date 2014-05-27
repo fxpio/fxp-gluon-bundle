@@ -11,15 +11,16 @@
 
 namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
+use Sonatra\Bundle\AjaxBundle\AjaxEvents;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
-use Sonatra\Bundle\AjaxBundle\AjaxEvents;
 use Sonatra\Bundle\GluonBundle\Event\GetAjaxTableEvent;
-use Symfony\Component\EventDispatcher\EventDispatcher;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Routing\RouterInterface;
 
 /**
  * Table Pager Block Type.
@@ -36,7 +37,12 @@ class TablePagerType extends AbstractType
     /**
      * @var EventDispatcher
      */
-    private $dispatcher;
+    protected $dispatcher;
+
+    /**
+     * @var RouterInterface
+     */
+    protected $router;
 
     /**
      * Constructor.
@@ -47,6 +53,7 @@ class TablePagerType extends AbstractType
     {
         $this->request = $container->get('request');
         $this->dispatcher = $container->get('event_dispatcher');
+        $this->router = $container->get('router');
     }
 
     /**
@@ -54,10 +61,18 @@ class TablePagerType extends AbstractType
      */
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
+        $url = $this->request->getRequestUri();
         $source = $block->getParent()->getData();
-        $event = new GetAjaxTableEvent($view->parent->vars['id'], $this->request, $source);
-        $this->dispatcher->dispatch(AjaxEvents::INJECTION, $event);
         $sortOrder = array();
+
+        if (null === $options['route']) {
+            $event = new GetAjaxTableEvent($view->parent->vars['id'], $this->request, $source);
+            $this->dispatcher->dispatch(AjaxEvents::INJECTION, $event);
+        } else {
+            $routeParams = $options['route_parameters'];
+            $routeReferenceType = $options['route_reference_type'];
+            $url = $this->router->generate($options['route'], $routeParams, $routeReferenceType);
+        }
 
         foreach ($source->getSortColumns() as $def) {
             $sortOrder[] = $def['name'];
@@ -72,8 +87,8 @@ class TablePagerType extends AbstractType
                 'data-page-number'    => $source->getPageNumber(),
                 'data-size'           => $source->getSize(),
                 'data-parameters'     => json_encode($source->getParameters()),
-                'data-ajax-id'        => $view->parent->vars['id'],
-                'data-url'            => $options['url'],
+                'data-ajax-id'        => null === $options['route'] ? $view->parent->vars['id'] : null,
+                'data-url'            => $url,
                 'data-multi-sortable' => $options['multi_sortable'] ? 'true' : 'false',
                 'data-sort-order'     => json_encode($sortOrder),
             )),
@@ -99,19 +114,23 @@ class TablePagerType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'locale'         => \Locale::getDefault(),
-            'page_size'      => null,
-            'page_number'    => null,
-            'url'            => $this->request->getRequestUri(),
-            'multi_sortable' => false,
+            'locale'               => \Locale::getDefault(),
+            'page_size'            => null,
+            'page_number'          => null,
+            'route'                => null,
+            'route_parameters'     => array(),
+            'route_reference_type' => RouterInterface::ABSOLUTE_PATH,
+            'multi_sortable'       => false,
         ));
 
         $resolver->addAllowedTypes(array(
-            'locale'         => 'string',
-            'page_size'      => array('null', 'int'),
-            'page_number'    => array('null', 'int'),
-            'url'            => 'string',
-            'multi_sortable' => 'bool',
+            'locale'               => 'string',
+            'page_size'            => array('null', 'int'),
+            'page_number'          => array('null', 'int'),
+            'route'                => array('null', 'string'),
+            'route_parameters'     => 'array',
+            'route_reference_type' => 'bool',
+            'multi_sortable'       => 'bool',
         ));
     }
 
