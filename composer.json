@@ -27,9 +27,8 @@
         "symfony/finder": "~2.4"
     },
     "autoload": {
-        "psr-0": { "Sonatra\\Bundle\\GluonBundle": "" }
+        "psr-4": { "Sonatra\\Bundle\\GluonBundle\\": "" }
     },
-    "target-dir": "Sonatra/Bundle/GluonBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
