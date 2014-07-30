@@ -27,14 +27,27 @@
 // Checkbox / Radio
 // --------------------------------------------------
 
+.radio,
+.checkbox {
+    label {
+        &.form-control-fa {
+            padding-left: 0;
+        }
+    }
+}
+
 label {
     &.form-control-fa {
         display: inline-block;
-        margin: 0 0 0 -20px;
+        margin: 0;
         line-height: 2 - @line-height-base;
 
         &.radio-inline,
         &.checkbox-inline {
+            &:first-child {
+                padding-left: 0;
+            }
+
             + .form-control-fa.radio-inline,
             + .form-control-fa.checkbox-inline {
                 margin-left: 0;
