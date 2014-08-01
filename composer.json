@@ -19,7 +19,7 @@
         "sonatra/ajax-bundle": "~1.0",
         "fortawesome/font-awesome": "~4.0",
         "sonatra_markusslima/bootstrap-filestyle": "~1.1",
-        "sonatra_eightmedia/hammer-js": "~1.1",
+        "sonatra_hammerjs/hammer-js": "~2.0",
         "fooplugins/footable": "~2.0"
     },
     "require-dev": {
