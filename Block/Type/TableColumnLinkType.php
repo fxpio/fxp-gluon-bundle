@@ -62,6 +62,7 @@ class TableColumnLinkType extends AbstractType
                 $value['resource'] = $this->resource;
                 $value['resource_block'] = 'table_column_link_content';
                 $value['empty_data'] = $options['empty_data'];
+                $value['empty_message'] = $options['empty_message'];
 
                 return $value;
             },
