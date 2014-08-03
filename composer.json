@@ -1,9 +1,9 @@
 {
     "name": "sonatra/gluon-bundle",
     "type": "symfony-bundle",
-    "description": "Sonatra Gluon Bundle",
-    "keywords": ["Web Interface", "UI", "Responsive", "Admin", "Landing", "Twitter", "Bootstrap"],
-    "homepage": "http://sonatra.com",
+    "description": "A complet web responsive interface using Twitter Bootstrap",
+    "keywords": ["web interface", "ui", "responsive", "admin", "landing", "twitter", "bootstrap", "website"],
+    "homepage": "https://github.com/sonatra/SonatraGluonBundle",
     "license": "MIT",
     "authors": [
         {
@@ -11,20 +11,26 @@
             "email": "francois.pluchino@sonatra.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "php": ">=5.3.2",
+        "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.4",
-        "sonatra/bootstrap-bundle": "~1.0",
-        "sonatra/ajax-bundle": "~1.0",
-        "fortawesome/font-awesome": "~4.0",
-        "sonatra_markusslima/bootstrap-filestyle": "~1.1",
-        "sonatra_hammerjs/hammer-js": "~2.0",
-        "fooplugins/footable": "~2.0"
+        "symfony/assetic-bundle": "~2.4@beta",
+        "kriswallsmith/assetic": "~1.2@alpha",
+        "sonatra/block-bundle": "~1.0@dev",
+        "fxp/require-asset-bundle" : "~1.0@dev",
+        "sonatra/bootstrap-bundle": "~1.0@dev",
+        "sonatra/ajax-bundle": "~1.0@dev",
+        "bower-asset/fontawesome": "~4.1",
+        "bower-asset/bootstrap-filestyle": "~1.1",
+        "bower-asset/footable": "~2.0",
+        "npm-asset/hammerjs": "2.0.*"
     },
     "require-dev": {
         "symfony/console": "~2.4",
         "symfony/finder": "~2.4"
+    },
+    "suggest": {
+        "fxp/composer-asset-plugin": "For manage NPM/Bower dependencies with Composer"
     },
     "autoload": {
         "psr-4": { "Sonatra\\Bundle\\GluonBundle\\": "" }
@@ -33,5 +39,11 @@
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packager.sonatra.com"
+        }
+    ]
 }
