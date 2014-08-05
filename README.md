@@ -3,6 +3,7 @@ Sonatra Gluon Bundle
 
 [![Latest Stable Version](https://poser.pugx.org/sonatra/gluon-bundle/v/stable.svg)](https://packagist.org/packages/sonatra/gluon-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/sonatra/gluon-bundle/v/unstable.svg)](https://packagist.org/packages/sonatra/gluon-bundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/f0bf3d98-f059-4251-954b-92bc1f4589dc/mini.png)](https://insight.sensiolabs.com/projects/f0bf3d98-f059-4251-954b-92bc1f4589dc)
 
 The Sonatra GluonBundle is a complet web responsive interface using Twitter Bootstrap.
 
