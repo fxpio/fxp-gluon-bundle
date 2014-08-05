@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4843a41e91e11f5f22d4540e028a4c48",
+    "hash": "f2795be593fbd4949e1bfc0ed7075ded",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -670,13 +670,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:sonatra/SonatraAjaxBundle.git",
-                "reference": "6abb616c5720815a2c77db19d4db55f98f60ba63"
+                "url": "https://github.com/sonatra/SonatraAjaxBundle.git",
+                "reference": "2634985c3114d6c3c10fced5abb7966bc5981843"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraAjaxBundle/zipball/6abb616c5720815a2c77db19d4db55f98f60ba63",
-                "reference": "6abb616c5720815a2c77db19d4db55f98f60ba63",
+                "url": "https://api.github.com/repos/sonatra/SonatraAjaxBundle/zipball/2634985c3114d6c3c10fced5abb7966bc5981843",
+                "reference": "2634985c3114d6c3c10fced5abb7966bc5981843",
                 "shasum": ""
             },
             "require": {
@@ -695,6 +695,7 @@
                     "Sonatra\\Bundle\\AjaxBundle\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -709,24 +710,20 @@
             "keywords": [
                 "AJAX response"
             ],
-            "support": {
-                "source": "https://github.com/sonatra/SonatraAjaxBundle/tree/master",
-                "issues": "https://github.com/sonatra/SonatraAjaxBundle/issues"
-            },
-            "time": "2014-08-03 10:31:26"
+            "time": "2014-08-05 08:43:16"
         },
         {
             "name": "sonatra/block-bundle",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:sonatra/SonatraBlockBundle.git",
-                "reference": "4efad31f5817a72d771f21a79c2b9f3a0ef2e320"
+                "url": "https://github.com/sonatra/SonatraBlockBundle.git",
+                "reference": "6404847a154c22b5f5e82450dc55b6ec21647478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/4efad31f5817a72d771f21a79c2b9f3a0ef2e320",
-                "reference": "4efad31f5817a72d771f21a79c2b9f3a0ef2e320",
+                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/6404847a154c22b5f5e82450dc55b6ec21647478",
+                "reference": "6404847a154c22b5f5e82450dc55b6ec21647478",
                 "shasum": ""
             },
             "require": {
@@ -754,6 +751,7 @@
                     "Sonatra\\Bundle\\BlockBundle\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -770,24 +768,20 @@
                 "ui",
                 "user interface"
             ],
-            "support": {
-                "source": "https://github.com/sonatra/SonatraBlockBundle/tree/master",
-                "issues": "https://github.com/sonatra/SonatraBlockBundle/issues"
-            },
-            "time": "2014-08-03 12:44:29"
+            "time": "2014-08-05 11:45:27"
         },
         {
             "name": "sonatra/bootstrap-bundle",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:sonatra/SonatraBootstrapBundle.git",
-                "reference": "88aa336905ebe21c64448fe77539bb1acd1946b3"
+                "url": "https://github.com/sonatra/SonatraBootstrapBundle.git",
+                "reference": "0951456f68552133ecb1de41c023bcab8caeb6ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/88aa336905ebe21c64448fe77539bb1acd1946b3",
-                "reference": "88aa336905ebe21c64448fe77539bb1acd1946b3",
+                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/0951456f68552133ecb1de41c023bcab8caeb6ec",
+                "reference": "0951456f68552133ecb1de41c023bcab8caeb6ec",
                 "shasum": ""
             },
             "require": {
@@ -822,6 +816,7 @@
                     "Sonatra\\Bundle\\BootstrapBundle\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -834,16 +829,12 @@
             "description": "Twig DSL for construct a Twitter Bootstrap interface",
             "homepage": "https://github.com/sonatra/SonatraBootstrapBundle",
             "keywords": [
+                "DSL",
+                "Twitter Bootstrap 3",
                 "block",
-                "dsl",
-                "template",
-                "twitter bootstrap 3"
+                "template"
             ],
-            "support": {
-                "source": "https://github.com/sonatra/SonatraBootstrapBundle/tree/master",
-                "issues": "https://github.com/sonatra/SonatraBootstrapBundle/issues"
-            },
-            "time": "2014-08-03 16:09:00"
+            "time": "2014-08-05 11:54:14"
         },
         {
             "name": "symfony/assetic-bundle",
