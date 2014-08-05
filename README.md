@@ -3,6 +3,7 @@ Sonatra Gluon Bundle
 
 [![Latest Stable Version](https://poser.pugx.org/sonatra/gluon-bundle/v/stable.svg)](https://packagist.org/packages/sonatra/gluon-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/sonatra/gluon-bundle/v/unstable.svg)](https://packagist.org/packages/sonatra/gluon-bundle)
+[![Build Status](https://travis-ci.org/sonatra/SonatraGluonBundle.svg)](https://travis-ci.org/sonatra/SonatraGluonBundle)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sonatra/SonatraGluonBundle/badges/quality-score.png)](https://scrutinizer-ci.com/g/sonatra/SonatraGluonBundle)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/f0bf3d98-f059-4251-954b-92bc1f4589dc/mini.png)](https://insight.sensiolabs.com/projects/f0bf3d98-f059-4251-954b-92bc1f4589dc)
 
