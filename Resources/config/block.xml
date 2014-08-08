@@ -124,9 +124,11 @@
             <tag name="sonatra_block.type_extension" alias="table_column" />
         </service>
 
-        <service id="sonatra_gluon.block.type.table_pager" class="Sonatra\Bundle\GluonBundle\Block\Type\TablePagerType">
+        <service id="sonatra_gluon.block.type.table_pager" class="Sonatra\Bundle\GluonBundle\Block\Type\TablePagerType" scope="request">
             <tag name="sonatra_block.type" alias="table_pager" />
-            <argument type="service" id="service_container" />
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="request" />
+            <argument type="service" id="router" />
         </service>
 
         <service id="sonatra_gluon.block.type.table_column_row_number" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnRowNumberType">

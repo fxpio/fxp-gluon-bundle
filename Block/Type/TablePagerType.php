@@ -16,8 +16,7 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\GluonBundle\Event\GetAjaxTableEvent;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Routing\RouterInterface;
@@ -35,7 +34,7 @@ class TablePagerType extends AbstractType
     protected $request;
 
     /**
-     * @var EventDispatcher
+     * @var EventDispatcherInterface
      */
     protected $dispatcher;
 
@@ -47,13 +46,15 @@ class TablePagerType extends AbstractType
     /**
      * Constructor.
      *
-     * @param ContainerInterface $container
+     * @param EventDispatcherInterface $dispatcher
+     * @param Request                  $request
+     * @param RouterInterface          $router
      */
-    public function __construct(ContainerInterface $container)
+    public function __construct(EventDispatcherInterface $dispatcher, Request $request, RouterInterface $router)
     {
-        $this->request = $container->get('request');
-        $this->dispatcher = $container->get('event_dispatcher');
-        $this->router = $container->get('router');
+        $this->request = $request;
+        $this->dispatcher = $dispatcher;
+        $this->router = $router;
     }
 
     /**
