@@ -124,10 +124,10 @@
             <tag name="sonatra_block.type_extension" alias="table_column" />
         </service>
 
-        <service id="sonatra_gluon.block.type.table_pager" class="Sonatra\Bundle\GluonBundle\Block\Type\TablePagerType" scope="request">
+        <service id="sonatra_gluon.block.type.table_pager" class="Sonatra\Bundle\GluonBundle\Block\Type\TablePagerType">
             <tag name="sonatra_block.type" alias="table_pager" />
             <argument type="service" id="event_dispatcher" />
-            <argument type="service" id="request" />
+            <argument type="service" id="request_stack" />
             <argument type="service" id="router" />
         </service>
 
