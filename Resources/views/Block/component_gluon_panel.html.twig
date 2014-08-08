@@ -1,0 +1,120 @@
+{% use '@SonatraGluon/Block/component_bootstrap.html.twig' %}
+
+{% block panel_actions_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': ('panel-actions ' ~ attr.class|default(''))|trim}) %}
+        <div{{ block('widget_container_attributes') }}>
+            {{- value|raw -}}
+            {% for child in block %}
+                {{ block_widget(child) }}
+            {% endfor %}
+            {% if panel_button_collapse is defined %}
+                {{ block_widget(panel_button_collapse) }}
+            {% endif %}
+        </div>
+    {% endspaceless %}
+{% endblock panel_actions_widget %}
+
+{% block panel_buttons_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': ('panel-buttons ' ~ attr.class|default(''))|trim}) %}
+        <div{{ block('widget_container_attributes') }}>
+            {{- value|raw -}}
+            {% for child in block %}
+                {{ block_widget(child) }}
+            {% endfor %}
+        </div>
+    {% endspaceless %}
+{% endblock panel_buttons_widget %}
+
+{% block panel_section_widget %}
+    {% spaceless %}
+        {% if rendered and (not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0)) %}
+            {% set attr = attr|merge({'class': ('panel-section container-fluid ' ~ attr.class|default(''))|trim}) %}
+            {% if collapsible %}
+                {% set attr = attr|merge({'data-panel-collapse': 'true', 'data-collapse-selector': '> .panel-section-heading > .panel-actions > .btn-panel-collapse'}) %}
+            {% endif %}
+            {% if collapsed %}
+                {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-collapsed')|trim}) %}
+            {% endif %}
+        <div{{ block('widget_container_attributes') }}>
+            {% if panel_section_heading is defined or panel_section_actions is defined %}
+                {% set label_attr = label_attr|merge({'class': ('panel-section-heading ' ~ label_attr.class|default(''))|trim}) %}
+                <div{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+                {% if panel_section_actions is defined %}
+                    {{- block_widget(panel_section_actions) -}}
+                {% endif %}
+                {% if panel_section_heading is defined %}
+                    {{- block_widget(panel_section_heading) -}}
+                {% endif %}
+                </div>
+            {% endif %}
+            {{- value|raw -}}
+            {% for child in block %}
+                {{ block_widget(child) }}
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock panel_section_widget %}
+
+{% block panel_row_widget %}
+    {% spaceless %}
+        {% if rendered %}
+            {% set attr = attr|merge({'class': ('panel-row row ' ~ attr.class|default(''))|trim}) %}
+            <div{{ block('widget_container_attributes') }}>
+                {{- value|raw -}}
+                {% for child in block %}
+                    {{ block_widget(child) }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock panel_row_widget %}
+
+{% block panel_row_spacer_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': ('panel-row-spacer' ~ attr.class|default(''))|trim}) %}
+        {{ block('panel_row_widget') }}
+    {% endspaceless %}
+{% endblock panel_row_spacer_widget %}
+
+{% block panel_cell_widget %}
+    {% spaceless %}
+        {% if rendered %}
+            {% set attr = attr|merge({'class': ('panel-cell col-' ~ layout_col_size ~ '-' ~ layout_col_width ~ ' ' ~ attr.class|default(''))|trim}) %}
+        <div{{ block('widget_container_attributes') }}>
+            {% if not(hidden) %}
+                <div class="panel-cell-wrapper">
+                    {{ block_label(block) }}
+                    {% if button_help is defined %}
+                        <div class="panel-block-help">
+                            {{ block_widget(button_help) }}
+                        </div>
+                    {% endif %}
+                    {% set control_attr = control_attr|merge({'class': (control_attr.class|default('') ~ ' block-control')|trim}) %}
+                    <div{% for attrname, attrvalue in control_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+                    {{- value|raw -}}
+                    {% for child in block %}
+                        {{ block_widget(child) }}
+                    {% endfor %}
+                </div>
+                </div>
+            {% endif %}
+            </div>
+        {% endif %}
+    {% endspaceless %}
+{% endblock panel_cell_widget %}
+
+{% block panel_cell_spacer_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': ('panel-cell-spacer ' ~ attr.class|default(''))|trim}) %}
+        {{ block('panel_cell_widget') }}
+    {% endspaceless %}
+{% endblock panel_cell_spacer_widget %}
+
+{% block panel_list_widget %}
+    {% spaceless %}
+        {{ block('panel_widget') }}
+    {% endspaceless %}
+{% endblock panel_list_widget %}

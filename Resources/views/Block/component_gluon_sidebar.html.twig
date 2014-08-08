@@ -1,0 +1,66 @@
+{% use '@SonatraGluon/Block/component_bootstrap.html.twig' %}
+
+{% block sidebar_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': ('sidebar-trigger ' ~ attr.class|default(''))|trim}) %}
+        {% if 'right' == position %}
+            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-right')|trim}) %}
+        {% endif %}
+        {% if opened is sameas('force') or locked %}
+            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-force-open')|trim}) %}
+        {% endif %}
+        {% if locked %}
+            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-locked')|trim}) %}
+        {% endif %}
+        <div{{ block('widget_container_attributes') }}>
+            <a class="sidebar-toggle" href="#"><span class="sr-only">{{ toggle_label|trans({}, translation_domain) }}</span><i class="fa fa-sidebar-toggle"></i></a>
+            <div class="sidebar-wrapper sidebar-{{ style }}{% if opened or locked %} sidebar-open-init{% endif %}">
+                <div class="sidebar-scroller">
+                    <ul class="sidebar-menu">
+                        {{- value|raw -}}
+                        {% for child in block %}
+                            {{ block_widget(child) }}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock sidebar_widget %}
+
+{% block sidebar_group_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': ('sidebar-group ' ~ attr.class|default(''))|trim}) %}
+        <li{{ block('widget_container_attributes') }}>
+            <span{% for attrname, attrvalue in group_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+            {{- label|trans({}, translation_domain) }}
+            {{- value|raw -}}
+            </span>
+            <ul class="sidebar-group-menu">
+                {{- block('block_rows') -}}
+            </ul>
+        </li>
+    {% endspaceless %}
+{% endblock sidebar_group_widget %}
+
+{% block sidebar_item_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': ('sidebar-item ' ~ attr.class|default(''))|trim}) %}
+        {% if mini %}
+            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-item-mini')|trim}) %}
+        {% endif %}
+        {% if active and not disabled %}
+            {% set link_attr = link_attr|merge({'class': (link_attr.class|default('') ~ ' active')|trim}) %}
+        {% endif %}
+        {% if disabled %}
+            {% set link_attr = link_attr|merge({'class': (link_attr.class|default('') ~ ' disabled')|trim}) %}
+        {% endif %}
+        <li{{ block('widget_container_attributes') }}>
+            <a{% for attrname, attrvalue in link_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+            {{- label|trans({}, translation_domain) }}
+            {{- value|raw -}}
+            {{- block('block_rows') -}}
+            </a>
+        </li>
+    {% endspaceless %}
+{% endblock sidebar_item_widget %}
