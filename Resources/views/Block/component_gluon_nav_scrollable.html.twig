@@ -1,5 +1,3 @@
-{% use '@SonatraGluon/Block/component_bootstrap.html.twig' %}
-
 {% block nav_scrollable_widget %}
     {% spaceless %}
         {% set attr = attr|merge({'class': ('nav-scrollable ' ~ attr.class|default(''))|trim, 'data-nav-scroll': 'true'}) %}

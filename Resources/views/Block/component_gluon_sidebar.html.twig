@@ -1,5 +1,3 @@
-{% use '@SonatraGluon/Block/component_bootstrap.html.twig' %}
-
 {% block sidebar_widget %}
     {% spaceless %}
         {% set attr = attr|merge({'class': ('sidebar-trigger ' ~ attr.class|default(''))|trim}) %}
@@ -28,6 +26,7 @@
     {% endspaceless %}
 {% endblock sidebar_widget %}
 
+
 {% block sidebar_group_widget %}
     {% spaceless %}
         {% set attr = attr|merge({'class': ('sidebar-group ' ~ attr.class|default(''))|trim}) %}
@@ -42,6 +41,7 @@
         </li>
     {% endspaceless %}
 {% endblock sidebar_group_widget %}
+
 
 {% block sidebar_item_widget %}
     {% spaceless %}

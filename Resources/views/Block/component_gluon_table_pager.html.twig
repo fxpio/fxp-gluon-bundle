@@ -1,5 +1,3 @@
-{% use '@SonatraGluon/Block/component_bootstrap.html.twig' %}
-
 {% block table_pager_widget %}
     {% spaceless %}
         {% set attr = attr|merge({'class': ('table-pager ' ~ attr.class|default(''))|trim, 'colspan': block.parent.vars.header.vars.header_columns|length}) %}
