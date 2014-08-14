@@ -386,12 +386,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/FxpRequireAssetBundle.git",
-                "reference": "d824c83931c69ef7fccbad32526e9032e2e71704"
+                "reference": "b4705e78b0af205a8d6cd00a66b4f12626301f67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/FxpRequireAssetBundle/zipball/d824c83931c69ef7fccbad32526e9032e2e71704",
-                "reference": "d824c83931c69ef7fccbad32526e9032e2e71704",
+                "url": "https://api.github.com/repos/francoispluchino/FxpRequireAssetBundle/zipball/b4705e78b0af205a8d6cd00a66b4f12626301f67",
+                "reference": "b4705e78b0af205a8d6cd00a66b4f12626301f67",
                 "shasum": ""
             },
             "require": {
@@ -435,7 +435,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2014-08-02 16:12:53"
+            "time": "2014-08-14 08:04:37"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -671,12 +671,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraAjaxBundle.git",
-                "reference": "7ad2089ff823b673d3b38777aa3605e132bb457a"
+                "reference": "32874a8afec5c5b2298efd18ca4006206aba20e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraAjaxBundle/zipball/7ad2089ff823b673d3b38777aa3605e132bb457a",
-                "reference": "7ad2089ff823b673d3b38777aa3605e132bb457a",
+                "url": "https://api.github.com/repos/sonatra/SonatraAjaxBundle/zipball/32874a8afec5c5b2298efd18ca4006206aba20e8",
+                "reference": "32874a8afec5c5b2298efd18ca4006206aba20e8",
                 "shasum": ""
             },
             "require": {
@@ -710,7 +710,7 @@
             "keywords": [
                 "AJAX response"
             ],
-            "time": "2014-08-05 16:44:46"
+            "time": "2014-08-14 08:11:45"
         },
         {
             "name": "sonatra/block-bundle",
@@ -776,12 +776,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBootstrapBundle.git",
-                "reference": "f9e267fec613fca0a1767bfd6e1551333bf978cf"
+                "reference": "558413be14c2c78319c5ff81aef45b9b11b75c91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/f9e267fec613fca0a1767bfd6e1551333bf978cf",
-                "reference": "f9e267fec613fca0a1767bfd6e1551333bf978cf",
+                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/558413be14c2c78319c5ff81aef45b9b11b75c91",
+                "reference": "558413be14c2c78319c5ff81aef45b9b11b75c91",
                 "shasum": ""
             },
             "require": {
@@ -834,7 +834,7 @@
                 "block",
                 "template"
             ],
-            "time": "2014-08-11 18:51:14"
+            "time": "2014-08-12 10:10:24"
         },
         {
             "name": "symfony/assetic-bundle",
