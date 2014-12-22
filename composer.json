@@ -17,13 +17,15 @@
         "symfony/assetic-bundle": "~2.4@beta",
         "kriswallsmith/assetic": "~1.2@alpha",
         "sonatra/block-bundle": "~1.0@dev",
+        "fxp/require-asset" : "~1.0@dev",
         "fxp/require-asset-bundle" : "~1.0@dev",
         "sonatra/bootstrap-bundle": "~1.0@dev",
         "sonatra/ajax-bundle": "~1.0@dev",
         "bower-asset/fontawesome": "~4.1",
         "bower-asset/bootstrap-filestyle": "~1.1",
         "bower-asset/footable": "~2.0",
-        "npm-asset/hammerjs": "2.0.*"
+        "bower-asset/hammerjs": "2.0.*",
+        "bower-asset/sonatra-jquery-datetime-picker": "1.0.*@dev"
     },
     "require-dev": {
         "symfony/console": "~2.4",
