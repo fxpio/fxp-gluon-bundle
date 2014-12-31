@@ -1,7 +1,7 @@
 {
     "name": "sonatra/gluon-bundle",
     "type": "symfony-bundle",
-    "description": "A complet web responsive interface using Twitter Bootstrap",
+    "description": "A complete web responsive interface using Twitter Bootstrap",
     "keywords": ["web interface", "ui", "responsive", "admin", "landing", "twitter", "bootstrap", "website"],
     "homepage": "https://github.com/sonatra/SonatraGluonBundle",
     "license": "MIT",
