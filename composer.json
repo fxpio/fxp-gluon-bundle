@@ -14,18 +14,28 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.4",
-        "symfony/assetic-bundle": "~2.4@beta",
-        "kriswallsmith/assetic": "~1.2@alpha",
-        "sonatra/block-bundle": "~1.0@dev",
-        "fxp/require-asset" : "~1.0@dev",
-        "fxp/require-asset-bundle" : "~1.0@dev",
-        "sonatra/bootstrap-bundle": "~1.0@dev",
-        "sonatra/ajax-bundle": "~1.0@dev",
-        "bower-asset/fontawesome": "~4.1",
-        "bower-asset/bootstrap-filestyle": "~1.1",
-        "bower-asset/footable": "~2.0",
-        "bower-asset/hammerjs": "2.0.*",
+        "symfony/assetic-bundle": "~2.4",
+        "kriswallsmith/assetic": "~1.2",
+        "sonatra/block-bundle": "1.0.*@dev",
+        "fxp/require-asset" : "1.0.*@dev",
+        "fxp/require-asset-bundle" : "1.0.*@dev",
+        "sonatra/bootstrap-bundle": "1.0.*@dev",
+        "sonatra/ajax-bundle": "1.0.*@dev",
+        "bower-asset/sonatra-theme-gluon": "1.0.*@dev",
+        "bower-asset/sonatra-bootstrap-nav-scroll": "1.0.*@dev",
+        "bower-asset/sonatra-bootstrap-nav-footable": "1.0.*@dev",
+        "bower-asset/sonatra-bootstrap-panel-collapse": "1.0.*@dev",
+        "bower-asset/sonatra-jquery-table-pager-footable": "1.0.*@dev",
+        "bower-asset/sonatra-jquery-table-select": "1.0.*@dev",
+        "bower-asset/sonatra-jquery-table-pager": "1.0.*@dev",
+        "bower-asset/sonatra-select2-hammer-scroll": "1.0.*@dev",
+        "bower-asset/sonatra-select2-responsive": "1.0.*@dev",
+        "bower-asset/sonatra-footable-striped": "1.0.*@dev",
+        "bower-asset/sonatra-footable-responsive": "1.0.*@dev",
+        "bower-asset/sonatra-hammer-scroll": "1.0.*@dev",
+        "bower-asset/sonatra-jquery-sidebar": "1.0.*@dev",
         "bower-asset/sonatra-jquery-datetime-picker": "1.0.*@dev"
+
     },
     "require-dev": {
         "symfony/console": "~2.4",
@@ -39,7 +49,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "1.0-dev"
         }
     }
 }
