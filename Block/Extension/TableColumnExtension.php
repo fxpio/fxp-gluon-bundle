@@ -58,7 +58,7 @@ class TableColumnExtension extends AbstractTypeExtension
         ));
 
         $resolver->addAllowedValues(array(
-            'align' => array('left', 'center', 'right'),
+            'align' => array(null, 'left', 'center', 'right'),
         ));
 
         $resolver->setNormalizers(array(

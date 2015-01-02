@@ -145,6 +145,7 @@ class PanelCellType extends AbstractType
         $resolver->addAllowedValues(array(
             'layout_size' => array('sm', 'md', 'lg'),
             'label_style' => array(
+                null,
                 'default',
                 'primary',
                 'secondary',

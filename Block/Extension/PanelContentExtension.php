@@ -63,6 +63,7 @@ class PanelContentExtension extends AbstractTypeExtension
 
         $resolver->addAllowedValues(array(
             'style' => array(
+                null,
                 'primary-box',
                 'secondary-box',
                 'success-box',

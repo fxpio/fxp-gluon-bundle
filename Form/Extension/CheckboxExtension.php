@@ -47,7 +47,7 @@ class CheckboxExtension extends AbstractTypeExtension
         ));
 
         $resolver->setAllowedValues(array(
-            'style' => array('default', 'primary', 'secondary', 'success', 'info', 'warning', 'danger', 'link'),
+            'style' => array(null, 'default', 'primary', 'secondary', 'success', 'info', 'warning', 'danger', 'link'),
         ));
     }
 

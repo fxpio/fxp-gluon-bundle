@@ -99,7 +99,7 @@ class FootableColumnExtension extends AbstractTypeExtension
                 ));
 
                 $footableResolver->addAllowedValues(array(
-                    'type' => array('alpha', 'numeric'),
+                    'type' => array(null, 'alpha', 'numeric'),
                 ));
 
                 $footableResolver->setNormalizers(array(

@@ -120,6 +120,7 @@ class PanelExtension extends AbstractTypeExtension
 
         $resolver->addAllowedValues(array(
             'style' => array(
+                null,
                 'secondary',
                 'primary-box',
                 'secondary-box',
@@ -150,6 +151,7 @@ class PanelExtension extends AbstractTypeExtension
                 'danger-lite',
             ),
             'border_top_style' => array(
+                null,
                 'default',
                 'primary',
                 'secondary',

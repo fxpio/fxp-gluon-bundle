@@ -124,7 +124,7 @@ class SidebarType extends AbstractType
             'force_toggle' => array(false, true, 'always'),
             'style'        => array('default', 'inverse'),
             'opened'       => array(false, true, 'force'),
-            'position'     => array('left', 'right'),
+            'position'     => array(null, 'left', 'right'),
         ));
     }
 
