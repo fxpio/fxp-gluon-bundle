@@ -129,11 +129,11 @@
     {% endif %}
     {{ block('base_table_widget') }}
     {% if footable_options is defined %}
-        {% inline_javascript %}
+        {% inline_script %}
         <script type="text/javascript">
         $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
         </script>
-        {% endinline_javascript %}
+        {% endinline_script %}
     {% endif %}
 {% endspaceless %}
 {% endblock table_widget %}
