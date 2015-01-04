@@ -11,6 +11,8 @@
 
 namespace Sonatra\Bundle\GluonBundle\DependencyInjection;
 
+use Fxp\Component\RequireAsset\Tag\Config\RequireStyleTagConfiguration;
+use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -44,8 +46,8 @@ class SonatraGluonExtension extends Extension
     /**
      * Configures the google fonts resource.
      *
-     * @param array            $config
-     * @param ContainerBuilder $container
+     * @param array            $config    The config
+     * @param ContainerBuilder $container The container builder
      */
     protected function configGoogleFonts(array $config, ContainerBuilder $container)
     {
@@ -62,20 +64,20 @@ class SonatraGluonExtension extends Extension
         if (count($inputs) > 0) {
             $this->addGoogleFontsLoader($container);
             $this->addGoogleFontsResource($container, $config, $inputs);
-            $this->addTwigRequireTag($container, $config['common_name']);
+            $this->addTwigRequireTag($container, $config['common_name'], $config['attributes']);
         }
     }
 
     /**
      * Configure the font awesome.
      *
-     * @param bool             $enabled   Check if the require style of font awesome must be added
+     * @param array            $config    The config
      * @param ContainerBuilder $container The container builder
      */
-    protected function configFontAwesome($enabled, ContainerBuilder $container)
+    protected function configFontAwesome(array $config, ContainerBuilder $container)
     {
-        if ($enabled) {
-            $this->addTwigRequireTag($container, '@bower/font-awesome/css/font-awesome.css');
+        if ($config['enabled']) {
+            $this->addTwigRequireTag($container, $config['path'], $config['attributes']);
         }
     }
 
@@ -118,12 +120,17 @@ class SonatraGluonExtension extends Extension
     /**
      * Add twig require tag.
      *
-     * @param ContainerBuilder $container The container builder
-     * @param string           $name      The assetic name of google fonts resource
+     * @param ContainerBuilder $container  The container builder
+     * @param string           $name       The assetic name of google fonts resource
+     * @param array            $attributes The HTML tag attributes
      */
-    protected function addTwigRequireTag(ContainerBuilder $container, $name)
+    protected function addTwigRequireTag(ContainerBuilder $container, $name, array $attributes = array())
     {
-        $definition = new Definition('Fxp\Component\RequireAsset\Tag\RequireStyleTag', array($name));
+        $processor = new Processor();
+        $configuration = new RequireStyleTagConfiguration();
+        $attributes = $processor->process($configuration->getNode(), array($attributes));
+
+        $definition = new Definition('Fxp\Component\RequireAsset\Tag\RequireStyleTag', array($name, $attributes));
         $definition->setPublic(false);
         $definition->addTag('fxp_require_asset.require_tag');
 
