@@ -67,19 +67,19 @@ class TableColumnExtension extends AbstractTypeExtension
                 $style = isset($value['style']) ? $value['style'] : '';
 
                 if ($options['align']) {
-                    $class = trim($class . ' table-' . $options['align']);
+                    $class = trim($class.' table-'.$options['align']);
                 }
 
                 if (null !== $options['min_width']) {
-                    $style = trim($style . ' min-width:' . $options['min_width'] . 'px;');
+                    $style = trim($style.' min-width:'.$options['min_width'].'px;');
                 }
 
                 if (null !== $options['max_width']) {
-                    $style = trim($style . ' max-width:' . $options['max_width'] . 'px;');
+                    $style = trim($style.' max-width:'.$options['max_width'].'px;');
                 }
 
                 if (null !== $options['width']) {
-                    $style = trim($style . ' width:' . $options['width'] . 'px;');
+                    $style = trim($style.' width:'.$options['width'].'px;');
                 }
 
                 if ('' !== $class) {
@@ -96,7 +96,7 @@ class TableColumnExtension extends AbstractTypeExtension
                 $class = isset($value['class']) ? $value['class'] : '';
 
                 if ($options['align']) {
-                    $class = trim($class . ' table-' . $options['align']);
+                    $class = trim($class.' table-'.$options['align']);
                 }
 
                 if ('' !== $class) {

@@ -44,7 +44,7 @@ class NavScrollableType extends AbstractType
 
         foreach ($view->children as $child) {
             if (in_array('nav', $child->vars['block_prefixes'])) {
-                $class = trim('is-nav-' . $child->vars['style'] . ' ' . $class);
+                $class = trim('is-nav-'.$child->vars['style'].' '.$class);
             }
         }
 

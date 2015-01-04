@@ -79,6 +79,6 @@ class PanelContentExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'panel_' . $this->type;
+        return 'panel_'.$this->type;
     }
 }

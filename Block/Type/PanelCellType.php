@@ -51,7 +51,7 @@ class PanelCellType extends AbstractType
                 'popover' => $options['help'],
             ));
 
-            $builder->add($builder->getName() . '_help', 'button', $hOpts);
+            $builder->add($builder->getName().'_help', 'button', $hOpts);
         }
     }
 
@@ -73,10 +73,10 @@ class PanelCellType extends AbstractType
     {
         $labelAttr = $view->vars['label_attr'];
         $class = isset($labelAttr['class']) ? $labelAttr['class'] : '';
-        $class = trim('control-label ' . $class);
+        $class = trim('control-label '.$class);
 
         if (null !== $options['label_style']) {
-            $class .= ' control-label-' . $options['label_style'];
+            $class .= ' control-label-'.$options['label_style'];
         }
 
         $labelAttr['class'] = trim($class);
