@@ -15,12 +15,12 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
 /**
-* OptimizeResponseListener remove all return line and spaces in html response.
-*
-* The onKernelResponse method must be connected to the kernel.response event.
-*
-* @author François Pluchino <francois.pluchino@sonatra.com>
-*/
+ * OptimizeResponseListener remove all return line and spaces in html response.
+ *
+ * The onKernelResponse method must be connected to the kernel.response event.
+ *
+ * @author François Pluchino <francois.pluchino@sonatra.com>
+ */
 class OptimizeResponseListener
 {
     const ENV_ENABLED = 'dev';

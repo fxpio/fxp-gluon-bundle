@@ -17,12 +17,12 @@ use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Bundle\TwigBundle\TwigEngine;
 
 /**
-* WebDebugToolbarListener injects the javascript edit Web Debug Toolbar.
-*
-* The onKernelResponse method must be connected to the kernel.response event.
-*
-* @author François Pluchino <francois.pluchino@sonatra.com>
-*/
+ * WebDebugToolbarListener injects the javascript edit Web Debug Toolbar.
+ *
+ * The onKernelResponse method must be connected to the kernel.response event.
+ *
+ * @author François Pluchino <francois.pluchino@sonatra.com>
+ */
 class WebDebugToolbarListener
 {
     const ENV_ENABLED = 'dev';
