@@ -1,5 +1,13 @@
 {% extends "SonatraBootstrapBundle::base.html.twig" %}
 
+{% require_style    '@bower/bootstrap/less/bootstrap.less'
+                    'sonatra_gluon_bundle/assetic/less/bootstrap-extensions.less'
+                    '@bower/bootstrap/less/theme.less'
+                    'google_fonts'
+                    '@bower/font-awesome/css/font-awesome.css'
+                    'sonatra_gluon_bundle/assetic/less/gluon.less'
+%}
+
 {% set fluidicon_src = fluidicon_src|default('bundles/sonatragluon/fluidicon.png') %}
 {% set fluidicon_title = fluidicon_title|default('Sonatra') %}
 {% set touchicon114_src = touchicon114_src|default('bundles/sonatragluon/apple-touch-icon-114.png') %}

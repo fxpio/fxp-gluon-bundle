@@ -71,11 +71,11 @@
     </div>
 {% endblock body %}
 
-{% block javascripts %}
-{% endblock javascripts %}
+{%- block javascripts -%}
+{%- endblock javascripts -%}
 
-{% block jquery %}
+{%- block javascript_global -%}
 <script>
     document.getElementById('username').focus();
 </script>
-{% endblock jquery %}
+{%- endblock javascript_global -%}
