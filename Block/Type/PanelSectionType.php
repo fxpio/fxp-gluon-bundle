@@ -45,7 +45,6 @@ class PanelSectionType extends AbstractType
                 'attr'    => array('class' => 'btn-panel-collapse'),
                 'prepend' => '<span class="caret"></span>',
             ));
-
         }
     }
 
@@ -70,7 +69,6 @@ class PanelSectionType extends AbstractType
                 $msg = 'The panel section block "%s" has already panel section title. Removes the label option of the panel section block.';
                 throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
             }
-
         } elseif (BlockUtil::isValidBlock('panel_actions', $child)) {
             if ($block->getAttribute('already_actions')) {
                 $actions = $block->get($block->getAttribute('already_actions'));
@@ -80,11 +78,9 @@ class PanelSectionType extends AbstractType
                 }
 
                 $block->remove($block->getAttribute('already_actions'));
-
             } else {
                 $block->setAttribute('already_actions', $child->getName());
             }
-
         } elseif (BlockUtil::isValidBlock('panel_row', $child)) {
             $cOptions = array();
 
@@ -106,7 +102,6 @@ class PanelSectionType extends AbstractType
 
             $child->setOptions($cOptions);
             $this->setLastRow($block, $child);
-
         } elseif (BlockUtil::isValidBlock('panel_cell', $child)) {
             $row = $this->getLastRow($block);
             $row->add($child);
@@ -148,14 +143,12 @@ class PanelSectionType extends AbstractType
 
                 $view->vars['panel_section_heading'] = $child;
                 unset($view->children[$name]);
-
             } elseif (in_array('panel_actions', $child->vars['block_prefixes'])) {
                 if (count($child->children) > 0 || isset($child->vars['panel_button_collapse'])) {
                     $view->vars['panel_section_actions'] = $child;
                 }
 
                 unset($view->children[$name]);
-
             } elseif (in_array('panel_row', $child->vars['block_prefixes'])) {
                 $hasRow++;
 
@@ -172,7 +165,7 @@ class PanelSectionType extends AbstractType
         if ($view->vars['hidden_if_empty'] && BlockUtil::isEmpty($view->vars['value'])
             && $hasRow === count($view->children)
             && !$hasRenderedRow) {
-                $view->vars['rendered'] = false;
+            $view->vars['rendered'] = false;
         }
     }
 

@@ -56,7 +56,6 @@ class PanelButtonsType extends AbstractType
                 }
 
                 $block->remove($block->getAttribute('already_nav_scrollable'));
-
             } else {
                 $block->setAttribute('already_nav_scrollable', $child->getName());
             }

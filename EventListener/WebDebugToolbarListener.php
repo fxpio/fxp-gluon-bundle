@@ -83,7 +83,6 @@ class WebDebugToolbarListener
         if (function_exists('mb_stripos')) {
             $posrFunction = 'mb_strripos';
             $substrFunction = 'mb_substr';
-
         } else {
             $posrFunction = 'strripos';
             $substrFunction = 'substr';

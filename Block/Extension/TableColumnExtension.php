@@ -83,7 +83,7 @@ class TableColumnExtension extends AbstractTypeExtension
                 }
 
                 if ('' !== $class) {
-                   $value['class'] = $class;
+                    $value['class'] = $class;
                 }
 
                 if ('' !== $style) {
@@ -100,7 +100,7 @@ class TableColumnExtension extends AbstractTypeExtension
                 }
 
                 if ('' !== $class) {
-                   $value['class'] = $class;
+                    $value['class'] = $class;
                 }
 
                 return $value;

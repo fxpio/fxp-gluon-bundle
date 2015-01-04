@@ -36,12 +36,10 @@ class PanelExtension extends AbstractTypeExtension
                 'attr'        => array('class' => 'btn-panel-collapse'),
                 'prepend'     => '<span class="caret"></span>',
             ));
-
         } elseif (BlockUtil::isValidBlock('panel', $child)) {
             if ($block->getOption('recursive_style')) {
                 $child->setOption('style', $block->getOption('style'));
             }
-
         } elseif (BlockUtil::isValidBlock('panel_section', $child)) {
             $cOptions = array();
 

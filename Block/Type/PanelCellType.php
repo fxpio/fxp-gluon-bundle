@@ -166,7 +166,6 @@ class PanelCellType extends AbstractType
             'help'   => function (Options $options, $value) {
                     if (null === $value) {
                         return $value;
-
                     } elseif (is_string($value)) {
                         $value = array(
                             'content' => $value,

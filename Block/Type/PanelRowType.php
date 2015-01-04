@@ -32,7 +32,6 @@ class PanelRowType extends AbstractType
      */
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
-
     }
 
     /**
@@ -116,7 +115,7 @@ class PanelRowType extends AbstractType
         if ($view->vars['hidden_if_empty'] && BlockUtil::isEmpty($view->vars['value'])
             && $hasCell === count($view->children)
             && !$hasRenderedCell) {
-                $view->vars['rendered'] = false;
+            $view->vars['rendered'] = false;
         }
     }
 

@@ -37,7 +37,6 @@ class PanelHeaderExtension extends AbstractTypeExtension
                 }
 
                 $block->remove($block->getAttribute('already_actions'));
-
             } else {
                 $block->setAttribute('already_actions', $child->getName());
             }

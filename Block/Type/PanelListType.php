@@ -30,7 +30,6 @@ class PanelListType extends AbstractType
      */
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
-
     }
 
     /**
@@ -45,7 +44,6 @@ class PanelListType extends AbstractType
             $panels[$child->getName()] = $child;
 
             $block->setAttribute('panels', $panels);
-
         } elseif (!BlockUtil::isValidBlock('panel_header', $child)) {
             throw new InvalidConfigurationException('Only "panel" type child must be added into the panel list type');
         }
