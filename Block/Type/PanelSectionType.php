@@ -43,7 +43,7 @@ class PanelSectionType extends AbstractType
             $builder->get('_panel_section_actions')->add('_button_collapse', 'button', array(
                 'label'   => '',
                 'attr'    => array('class' => 'btn-panel-collapse'),
-                'prepend' => '<span class="caret"></span>'
+                'prepend' => '<span class="caret"></span>',
             ));
 
         }
