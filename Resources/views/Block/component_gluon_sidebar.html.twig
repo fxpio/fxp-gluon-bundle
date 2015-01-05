@@ -1,4 +1,10 @@
 {% block sidebar_widget %}
+    {% require_style '@bower/sonatra-jquery-sidebar/less/sidebar.less' %}
+    {% require_script   '@bower/jquery/dist/jquery.js'
+                        '?@bower/hammerjs/hammer.js'
+                        '?@bower/sonatra-hammer-scroll/js/sticky-header.js'
+                        '@bower/sonatra-jquery-sidebar/js/sidebar.js'
+    %}
     {% spaceless %}
         {% set attr = attr|merge({'class': ('sidebar-trigger ' ~ attr.class|default(''))|trim}) %}
         {% if 'right' == position %}

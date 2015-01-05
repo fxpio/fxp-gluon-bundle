@@ -1,5 +1,9 @@
 {% block table_pager_widget %}
     {% spaceless %}
+        {% require_style    '@bower/sonatra-jquery-table-pager/less/table-pager.less'
+                            '@bower/sonatra-jquery-table-pager/less/table-sort.less'
+        %}
+        {% require_script '@bower/sonatra-jquery-table-pager/js/table-pager.js' %}
         {% set attr = attr|merge({'class': ('table-pager ' ~ attr.class|default(''))|trim, 'colspan': block.parent.vars.header.vars.header_columns|length}) %}
         <div{{ block('widget_container_attributes') }}>
             <div class="table-pager-group group1">
@@ -36,6 +40,8 @@
                     </div>
                 </div>
                 {% if block.parent.vars.attr['data-table-select'] is defined and block.parent.vars.attr['data-table-select'] == 'true' %}
+                    {% require_style '@bower/sonatra-jquery-table-select/less/table-select.less' %}
+                    {% require_script '@bower/sonatra-jquery-table-select/js/table-select.js' %}
                     <div class="btn-group">
                         <span class="btn btn-{{ block.parent.vars.column_selection_stype|default('secondary') }} table-select-count disabled"></span>
                         <button class="btn btn-{{ block.parent.vars.column_selection_stype|default('secondary') }} table-select-clear fa fa-times"></button>
