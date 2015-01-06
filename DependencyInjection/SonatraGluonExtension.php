@@ -11,6 +11,7 @@
 
 namespace Sonatra\Bundle\GluonBundle\DependencyInjection;
 
+use Fxp\Component\RequireAsset\Assetic\Util\ResourceUtils;
 use Fxp\Component\RequireAsset\Tag\Config\RequireStyleTagConfiguration;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\DependencyInjection\Definition;
@@ -106,7 +107,7 @@ class SonatraGluonExtension extends Extension
         $prefix = $container->getParameter('fxp_require_asset.output_prefix').'/';
         $args = array($config['common_name'] => array(
             $inputs,
-            $config['filters'],
+            ResourceUtils::cleanDebugFilters($config['filters'], $container->getParameter('assetic.debug')),
             array_merge($config['options'], array('output' => $prefix.$config['output'], 'debug' => false)),
         ));
 
