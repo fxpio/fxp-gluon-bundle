@@ -31,15 +31,16 @@ class AjaxDataSourceHelper
     /**
      * Generates the ajax response.
      *
-     * @param Request                                  $request
-     * @param DataSourceInterface|BlockInterface|array $source
-     * @param string                                   $format
+     * @param Request                                  $request The request
+     * @param DataSourceInterface|BlockInterface|array $source  The source
+     * @param string                                   $format  The output format
+     * @param string                                   $prefix  The prefix of parameters
      *
      * @return Response
      *
      * @throws InvalidArgumentException When the format is not allowed
      */
-    public static function generateResponse(Request $request, $source, $format = 'json')
+    public static function generateResponse(Request $request, $source, $format = 'json', $prefix = '')
     {
         $formats = array('xml', 'json');
 
@@ -57,7 +58,7 @@ class AjaxDataSourceHelper
         }
 
         /* @var DataSourceInterface $source */
-        $data = static::getData($request, $source);
+        $data = static::getData($request, $source, $prefix);
 
         $encoders = array(new XmlEncoder(), new JsonEncoder());
         $normalizers = array(new GetSetMethodNormalizer());
