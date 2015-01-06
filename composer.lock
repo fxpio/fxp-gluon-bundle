@@ -351,12 +351,12 @@
             "version": "3.5.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ivaynberg/select2.git",
+                "url": "https://github.com/select2/select2.git",
                 "reference": "6633cda9061d9fc65075dd140c63f9a6adbcbd72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ivaynberg/select2/zipball/6633cda9061d9fc65075dd140c63f9a6adbcbd72",
+                "url": "https://api.github.com/repos/select2/select2/zipball/6633cda9061d9fc65075dd140c63f9a6adbcbd72",
                 "reference": "6633cda9061d9fc65075dd140c63f9a6adbcbd72",
                 "shasum": ""
             },
@@ -720,12 +720,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-jquery-table-pager.git",
-                "reference": "da82f9568eecf7dd14dffea956982c81c09331d6"
+                "reference": "696c32195d916eae38928865a34f4e35e907c612"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-pager/zipball/da82f9568eecf7dd14dffea956982c81c09331d6",
-                "reference": "da82f9568eecf7dd14dffea956982c81c09331d6",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-pager/zipball/696c32195d916eae38928865a34f4e35e907c612",
+                "reference": "696c32195d916eae38928865a34f4e35e907c612",
                 "shasum": ""
             },
             "require": {
@@ -811,12 +811,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-jquery-table-select.git",
-                "reference": "6e0d1e1b4af0645f3fb454edea223f21ef0f4600"
+                "reference": "cba0830dbd84165c5497d91e4feb04fa308d2a82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-select/zipball/6e0d1e1b4af0645f3fb454edea223f21ef0f4600",
-                "reference": "6e0d1e1b4af0645f3fb454edea223f21ef0f4600",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-select/zipball/cba0830dbd84165c5497d91e4feb04fa308d2a82",
+                "reference": "cba0830dbd84165c5497d91e4feb04fa308d2a82",
                 "shasum": ""
             },
             "require": {
@@ -948,12 +948,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-theme-gluon.git",
-                "reference": "ffaecf9316bcd290704c7bf724296537cd45224f"
+                "reference": "60623db5982e15b9dfeb82c2ed891b74217f9153"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-theme-gluon/zipball/ffaecf9316bcd290704c7bf724296537cd45224f",
-                "reference": "ffaecf9316bcd290704c7bf724296537cd45224f",
+                "url": "https://api.github.com/repos/sonatra/sonatra-theme-gluon/zipball/60623db5982e15b9dfeb82c2ed891b74217f9153",
+                "reference": "60623db5982e15b9dfeb82c2ed891b74217f9153",
                 "shasum": ""
             },
             "require": {
@@ -1063,22 +1063,27 @@
         },
         {
             "name": "doctrine/lexer",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "2f708a85bb3aab5d99dab8be435abd73e0b18acb"
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/2f708a85bb3aab5d99dab8be435abd73e0b18acb",
-                "reference": "2f708a85bb3aab5d99dab8be435abd73e0b18acb",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Doctrine\\Common\\Lexer\\": "lib/"
@@ -1090,19 +1095,16 @@
             ],
             "authors": [
                 {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com",
-                    "homepage": "http://www.instaclick.com"
-                },
-                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
                     "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
-                    "role": "Developer of wrapped JMSSerializerBundle"
+                    "email": "schmittjoh@gmail.com"
                 }
             ],
             "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
@@ -1111,7 +1113,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2013-01-12 18:59:04"
+            "time": "2014-09-09 13:34:57"
         },
         {
             "name": "fxp/require-asset",
@@ -1119,12 +1121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/fxp-require-asset.git",
-                "reference": "0ca82f53bd3d2c864db465ba8bdbc7400b0cd48c"
+                "reference": "c7b2124bf7149b8f058cccc77255ad066e626b52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/0ca82f53bd3d2c864db465ba8bdbc7400b0cd48c",
-                "reference": "0ca82f53bd3d2c864db465ba8bdbc7400b0cd48c",
+                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/c7b2124bf7149b8f058cccc77255ad066e626b52",
+                "reference": "c7b2124bf7149b8f058cccc77255ad066e626b52",
                 "shasum": ""
             },
             "require": {
@@ -1173,7 +1175,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2014-12-31 15:07:12"
+            "time": "2015-01-06 15:42:29"
         },
         {
             "name": "fxp/require-asset-bundle",
@@ -1181,12 +1183,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/FxpRequireAssetBundle.git",
-                "reference": "360693f9e86d827d460f7e803db3bfd60ed636bb"
+                "reference": "8880be50f62e53539c96396d2c263ab471ddbab0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/FxpRequireAssetBundle/zipball/360693f9e86d827d460f7e803db3bfd60ed636bb",
-                "reference": "360693f9e86d827d460f7e803db3bfd60ed636bb",
+                "url": "https://api.github.com/repos/francoispluchino/FxpRequireAssetBundle/zipball/8880be50f62e53539c96396d2c263ab471ddbab0",
+                "reference": "8880be50f62e53539c96396d2c263ab471ddbab0",
                 "shasum": ""
             },
             "require": {
@@ -1234,7 +1236,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2014-12-31 15:15:37"
+            "time": "2015-01-03 16:41:59"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1401,12 +1403,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBlockBundle.git",
-                "reference": "2df3ef0ce59d792576cd1bb7276e440c75e6dcdc"
+                "reference": "42e54c7e23686cca37dc913f36ea648af4061043"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/2df3ef0ce59d792576cd1bb7276e440c75e6dcdc",
-                "reference": "2df3ef0ce59d792576cd1bb7276e440c75e6dcdc",
+                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/42e54c7e23686cca37dc913f36ea648af4061043",
+                "reference": "42e54c7e23686cca37dc913f36ea648af4061043",
                 "shasum": ""
             },
             "require": {
@@ -1451,7 +1453,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2015-01-02 12:39:41"
+            "time": "2015-01-05 12:17:06"
         },
         {
             "name": "sonatra/bootstrap-bundle",
@@ -1459,12 +1461,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBootstrapBundle.git",
-                "reference": "99c16da2b5f89438a089417b786fee4f300effad"
+                "reference": "9ebebc98635039558d74a9f5b134ca610a7d67da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/99c16da2b5f89438a089417b786fee4f300effad",
-                "reference": "99c16da2b5f89438a089417b786fee4f300effad",
+                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/9ebebc98635039558d74a9f5b134ca610a7d67da",
+                "reference": "9ebebc98635039558d74a9f5b134ca610a7d67da",
                 "shasum": ""
             },
             "require": {
@@ -1516,7 +1518,7 @@
                 "block",
                 "template"
             ],
-            "time": "2014-12-31 15:28:00"
+            "time": "2015-01-05 18:09:42"
         },
         {
             "name": "symfony/assetic-bundle",
