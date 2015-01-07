@@ -4,7 +4,7 @@
                             '@bower/sonatra-jquery-table-pager/less/table-sort.less'
         %}
         {% require_script '@bower/sonatra-jquery-table-pager/js/table-pager.js' %}
-        {% set attr = attr|merge({'class': ('table-pager ' ~ attr.class|default(''))|trim, 'colspan': block.parent.vars.header.vars.header_columns|length}) %}
+        {% set attr = attr|merge({'class': ('table-pager ' ~ attr.class|default(''))|trim}) %}
         <div{{ block('widget_container_attributes') }}>
             <div class="table-pager-group group1">
                 <div class="btn-group">
