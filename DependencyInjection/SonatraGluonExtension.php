@@ -39,6 +39,7 @@ class SonatraGluonExtension extends Extension
         $loader->load('response.xml');
         $loader->load('block.xml');
         $loader->load('form.xml');
+        $loader->load('assetic_variables.xml');
 
         $this->configGoogleFonts($config['google_fonts'], $container);
         $this->configFontAwesome($config['font_awesome'], $container);
