@@ -1,154 +1,158 @@
-{% use 'SonatraBootstrapBundle:Block:component_bootstrap.html.twig' with
+{%- use 'SonatraBootstrapBundle:Block:component_bootstrap.html.twig' with
         navbar_brand_widget as base_navbar_brand_widget,
         panel_widget as base_panel_widget,
         panel_body_widget as base_panel_body_widget,
         panel_footer_widget as base_panel_footer_widget,
-        table_widget as base_table_widget %}
+        table_widget as base_table_widget -%}
 
-{% block navbar_header_toggle_button %}
-{% spaceless %}
+{% block navbar_header_toggle_button -%}
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#{{ collapse_id }}">
         <span class="sr-only">{{ label|trans({}, translation_domain) }}</span>
         <i class="fa fa-navbar-toggle"></i>
     </button>
-{% endspaceless %}
-{% endblock navbar_header_toggle_button %}
+{%- endblock navbar_header_toggle_button %}
 
 
-{% block navbar_brand_widget %}
-{% spaceless %}
-    {% if switchable %}
-        {% set attr = attr|merge({'class': (attr.class|default('')  ~ ' navbar-brand-switch')|trim}) %}
-    {% endif %}
-    {{ block('base_navbar_brand_widget') }}
-    {% require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' %}
-{% endspaceless %}
-{% endblock navbar_brand_widget %}
+{% block navbar_brand_widget -%}
+    {%- if switchable -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('')  ~ ' navbar-brand-switch')|trim}) -%}
+    {%- endif -%}
+
+    {{- block('base_navbar_brand_widget') -}}
+    {%- require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
+{%- endblock navbar_brand_widget %}
 
 
-{% block checkbox_widget_content %}
-{% spaceless %}
-    {% if value %}
-        {% set value = 'checked' %}
-    {% else %}
-            {% set value = '' %}
-    {% endif %}
-    {% if style %}
-        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' block-' ~ style)|trim}) %}
-    {% endif %}
-    {% set attr = attr|merge({'class': ('fa block-control-fa-checkbox ' ~ value ~ ' ' ~ attr.class|default(''))|trim}) %}
+{% block checkbox_widget_content -%}
+    {%- if value -%}
+        {%- set value = 'checked' -%}
+    {%- else -%}
+        {%- set value = '' -%}
+    {%- endif -%}
+
+    {%- if style -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' block-' ~ style)|trim}) -%}
+    {%- endif -%}
+    {%- set attr = attr|merge({'class': ('fa block-control-fa-checkbox ' ~ value ~ ' ' ~ attr.class|default(''))|trim}) -%}
+
     <i{{ block('widget_attributes') }}></i>
-{% endspaceless %}
-{% endblock checkbox_widget_content %}
+{%- endblock checkbox_widget_content %}
 
 
-{% block radio_widget_content %}
-{% spaceless %}
-    {% if value %}
-        {% set value = 'checked' %}
-    {% else %}
-            {% set value = '' %}
-    {% endif %}
-    {% if style %}
-        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' block-' ~ style)|trim}) %}
-    {% endif %}
-    {% set attr = attr|merge({'class': ('fa block-control-fa-radio ' ~ value ~ ' ' ~ attr.class|default(''))|trim}) %}
+{% block radio_widget_content -%}
+    {%- if value -%}
+        {%- set value = 'checked' -%}
+    {%- else -%}
+        {%- set value = '' -%}
+    {%- endif -%}
+
+    {%- if style -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' block-' ~ style)|trim}) -%}
+    {%- endif -%}
+    {%- set attr = attr|merge({'class': ('fa block-control-fa-radio ' ~ value ~ ' ' ~ attr.class|default(''))|trim}) -%}
+
     <i{{ block('widget_attributes') }}></i>
-{% endspaceless %}
-{% endblock radio_widget_content %}
+{%- endblock radio_widget_content %}
 
 
-{% block panel_widget %}
-{% spaceless %}
-    {% if not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0) %}
-        {% if border_top_style is not null %}
-            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ border_top_style ~ '-top')|trim}) %}
-        {% endif %}
-        {% if collapsible %}
-            {% require_style '@bower/sonatra-bootstrap-panel-collapse/less/panel-collapse.less' %}
-            {% require_script '@bower/sonatra-bootstrap-panel-collapse/js/panel-collapse.js' %}
-            {% set attr = attr|merge({'data-panel-collapse': 'true'}) %}
-        {% endif %}
-        {% if collapsed %}
-            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-collapsed')|trim}) %}
-        {% endif %}
-        {{ block('base_panel_widget') }}
-        {% if panels_rendered %}
-            {% for panel in related_panels %}
-                {{ block_widget(panel) }}
-            {% endfor %}
-        {% endif %}
-    {% endif %}
-    {% require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' %}
-{% endspaceless %}
-{% endblock panel_widget %}
+{% block panel_widget -%}
+    {%- if not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0) -%}
+        {%- if border_top_style is not null -%}
+            {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ border_top_style ~ '-top')|trim}) -%}
+        {%- endif -%}
+
+        {%- if collapsible -%}
+            {%- require_style '@bower/sonatra-bootstrap-panel-collapse/less/panel-collapse.less' -%}
+            {%- require_script '@bower/sonatra-bootstrap-panel-collapse/js/panel-collapse.js' -%}
+
+            {%- set attr = attr|merge({'data-panel-collapse': 'true'}) -%}
+        {%- endif -%}
+
+        {%- if collapsed -%}
+            {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-collapsed')|trim}) -%}
+        {%- endif -%}
+
+        {{- block('base_panel_widget') -}}
+
+        {%- if panels_rendered -%}
+            {%- for panel in related_panels -%}
+                {{- block_widget(panel) -}}
+            {%- endfor -%}
+        {%- endif -%}
+    {%- endif -%}
+
+    {%- require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
+{%- endblock panel_widget %}
 
 
-{% block panel_header_widget_content %}
-{% spaceless %}
-    {% if panel_actions is defined %}
-        {{ block_widget(panel_actions) }}
-    {% endif %}
-    {% if panel_heading is defined %}
-        {{ block_widget(panel_heading) }}
-    {% endif %}
-    {% if panel_actions is defined %}
+{% block panel_header_widget_content -%}
+    {%- if panel_actions is defined -%}
+        {{- block_widget(panel_actions) -}}
+    {%- endif -%}
+
+    {%- if panel_heading is defined -%}
+        {{- block_widget(panel_heading) -}}
+    {%- endif -%}
+
+    {%- if panel_actions is defined -%}
         <div class="clearfix"></div>
-    {% endif %}
+    {%- endif -%}
+
     {{- value|raw -}}
-    {% for child in block %}
-        {{ block_widget(child) }}
-    {% endfor %}
-{% endspaceless %}
-{% endblock panel_header_widget_content %}
+
+    {%- for child in block -%}
+        {{- block_widget(child) -}}
+    {%- endfor -%}
+{%- endblock panel_header_widget_content %}
 
 
-{% block panel_body_widget %}
-{% spaceless %}
-    {% if style is not null %}
-        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ style)|trim}) %}
-    {% endif %}
-    {{ block('base_panel_body_widget') }}
-    {% require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' %}
-{% endspaceless %}
-{% endblock panel_body_widget %}
+{% block panel_body_widget -%}
+    {%- if style is not null -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ style)|trim}) -%}
+    {%- endif -%}
+
+    {{- block('base_panel_body_widget') -}}
+
+    {%- require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
+{%- endblock panel_body_widget %}
 
 
-{% block panel_footer_widget %}
-{% spaceless %}
-    {% if style is not null %}
-        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ style)|trim}) %}
-    {% endif %}
-    {{ block('base_panel_footer_widget') }}
-    {% require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' %}
-{% endspaceless %}
-{% endblock panel_footer_widget %}
+{% block panel_footer_widget -%}
+    {%- if style is not null -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ style)|trim}) -%}
+    {%- endif -%}
+
+    {{- block('base_panel_footer_widget') -}}
+
+    {%- require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
+{%- endblock panel_footer_widget %}
 
 
-{% block table_widget %}
-{% spaceless %}
-    {% if footable_options is defined %}
-        {% set striped = false %}
-    {% endif %}
-    {% if pager is defined %}
-        {{ block_widget(pager) }}
-    {% endif %}
-    {{ block('base_table_widget') }}
-    {% require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' %}
-    {% if footable_options is defined %}
-        {% require_style    '@bower/footable/css/footable.core.css'
-                            '?@bower/sonatra-footable-striped/less/footable-striped.less' %}
-        {% require_script   '@bower/jquery/dist/jquery.js'
+{% block table_widget -%}
+    {%- if footable_options is defined -%}
+        {%- set striped = false -%}
+    {%- endif -%}
+
+    {%- if pager is defined -%}
+        {{- block_widget(pager) -}}
+    {%- endif -%}
+
+    {{- block('base_table_widget') -}}
+    {%- require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
+
+    {%- if footable_options is defined -%}
+        {%- require_style    '@bower/footable/css/footable.core.css'
+                            '?@bower/sonatra-footable-striped/less/footable-striped.less' -%}
+        {%- require_script   '@bower/jquery/dist/jquery.js'
                             '@bower/footable/js/footable.js'
                             '?@bower/sonatra-footable-responsive/js/footable-responsive.js'
                             '?@bower/sonatra-footable-striped/js/footable-striped.js'
                             '?@bower/sonatra-bootstrap-nav-footable/js/nav-footable.js'
-                            '?@bower/sonatra-jquery-table-pager-footable/js/table-pager-footable.js' %}
-        {% inline_script %}
+                            '?@bower/sonatra-jquery-table-pager-footable/js/table-pager-footable.js' -%}
+        {%- inline_script -%}
         <script>
-        $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
+            $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
         </script>
-        {% endinline_script %}
-    {% endif %}
-{% endspaceless %}
-{% endblock table_widget %}
+        {%- endinline_script -%}
+    {%- endif -%}
+{%- endblock table_widget %}

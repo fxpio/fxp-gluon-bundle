@@ -1,129 +1,111 @@
-{% use 'SonatraFormExtensionsBundle:Form:form_div_layout.html.twig' with
-        select2_widget_content as base_select2_widget_content %}
-{% use 'SonatraBootstrapBundle:Form:form_bootstrap.html.twig' with
+{%- use 'SonatraFormExtensionsBundle:Form:form_div_layout.html.twig' with
+        select2_widget_content as base_select2_widget_content -%}
+{%- use 'SonatraBootstrapBundle:Form:form_bootstrap.html.twig' with
         datetime_widget as base2_datetime_widget,
         date_widget as base2_date_widget,
         time_widget as base2_time_widget,
         choice_widget as base_choice_widget,
-        collection_widget as base2_collection_widget %}
+        collection_widget as base2_collection_widget -%}
 
-{% block checkbox_widget_content %}
-{% spaceless %}
-    {% set label_attr = label_attr|merge({'class': ('form-control-fa ' ~ label_attr.class|default(''))|trim}) %}
-    {% if style %}
-        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' input-' ~ style)|trim}) %}
-    {% endif %}
+{% block checkbox_widget_content -%}
+    {%- set label_attr = label_attr|merge({'class': ('form-control-fa ' ~ label_attr.class|default(''))|trim}) -%}
+    {%- if style -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' input-' ~ style)|trim}) -%}
+    {%- endif -%}
     <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
         <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
         <i class="fa form-control-fa-style"></i>
-        {% if label != ' ' %}
+        {%- if label != ' ' -%}
             <span>{{ label|trans({}, translation_domain) }}</span>
-        {% endif %}
+        {%- endif -%}
     </label>
-{% endspaceless %}
-{% endblock checkbox_widget_content %}
+{%- endblock checkbox_widget_content %}
 
 
 {% block radio_widget_content %}
-{% spaceless %}
-    {% set label_attr = label_attr|merge({'class': ('form-control-fa ' ~ label_attr.class|default(''))|trim}) %}
-    {% if style %}
-        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' input-' ~ style)|trim}) %}
-    {% endif %}
+    {%- set label_attr = label_attr|merge({'class': ('form-control-fa ' ~ label_attr.class|default(''))|trim}) -%}
+    {%- if style -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' input-' ~ style)|trim}) -%}
+    {%- endif -%}
+
     <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
         <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
         <i class="fa form-control-fa-style"></i>
-        {% if label != ' ' %}
+        {%- if label != ' ' -%}
             <span>{{ label|trans({}, translation_domain) }}</span>
-        {% endif %}
+        {%- endif -%}
     </label>
-{% endspaceless %}
-{% endblock radio_widget_content %}
+{%- endblock radio_widget_content %}
 
 
-{% block file_widget %}
-{% spaceless %}
-    {% require_script '?@bower/jquery/dist/jquery.js', '?@bower/bootstrap-filestyle/src/bootstrap-filestyle.js' %}
-    {% set attr = attr|merge({'class': ('filestyle ' ~ attr.class|default(''))|trim, 'data-classButton': 'btn btn-default btn-file-input-text', 'data-classInput':'form-control', 'data-buttonText':'form.input.file.choose-file'|trans({}, 'SonatraGluonBundle')}) %}
-    {{ block('form_widget_simple') }}
-{% endspaceless %}
-{% endblock file_widget %}
+{% block file_widget -%}
+    {%- require_script '?@bower/jquery/dist/jquery.js', '?@bower/bootstrap-filestyle/src/bootstrap-filestyle.js' -%}
+    {%- set attr = attr|merge({'class': ('filestyle ' ~ attr.class|default(''))|trim, 'data-classButton': 'btn btn-default btn-file-input-text', 'data-classInput':'form-control', 'data-buttonText':'form.input.file.choose-file'|trans({}, 'SonatraGluonBundle')}) -%}
+    {{- block('form_widget_simple') -}}
+{%- endblock file_widget %}
 
 
-{% block choice_widget %}
-{% spaceless %}
-    {% if select2 is defined %}
-        {% set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim})}) %}
-        {% if select2.ajax or select2.tags is defined %}
-            {% set form_widget_simple_block_name = 'select2_widget_content' %}
-            {{ block('form_widget_simple') }}
-        {% else %}
-            {{ block('select2_widget_content') }}
-        {% endif %}
-    {% else %}
-        {{ block('base_choice_widget') }}
-    {% endif %}
-{% endspaceless %}
-{% endblock choice_widget %}
+{% block choice_widget -%}
+    {%- if select2 is defined -%}
+        {%- set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim})}) -%}
+        {%- if select2.ajax or select2.tags is defined -%}
+            {%- set form_widget_simple_block_name = 'select2_widget_content' -%}
+            {{- block('form_widget_simple') -}}
+        {%- else -%}
+            {{- block('select2_widget_content') -}}
+        {%- endif -%}
+    {%- else -%}
+        {{- block('base_choice_widget') -}}
+    {%- endif -%}
+{%- endblock choice_widget %}
 
-{% block collection_widget %}
-{% spaceless %}
-    {% if select2 is defined %}
-        {% set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim})}) %}
-        {% if select2.ajax or select2.tags is defined %}
-            {% set form_widget_simple_block_name = 'select2_widget_content' %}
-            {{ block('form_widget_simple') }}
-        {% else %}
-            {{ block('select2_widget_content') }}
-        {% endif %}
-    {% else %}
-        {{ block('base2_collection_widget') }}
-    {% endif %}
-{% endspaceless %}
-{% endblock collection_widget %}
+{% block collection_widget -%}
+    {%- if select2 is defined -%}
+        {%- set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim})}) -%}
+        {%- if select2.ajax or select2.tags is defined -%}
+            {%- set form_widget_simple_block_name = 'select2_widget_content' -%}
+            {{- block('form_widget_simple') -}}
+        {%- else -%}
+            {{- block('select2_widget_content') -}}
+        {%- endif -%}
+    {%- else -%}
+        {{- block('base2_collection_widget') -}}
+    {%- endif -%}
+{%- endblock collection_widget %}
 
 
-{% block datetime_widget %}
-{% spaceless %}
-    {% require_script '@bower/jquery/dist/jquery.js', '@bower/moment/moment.js', '@bower/hammerjs/hammer.js', '@bower/jquery-knob/js/jquery-knob.js', '@bower/sonatra-jquery-datetime-picker/js/datetime-picker.js' %}
-    {% require_style '@bower/sonatra-jquery-datetime-picker/less/datetime-picker.less' %}
-    {% set append_icon = append_icon|default('fa fa-calendar-o') %}
-    {% set append_type = 'btn' %}
-    {% set append_string %}
+{% block datetime_widget -%}
+    {%- require_script '@bower/jquery/dist/jquery.js', '@bower/moment/moment.js', '@bower/hammerjs/hammer.js', '@bower/jquery-knob/js/jquery-knob.js', '@bower/sonatra-jquery-datetime-picker/js/datetime-picker.js' -%}
+    {%- require_style '@bower/sonatra-jquery-datetime-picker/less/datetime-picker.less' -%}
+
+    {%- set append_icon = append_icon|default('fa fa-calendar-o') -%}
+    {%- set append_type = 'btn' -%}
+    {%- set append_string -%}
         <button class="btn btn-default" type="button" id="{{ id ~ '_datetime_btn' }}">
             <span class="{{ append_icon }}"></span>
         </button>
-    {% endset %}
-    {{ block('base2_datetime_widget') }}
-{% endspaceless %}
-{% endblock datetime_widget %}
+    {%- endset -%}
+    {{- block('base2_datetime_widget') -}}
+{%- endblock datetime_widget %}
 
-{% block date_widget %}
-{% spaceless %}
-    {{ block('datetime_widget') }}
-{% endspaceless %}
-{% endblock date_widget %}
+{% block date_widget -%}
+    {{- block('datetime_widget') -}}
+{%- endblock date_widget %}
 
-{% block time_widget %}
-{% spaceless %}
-    {% set append_icon = append_icon|default('fa fa-clock-o') %}
-    {% set type= 'text' %}
-    {{ block('datetime_widget') }}
-{% endspaceless %}
-{% endblock time_widget %}
+{% block time_widget -%}
+    {%- set append_icon = append_icon|default('fa fa-clock-o') -%}
+    {%- set type= 'text' -%}
+    {{- block('datetime_widget') -}}
+{%- endblock time_widget %}
 
 {% block select2_widget_content %}
-{% spaceless %}
-{% require_style    '?@bower/sonatra-hammer-scroll/less/hammer-scroll.less'
-                    '?@bower/sonatra-select2-hammer-scroll/less/select2-hammer-scroll.less'
-%}
-{% require_script   '@bower/jquery/dist/jquery.js'
-                    '?@bower/sonatra-hammer-scroll/js/hammer-scroll.js'
-                    '@bower/select2/select2.js'
-                    '?@bower/sonatra-select2-responsive/js/select2-responsive.js'
-                    '?@bower/sonatra-select2-hammer-scroll/js/select2-hammer-scroll.js'
-%}
-{% set attr = attr|merge({'data-select2-hammer-scroll': 'true', 'data-select2-responsive': 'true'}) %}
-    {{ block('base_select2_widget_content') }}
-{% endspaceless %}
-{% endblock select2_widget_content %}
+    {%- require_style    '?@bower/sonatra-hammer-scroll/less/hammer-scroll.less'
+                        '?@bower/sonatra-select2-hammer-scroll/less/select2-hammer-scroll.less' -%}
+    {%- require_script   '@bower/jquery/dist/jquery.js'
+                        '?@bower/sonatra-hammer-scroll/js/hammer-scroll.js'
+                        '@bower/select2/select2.js'
+                        '?@bower/sonatra-select2-responsive/js/select2-responsive.js'
+                        '?@bower/sonatra-select2-hammer-scroll/js/select2-hammer-scroll.js' -%}
+    {%- set attr = attr|merge({'data-select2-hammer-scroll': 'true', 'data-select2-responsive': 'true'}) -%}
+    {{- block('base_select2_widget_content') -}}
+{%- endblock select2_widget_content %}

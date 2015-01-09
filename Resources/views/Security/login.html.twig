@@ -1,12 +1,13 @@
-{% extends "SonatraGluonBundle::base.html.twig" %}
+{%- extends "SonatraGluonBundle::base.html.twig" -%}
 
-{% set logo_src = logo_src|default('bundles/sonatragluon/logo.svg') %}
-{% set logo_alt = logo_alt|default('Sonatra') %}
+{%- set logo_src = logo_src|default('bundles/sonatragluon/logo.svg') -%}
+{%- set logo_alt = logo_alt|default('Sonatra') -%}
 
-{% block title %}Login{% endblock title %}
+{%- block title %}Login{% endblock title -%}
 
-{% block body %}
-    {% trans_default_domain 'FOSUserBundle' %}
+{%- block body -%}
+{% spaceless %}
+    {%- trans_default_domain 'FOSUserBundle' -%}
 
     <div class="container">
         <div class="row">
@@ -16,11 +17,11 @@
                         <img src="{{ asset(logo_src) }}" alt="{{ logo_alt }}" />
                     </div>
 
-                    {% if error %}
+                    {%- if error -%}
                         <div class="alert alert-danger">
                             {{ error|trans }}
                         </div>
-                    {% endif %}
+                    {%- endif -%}
 
                     <form action="{{ path("fos_user_security_check") }}" method="post">
                         <section class="panel">
@@ -69,7 +70,8 @@
             </div>
         </div>
     </div>
-{% endblock body %}
+{% endspaceless %}
+{%- endblock body -%}
 
 {%- block javascripts -%}
 {%- endblock javascripts -%}
