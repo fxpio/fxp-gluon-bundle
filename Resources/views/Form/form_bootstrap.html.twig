@@ -99,7 +99,8 @@
 {%- endblock time_widget %}
 
 {% block select2_widget_content %}
-    {%- require_style   '?@bower/sonatra-hammer-scroll/less/hammer-scroll.less'
+    {%- require_style   '@bower/sonatra-select2-responsive/less/select2-responsive.less'
+                        '?@bower/sonatra-hammer-scroll/less/hammer-scroll.less'
                         '?@bower/sonatra-select2-hammer-scroll/less/select2-hammer-scroll.less' -%}
     {%- require_script  '@bower/jquery/dist/jquery.js'
                         '?@bower/sonatra-hammer-scroll/js/hammer-scroll.js'
