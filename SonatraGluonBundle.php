@@ -11,6 +11,7 @@
 
 namespace Sonatra\Bundle\GluonBundle;
 
+use Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler\ConfigurationPass;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler\FormTemplatePass;
@@ -27,5 +28,6 @@ class SonatraGluonBundle extends Bundle
 
         $container->addCompilerPass(new FormTemplatePass());
         $container->addCompilerPass(new BlockTemplatePass());
+        $container->addCompilerPass(new ConfigurationPass());
     }
 }

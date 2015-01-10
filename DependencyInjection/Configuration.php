@@ -31,6 +31,9 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('sonatra_gluon');
 
         $rootNode
+            ->children()
+                ->booleanNode('auto_configuration')->defaultTrue()
+            ->end()
             ->append($this->getGoogleFontsNode())
             ->append($this->getFontAwesomeNode())
         ;

@@ -1,0 +1,154 @@
+packages:
+    @bower/font-awesome:
+        patterns:
+            - "css/font-awesome.css"
+            - "fonts/*"
+    @bower/footable:
+        patterns:
+            - "fonts/*"
+            - "js/footable.js"
+    @bower/select2:
+        patterns:
+            - "select2.js"
+    @bower/sonatra-bootstrap-nav-footable:
+        patterns:
+            - "js/nav-footable.js"
+    @bower/sonatra-bootstrap-nav-scroll:
+        patterns:
+            - "js/dropdown-position.js"
+            - "js/nav-scroll.js"
+    @bower/sonatra-bootstrap-panel-collapse:
+        patterns:
+            - "js/panel-collapse.js"
+    @bower/sonatra-footable-responsive:
+        patterns:
+            - "js/footable-responsive.js"
+    @bower/sonatra-footable-striped:
+        patterns:
+            - "js/footable-striped.js"
+    @bower/sonatra-hammer-scroll:
+        patterns:
+            - "js/hammer-scroll.js"
+    @bower/sonatra-jquery-datetime-picker:
+        patterns:
+            - "js/datetime-picker.js"
+            - "!less/*"
+    @bower/sonatra-jquery-sidebar:
+        patterns:
+            - "js/sidebar.js"
+    @bower/sonatra-jquery-table-pager:
+        patterns:
+            - "js/table-pager.js"
+    @bower/sonatra-jquery-table-pager-footable:
+        patterns:
+            - "js/table-pager-footable.js"
+    @bower/sonatra-jquery-table-select:
+        patterns:
+            - "js/table-select.js"
+    @bower/sonatra-select2-hammer-scroll:
+        patterns:
+            - "js/select2-hammer-scroll.js"
+    @bower/sonatra-select2-responsive:
+        patterns:
+            - "js/select2-responsive.js"
+    @bower/sonatra-theme-gluon:
+        patterns:
+            - "!*"
+    sonatra_bootstrap_bundle:
+        patterns:
+            - "!assetic/less/bootstrap.less"
+    sonatra_gluon_bundle:
+        patterns:
+            - "assetic/less/*"
+    runr_website_bundle:
+        patterns:
+            - "!*"
+
+asset_replacement:
+    "@bower/bootstrap/less/bootstrap.less": "sonatra_gluon_bundle/assetic/less/bootstrap.less"
+    "@bower/bootstrap/less/theme.less": "sonatra_gluon_bundle/assetic/less/bootstrap-theme.less"
+    "@bower/bootstrap/dist/css/bootstrap.css": "sonatra_gluon_bundle/assetic/less/bootstrap.less"
+    "@bower/bootstrap/dist/css/bootstrap-theme.css": "sonatra_gluon_bundle/assetic/less/bootstrap-theme.less"
+
+    "sonatra_bootstrap_bundle/assetic/less/bootstrap.less": "sonatra_gluon_bundle/assetic/less/bootstrap.less"
+    "sonatra_bootstrap_bundle/assetic/less/bootstrap-extensions.less": "sonatra_gluon_bundle/assetic/less/bootstrap-theme.less"
+
+    "@bower/sonatra-bootstrap-nav-scroll/less/nav-scroll.less": "sonatra_gluon_bundle/assetic/less/bootstrap-nav-scroll.less"
+
+    "@bower/sonatra-bootstrap-panel-collapse/less/panel-collapse.less": "sonatra_gluon_bundle/assetic/less/bootstrap-panel-collapse.less"
+
+    "@bower/footable/less/footable.core.less": "sonatra_gluon_bundle/assetic/less/footable.less"
+    "@bower/footable/css/footable.core.css": "sonatra_gluon_bundle/assetic/less/footable.less"
+
+    "@bower/sonatra-footable-striped/less/footable-striped.less": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
+    "@bower/sonatra-footable-striped/css/footable-striped.css": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
+
+    "@bower/sonatra-hammer-scroll/less/hammer-scroll.less": "sonatra_gluon_bundle/assetic/less/hammer-scroll.less"
+    "@bower/sonatra-hammer-scroll/css/hammer-scroll.css": "sonatra_gluon_bundle/assetic/less/hammer-scroll.less"
+
+    "@bower/sonatra-jquery-datetime-picker/less/datetime-picker.less": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
+    "@bower/sonatra-jquery-datetime-picker/css/datetime-picker.css": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
+
+    "@bower/sonatra-jquery-sidebar/less/sidebar.less": "sonatra_gluon_bundle/assetic/less/jquery-sidebar.less"
+    "@bower/sonatra-jquery-sidebar/css/sidebar.css": "sonatra_gluon_bundle/assetic/less/jquery-sidebar.less"
+    "@bower/sonatra-jquery-sidebar/less/sidebar-bootstrap.less": "sonatra_gluon_bundle/assetic/less/jquery-sidebar.less"
+    "@bower/sonatra-jquery-sidebar/css/sidebar-bootstrap.css": "sonatra_gluon_bundle/assetic/less/jquery-sidebar.less"
+
+    "@bower/sonatra-jquery-table-pager/less/table-pager.less": "sonatra_gluon_bundle/assetic/less/jquery-table-pager.less"
+    "@bower/sonatra-jquery-table-pager/css/table-pager.css": "sonatra_gluon_bundle/assetic/less/jquery-table-pager.less"
+    "@bower/sonatra-jquery-table-pager/less/table-sort.less": "sonatra_gluon_bundle/assetic/less/jquery-table-sort.less"
+    "@bower/sonatra-jquery-table-pager/css/table-sort.css": "sonatra_gluon_bundle/assetic/less/jquery-table-sort.less"
+
+    "@bower/sonatra-jquery-table-select/less/table-select.less": "sonatra_gluon_bundle/assetic/less/jquery-table-select.less"
+    "@bower/sonatra-jquery-table-select/css/table-select.css": "sonatra_gluon_bundle/assetic/less/jquery-table-select.less"
+
+    "@bower/sonatra-select2-hammer-scroll/less/select2-hammer-scroll.less": "sonatra_gluon_bundle/assetic/less/select2-hammer-scroll.less"
+    "@bower/sonatra-select2-hammer-scroll/css/select2-hammer-scroll.css": "sonatra_gluon_bundle/assetic/less/select2-hammer-scroll.less"
+
+    "@bower/sonatra-select2-responsive/less/select2-responsive.less": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
+    "@bower/sonatra-select2-responsive/css/select2-responsive.css": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
+    "@bower/select2/select2.css": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
+
+    "@bower/sonatra-theme-gluon/less/bootstrap/bootstrap.less": "sonatra_gluon_bundle/assetic/less/bootstrap.less"
+    "@bower/sonatra-theme-gluon/css/bootstrap.css": "sonatra_gluon_bundle/assetic/less/bootstrap.less"
+
+    "@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less": "sonatra_gluon_bundle/assetic/less/bootstrap-theme.less"
+    "@bower/sonatra-theme-gluon/css/bootstrap-theme.css": "sonatra_gluon_bundle/assetic/less/bootstrap-theme.less"
+
+    "@bower/sonatra-theme-gluon/less/bootstrap-nav-scroll/bootstrap-nav-scroll.less": "sonatra_gluon_bundle/assetic/less/bootstrap-nav-scroll.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-bootstrap-nav-scroll.css": "sonatra_gluon_bundle/assetic/less/bootstrap-nav-scroll.less"
+
+    "@bower/sonatra-theme-gluon/less/bootstrap-panel-collapse/bootstrap-panel-collapse.less": "sonatra_gluon_bundle/assetic/less/bootstrap-panel-collapse.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-bootstrap-panel-collapse.css": "sonatra_gluon_bundle/assetic/less/bootstrap-panel-collapse.less"
+
+    "@bower/sonatra-theme-gluon/less/footable/footable.less": "sonatra_gluon_bundle/assetic/less/footable.less"
+    "@bower/sonatra-theme-gluon/css/footable.css": "sonatra_gluon_bundle/assetic/less/footable.less"
+
+    "@bower/sonatra-theme-gluon/less/footable-striped/footable-striped.less": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
+    "@bower/sonatra-theme-gluon/css/footable-striped.css": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
+
+    "@bower/sonatra-theme-gluon/less/hammer-scroll/hammer-scroll.less": "sonatra_gluon_bundle/assetic/less/hammer-scroll.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-hammer-scroll.css": "sonatra_gluon_bundle/assetic/less/hammer-scroll.less"
+
+    "@bower/sonatra-theme-gluon/less/jquery-datetime-picker/jquery-datetime-picker.less": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-jquery-datetime-picker.css": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
+
+    "@bower/sonatra-theme-gluon/less/jquery-sidebar/jquery-sidebar.less": "sonatra_gluon_bundle/assetic/less/jquery-sidebar.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-jquery-sidebar.css": "sonatra_gluon_bundle/assetic/less/jquery-sidebar.less"
+
+    "@bower/sonatra-theme-gluon/less/jquery-table-pager/jquery-table-pager.less": "sonatra_gluon_bundle/assetic/less/jquery-table-pager.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-jquery-table-pager.css": "sonatra_gluon_bundle/assetic/less/jquery-table-pager.less"
+    "@bower/sonatra-theme-gluon/less/jquery-table-pager/jquery-table-sort.less": "sonatra_gluon_bundle/assetic/less/jquery-table-sort.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-jquery-table-sort.css": "sonatra_gluon_bundle/assetic/less/jquery-table-sort.less"
+
+    "@bower/sonatra-theme-gluon/less/jquery-table-select/jquery-table-select.less": "sonatra_gluon_bundle/assetic/less/jquery-table-select.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-jquery-table-select.css": "sonatra_gluon_bundle/assetic/less/jquery-table-select.less"
+
+    "@bower/sonatra-theme-gluon/less/select2-hammer-scroll/select2-hammer-scroll.less": "sonatra_gluon_bundle/assetic/less/select2-hammer-scroll.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-select2-hammer-scroll.css": "sonatra_gluon_bundle/assetic/less/select2-hammer-scroll.less"
+
+    "@bower/sonatra-theme-gluon/less/select2-responsive/select2-responsive.less": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-select2-responsive.css": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
+
+    "@bower/sonatra-theme-gluon/less/gluon/gluon.less": "sonatra_gluon_bundle/assetic/less/gluon.less"
+    "@bower/sonatra-theme-gluon/css/gluon.css": "sonatra_gluon_bundle/assetic/less/gluon.less"
