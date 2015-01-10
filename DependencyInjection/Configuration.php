@@ -71,6 +71,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('fonts')
                     ->useAttributeAsKey('name', false)
                     ->normalizeKeys(false)
+                    ->defaultValue($this->getDefaultFonts())
                     ->prototype('array')
                         ->prototype('scalar')->end()
                     ->end()
@@ -79,6 +80,19 @@ class Configuration implements ConfigurationInterface
         ;
 
         return $node;
+    }
+
+    /**
+     * Get the default fonts.
+     *
+     * @return array
+     */
+    private function getDefaultFonts()
+    {
+        return array(
+            'Open Sans' => array(400, '400italic', 600, '600italic'),
+            'Raleway' => array(100, 200),
+        );
     }
 
     /**
