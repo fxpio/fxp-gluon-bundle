@@ -13,9 +13,11 @@ packages:
     @bower/sonatra-bootstrap-nav-footable:
         patterns:
             - "js/nav-footable.js"
-    @bower/sonatra-bootstrap-nav-scroll:
+    @bower/sonatra-bootstrap-dropdown-position:
         patterns:
             - "js/dropdown-position.js"
+    @bower/sonatra-bootstrap-nav-scroll:
+        patterns:
             - "js/nav-scroll.js"
     @bower/sonatra-bootstrap-panel-collapse:
         patterns:
@@ -72,6 +74,8 @@ asset_replacement:
 
     "sonatra_bootstrap_bundle/assetic/less/bootstrap.less": "sonatra_gluon_bundle/assetic/less/bootstrap.less"
     "sonatra_bootstrap_bundle/assetic/less/bootstrap-extensions.less": "sonatra_gluon_bundle/assetic/less/bootstrap-theme.less"
+
+    "@bower/sonatra-bootstrap-dropdown-position/less/dropdown-position.less": "sonatra_gluon_bundle/assetic/less/bootstrap-dropdown-position.less"
 
     "@bower/sonatra-bootstrap-nav-scroll/less/nav-scroll.less": "sonatra_gluon_bundle/assetic/less/bootstrap-nav-scroll.less"
 

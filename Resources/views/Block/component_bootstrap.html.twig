@@ -1,5 +1,6 @@
 {%- use 'SonatraBootstrapBundle:Block:component_bootstrap.html.twig' with
         navbar_brand_widget as base_navbar_brand_widget,
+        dropdown_widget as base_dropdown_widget,
         panel_widget as base_panel_widget,
         panel_body_widget as base_panel_body_widget,
         panel_footer_widget as base_panel_footer_widget,
@@ -21,6 +22,13 @@
     {{- block('base_navbar_brand_widget') -}}
     {%- require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
 {%- endblock navbar_brand_widget %}
+
+{% block dropdown_widget -%}
+    {%- require_style   '@bower/sonatra-bootstrap-dropdown-position/less/dropdown-position.less' -%}
+    {%- require_script  '@bower/jquery/dist/jquery.js'
+                        '@bower/sonatra-bootstrap-dropdown-position/js/dropdown-position.js' -%}
+    {{- block('base_dropdown_widget') -}}
+{%- endblock dropdown_widget %}
 
 
 {% block checkbox_widget_content -%}
