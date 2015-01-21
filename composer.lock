@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "bower-asset/bootstrap",
-            "version": "v3.3.1",
+            "version": "v3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "9a7e365c2c4360335d25246dac11afb1f577210a"
+                "reference": "bcf7dd38b5ab180256e2e4fb5da0369551b3f082"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/9a7e365c2c4360335d25246dac11afb1f577210a",
-                "reference": "9a7e365c2c4360335d25246dac11afb1f577210a",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/bcf7dd38b5ab180256e2e4fb5da0369551b3f082",
+                "reference": "bcf7dd38b5ab180256e2e4fb5da0369551b3f082",
                 "shasum": ""
             },
             "require": {
@@ -380,12 +380,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-bootstrap-dropdown-position.git",
-                "reference": "1ef703c24b404723fc054bfe881fc36fc7b82b6d"
+                "reference": "7aa69dbaacaf6ec98807bd25ddab91aa330fd186"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-dropdown-position/zipball/1ef703c24b404723fc054bfe881fc36fc7b82b6d",
-                "reference": "1ef703c24b404723fc054bfe881fc36fc7b82b6d",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-dropdown-position/zipball/7aa69dbaacaf6ec98807bd25ddab91aa330fd186",
+                "reference": "7aa69dbaacaf6ec98807bd25ddab91aa330fd186",
                 "shasum": ""
             },
             "require": {
@@ -426,12 +426,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-bootstrap-nav-footable.git",
-                "reference": "c0a5d09ed44709382ef7a113124f0a6badce73a8"
+                "reference": "bdaad4a82ad7b6f390ab06c930c9f97a6519967c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-nav-footable/zipball/c0a5d09ed44709382ef7a113124f0a6badce73a8",
-                "reference": "c0a5d09ed44709382ef7a113124f0a6badce73a8",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-nav-footable/zipball/bdaad4a82ad7b6f390ab06c930c9f97a6519967c",
+                "reference": "bdaad4a82ad7b6f390ab06c930c9f97a6519967c",
                 "shasum": ""
             },
             "require": {
@@ -468,12 +468,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-bootstrap-nav-scroll.git",
-                "reference": "39c49ac3be6919a982df3df1d110ac9ba85b874d"
+                "reference": "952997d56a6040df0abddba014916c9815ae3875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-nav-scroll/zipball/39c49ac3be6919a982df3df1d110ac9ba85b874d",
-                "reference": "39c49ac3be6919a982df3df1d110ac9ba85b874d",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-nav-scroll/zipball/952997d56a6040df0abddba014916c9815ae3875",
+                "reference": "952997d56a6040df0abddba014916c9815ae3875",
                 "shasum": ""
             },
             "require": {
@@ -515,12 +515,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse.git",
-                "reference": "91688fc89bb5de8f58b2bd6383ae2be803bd5909"
+                "reference": "07ae8ed7ae7fb727afd3e6a305a0549729c852fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-panel-collapse/zipball/91688fc89bb5de8f58b2bd6383ae2be803bd5909",
-                "reference": "91688fc89bb5de8f58b2bd6383ae2be803bd5909",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-panel-collapse/zipball/07ae8ed7ae7fb727afd3e6a305a0549729c852fd",
+                "reference": "07ae8ed7ae7fb727afd3e6a305a0549729c852fd",
                 "shasum": ""
             },
             "require": {
@@ -642,12 +642,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-hammer-scroll.git",
-                "reference": "cd740039feb19422a464387fee056717bb5f2e80"
+                "reference": "7ab1afeef54edc79bebe3e8e443d8107c69372b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-hammer-scroll/zipball/cd740039feb19422a464387fee056717bb5f2e80",
-                "reference": "cd740039feb19422a464387fee056717bb5f2e80",
+                "url": "https://api.github.com/repos/sonatra/sonatra-hammer-scroll/zipball/7ab1afeef54edc79bebe3e8e443d8107c69372b2",
+                "reference": "7ab1afeef54edc79bebe3e8e443d8107c69372b2",
                 "shasum": ""
             },
             "require": {
@@ -683,12 +683,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-jquery-datetime-picker.git",
-                "reference": "f15506b77f71bde9b022fb758d5542fac55d5f96"
+                "reference": "3d3bf871124d807cf63a256bdd3b56492a938a54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-datetime-picker/zipball/f15506b77f71bde9b022fb758d5542fac55d5f96",
-                "reference": "f15506b77f71bde9b022fb758d5542fac55d5f96",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-datetime-picker/zipball/3d3bf871124d807cf63a256bdd3b56492a938a54",
+                "reference": "3d3bf871124d807cf63a256bdd3b56492a938a54",
                 "shasum": ""
             },
             "require": {
@@ -696,6 +696,9 @@
                 "bower-asset/jquery": ">=1.11.0",
                 "bower-asset/jquery-knob": "dev-1.2.*,|1.2.*",
                 "bower-asset/moment": "dev-2.9.*,|2.9.*"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "~3"
             },
             "type": "bower-asset-library",
             "extra": {
@@ -726,22 +729,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-jquery-sidebar.git",
-                "reference": "89c52056f47df7dce09c4957de118d94c9d5a037"
+                "reference": "715e837582b91cac535387498b894d813fa6e2ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-sidebar/zipball/89c52056f47df7dce09c4957de118d94c9d5a037",
-                "reference": "89c52056f47df7dce09c4957de118d94c9d5a037",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-sidebar/zipball/715e837582b91cac535387498b894d813fa6e2ba",
+                "reference": "715e837582b91cac535387498b894d813fa6e2ba",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/hammerjs": "dev-2.0.*,|2.0.*",
-                "bower-asset/jquery": ">=1.11.0"
+                "bower-asset/jquery": ">=1.11.0",
+                "bower-asset/sonatra-hammer-scroll": "dev-default|*"
             },
             "require-dev": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/font-awesome": ">=4.2",
-                "bower-asset/sonatra-hammer-scroll": "dev-default|*"
+                "bower-asset/bootstrap": "~3",
+                "bower-asset/font-awesome": "~4",
+                "bower-asset/hammerjs": "~2"
             },
             "type": "bower-asset-library",
             "extra": {
@@ -774,12 +777,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-jquery-table-pager.git",
-                "reference": "63b98e636a410b6a0eeccca7a9abe7f11411b8e0"
+                "reference": "347499db94169d7f7b71b66f4c48a465b30064ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-pager/zipball/63b98e636a410b6a0eeccca7a9abe7f11411b8e0",
-                "reference": "63b98e636a410b6a0eeccca7a9abe7f11411b8e0",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-pager/zipball/347499db94169d7f7b71b66f4c48a465b30064ee",
+                "reference": "347499db94169d7f7b71b66f4c48a465b30064ee",
                 "shasum": ""
             },
             "require": {
@@ -865,12 +868,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-jquery-table-select.git",
-                "reference": "17b0586c1c3d98876dc98c5d3c86d5f52b04b9fb"
+                "reference": "67924a7d0e6542c8f74f27f2971d1a4020f0aea2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-select/zipball/17b0586c1c3d98876dc98c5d3c86d5f52b04b9fb",
-                "reference": "17b0586c1c3d98876dc98c5d3c86d5f52b04b9fb",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-select/zipball/67924a7d0e6542c8f74f27f2971d1a4020f0aea2",
+                "reference": "67924a7d0e6542c8f74f27f2971d1a4020f0aea2",
                 "shasum": ""
             },
             "require": {
@@ -911,12 +914,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-select2-hammer-scroll.git",
-                "reference": "7a8a1b2a61c58eec3d3a0528fa0fc8ff143e6f39"
+                "reference": "278f45430b19cdb9692a99680cc7d2c67da0fa26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-select2-hammer-scroll/zipball/7a8a1b2a61c58eec3d3a0528fa0fc8ff143e6f39",
-                "reference": "7a8a1b2a61c58eec3d3a0528fa0fc8ff143e6f39",
+                "url": "https://api.github.com/repos/sonatra/sonatra-select2-hammer-scroll/zipball/278f45430b19cdb9692a99680cc7d2c67da0fa26",
+                "reference": "278f45430b19cdb9692a99680cc7d2c67da0fa26",
                 "shasum": ""
             },
             "require": {
@@ -959,12 +962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-select2-responsive.git",
-                "reference": "2d150980edd01ce7d94327ae9cc2fdef50f57aee"
+                "reference": "82ef16333a38ff84be9400627f4a31fc21b793d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-select2-responsive/zipball/2d150980edd01ce7d94327ae9cc2fdef50f57aee",
-                "reference": "2d150980edd01ce7d94327ae9cc2fdef50f57aee",
+                "url": "https://api.github.com/repos/sonatra/sonatra-select2-responsive/zipball/82ef16333a38ff84be9400627f4a31fc21b793d2",
+                "reference": "82ef16333a38ff84be9400627f4a31fc21b793d2",
                 "shasum": ""
             },
             "require": {
@@ -1003,12 +1006,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-theme-gluon.git",
-                "reference": "b509f39b77b2cea4bef45787e9591efa0ad34ea6"
+                "reference": "cffe7bc344f1d9be0e122470d9bcbe6d4a5c8a39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-theme-gluon/zipball/b509f39b77b2cea4bef45787e9591efa0ad34ea6",
-                "reference": "b509f39b77b2cea4bef45787e9591efa0ad34ea6",
+                "url": "https://api.github.com/repos/sonatra/sonatra-theme-gluon/zipball/cffe7bc344f1d9be0e122470d9bcbe6d4a5c8a39",
+                "reference": "cffe7bc344f1d9be0e122470d9bcbe6d4a5c8a39",
                 "shasum": ""
             },
             "require": {
@@ -1177,12 +1180,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/fxp-require-asset.git",
-                "reference": "88454055a4832a214a9decf30532692e25a8a31a"
+                "reference": "1bdcc91368d28ccd48d44128b39e8795a295670d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/88454055a4832a214a9decf30532692e25a8a31a",
-                "reference": "88454055a4832a214a9decf30532692e25a8a31a",
+                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/1bdcc91368d28ccd48d44128b39e8795a295670d",
+                "reference": "1bdcc91368d28ccd48d44128b39e8795a295670d",
                 "shasum": ""
             },
             "require": {
@@ -1231,7 +1234,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2015-01-09 11:26:05"
+            "time": "2015-01-21 13:47:45"
         },
         {
             "name": "fxp/require-asset-bundle",
