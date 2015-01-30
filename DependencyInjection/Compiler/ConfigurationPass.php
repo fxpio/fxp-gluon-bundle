@@ -27,7 +27,9 @@ class ConfigurationPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $parser = new Parser();
-        $config = $parser->parse(file_get_contents(__DIR__.'/../../Resources/config/require_asset.yml'));
+        $refl = new \ReflectionClass($this);
+        $path = dirname(dirname($refl->getFileName())).'/Resources/config/require_asset.yml';
+        $config = $parser->parse(file_get_contents($path));
 
         if ($container->getParameter('sonatra_gluon.config.auto_configuration')) {
             $this->processManager($container, 'package_manager', 'addPackages', $config['packages']);
