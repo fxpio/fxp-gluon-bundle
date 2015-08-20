@@ -12,15 +12,21 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3",
-        "symfony/framework-bundle": "~2.4",
-        "symfony/assetic-bundle": "~2.4",
+        "php": ">=5.4",
+        "symfony/framework-bundle": "~2.7",
+        "symfony/assetic-bundle": "~2.6",
         "kriswallsmith/assetic": "~1.2",
         "sonatra/block-bundle": "1.0.*@dev",
         "fxp/require-asset" : "1.0.*@dev",
         "fxp/require-asset-bundle" : "1.0.*@dev",
         "sonatra/bootstrap-bundle": "1.0.*@dev",
-        "sonatra/ajax-bundle": "1.0.*@dev",
+        "sonatra/ajax-bundle": "1.0.*@dev"
+
+    },
+    "require-dev": {
+        "symfony/console": "~2.7",
+        "symfony/finder": "~2.7",
+        "bower-asset/select2-bootstrap-theme": "0.1.*@dev",
         "bower-asset/sonatra-theme-gluon": "1.0.*@dev",
         "bower-asset/sonatra-bootstrap-dropdown-position": "1.0.*@dev",
         "bower-asset/sonatra-bootstrap-nav-scroll": "1.0.*@dev",
@@ -29,18 +35,13 @@
         "bower-asset/sonatra-jquery-table-pager-footable": "1.0.*@dev",
         "bower-asset/sonatra-jquery-table-select": "1.0.*@dev",
         "bower-asset/sonatra-jquery-table-pager": "1.0.*@dev",
-        "bower-asset/sonatra-select2-hammer-scroll": "1.0.*@dev",
+        "bower-asset/sonatra-select2-scroller": "1.0.*@dev",
         "bower-asset/sonatra-select2-responsive": "1.0.*@dev",
         "bower-asset/sonatra-footable-striped": "1.0.*@dev",
         "bower-asset/sonatra-footable-responsive": "1.0.*@dev",
-        "bower-asset/sonatra-hammer-scroll": "1.0.*@dev",
+        "bower-asset/sonatra-jquery-scroller": "1.0.*@dev",
         "bower-asset/sonatra-jquery-sidebar": "1.0.*@dev",
         "bower-asset/sonatra-jquery-datetime-picker": "1.0.*@dev"
-
-    },
-    "require-dev": {
-        "symfony/console": "~2.4",
-        "symfony/finder": "~2.4"
     },
     "suggest": {
         "fxp/composer-asset-plugin": "For manage NPM/Bower dependencies with Composer"

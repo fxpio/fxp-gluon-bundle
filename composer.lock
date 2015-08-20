@@ -4,1066 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "573d7ca98f6db2053627b409a6fc9ff8",
+    "hash": "f2f37e5fc9d3d46ab9f981525b92448f",
     "packages": [
-        {
-            "name": "bower-asset/bootstrap",
-            "version": "v3.3.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "16b48259a62f576e52c903c476bd42b90ab22482"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/16b48259a62f576e52c903c476bd42b90ab22482",
-                "reference": "16b48259a62f576e52c903c476bd42b90ab22482",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.9.1"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "less/bootstrap.less",
-                    "dist/js/bootstrap.js"
-                ],
-                "bower-asset-ignore": [
-                    "/.*",
-                    "_config.yml",
-                    "CNAME",
-                    "composer.json",
-                    "CONTRIBUTING.md",
-                    "docs",
-                    "js/tests",
-                    "test-infra"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-            "keywords": [
-                "css",
-                "framework",
-                "front-end",
-                "js",
-                "less",
-                "mobile-first",
-                "responsive",
-                "web"
-            ]
-        },
-        {
-            "name": "bower-asset/bootstrap-filestyle",
-            "version": "v1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/markusslima/bootstrap-filestyle.git",
-                "reference": "d7cfcd9d71d93d96e58858102bf27776d21aca83"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/markusslima/bootstrap-filestyle/zipball/d7cfcd9d71d93d96e58858102bf27776d21aca83",
-                "reference": "d7cfcd9d71d93d96e58858102bf27776d21aca83",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "src/bootstrap-filestyle.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "test",
-                    "tests"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Bootstrap FileStyle is a quick and simple plugin to help style your form's file upload inputs.",
-            "keywords": [
-                "bootstrap",
-                "filestyle",
-                "fileupload"
-            ]
-        },
-        {
-            "name": "bower-asset/font-awesome",
-            "version": "v4.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/e554555d73a44e0a7d11b0361ad7a5325a5f551c",
-                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "less/font-awesome.less",
-                    "scss/font-awesome.scss"
-                ],
-                "bower-asset-ignore": [
-                    "*/.*",
-                    "*.json",
-                    "src",
-                    "*.yml",
-                    "Gemfile",
-                    "Gemfile.lock",
-                    "*.md"
-                ]
-            },
-            "license": [
-                "OFL-1.1",
-                "MIT",
-                "CC-BY-3.0"
-            ],
-            "description": "Font Awesome"
-        },
-        {
-            "name": "bower-asset/footable",
-            "version": "2.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fooplugins/FooTable.git",
-                "reference": "531e97698092014d7472dd60a63fd7ea48823d92"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fooplugins/FooTable/zipball/531e97698092014d7472dd60a63fd7ea48823d92",
-                "reference": "531e97698092014d7472dd60a63fd7ea48823d92",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.4.4"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "js/footable.js",
-                    "css/footable.core.css",
-                    "css/fonts/footable.eot",
-                    "css/fonts/footable.svg",
-                    "css/fonts/footable.ttf",
-                    "css/fonts/footable.woff"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "jQuery plugin to make HTML tables responsive",
-            "keywords": [
-                "responsive",
-                "table"
-            ]
-        },
-        {
-            "name": "bower-asset/hammerjs",
-            "version": "2.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/hammerjs/hammer.js.git",
-                "reference": "702e675f1bab25d5f6997989d43aaa5eae384f54"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/hammerjs/hammer.js/zipball/702e675f1bab25d5f6997989d43aaa5eae384f54",
-                "reference": "702e675f1bab25d5f6997989d43aaa5eae384f54",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "hammer.js",
-                "bower-asset-ignore": [
-                    "tests",
-                    "src"
-                ]
-            }
-        },
-        {
-            "name": "bower-asset/html5shiv",
-            "version": "3.7.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aFarkas/html5shiv.git",
-                "reference": "ed28c56c071bddfe7d635ad88995674957a016be"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aFarkas/html5shiv/zipball/ed28c56c071bddfe7d635ad88995674957a016be",
-                "reference": "ed28c56c071bddfe7d635ad88995674957a016be",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "dist/html5shiv.js"
-                ],
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "composer.json",
-                    "test",
-                    "build",
-                    "src",
-                    "build.xml"
-                ]
-            }
-        },
-        {
-            "name": "bower-asset/jquery",
-            "version": "2.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jquery/jquery.git",
-                "reference": "7751e69b615c6eca6f783a81e292a55725af6b85"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery/zipball/7751e69b615c6eca6f783a81e292a55725af6b85",
-                "reference": "7751e69b615c6eca6f783a81e292a55725af6b85",
-                "shasum": ""
-            },
-            "require-dev": {
-                "bower-asset/qunit": "1.14.0",
-                "bower-asset/requirejs": "2.1.10",
-                "bower-asset/sinon": "1.8.1",
-                "bower-asset/sizzle": "2.1.1-patch2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "dist/jquery.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "build",
-                    "dist/cdn",
-                    "speed",
-                    "test",
-                    "*.md",
-                    "AUTHORS.txt",
-                    "Gruntfile.js",
-                    "package.json"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "keywords": [
-                "javascript",
-                "jquery",
-                "library"
-            ]
-        },
-        {
-            "name": "bower-asset/jquery-knob",
-            "version": "1.2.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aterrien/jQuery-Knob.git",
-                "reference": "f0149509614763b3bc270c7cb70eae6602491711"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aterrien/jQuery-Knob/zipball/f0149509614763b3bc270c7cb70eae6602491711",
-                "reference": "f0149509614763b3bc270c7cb70eae6602491711",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.7.0"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/jquery.knob.js",
-                "bower-asset-ignore": []
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Nice, downward compatible, touchable, jQuery dial."
-        },
-        {
-            "name": "bower-asset/moment",
-            "version": "2.9.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/moment/moment.git",
-                "reference": "94ad539f965689289af54b6493abca0a65ab4ce6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/moment/moment/zipball/94ad539f965689289af54b6493abca0a65ab4ce6",
-                "reference": "94ad539f965689289af54b6493abca0a65ab4ce6",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "moment.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "test",
-                    "tests",
-                    "tasks",
-                    "component.json",
-                    "composer.json",
-                    "CONTRIBUTING.md",
-                    "ender.js",
-                    "Gruntfile.js",
-                    "package.js",
-                    "package.json"
-                ]
-            }
-        },
-        {
-            "name": "bower-asset/respond",
-            "version": "1.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/scottjehl/Respond.git",
-                "reference": "20b7f4a192bb910c8c7e067b961de38519d334e4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/scottjehl/Respond/zipball/20b7f4a192bb910c8c7e067b961de38519d334e4",
-                "reference": "20b7f4a192bb910c8c7e067b961de38519d334e4",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "dest/respond.src.js",
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "test"
-                ]
-            },
-            "description": "Fast and lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more)"
-        },
-        {
-            "name": "bower-asset/select2",
-            "version": "4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/select2/select2.git",
-                "reference": "80eb44bec78568b152dc5547269c164cb7b5363c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/select2/select2/zipball/80eb44bec78568b152dc5547269c164cb7b5363c",
-                "reference": "80eb44bec78568b152dc5547269c164cb7b5363c",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "dist/js/select2.js",
-                    "dist/css/select2.css"
-                ]
-            },
-            "description": "Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results."
-        },
-        {
-            "name": "bower-asset/sonatra-bootstrap-dropdown-position",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-bootstrap-dropdown-position.git",
-                "reference": "0e97739ed0b7f6c28bfe8adc6649903d85966e72"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-dropdown-position/zipball/0e97739ed0b7f6c28bfe8adc6649903d85966e72",
-                "reference": "0e97739ed0b7f6c28bfe8adc6649903d85966e72",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/jquery": ">=1.11.0"
-            },
-            "require-dev": {
-                "bower-asset/hammerjs": "dev-2.0.*|2.0.*",
-                "bower-asset/requirejs": "~2",
-                "bower-asset/sonatra-hammer-scroll": "dev-default|*"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/dropdown-position.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A responsive extension for Bootstrap Dropdown",
-            "keywords": [
-                "bootstrap",
-                "dropdown",
-                "jquery",
-                "position",
-                "responsive"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-bootstrap-nav-footable",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-bootstrap-nav-footable.git",
-                "reference": "f09bee709ce960759bb3387cca39f898018efa3e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-nav-footable/zipball/f09bee709ce960759bb3387cca39f898018efa3e",
-                "reference": "f09bee709ce960759bb3387cca39f898018efa3e",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/footable": "dev-2.0.*|2.0.*",
-                "bower-asset/jquery": ">=1.11.0"
-            },
-            "require-dev": {
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/nav-footable.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A Bootstrap Nav plugin for Footable",
-            "keywords": [
-                "bootstrap",
-                "footable",
-                "jquery",
-                "nav"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-bootstrap-nav-scroll",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-bootstrap-nav-scroll.git",
-                "reference": "d015726ffccb46a7942ae1306e1ed4e2df993504"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-nav-scroll/zipball/d015726ffccb46a7942ae1306e1ed4e2df993504",
-                "reference": "d015726ffccb46a7942ae1306e1ed4e2df993504",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/jquery": ">=1.11.0",
-                "bower-asset/sonatra-hammer-scroll": "dev-default|*"
-            },
-            "require-dev": {
-                "bower-asset/hammerjs": "dev-2.0.*|2.0.*",
-                "bower-asset/requirejs": "~2",
-                "bower-asset/sonatra-bootstrap-dropdown-position": "dev-default|*"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/nav-scroll.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A simplistic javascript scroller with Hammerjs for Bootstrap Nav",
-            "keywords": [
-                "bootstrap",
-                "hammerjs",
-                "jquery",
-                "nav",
-                "scroller"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-bootstrap-panel-collapse",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse.git",
-                "reference": "ece078ee7a6f01eb9827cde60d490295ecf712f7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-panel-collapse/zipball/ece078ee7a6f01eb9827cde60d490295ecf712f7",
-                "reference": "ece078ee7a6f01eb9827cde60d490295ecf712f7",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/jquery": ">=1.11.0"
-            },
-            "require-dev": {
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/panel-collapse.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A collapsible panel for Bootstrap",
-            "keywords": [
-                "bootstrap",
-                "collapse",
-                "jquery",
-                "panel"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-footable-responsive",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-footable-responsive.git",
-                "reference": "958251cf2e776e3bc52a5a285e2dcd1dc49a212d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-footable-responsive/zipball/958251cf2e776e3bc52a5a285e2dcd1dc49a212d",
-                "reference": "958251cf2e776e3bc52a5a285e2dcd1dc49a212d",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/footable": "dev-2.0.*|2.0.*",
-                "bower-asset/jquery": ">=1.11.0"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/footable-responsive.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A responsive plugin for Footable",
-            "keywords": [
-                "auto hide",
-                "column",
-                "footable",
-                "responsive"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-footable-striped",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-footable-striped.git",
-                "reference": "271280727b98815999edebad3351937ad012f34b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-footable-striped/zipball/271280727b98815999edebad3351937ad012f34b",
-                "reference": "271280727b98815999edebad3351937ad012f34b",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/footable": "dev-2.0.*|2.0.*",
-                "bower-asset/jquery": ">=1.11.0"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/footable-striped.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A striped plugin for Footable",
-            "keywords": [
-                "footable",
-                "striped"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-hammer-scroll",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-hammer-scroll.git",
-                "reference": "97dcb2a6885a9b0528e7fe143ab64d1903dc08a5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-hammer-scroll/zipball/97dcb2a6885a9b0528e7fe143ab64d1903dc08a5",
-                "reference": "97dcb2a6885a9b0528e7fe143ab64d1903dc08a5",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.11.0"
-            },
-            "require-dev": {
-                "bower-asset/hammerjs": "dev-2.0.*|2.0.*",
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/hammer-scroll.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A scroller with Hammerjs",
-            "keywords": [
-                "hammerjs",
-                "scroller"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-jquery-datetime-picker",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-jquery-datetime-picker.git",
-                "reference": "ce076c80e52887ea724d602a91f5a704d52335dc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-datetime-picker/zipball/ce076c80e52887ea724d602a91f5a704d52335dc",
-                "reference": "ce076c80e52887ea724d602a91f5a704d52335dc",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/hammerjs": "dev-2.0.*|2.0.*",
-                "bower-asset/jquery": ">=1.11.0",
-                "bower-asset/jquery-knob": "dev-1.2.*|1.2.*",
-                "bower-asset/moment": "dev-2.9.*|2.9.*"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": "~3",
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/datetime-picker.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A Jquery date time picker",
-            "keywords": [
-                "date",
-                "datetime",
-                "jquery",
-                "time"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-jquery-sidebar",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-jquery-sidebar.git",
-                "reference": "2a4e215544f5726b707c2915085e6fe9f537afbb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-sidebar/zipball/2a4e215544f5726b707c2915085e6fe9f537afbb",
-                "reference": "2a4e215544f5726b707c2915085e6fe9f537afbb",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.11.0",
-                "bower-asset/sonatra-hammer-scroll": "dev-default|*"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": "~3",
-                "bower-asset/font-awesome": "~4",
-                "bower-asset/hammerjs": "~2",
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/sidebar.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A jquery responsive sidebar with hammerjs",
-            "keywords": [
-                "drawer",
-                "hammer scroll",
-                "hammerjs",
-                "jquery",
-                "responsive",
-                "sidebar"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-jquery-table-pager",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-jquery-table-pager.git",
-                "reference": "8bf6834da113e2d065958704c25175c6ad72ab0a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-pager/zipball/8bf6834da113e2d065958704c25175c6ad72ab0a",
-                "reference": "8bf6834da113e2d065958704c25175c6ad72ab0a",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.11.0"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/font-awesome": ">=4.2",
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/table-pager.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A jquery ajax pager for table",
-            "keywords": [
-                "ajax",
-                "jquery",
-                "pager",
-                "table"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-jquery-table-pager-footable",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-jquery-table-pager-footable.git",
-                "reference": "b616feb128e922dd99c2871a667eeef5e8fd1b96"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-pager-footable/zipball/b616feb128e922dd99c2871a667eeef5e8fd1b96",
-                "reference": "b616feb128e922dd99c2871a667eeef5e8fd1b96",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/footable": "dev-2.0.*|2.0.*",
-                "bower-asset/jquery": ">=1.11.0",
-                "bower-asset/sonatra-jquery-table-pager": "dev-default|*"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/font-awesome": ">=4.2",
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/table-pager-footable.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A ajax table pager plugin for Footable",
-            "keywords": [
-                "ajax",
-                "footable",
-                "jquery",
-                "pager",
-                "table"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-jquery-table-select",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-jquery-table-select.git",
-                "reference": "b8a27265466ac1aff7cd3582b6e82a32e3d03b16"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-select/zipball/b8a27265466ac1aff7cd3582b6e82a32e3d03b16",
-                "reference": "b8a27265466ac1aff7cd3582b6e82a32e3d03b16",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.11.0"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/font-awesome": ">=4.2",
-                "bower-asset/requirejs": "~2",
-                "bower-asset/sonatra-jquery-table-pager": "dev-default|*"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/table-select.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A select/multi-select for table",
-            "keywords": [
-                "ajax",
-                "jquery",
-                "multi select",
-                "select",
-                "table"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-select2-hammer-scroll",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-select2-hammer-scroll.git",
-                "reference": "fe5b4f347a629a22f61b729070cf371d0b7d9439"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-select2-hammer-scroll/zipball/fe5b4f347a629a22f61b729070cf371d0b7d9439",
-                "reference": "fe5b4f347a629a22f61b729070cf371d0b7d9439",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.11.0",
-                "bower-asset/select2": ">=3.5",
-                "bower-asset/sonatra-hammer-scroll": "dev-default|*"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/font-awesome": ">=4.2",
-                "bower-asset/hammerjs": "dev-2.0.*|2.0.*",
-                "bower-asset/requirejs": "~2",
-                "bower-asset/sonatra-select2-responsive": "dev-default|*"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/select2-hammer-scroll.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A simplistic javascript scroller with Hammerjs for Select2",
-            "keywords": [
-                "hammerjs",
-                "jquery",
-                "scroller",
-                "select2"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-select2-responsive",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-select2-responsive.git",
-                "reference": "b381875aa6f719158a2f5c7991fc68c91c4001df"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-select2-responsive/zipball/b381875aa6f719158a2f5c7991fc68c91c4001df",
-                "reference": "b381875aa6f719158a2f5c7991fc68c91c4001df",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.11.0",
-                "bower-asset/select2": ">=3.5"
-            },
-            "require-dev": {
-                "bower-asset/bootstrap": ">=3.0",
-                "bower-asset/font-awesome": ">=4.2",
-                "bower-asset/requirejs": "~2"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "js/select2-responsive.js",
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A responsive feature for Select2",
-            "keywords": [
-                "jquery",
-                "responsive",
-                "select2"
-            ]
-        },
-        {
-            "name": "bower-asset/sonatra-theme-gluon",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sonatra/sonatra-theme-gluon.git",
-                "reference": "cffe7bc344f1d9be0e122470d9bcbe6d4a5c8a39"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-theme-gluon/zipball/cffe7bc344f1d9be0e122470d9bcbe6d4a5c8a39",
-                "reference": "cffe7bc344f1d9be0e122470d9bcbe6d4a5c8a39",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/bootstrap-filestyle": "~1.1",
-                "bower-asset/font-awesome": ">=4.2",
-                "bower-asset/sonatra-bootstrap-dropdown-position": "dev-default|*",
-                "bower-asset/sonatra-bootstrap-nav-footable": "dev-default|*",
-                "bower-asset/sonatra-bootstrap-nav-scroll": "dev-default|*",
-                "bower-asset/sonatra-bootstrap-panel-collapse": "dev-default|*",
-                "bower-asset/sonatra-footable-responsive": "dev-default|*",
-                "bower-asset/sonatra-footable-striped": "dev-default|*",
-                "bower-asset/sonatra-hammer-scroll": "dev-default|*",
-                "bower-asset/sonatra-jquery-datetime-picker": "dev-default|*",
-                "bower-asset/sonatra-jquery-sidebar": "dev-default|*",
-                "bower-asset/sonatra-jquery-table-pager": "dev-default|*",
-                "bower-asset/sonatra-jquery-table-pager-footable": "dev-default|*",
-                "bower-asset/sonatra-jquery-table-select": "dev-default|*",
-                "bower-asset/sonatra-select2-hammer-scroll": "dev-default|*",
-                "bower-asset/sonatra-select2-responsive": "dev-default|*"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-ignore": [
-                    "examples",
-                    "doc",
-                    "README.md"
-                ],
-                "branch-alias": {
-                    "dev-master": "1.0.0-dev"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Default theme of Sonatra",
-            "keywords": [
-                "frontend",
-                "theme"
-            ]
-        },
         {
             "name": "doctrine/annotations",
             "version": "v1.2.6",
@@ -1133,6 +75,282 @@
             "time": "2015-06-17 12:21:22"
         },
         {
+            "name": "doctrine/cache",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/cache.git",
+                "reference": "c9eadeb743ac6199f7eec423cb9426bc518b7b03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/c9eadeb743ac6199f7eec423cb9426bc518b7b03",
+                "reference": "c9eadeb743ac6199f7eec423cb9426bc518b7b03",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "conflict": {
+                "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=3.7",
+                "predis/predis": "~1.0",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Cache\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Caching library offering an object-oriented API for many cache backends",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "cache",
+                "caching"
+            ],
+            "time": "2015-04-15 00:11:59"
+        },
+        {
+            "name": "doctrine/collections",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/collections.git",
+                "reference": "6c1e4eef75f310ea1b3e30945e9f06e652128b8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
+                "reference": "6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Collections\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Collections Abstraction library",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "array",
+                "collections",
+                "iterator"
+            ],
+            "time": "2015-04-14 22:21:58"
+        },
+        {
+            "name": "doctrine/common",
+            "version": "v2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/common.git",
+                "reference": "cd8daf2501e10c63dced7b8b9b905844316ae9d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/cd8daf2501e10c63dced7b8b9b905844316ae9d3",
+                "reference": "cd8daf2501e10c63dced7b8b9b905844316ae9d3",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "1.*",
+                "doctrine/cache": "1.*",
+                "doctrine/collections": "1.*",
+                "doctrine/inflector": "1.*",
+                "doctrine/lexer": "1.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Common Library for Doctrine projects",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "annotations",
+                "collections",
+                "eventmanager",
+                "persistence",
+                "spl"
+            ],
+            "time": "2015-04-02 19:55:44"
+        },
+        {
+            "name": "doctrine/inflector",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/inflector.git",
+                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604",
+                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Inflector\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Common String Manipulations with regard to casing and singular/plural rules.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "inflection",
+                "pluralize",
+                "singularize",
+                "string"
+            ],
+            "time": "2014-12-20 21:24:13"
+        },
+        {
             "name": "doctrine/lexer",
             "version": "v1.0.1",
             "source": {
@@ -1192,12 +410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/fxp-require-asset.git",
-                "reference": "4a4189026392613e0775e9463d949e9c1395c5de"
+                "reference": "624a8977f1dfb6debf16230a656c143b8317d8b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/4a4189026392613e0775e9463d949e9c1395c5de",
-                "reference": "4a4189026392613e0775e9463d949e9c1395c5de",
+                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/624a8977f1dfb6debf16230a656c143b8317d8b5",
+                "reference": "624a8977f1dfb6debf16230a656c143b8317d8b5",
                 "shasum": ""
             },
             "require": {
@@ -1246,7 +464,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2015-07-30 13:22:36"
+            "time": "2015-08-03 22:08:33"
         },
         {
             "name": "fxp/require-asset-bundle",
@@ -1474,23 +692,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBlockBundle.git",
-                "reference": "da10577329ae3d07c4429299aeaf8c73136f5fe2"
+                "reference": "d1e6ca7536477de238a6d768787c43203a1a9a11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/da10577329ae3d07c4429299aeaf8c73136f5fe2",
-                "reference": "da10577329ae3d07c4429299aeaf8c73136f5fe2",
+                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/d1e6ca7536477de238a6d768787c43203a1a9a11",
+                "reference": "d1e6ca7536477de238a6d768787c43203a1a9a11",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
-                "symfony/form": "~2.4",
-                "symfony/framework-bundle": "~2.4",
-                "symfony/twig-bundle": "~2.4",
-                "symfony/validator": "~2.4"
+                "php": ">=5.4",
+                "symfony/doctrine-bridge": "~2.7",
+                "symfony/form": "~2.7",
+                "symfony/framework-bundle": "~2.7",
+                "symfony/twig-bundle": "~2.7",
+                "symfony/validator": "~2.7"
             },
             "require-dev": {
-                "doctrine/orm": "~2.4"
+                "doctrine/orm": "~2.5"
             },
             "suggest": {
                 "doctrine/orm": "For doctrine block type",
@@ -1524,7 +743,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2015-07-30 14:25:29"
+            "time": "2015-08-19 21:46:16"
         },
         {
             "name": "sonatra/bootstrap-bundle",
@@ -1532,30 +751,32 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBootstrapBundle.git",
-                "reference": "2c3a281e808b95dab4f1cedbb911e676fe4b4713"
+                "reference": "5bde3af0a3767eef2bc1103ed4fe6b5327bd9ac8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/2c3a281e808b95dab4f1cedbb911e676fe4b4713",
-                "reference": "2c3a281e808b95dab4f1cedbb911e676fe4b4713",
+                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/5bde3af0a3767eef2bc1103ed4fe6b5327bd9ac8",
+                "reference": "5bde3af0a3767eef2bc1103ed4fe6b5327bd9ac8",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/bootstrap": "3.3.*",
-                "bower-asset/html5shiv": "3.7.*",
-                "bower-asset/respond": "1.4.*",
                 "fxp/require-asset": "1.0.*@dev",
                 "fxp/require-asset-bundle": "1.0.*@dev",
                 "kriswallsmith/assetic": "~1.2",
-                "php": ">=5.3.3",
+                "php": ">=5.4",
                 "sonatra/block-bundle": "1.0.*@dev",
-                "symfony/assetic-bundle": "~2.4",
-                "symfony/framework-bundle": "~2.4"
+                "symfony/assetic-bundle": "~2.6",
+                "symfony/framework-bundle": "~2.7"
             },
             "require-dev": {
-                "symfony/console": "~2.4",
-                "symfony/filesystem": "~2.4",
-                "symfony/finder": "~2.4"
+                "bower-asset/bootstrap": "3.3.*",
+                "bower-asset/html5shiv": "3.7.*",
+                "bower-asset/respond": "1.4.*",
+                "doctrine/orm": "~2.5",
+                "gedmo/doctrine-extensions": "~2.4",
+                "symfony/console": "~2.7",
+                "symfony/filesystem": "~2.7",
+                "symfony/finder": "~2.7"
             },
             "suggest": {
                 "fxp/composer-asset-plugin": "For manage NPM/Bower dependencies with Composer"
@@ -1589,20 +810,20 @@
                 "block",
                 "template"
             ],
-            "time": "2015-07-30 14:29:27"
+            "time": "2015-08-19 23:20:57"
         },
         {
             "name": "symfony/asset",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
-                "reference": "11f8e32ff4a854297f8a5ea3497e78f9d57d3b22"
+                "reference": "f5f5f099a40db2fe5d3dab6f74e17c45c70e3a45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset/zipball/11f8e32ff4a854297f8a5ea3497e78f9d57d3b22",
-                "reference": "11f8e32ff4a854297f8a5ea3497e78f9d57d3b22",
+                "url": "https://api.github.com/repos/symfony/asset/zipball/f5f5f099a40db2fe5d3dab6f74e17c45c70e3a45",
+                "reference": "f5f5f099a40db2fe5d3dab6f74e17c45c70e3a45",
                 "shasum": ""
             },
             "require": {
@@ -1642,7 +863,7 @@
             ],
             "description": "Symfony Asset Component",
             "homepage": "https://symfony.com",
-            "time": "2015-05-01 14:16:41"
+            "time": "2015-07-25 20:47:31"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -1711,7 +932,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
@@ -1761,16 +982,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "8cf484449130cabfd98dcb4694ca9945802a21ed"
+                "reference": "d6cf02fe73634c96677e428f840704bfbcaec29e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/8cf484449130cabfd98dcb4694ca9945802a21ed",
-                "reference": "8cf484449130cabfd98dcb4694ca9945802a21ed",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/d6cf02fe73634c96677e428f840704bfbcaec29e",
+                "reference": "d6cf02fe73634c96677e428f840704bfbcaec29e",
                 "shasum": ""
             },
             "require": {
@@ -1814,11 +1035,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:07:40"
+            "time": "2015-07-28 15:18:12"
         },
         {
             "name": "symfony/debug",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Debug.git",
@@ -1878,16 +1099,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DependencyInjection.git",
-                "reference": "d56b1b89a0c8b34a6eca6211ec76c43256ec4030"
+                "reference": "851e3ffe8a366b1590bdaf3df2c1395f2d27d8a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/d56b1b89a0c8b34a6eca6211ec76c43256ec4030",
-                "reference": "d56b1b89a0c8b34a6eca6211ec76c43256ec4030",
+                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/851e3ffe8a366b1590bdaf3df2c1395f2d27d8a6",
+                "reference": "851e3ffe8a366b1590bdaf3df2c1395f2d27d8a6",
                 "shasum": ""
             },
             "require": {
@@ -1934,11 +1155,80 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:07:40"
+            "time": "2015-07-28 14:07:07"
+        },
+        {
+            "name": "symfony/doctrine-bridge",
+            "version": "v2.7.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/DoctrineBridge.git",
+                "reference": "ebb229c16d04ef5548551a1294d3a7c219ef39ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/DoctrineBridge/zipball/ebb229c16d04ef5548551a1294d3a7c219ef39ca",
+                "reference": "ebb229c16d04ef5548551a1294d3a7c219ef39ca",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.3",
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "doctrine/data-fixtures": "1.0.*",
+                "doctrine/dbal": "~2.2",
+                "doctrine/orm": "~2.2,>=2.2.3",
+                "symfony/dependency-injection": "~2.2",
+                "symfony/expression-language": "~2.2",
+                "symfony/form": "~2.7,>=2.7.1",
+                "symfony/http-kernel": "~2.2",
+                "symfony/phpunit-bridge": "~2.7",
+                "symfony/property-access": "~2.3",
+                "symfony/security": "~2.2",
+                "symfony/stopwatch": "~2.2",
+                "symfony/translation": "~2.0,>=2.0.5",
+                "symfony/validator": "~2.5,>=2.5.5"
+            },
+            "suggest": {
+                "doctrine/data-fixtures": "",
+                "doctrine/dbal": "",
+                "doctrine/orm": "",
+                "symfony/form": "",
+                "symfony/validator": ""
+            },
+            "type": "symfony-bridge",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Bridge\\Doctrine\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Doctrine Bridge",
+            "homepage": "https://symfony.com",
+            "time": "2015-07-14 18:21:52"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
@@ -1996,7 +1286,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
@@ -2045,7 +1335,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Finder.git",
@@ -2094,16 +1384,16 @@
         },
         {
             "name": "symfony/form",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Form.git",
-                "reference": "40056885583dd9bd203dba9e39fd8ba882258748"
+                "reference": "834bfe69221e5e060296f61755e95a8037aa9666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Form/zipball/40056885583dd9bd203dba9e39fd8ba882258748",
-                "reference": "40056885583dd9bd203dba9e39fd8ba882258748",
+                "url": "https://api.github.com/repos/symfony/Form/zipball/834bfe69221e5e060296f61755e95a8037aa9666",
+                "reference": "834bfe69221e5e060296f61755e95a8037aa9666",
                 "shasum": ""
             },
             "require": {
@@ -2160,20 +1450,20 @@
             ],
             "description": "Symfony Form Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-13 09:09:54"
+            "time": "2015-07-22 10:11:00"
         },
         {
             "name": "symfony/framework-bundle",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/FrameworkBundle.git",
-                "reference": "a796b26e4fa0afddadfd42e2fd374974dd68ced2"
+                "reference": "98cf1daf83887476f33167a0e393d942fba9a3c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/FrameworkBundle/zipball/a796b26e4fa0afddadfd42e2fd374974dd68ced2",
-                "reference": "a796b26e4fa0afddadfd42e2fd374974dd68ced2",
+                "url": "https://api.github.com/repos/symfony/FrameworkBundle/zipball/98cf1daf83887476f33167a0e393d942fba9a3c8",
+                "reference": "98cf1daf83887476f33167a0e393d942fba9a3c8",
                 "shasum": ""
             },
             "require": {
@@ -2201,7 +1491,7 @@
                 "symfony/dom-crawler": "~2.0,>=2.0.5",
                 "symfony/expression-language": "~2.6",
                 "symfony/finder": "~2.0,>=2.0.5",
-                "symfony/form": "~2.7",
+                "symfony/form": "~2.7,>=2.7.2",
                 "symfony/intl": "~2.3",
                 "symfony/phpunit-bridge": "~2.7",
                 "symfony/process": "~2.0,>=2.0.5",
@@ -2244,20 +1534,20 @@
             ],
             "description": "Symfony FrameworkBundle",
             "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:32:09"
+            "time": "2015-07-23 09:16:04"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "88903c0531b90d4ecd90282b18f08c0c77bde0b2"
+                "reference": "863af6898081b34c65d42100c370b9f3c51b70ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/88903c0531b90d4ecd90282b18f08c0c77bde0b2",
-                "reference": "88903c0531b90d4ecd90282b18f08c0c77bde0b2",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/863af6898081b34c65d42100c370b9f3c51b70ca",
+                "reference": "863af6898081b34c65d42100c370b9f3c51b70ca",
                 "shasum": ""
             },
             "require": {
@@ -2297,27 +1587,27 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:07:40"
+            "time": "2015-07-22 10:11:00"
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "4a8a6f2a847475b3a38da50363a07f69b5cbf37e"
+                "reference": "405d3e7a59ff7a28ec469441326a0ac79065ea98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/4a8a6f2a847475b3a38da50363a07f69b5cbf37e",
-                "reference": "4a8a6f2a847475b3a38da50363a07f69b5cbf37e",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/405d3e7a59ff7a28ec469441326a0ac79065ea98",
+                "reference": "405d3e7a59ff7a28ec469441326a0ac79065ea98",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9",
                 "psr/log": "~1.0",
                 "symfony/debug": "~2.6,>=2.6.2",
-                "symfony/event-dispatcher": "~2.5.9|~2.6,>=2.6.2",
+                "symfony/event-dispatcher": "~2.6,>=2.6.7",
                 "symfony/http-foundation": "~2.5,>=2.5.4"
             },
             "conflict": {
@@ -2377,20 +1667,20 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-13 19:27:49"
+            "time": "2015-07-31 13:24:45"
         },
         {
             "name": "symfony/intl",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Intl.git",
-                "reference": "35c44cc91b767b4d63897643067bd78b6851ac51"
+                "reference": "ea83ee897023537fcd9b15fe29ef5622ea8f1c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Intl/zipball/35c44cc91b767b4d63897643067bd78b6851ac51",
-                "reference": "35c44cc91b767b4d63897643067bd78b6851ac51",
+                "url": "https://api.github.com/repos/symfony/Intl/zipball/ea83ee897023537fcd9b15fe29ef5622ea8f1c4b",
+                "reference": "ea83ee897023537fcd9b15fe29ef5622ea8f1c4b",
                 "shasum": ""
             },
             "require": {
@@ -2452,11 +1742,11 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2015-06-28 17:13:14"
+            "time": "2015-07-31 13:24:29"
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/OptionsResolver.git",
@@ -2510,7 +1800,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
@@ -2559,16 +1849,16 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/PropertyAccess.git",
-                "reference": "e7e04d79fcf9c2bac53810cfd78c1afc3ac55005"
+                "reference": "e61e1a292c397273f654b15389600fe1d5a210de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/e7e04d79fcf9c2bac53810cfd78c1afc3ac55005",
-                "reference": "e7e04d79fcf9c2bac53810cfd78c1afc3ac55005",
+                "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/e61e1a292c397273f654b15389600fe1d5a210de",
+                "reference": "e61e1a292c397273f654b15389600fe1d5a210de",
                 "shasum": ""
             },
             "require": {
@@ -2615,11 +1905,11 @@
                 "property path",
                 "reflection"
             ],
-            "time": "2015-06-16 13:26:24"
+            "time": "2015-07-16 12:21:55"
         },
         {
             "name": "symfony/routing",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
@@ -2690,16 +1980,16 @@
         },
         {
             "name": "symfony/security-core",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "de1a3aa7a298e99587f6082e4c5754a9b0dc0fcd"
+                "reference": "9d527757035db08648a6cd41c165ae7869dd534e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/de1a3aa7a298e99587f6082e4c5754a9b0dc0fcd",
-                "reference": "de1a3aa7a298e99587f6082e4c5754a9b0dc0fcd",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/9d527757035db08648a6cd41c165ae7869dd534e",
+                "reference": "9d527757035db08648a6cd41c165ae7869dd534e",
                 "shasum": ""
             },
             "require": {
@@ -2749,11 +2039,11 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:07:40"
+            "time": "2015-07-22 10:11:00"
         },
         {
             "name": "symfony/security-csrf",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-csrf.git",
@@ -2807,16 +2097,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Serializer.git",
-                "reference": "4ce2211d3a5d3a3605de7cc040af2808882f3c95"
+                "reference": "143d318457ecc298a846506acc8e80dea30d2548"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Serializer/zipball/4ce2211d3a5d3a3605de7cc040af2808882f3c95",
-                "reference": "4ce2211d3a5d3a3605de7cc040af2808882f3c95",
+                "url": "https://api.github.com/repos/symfony/Serializer/zipball/143d318457ecc298a846506acc8e80dea30d2548",
+                "reference": "143d318457ecc298a846506acc8e80dea30d2548",
                 "shasum": ""
             },
             "require": {
@@ -2864,11 +2154,11 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-08 06:12:51"
+            "time": "2015-07-22 19:42:44"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Stopwatch.git",
@@ -2917,7 +2207,7 @@
         },
         {
             "name": "symfony/templating",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Templating.git",
@@ -2970,7 +2260,7 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Translation.git",
@@ -3031,16 +2321,16 @@
         },
         {
             "name": "symfony/twig-bridge",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/TwigBridge.git",
-                "reference": "4c8be3f7f1b44599b2cbec68b2b1b0e78ded2014"
+                "reference": "1d7c50fc20f89c5ca4d440ed54abf049dc882c6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/4c8be3f7f1b44599b2cbec68b2b1b0e78ded2014",
-                "reference": "4c8be3f7f1b44599b2cbec68b2b1b0e78ded2014",
+                "url": "https://api.github.com/repos/symfony/TwigBridge/zipball/1d7c50fc20f89c5ca4d440ed54abf049dc882c6e",
+                "reference": "1d7c50fc20f89c5ca4d440ed54abf049dc882c6e",
                 "shasum": ""
             },
             "require": {
@@ -3052,7 +2342,7 @@
                 "symfony/console": "~2.7",
                 "symfony/expression-language": "~2.4",
                 "symfony/finder": "~2.3",
-                "symfony/form": "~2.7,>=2.7.1",
+                "symfony/form": "~2.7,>=2.7.2",
                 "symfony/http-kernel": "~2.3",
                 "symfony/intl": "~2.3",
                 "symfony/phpunit-bridge": "~2.7",
@@ -3105,11 +2395,11 @@
             ],
             "description": "Symfony Twig Bridge",
             "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:07:40"
+            "time": "2015-07-26 06:32:57"
         },
         {
             "name": "symfony/twig-bundle",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/TwigBundle.git",
@@ -3169,16 +2459,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Validator.git",
-                "reference": "26a190dbdf7a19fc2251c2d59547a717918b6c77"
+                "reference": "646df03e635a8a232804274401449ccdf5f03cad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Validator/zipball/26a190dbdf7a19fc2251c2d59547a717918b6c77",
-                "reference": "26a190dbdf7a19fc2251c2d59547a717918b6c77",
+                "url": "https://api.github.com/repos/symfony/Validator/zipball/646df03e635a8a232804274401449ccdf5f03cad",
+                "reference": "646df03e635a8a232804274401449ccdf5f03cad",
                 "shasum": ""
             },
             "require": {
@@ -3235,20 +2525,20 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-02 06:17:05"
+            "time": "2015-07-31 06:49:15"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "4bfbe0ed3909bfddd75b70c094391ec1f142f860"
+                "reference": "71340e996171474a53f3d29111d046be4ad8a0ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/4bfbe0ed3909bfddd75b70c094391ec1f142f860",
-                "reference": "4bfbe0ed3909bfddd75b70c094391ec1f142f860",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/71340e996171474a53f3d29111d046be4ad8a0ff",
+                "reference": "71340e996171474a53f3d29111d046be4ad8a0ff",
                 "shasum": ""
             },
             "require": {
@@ -3284,20 +2574,20 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-01 11:25:50"
+            "time": "2015-07-28 14:07:07"
         },
         {
             "name": "twig/twig",
-            "version": "v1.18.2",
+            "version": "v1.20.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "e8e6575abf6102af53ec283f7f14b89e304fa602"
+                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e8e6575abf6102af53ec283f7f14b89e304fa602",
-                "reference": "e8e6575abf6102af53ec283f7f14b89e304fa602",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
+                "reference": "1ea4e5f81c6d005fe84d0b38e1c4f1955eb86844",
                 "shasum": ""
             },
             "require": {
@@ -3306,7 +2596,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.18-dev"
+                    "dev-master": "1.20-dev"
                 }
             },
             "autoload": {
@@ -3341,10 +2631,1053 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-06-06 23:31:24"
+            "time": "2015-08-12 15:56:39"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "bower-asset/bootstrap",
+            "version": "v3.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "16b48259a62f576e52c903c476bd42b90ab22482"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/16b48259a62f576e52c903c476bd42b90ab22482",
+                "reference": "16b48259a62f576e52c903c476bd42b90ab22482",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.9.1"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "less/bootstrap.less",
+                    "dist/js/bootstrap.js"
+                ],
+                "bower-asset-ignore": [
+                    "/.*",
+                    "_config.yml",
+                    "CNAME",
+                    "composer.json",
+                    "CONTRIBUTING.md",
+                    "docs",
+                    "js/tests",
+                    "test-infra"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "keywords": [
+                "css",
+                "framework",
+                "front-end",
+                "js",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ]
+        },
+        {
+            "name": "bower-asset/bootstrap-filestyle",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markusslima/bootstrap-filestyle.git",
+                "reference": "e3ff50bba5206d054c655927c19ff0b7de70fcb8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markusslima/bootstrap-filestyle/zipball/e3ff50bba5206d054c655927c19ff0b7de70fcb8",
+                "reference": "e3ff50bba5206d054c655927c19ff0b7de70fcb8",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "src/bootstrap-filestyle.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "tests"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Bootstrap FileStyle is a quick and simple plugin to help style your form's file upload inputs.",
+            "keywords": [
+                "bootstrap",
+                "filestyle",
+                "fileupload"
+            ]
+        },
+        {
+            "name": "bower-asset/font-awesome",
+            "version": "v4.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/e554555d73a44e0a7d11b0361ad7a5325a5f551c",
+                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "less/font-awesome.less",
+                    "scss/font-awesome.scss"
+                ],
+                "bower-asset-ignore": [
+                    "*/.*",
+                    "*.json",
+                    "src",
+                    "*.yml",
+                    "Gemfile",
+                    "Gemfile.lock",
+                    "*.md"
+                ]
+            },
+            "license": [
+                "OFL-1.1",
+                "MIT",
+                "CC-BY-3.0"
+            ],
+            "description": "Font Awesome"
+        },
+        {
+            "name": "bower-asset/footable",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fooplugins/FooTable.git",
+                "reference": "531e97698092014d7472dd60a63fd7ea48823d92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fooplugins/FooTable/zipball/531e97698092014d7472dd60a63fd7ea48823d92",
+                "reference": "531e97698092014d7472dd60a63fd7ea48823d92",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.4.4"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "js/footable.js",
+                    "css/footable.core.css",
+                    "css/fonts/footable.eot",
+                    "css/fonts/footable.svg",
+                    "css/fonts/footable.ttf",
+                    "css/fonts/footable.woff"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "jQuery plugin to make HTML tables responsive",
+            "keywords": [
+                "responsive",
+                "table"
+            ]
+        },
+        {
+            "name": "bower-asset/hammerjs",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hammerjs/hammer.js.git",
+                "reference": "702e675f1bab25d5f6997989d43aaa5eae384f54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hammerjs/hammer.js/zipball/702e675f1bab25d5f6997989d43aaa5eae384f54",
+                "reference": "702e675f1bab25d5f6997989d43aaa5eae384f54",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "hammer.js",
+                "bower-asset-ignore": [
+                    "tests",
+                    "src"
+                ]
+            }
+        },
+        {
+            "name": "bower-asset/jquery",
+            "version": "2.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jquery/jquery.git",
+                "reference": "7751e69b615c6eca6f783a81e292a55725af6b85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jquery/jquery/zipball/7751e69b615c6eca6f783a81e292a55725af6b85",
+                "reference": "7751e69b615c6eca6f783a81e292a55725af6b85",
+                "shasum": ""
+            },
+            "require-dev": {
+                "bower-asset/qunit": "1.14.0",
+                "bower-asset/requirejs": "2.1.10",
+                "bower-asset/sinon": "1.8.1",
+                "bower-asset/sizzle": "2.1.1-patch2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "dist/jquery.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "build",
+                    "dist/cdn",
+                    "speed",
+                    "test",
+                    "*.md",
+                    "AUTHORS.txt",
+                    "Gruntfile.js",
+                    "package.json"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "keywords": [
+                "javascript",
+                "jquery",
+                "library"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery-knob",
+            "version": "1.2.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aterrien/jQuery-Knob.git",
+                "reference": "f0149509614763b3bc270c7cb70eae6602491711"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aterrien/jQuery-Knob/zipball/f0149509614763b3bc270c7cb70eae6602491711",
+                "reference": "f0149509614763b3bc270c7cb70eae6602491711",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/jquery.knob.js",
+                "bower-asset-ignore": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Nice, downward compatible, touchable, jQuery dial."
+        },
+        {
+            "name": "bower-asset/moment",
+            "version": "2.10.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moment/moment.git",
+                "reference": "f3fbef9d9875bbff340b527dbe3f1c447a942f69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moment/moment/zipball/f3fbef9d9875bbff340b527dbe3f1c447a942f69",
+                "reference": "f3fbef9d9875bbff340b527dbe3f1c447a942f69",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "moment.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "benchmarks",
+                    "bower_components",
+                    "meteor",
+                    "node_modules",
+                    "scripts",
+                    "tasks",
+                    "test",
+                    "component.json",
+                    "composer.json",
+                    "CONTRIBUTING.md",
+                    "ender.js",
+                    "Gruntfile.js",
+                    "Moment.js.nuspec",
+                    "package.js",
+                    "package.json"
+                ]
+            }
+        },
+        {
+            "name": "bower-asset/select2",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/select2/select2.git",
+                "reference": "80eb44bec78568b152dc5547269c164cb7b5363c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/select2/select2/zipball/80eb44bec78568b152dc5547269c164cb7b5363c",
+                "reference": "80eb44bec78568b152dc5547269c164cb7b5363c",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/js/select2.js",
+                    "dist/css/select2.css"
+                ]
+            },
+            "description": "Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results."
+        },
+        {
+            "name": "bower-asset/select2-bootstrap-theme",
+            "version": "0.1.0-beta.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/select2/select2-bootstrap-theme.git",
+                "reference": "1a81f99b47a16d04554c4ec57d5416db4ce2256c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/select2/select2-bootstrap-theme/zipball/1a81f99b47a16d04554c4ec57d5416db4ce2256c",
+                "reference": "1a81f99b47a16d04554c4ec57d5416db4ce2256c",
+                "shasum": ""
+            },
+            "require-dev": {
+                "bower-asset/anchor-js": "~1.1.1",
+                "bower-asset/bootstrap": "~3.3.5",
+                "bower-asset/bootstrap-sass-official": "~3.3.5",
+                "bower-asset/respond": "~1.4.2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/select2-bootstrap.css",
+                    "dist/select2-bootstrap.min.css"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "components"
+                ]
+            }
+        },
+        {
+            "name": "bower-asset/sonatra-bootstrap-dropdown-position",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-bootstrap-dropdown-position.git",
+                "reference": "be7c5fc05725950579280e1979fc706e1b701b78"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-dropdown-position/zipball/be7c5fc05725950579280e1979fc706e1b701b78",
+                "reference": "be7c5fc05725950579280e1979fc706e1b701b78",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=3.3.0,<4.0.0",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0"
+            },
+            "require-dev": {
+                "bower-asset/requirejs": "~2",
+                "bower-asset/sonatra-jquery-scroller": "dev-default|*"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/dropdown-position.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A responsive extension for Bootstrap Dropdown",
+            "keywords": [
+                "bootstrap",
+                "dropdown",
+                "jquery",
+                "position",
+                "responsive"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-bootstrap-nav-footable",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-bootstrap-nav-footable.git",
+                "reference": "601cfb1bfaf47a50721d5373bcbb53f2eec63d67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-nav-footable/zipball/601cfb1bfaf47a50721d5373bcbb53f2eec63d67",
+                "reference": "601cfb1bfaf47a50721d5373bcbb53f2eec63d67",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=3.3.0,<4.0.0",
+                "bower-asset/footable": ">=2.0.0,<3.0.0",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0"
+            },
+            "require-dev": {
+                "bower-asset/requirejs": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/nav-footable.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Bootstrap Nav plugin for Footable",
+            "keywords": [
+                "bootstrap",
+                "footable",
+                "jquery",
+                "nav"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-bootstrap-nav-scroll",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-bootstrap-nav-scroll.git",
+                "reference": "cf7633235a09546cbdd9f34ff323c63352e178ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-nav-scroll/zipball/cf7633235a09546cbdd9f34ff323c63352e178ff",
+                "reference": "cf7633235a09546cbdd9f34ff323c63352e178ff",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=3.3.0,<4.0.0",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0",
+                "bower-asset/sonatra-jquery-scroller": "dev-default|*"
+            },
+            "require-dev": {
+                "bower-asset/requirejs": "~2",
+                "bower-asset/sonatra-bootstrap-dropdown-position": "dev-default|*"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/nav-scroll.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A simplistic javascript scroller with Hammerjs for Bootstrap Nav",
+            "keywords": [
+                "bootstrap",
+                "hammerjs",
+                "jquery",
+                "nav",
+                "scroller"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-bootstrap-panel-collapse",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse.git",
+                "reference": "bd1c622fdc308bfaeaecb2d65661fbd1bd3f77fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-panel-collapse/zipball/bd1c622fdc308bfaeaecb2d65661fbd1bd3f77fc",
+                "reference": "bd1c622fdc308bfaeaecb2d65661fbd1bd3f77fc",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=3.3.0,<4.0.0",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0"
+            },
+            "require-dev": {
+                "bower-asset/requirejs": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/panel-collapse.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A collapsible panel for Bootstrap",
+            "keywords": [
+                "bootstrap",
+                "collapse",
+                "jquery",
+                "panel"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-footable-responsive",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-footable-responsive.git",
+                "reference": "768a4d2ea2404a7b9ef8c5ad4a96b51882d4594f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-footable-responsive/zipball/768a4d2ea2404a7b9ef8c5ad4a96b51882d4594f",
+                "reference": "768a4d2ea2404a7b9ef8c5ad4a96b51882d4594f",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/footable": "dev-2.0.*|2.0.*",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "dev-3.*|3.*",
+                "bower-asset/requirejs": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/footable-responsive.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A responsive plugin for Footable",
+            "keywords": [
+                "auto hide",
+                "column",
+                "footable",
+                "responsive"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-footable-striped",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-footable-striped.git",
+                "reference": "525dbd15dab8b5efe64d240ff9a07658789a7fcb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-footable-striped/zipball/525dbd15dab8b5efe64d240ff9a07658789a7fcb",
+                "reference": "525dbd15dab8b5efe64d240ff9a07658789a7fcb",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/footable": ">=2.0.0,<3.0.0",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "dev-3.*|3.*",
+                "bower-asset/requirejs": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/footable-striped.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A striped plugin for Footable",
+            "keywords": [
+                "footable",
+                "striped"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-jquery-datetime-picker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-jquery-datetime-picker.git",
+                "reference": "b5edb218d6d0d35f4c152c04ecbcf0bd0758f180"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-datetime-picker/zipball/b5edb218d6d0d35f4c152c04ecbcf0bd0758f180",
+                "reference": "b5edb218d6d0d35f4c152c04ecbcf0bd0758f180",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/hammerjs": "dev-2.0.*|2.0.*",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0",
+                "bower-asset/jquery-knob": "dev-1.2.*|1.2.*",
+                "bower-asset/moment": "dev-2.10.*|2.10.*"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "dev-3.*|3.*",
+                "bower-asset/requirejs": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/datetime-picker.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A Jquery date time picker",
+            "keywords": [
+                "date",
+                "datetime",
+                "jquery",
+                "time"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-jquery-scroller",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-jquery-scroller.git",
+                "reference": "7190183ec401cc6a78a56bd6b2fb03c5a4bac7d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-scroller/zipball/7190183ec401cc6a78a56bd6b2fb03c5a4bac7d3",
+                "reference": "7190183ec401cc6a78a56bd6b2fb03c5a4bac7d3",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=2.1.0"
+            },
+            "require-dev": {
+                "bower-asset/requirejs": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/scroller.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "The custom scrollbar for desktop browser",
+            "keywords": [
+                "bar",
+                "desktop",
+                "scroll",
+                "scroller"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-jquery-sidebar",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-jquery-sidebar.git",
+                "reference": "11fd8a234286113edf991aa6b37fc95d3ef3fdc8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-sidebar/zipball/11fd8a234286113edf991aa6b37fc95d3ef3fdc8",
+                "reference": "11fd8a234286113edf991aa6b37fc95d3ef3fdc8",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/hammerjs": ">=2.0.0,<3.0.0",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "dev-3.*|3.*",
+                "bower-asset/font-awesome": "dev-4.*|4.*",
+                "bower-asset/requirejs": "~2",
+                "bower-asset/sonatra-jquery-scroller": "dev-default|*"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/sidebar.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A jquery responsive sidebar with hammerjs",
+            "keywords": [
+                "drawer",
+                "hammer scroll",
+                "hammerjs",
+                "jquery",
+                "responsive",
+                "sidebar"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-jquery-table-pager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-jquery-table-pager.git",
+                "reference": "05281020d9b7aa3cb7cdfd8c97c717af21b09eea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-pager/zipball/05281020d9b7aa3cb7cdfd8c97c717af21b09eea",
+                "reference": "05281020d9b7aa3cb7cdfd8c97c717af21b09eea",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=2.1.0,<3.0.0"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "dev-3.*|3.*",
+                "bower-asset/font-awesome": "dev-4.*|4.*",
+                "bower-asset/requirejs": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/table-pager.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A jquery ajax pager for table",
+            "keywords": [
+                "ajax",
+                "jquery",
+                "pager",
+                "table"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-jquery-table-pager-footable",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-jquery-table-pager-footable.git",
+                "reference": "1d6202e5148cbd6b4d61d06b311827d2fba194ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-pager-footable/zipball/1d6202e5148cbd6b4d61d06b311827d2fba194ac",
+                "reference": "1d6202e5148cbd6b4d61d06b311827d2fba194ac",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/footable": ">=2.0.0,<3.0.0",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0",
+                "bower-asset/sonatra-jquery-table-pager": "dev-default|*"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "dev-3.*|3.*",
+                "bower-asset/font-awesome": "dev-4.*|4.*",
+                "bower-asset/requirejs": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/table-pager-footable.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A ajax table pager plugin for Footable",
+            "keywords": [
+                "ajax",
+                "footable",
+                "jquery",
+                "pager",
+                "table"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-jquery-table-select",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-jquery-table-select.git",
+                "reference": "893a44e5d3bfa8b63da9e374725610ebb7ad1f6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-jquery-table-select/zipball/893a44e5d3bfa8b63da9e374725610ebb7ad1f6f",
+                "reference": "893a44e5d3bfa8b63da9e374725610ebb7ad1f6f",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=2.1.0,<3.0.0"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "dev-3.*|3.*",
+                "bower-asset/font-awesome": "dev-4.*|4.*",
+                "bower-asset/requirejs": "~2",
+                "bower-asset/sonatra-jquery-table-pager": "dev-default|*"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/table-select.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A select/multi-select for table",
+            "keywords": [
+                "ajax",
+                "jquery",
+                "multi select",
+                "select",
+                "table"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-select2-responsive",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-select2-responsive.git",
+                "reference": "dab46196e1281507cea11bb10c8667655d16c94e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-select2-responsive/zipball/dab46196e1281507cea11bb10c8667655d16c94e",
+                "reference": "dab46196e1281507cea11bb10c8667655d16c94e",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=2.1.0,<3.0.0",
+                "bower-asset/select2": ">=4.0.0,<5.0.0"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "dev-3.*|3.*",
+                "bower-asset/font-awesome": "dev-4.*|4.*",
+                "bower-asset/requirejs": "~2",
+                "bower-asset/select2-bootstrap-theme": ">=0.1.0,<0.2.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/select2-responsive.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A responsive feature for Select2",
+            "keywords": [
+                "jquery",
+                "responsive",
+                "select2"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-select2-scroller",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-select2-scroller.git",
+                "reference": "bb5504321971973a60402647b20a817e3736d416"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-select2-scroller/zipball/bb5504321971973a60402647b20a817e3736d416",
+                "reference": "bb5504321971973a60402647b20a817e3736d416",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=2.1.0",
+                "bower-asset/select2": ">=4.0.0,<5.0.0",
+                "bower-asset/sonatra-jquery-scroller": "dev-default|*"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap": "dev-3.*|3.*",
+                "bower-asset/font-awesome": "dev-4.*|4.*",
+                "bower-asset/requirejs": "~2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/select2-scroller.js",
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "The custom scrollbar for desktop browser in Select2",
+            "keywords": [
+                "bar",
+                "desktop",
+                "scroll",
+                "scroller",
+                "select2"
+            ]
+        },
+        {
+            "name": "bower-asset/sonatra-theme-gluon",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-theme-gluon.git",
+                "reference": "2911c2441993d4f68b2e6d86306ed1e53d8caeb6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-theme-gluon/zipball/2911c2441993d4f68b2e6d86306ed1e53d8caeb6",
+                "reference": "2911c2441993d4f68b2e6d86306ed1e53d8caeb6",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap-filestyle": ">=1.2.0,<2.0.0",
+                "bower-asset/font-awesome": "dev-4.*|4.*",
+                "bower-asset/jquery": ">=2.1.0,<3.0.0",
+                "bower-asset/select2-bootstrap-theme": ">=0.1.0,<0.2.0",
+                "bower-asset/sonatra-bootstrap-dropdown-position": "dev-default|*",
+                "bower-asset/sonatra-bootstrap-nav-footable": "dev-default|*",
+                "bower-asset/sonatra-bootstrap-nav-scroll": "dev-default|*",
+                "bower-asset/sonatra-bootstrap-panel-collapse": "dev-default|*",
+                "bower-asset/sonatra-footable-responsive": "dev-default|*",
+                "bower-asset/sonatra-footable-striped": "dev-default|*",
+                "bower-asset/sonatra-jquery-datetime-picker": "dev-default|*",
+                "bower-asset/sonatra-jquery-scroller": "dev-default|*",
+                "bower-asset/sonatra-jquery-sidebar": "dev-default|*",
+                "bower-asset/sonatra-jquery-table-pager": "dev-default|*",
+                "bower-asset/sonatra-jquery-table-pager-footable": "dev-default|*",
+                "bower-asset/sonatra-jquery-table-select": "dev-default|*",
+                "bower-asset/sonatra-select2-responsive": "dev-default|*",
+                "bower-asset/sonatra-select2-scroller": "dev-default|*"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-ignore": [
+                    "examples",
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Default theme of Sonatra",
+            "keywords": [
+                "frontend",
+                "theme"
+            ]
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
@@ -3353,6 +3686,7 @@
         "fxp/require-asset-bundle": 20,
         "sonatra/bootstrap-bundle": 20,
         "sonatra/ajax-bundle": 20,
+        "bower-asset/select2-bootstrap-theme": 20,
         "bower-asset/sonatra-theme-gluon": 20,
         "bower-asset/sonatra-bootstrap-dropdown-position": 20,
         "bower-asset/sonatra-bootstrap-nav-scroll": 20,
@@ -3361,18 +3695,18 @@
         "bower-asset/sonatra-jquery-table-pager-footable": 20,
         "bower-asset/sonatra-jquery-table-select": 20,
         "bower-asset/sonatra-jquery-table-pager": 20,
-        "bower-asset/sonatra-select2-hammer-scroll": 20,
+        "bower-asset/sonatra-select2-scroller": 20,
         "bower-asset/sonatra-select2-responsive": 20,
         "bower-asset/sonatra-footable-striped": 20,
         "bower-asset/sonatra-footable-responsive": 20,
-        "bower-asset/sonatra-hammer-scroll": 20,
+        "bower-asset/sonatra-jquery-scroller": 20,
         "bower-asset/sonatra-jquery-sidebar": 20,
         "bower-asset/sonatra-jquery-datetime-picker": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.3"
+        "php": ">=5.4"
     },
     "platform-dev": []
 }
