@@ -17,7 +17,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Panel Buttons Block Type.
@@ -106,7 +106,7 @@ class PanelButtonsType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'inherit_data' => true,
@@ -115,11 +115,9 @@ class PanelButtonsType extends AbstractType
             'button_size'  => 'sm',
         ));
 
-        $resolver->setAllowedTypes(array(
-            'scrollable'  => 'bool',
-            'class_nav'   => 'string',
-            'button_size' => 'string',
-        ));
+        $resolver->setAllowedTypes('scrollable', 'bool');
+        $resolver->setAllowedTypes('class_nav', 'string');
+        $resolver->setAllowedTypes('button_size', 'string');
     }
 
     /**

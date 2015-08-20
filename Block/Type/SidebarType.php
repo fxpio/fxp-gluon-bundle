@@ -14,7 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
 /**
@@ -76,7 +76,7 @@ class SidebarType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $disableKeyboard = function (Options $options, $value) {
             if ('right' === $options['position']) {
@@ -105,27 +105,23 @@ class SidebarType extends AbstractType
             'disable_keyboard' => $disableKeyboard,
         ));
 
-        $resolver->setAllowedTypes(array(
-            'open_on_hover'    => array('null', 'bool'),
-            'force_toggle'     => array('bool', 'string'),
-            'min_lock_width'   => array('null', 'int'),
-            'sticky_header'    => array('null', 'bool'),
-            'style'            => 'string',
-            'toggle_label'     => 'string',
-            'toggle_id'        => array('null', 'string'),
-            'opened'           => array('bool', 'string'),
-            'locked'           => 'bool',
-            'position'         => array('null', 'string'),
-            'scrollbar'        => array('null', 'bool'),
-            'disable_keyboard' => array('null', 'bool'),
-        ));
+        $resolver->setAllowedTypes('open_on_hover', array('null', 'bool'));
+        $resolver->setAllowedTypes('force_toggle', array('bool', 'string'));
+        $resolver->setAllowedTypes('min_lock_width', array('null', 'int'));
+        $resolver->setAllowedTypes('sticky_header', array('null', 'bool'));
+        $resolver->setAllowedTypes('style', 'string');
+        $resolver->setAllowedTypes('toggle_label', 'string');
+        $resolver->setAllowedTypes('toggle_id', array('null', 'string'));
+        $resolver->setAllowedTypes('opened', array('bool', 'string'));
+        $resolver->setAllowedTypes('locked', 'bool');
+        $resolver->setAllowedTypes('position', array('null', 'string'));
+        $resolver->setAllowedTypes('scrollbar', array('null', 'bool'));
+        $resolver->setAllowedTypes('disable_keyboard', array('null', 'bool'));
 
-        $resolver->setAllowedValues(array(
-            'force_toggle' => array(false, true, 'always'),
-            'style'        => array('default', 'inverse'),
-            'opened'       => array(false, true, 'force'),
-            'position'     => array(null, 'left', 'right'),
-        ));
+        $resolver->setAllowedValues('force_toggle', array(false, true, 'always'));
+        $resolver->setAllowedValues('style', array('default', 'inverse'));
+        $resolver->setAllowedValues('opened', array(false, true, 'force'));
+        $resolver->setAllowedValues('position', array(null, 'left', 'right'));
     }
 
     /**

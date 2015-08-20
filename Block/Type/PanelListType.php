@@ -16,7 +16,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Panel List Block Type.
@@ -52,7 +52,7 @@ class PanelListType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             //'inherit_data'  => true,
@@ -63,11 +63,9 @@ class PanelListType extends AbstractType
             'groups'        => array(),
         ));
 
-        $resolver->setAllowedTypes(array(
-            //'route_name'    => 'string',
-            //'route_options' => 'array',
-            'groups'        => 'array',
-        ));
+        //$resolver->setAllowedTypes('route_name', 'string');
+        //$resolver->setAllowedTypes('route_options', 'array');
+        $resolver->setAllowedTypes('groups', 'array');
     }
 
     /**

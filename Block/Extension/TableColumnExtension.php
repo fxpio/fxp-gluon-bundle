@@ -15,7 +15,7 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Table Column Block Extension.
@@ -42,7 +42,7 @@ class TableColumnExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'align'     => null,
@@ -61,51 +61,49 @@ class TableColumnExtension extends AbstractTypeExtension
             'align' => array(null, 'left', 'center', 'right'),
         ));
 
-        $resolver->setNormalizers(array(
-            'label_attr' => function (Options $options, $value) {
-                $class = isset($value['class']) ? $value['class'] : '';
-                $style = isset($value['style']) ? $value['style'] : '';
+        $resolver->setNormalizer('label_attr', function (Options $options, $value) {
+            $class = isset($value['class']) ? $value['class'] : '';
+            $style = isset($value['style']) ? $value['style'] : '';
 
-                if ($options['align']) {
-                    $class = trim($class.' table-'.$options['align']);
-                }
+            if ($options['align']) {
+                $class = trim($class.' table-'.$options['align']);
+            }
 
-                if (null !== $options['min_width']) {
-                    $style = trim($style.' min-width:'.$options['min_width'].'px;');
-                }
+            if (null !== $options['min_width']) {
+                $style = trim($style.' min-width:'.$options['min_width'].'px;');
+            }
 
-                if (null !== $options['max_width']) {
-                    $style = trim($style.' max-width:'.$options['max_width'].'px;');
-                }
+            if (null !== $options['max_width']) {
+                $style = trim($style.' max-width:'.$options['max_width'].'px;');
+            }
 
-                if (null !== $options['width']) {
-                    $style = trim($style.' width:'.$options['width'].'px;');
-                }
+            if (null !== $options['width']) {
+                $style = trim($style.' width:'.$options['width'].'px;');
+            }
 
-                if ('' !== $class) {
-                    $value['class'] = $class;
-                }
+            if ('' !== $class) {
+                $value['class'] = $class;
+            }
 
-                if ('' !== $style) {
-                    $value['style'] = $style;
-                }
+            if ('' !== $style) {
+                $value['style'] = $style;
+            }
 
-                return $value;
-            },
-            'attr' => function (Options $options, $value) {
-                $class = isset($value['class']) ? $value['class'] : '';
+            return $value;
+        });
+        $resolver->setNormalizer('attr', function (Options $options, $value) {
+            $class = isset($value['class']) ? $value['class'] : '';
 
-                if ($options['align']) {
-                    $class = trim($class.' table-'.$options['align']);
-                }
+            if ($options['align']) {
+                $class = trim($class.' table-'.$options['align']);
+            }
 
-                if ('' !== $class) {
-                    $value['class'] = $class;
-                }
+            if ('' !== $class) {
+                $value['class'] = $class;
+            }
 
-                return $value;
-            },
-        ));
+            return $value;
+        });
     }
 
     /**

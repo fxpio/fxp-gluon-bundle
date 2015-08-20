@@ -12,7 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Button Form Extension.
@@ -24,7 +24,7 @@ class ButtonExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->addAllowedValues(array(
             'style' => array('secondary'),

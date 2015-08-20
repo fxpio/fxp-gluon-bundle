@@ -12,7 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
 /**
@@ -40,7 +40,7 @@ class TableColumnLinkType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'link_options'   => array(),
@@ -50,23 +50,21 @@ class TableColumnLinkType extends AbstractType
             'formatter'      => 'twig',
         ));
 
-        $resolver->setNormalizers(array(
-            'formatter_options' => function (Options $options, $value) {
-                $variables = isset($value['variables']) ? $value['variables'] : array();
-                $variables['link_options'] = $options['link_options'];
-                $variables['route_name'] = $options['route_name'];
-                $variables['route_options'] = $options['route_options'];
-                $variables['route_absolute'] = $options['route_absolute'];
+        $resolver->setNormalizer('formatter_options', function (Options $options, $value) {
+            $variables = isset($value['variables']) ? $value['variables'] : array();
+            $variables['link_options'] = $options['link_options'];
+            $variables['route_name'] = $options['route_name'];
+            $variables['route_options'] = $options['route_options'];
+            $variables['route_absolute'] = $options['route_absolute'];
 
-                $value['variables'] = $variables;
-                $value['resource'] = $this->resource;
-                $value['resource_block'] = 'table_column_link_content';
-                $value['empty_data'] = $options['empty_data'];
-                $value['empty_message'] = $options['empty_message'];
+            $value['variables'] = $variables;
+            $value['resource'] = $this->resource;
+            $value['resource_block'] = 'table_column_link_content';
+            $value['empty_data'] = $options['empty_data'];
+            $value['empty_message'] = $options['empty_message'];
 
-                return $value;
-            },
-        ));
+            return $value;
+        });
 
         $resolver->addAllowedTypes(array(
             'link_options'   => 'array',

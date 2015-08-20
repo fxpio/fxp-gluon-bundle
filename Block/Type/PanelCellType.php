@@ -17,7 +17,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
 /**
@@ -113,7 +113,7 @@ class PanelCellType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'inherit_data'   => true,
@@ -156,30 +156,28 @@ class PanelCellType extends AbstractType
             ),
         ));
 
-        $resolver->setNormalizers(array(
-            'layout' => function (Options $options, $value) {
-                $value = max($value, 1);
-                $value = min($value, $options['layout_max']);
+        $resolver->setNormalizer('layout', function (Options $options, $value) {
+            $value = max($value, 1);
+            $value = min($value, $options['layout_max']);
 
+            return $value;
+        });
+        $resolver->setNormalizer('help', function (Options $options, $value) {
+            if (null === $value) {
                 return $value;
-            },
-            'help'   => function (Options $options, $value) {
-                    if (null === $value) {
-                        return $value;
-                    } elseif (is_string($value)) {
-                        $value = array(
-                            'content' => $value,
-                        );
-                    }
+            } elseif (is_string($value)) {
+                $value = array(
+                    'content' => $value,
+                );
+            }
 
-                    $value = array_replace(array(
-                        'html'      => true,
-                        'placement' => 'auto top',
-                    ), $value);
+            $value = array_replace(array(
+                'html'      => true,
+                'placement' => 'auto top',
+            ), $value);
 
-                    return $value;
-                },
-        ));
+            return $value;
+        });
     }
 
     /**

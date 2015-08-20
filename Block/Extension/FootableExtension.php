@@ -16,7 +16,6 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Footable Block Extension.
@@ -58,7 +57,7 @@ class FootableExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'footable' => array(),
@@ -68,43 +67,39 @@ class FootableExtension extends AbstractTypeExtension
             'footable' => 'array',
         ));
 
-        $resolver->setNormalizers(array(
-            'footable' => function (Options $options, $value) {
-                $footableResolver = new OptionsResolver();
+        $resolver->setNormalizer('footable', function (Options $options, $value) {
+            $footableResolver = new OptionsResolver();
 
-                $footableResolver->setDefaults(array(
-                    'enabled'            => true,
-                    'delay'              => null,
-                    'breakpoints_phone'  => 767,
-                    'breakpoints_tablet' => 991,
-                    'add_row_toggle'     => null,
-                ));
+            $footableResolver->setDefaults(array(
+                'enabled'            => true,
+                'delay'              => null,
+                'breakpoints_phone'  => 767,
+                'breakpoints_tablet' => 991,
+                'add_row_toggle'     => null,
+            ));
 
-                $footableResolver->setAllowedTypes(array(
-                    'enabled'            => 'bool',
-                    'delay'              => array('null', 'int'),
-                    'breakpoints_phone'  => 'int',
-                    'breakpoints_tablet' => 'int',
-                    'add_row_toggle'     => array('null', 'bool'),
-                ));
+            $footableResolver->setAllowedTypes('enabled', 'bool');
+            $footableResolver->setAllowedTypes('delay', array('null', 'int'));
+            $footableResolver->setAllowedTypes('breakpoints_phone', 'int');
+            $footableResolver->setAllowedTypes('breakpoints_tablet', 'int');
+            $footableResolver->setAllowedTypes('add_row_toggle', array('null', 'bool'));
 
-                return $footableResolver->resolve($value);
-            },
-            'render_id' => function (Options $options, $value) {
-                if ($options['footable']['enabled']) {
-                    return true;
-                }
+            return $footableResolver->resolve($value);
+        });
+        $resolver->setNormalizer('render_id', function (Options $options, $value) {
+            if ($options['footable']['enabled']) {
+                return true;
+            }
 
-                return $value;
-            },
-            'responsive' => function (Options $options, $value) {
-                if ($options['footable']['enabled']) {
-                    return true;
-                }
+            return $value;
+        });
+        $resolver->setNormalizer('responsive', function (Options $options, $value) {
+            if ($options['footable']['enabled']) {
+                return true;
+            }
 
-                return $value;
-            },
-        ));
+            return $value;
+        });
     }
 
     /**

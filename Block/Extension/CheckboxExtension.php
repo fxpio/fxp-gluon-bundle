@@ -14,7 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Checkbox Block Extension.
@@ -36,19 +36,15 @@ class CheckboxExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'style' => null,
         ));
 
-        $resolver->setAllowedTypes(array(
-            'style' => array('null', 'string'),
-        ));
+        $resolver->setAllowedTypes('style', array('null', 'string'));
 
-        $resolver->setAllowedValues(array(
-            'style' => array(null, 'default', 'primary', 'secondary', 'success', 'info', 'warning', 'danger', 'link'),
-        ));
+        $resolver->setAllowedValues('style', array(null, 'default', 'primary', 'secondary', 'success', 'info', 'warning', 'danger', 'link'));
     }
 
     /**

@@ -17,7 +17,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
 /**
@@ -122,7 +122,7 @@ class PanelRowType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'inherit_data'     => true,
@@ -143,23 +143,21 @@ class PanelRowType extends AbstractType
             'cell_label_style' => array('null', 'string'),
         ));
 
-        $resolver->setNormalizers(array(
-                'column' => function (Options $options, $value) {
-                    $colNumMax = $options['layout_max'];
+        $resolver->setNormalizer('column', function (Options $options, $value) {
+            $colNumMax = $options['layout_max'];
 
-                    if ($value > $colNumMax) {
-                        throw new InvalidConfigurationException('The "column" option must be lower of "layout_max" option');
-                    }
+            if ($value > $colNumMax) {
+                throw new InvalidConfigurationException('The "column" option must be lower of "layout_max" option');
+            }
 
-                    if ($colNumMax % $value !== 0) {
-                        $msg = 'Result of %s is not an integer. The Panel row\'s column must be an integer after division per %s.';
+            if ($colNumMax % $value !== 0) {
+                $msg = 'Result of %s is not an integer. The Panel row\'s column must be an integer after division per %s.';
 
-                        throw new InvalidConfigurationException(sprintf($msg, $colNumMax/$value, $colNumMax));
-                    }
+                throw new InvalidConfigurationException(sprintf($msg, $colNumMax/$value, $colNumMax));
+            }
 
-                    return $value;
-                },
-        ));
+            return $value;
+        });
     }
 
     /**

@@ -16,7 +16,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
 /**
@@ -78,7 +78,7 @@ class TableColumnSelectType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'multiple'      => false,
@@ -94,26 +94,24 @@ class TableColumnSelectType extends AbstractType
             ),
         ));
 
-        $resolver->setNormalizers(array(
-            'formatter_options' => function (Options $options, $value) {
-                $variables = isset($value['variables']) ? $value['variables'] : array();
-                $variables['multiple'] = $options['multiple'];
-                $variables['options'] = $options['options'];
-                $variables['options']['data'] = $options['selected'];
-                $variables['options']['required'] = false;
-                $variables['options']['label'] = ' ';
-                $variables['options']['style'] = $options['style'];
-                $variables['max_width'] = $options['max_width'];
+        $resolver->setNormalizer('formatter_options', function (Options $options, $value) {
+            $variables = isset($value['variables']) ? $value['variables'] : array();
+            $variables['multiple'] = $options['multiple'];
+            $variables['options'] = $options['options'];
+            $variables['options']['data'] = $options['selected'];
+            $variables['options']['required'] = false;
+            $variables['options']['label'] = ' ';
+            $variables['options']['style'] = $options['style'];
+            $variables['max_width'] = $options['max_width'];
 
-                $value['variables'] = $variables;
-                $value['resource'] = $this->resource;
-                $value['resource_block'] = 'table_column_select_content';
-                $value['empty_data'] = $options['empty_data'];
-                $value['empty_message'] = $options['empty_message'];
+            $value['variables'] = $variables;
+            $value['resource'] = $this->resource;
+            $value['resource_block'] = 'table_column_select_content';
+            $value['empty_data'] = $options['empty_data'];
+            $value['empty_message'] = $options['empty_message'];
 
-                return $value;
-            },
-        ));
+            return $value;
+        });
 
         $resolver->addAllowedTypes(array(
             'multiple'      => 'bool',

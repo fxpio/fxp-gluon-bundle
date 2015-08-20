@@ -23,6 +23,10 @@ class ErrorController extends Controller
 {
     /**
      * Display page error for dev.
+     *
+     * @param string $code
+     *
+     * @return Response
      */
     public function showAction($code)
     {

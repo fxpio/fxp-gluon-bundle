@@ -17,7 +17,6 @@ use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Footable Column Block Extension.
@@ -68,7 +67,7 @@ class FootableColumnExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'footable' => array(),
@@ -78,49 +77,43 @@ class FootableColumnExtension extends AbstractTypeExtension
             'footable' => 'array',
         ));
 
-        $resolver->setNormalizers(array(
-            'footable' => function (Options $options, $value) {
-                $footableResolver = new OptionsResolver();
+        $resolver->setNormalizer('footable', function (Options $options, $value) {
+            $footableResolver = new OptionsResolver();
 
-                $footableResolver->setDefaults(array(
-                    'hide'   => null,
-                    'ignore' => null,
-                    'toggle' => null,
-                    'name'   => null,
-                    'type'   => null,
-                ));
+            $footableResolver->setDefaults(array(
+                'hide'   => null,
+                'ignore' => null,
+                'toggle' => null,
+                'name'   => null,
+                'type'   => null,
+            ));
 
-                $footableResolver->setAllowedTypes(array(
-                    'hide'   => array('null', 'string', 'array'),
-                    'ignore' => array('null', 'bool'),
-                    'toggle' => array('null', 'bool'),
-                    'name'   => array('null', 'string'),
-                    'type'   => array('null', 'string'),
-                ));
+            $footableResolver->setAllowedTypes('hide', array('null', 'string', 'array'));
+            $footableResolver->setAllowedTypes('ignore', array('null', 'bool'));
+            $footableResolver->setAllowedTypes('toggle', array('null', 'bool'));
+            $footableResolver->setAllowedTypes('name', array('null', 'string'));
+            $footableResolver->setAllowedTypes('type', array('null', 'string'));
 
-                $footableResolver->addAllowedValues(array(
-                    'type' => array(null, 'alpha', 'numeric'),
-                ));
+            $footableResolver->addAllowedValues(array(
+                'type' => array(null, 'alpha', 'numeric'),
+            ));
 
-                $footableResolver->setNormalizers(array(
-                    'hide' => function (Options $options, $value) {
-                        $allowed = array('phone', 'tablet', 'default', 'all');
-                        $value = (array) $value;
+            $footableResolver->setNormalizer('hide', function (Options $options, $value) {
+                $allowed = array('phone', 'tablet', 'default', 'all');
+                $value = (array) $value;
 
-                        foreach ($value as $type) {
-                            if (!in_array($type, $allowed)) {
-                                $msg = 'The option "hide" has the value "%s", but is expected to be one of "%s"';
-                                throw new InvalidConfigurationException(sprintf($msg, implode('", "', $value), implode('", "', $allowed)));
-                            }
-                        }
+                foreach ($value as $type) {
+                    if (!in_array($type, $allowed)) {
+                        $msg = 'The option "hide" has the value "%s", but is expected to be one of "%s"';
+                        throw new InvalidConfigurationException(sprintf($msg, implode('", "', $value), implode('", "', $allowed)));
+                    }
+                }
 
-                        return $value;
-                    },
-                ));
+                return $value;
+            });
 
-                return $footableResolver->resolve($value);
-            },
-        ));
+            return $footableResolver->resolve($value);
+        });
     }
 
     /**

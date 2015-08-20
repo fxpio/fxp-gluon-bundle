@@ -13,7 +13,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
 /**
@@ -43,7 +43,7 @@ class TableExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'render_id'        => true,
@@ -61,15 +61,13 @@ class TableExtension extends AbstractTypeExtension
             'selected'         => 'bool',
         ));
 
-        $resolver->setNormalizers(array(
-            'selectable' => function (Options $options, $value) {
-                if ($options['multi_selectable']) {
-                    return true;
-                }
+        $resolver->setNormalizer('selectable', function (Options $options, $value) {
+            if ($options['multi_selectable']) {
+                return true;
+            }
 
-                return $value;
-            },
-        ));
+            return $value;
+        });
     }
 
     /**
