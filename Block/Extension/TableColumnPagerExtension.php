@@ -35,7 +35,7 @@ class TableColumnPagerExtension extends AbstractTypeExtension
         }
 
         $view->vars = array_replace($view->vars, array(
-            'sortable'   => $options['sortable'],
+            'sortable' => $options['sortable'],
             'label_attr' => $attr,
         ));
 

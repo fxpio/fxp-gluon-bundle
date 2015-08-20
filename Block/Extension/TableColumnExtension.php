@@ -45,14 +45,14 @@ class TableColumnExtension extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'align'     => null,
+            'align' => null,
             'min_width' => null,
             'max_width' => null,
-            'width'     => null,
+            'width' => null,
         ));
 
         $resolver->addAllowedTypes(array(
-            'align'     => array('null', 'string'),
+            'align' => array('null', 'string'),
             'min_width' => array('null', 'int'),
             'max_width' => array('null', 'int'),
         ));

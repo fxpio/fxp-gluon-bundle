@@ -81,11 +81,11 @@ class PanelRowType extends AbstractType
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
         $view->vars = array_replace($view->vars, array(
-            'rendered'         => $options['rendered'],
-            'hidden_if_empty'  => $options['hidden_if_empty'],
-            'column'           => $options['column'],
-            'layout_max'       => $options['layout_max'],
-            'layout_size'      => $options['layout_size'],
+            'rendered' => $options['rendered'],
+            'hidden_if_empty' => $options['hidden_if_empty'],
+            'column' => $options['column'],
+            'layout_max' => $options['layout_max'],
+            'layout_size' => $options['layout_size'],
             'cell_label_style' => $options['cell_label_style'],
         ));
     }
@@ -125,21 +125,21 @@ class PanelRowType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'inherit_data'     => true,
-            'rendered'         => true,
-            'hidden_if_empty'  => true,
-            'column'           => 1,
-            'layout_max'       => 12,
-            'layout_size'      => null,
+            'inherit_data' => true,
+            'rendered' => true,
+            'hidden_if_empty' => true,
+            'column' => 1,
+            'layout_max' => 12,
+            'layout_size' => null,
             'cell_label_style' => null,
         ));
 
         $resolver->addAllowedTypes(array(
-            'rendered'         => 'bool',
-            'hidden_if_empty'  => 'bool',
-            'column'           => 'int',
-            'layout_max'       => 'int',
-            'layout_size'      => array('null', 'string'),
+            'rendered' => 'bool',
+            'hidden_if_empty' => 'bool',
+            'column' => 'int',
+            'layout_max' => 'int',
+            'layout_size' => array('null', 'string'),
             'cell_label_style' => array('null', 'string'),
         ));
 

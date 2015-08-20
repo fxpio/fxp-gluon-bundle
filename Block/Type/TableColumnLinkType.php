@@ -43,11 +43,11 @@ class TableColumnLinkType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'link_options'   => array(),
-            'route_name'     => null,
-            'route_options'  => array(),
+            'link_options' => array(),
+            'route_name' => null,
+            'route_options' => array(),
             'route_absolute' => false,
-            'formatter'      => 'twig',
+            'formatter' => 'twig',
         ));
 
         $resolver->setNormalizer('formatter_options', function (Options $options, $value) {
@@ -67,9 +67,9 @@ class TableColumnLinkType extends AbstractType
         });
 
         $resolver->addAllowedTypes(array(
-            'link_options'   => 'array',
-            'route_name'     => array('null', 'string'),
-            'route_options'  => 'array',
+            'link_options' => 'array',
+            'route_name' => array('null', 'string'),
+            'route_options' => 'array',
             'route_absolute' => 'bool',
         ));
     }

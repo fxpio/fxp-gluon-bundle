@@ -49,10 +49,10 @@ class TableColumnSelectType extends AbstractType
         if ($options['multiple']) {
             $builder->add(BlockUtil::createUniqueName(), 'form_checkbox', array(
                 'required' => false,
-                'label'    => ' ',
-                'data'     => $options['selected'],
-                'style'    => $options['style'],
-                'attr'     => array(
+                'label' => ' ',
+                'data' => $options['selected'],
+                'style' => $options['style'],
+                'attr' => array(
                     'data-multi-selectable-all' => 'true',
                 ),
             ));
@@ -81,16 +81,16 @@ class TableColumnSelectType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'multiple'      => false,
-            'selected'      => false,
+            'multiple' => false,
+            'selected' => false,
             'max_selection' => null,
-            'style'         => 'secondary',
-            'options'       => array(),
-            'max_width'     => 34,
-            'width'         => 34,
-            'formatter'     => 'twig',
-            'footable'      => array(
-                'ignore'    => true,
+            'style' => 'secondary',
+            'options' => array(),
+            'max_width' => 34,
+            'width' => 34,
+            'formatter' => 'twig',
+            'footable' => array(
+                'ignore' => true,
             ),
         ));
 
@@ -114,11 +114,11 @@ class TableColumnSelectType extends AbstractType
         });
 
         $resolver->addAllowedTypes(array(
-            'multiple'      => 'bool',
-            'selected'      => 'bool',
+            'multiple' => 'bool',
+            'selected' => 'bool',
             'max_selection' => array('null', 'int'),
-            'style'         => array('null', 'string'),
-            'options'       => 'array',
+            'style' => array('null', 'string'),
+            'options' => 'array',
         ));
     }
 

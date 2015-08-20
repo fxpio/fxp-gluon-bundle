@@ -32,7 +32,7 @@ class FootableExtension extends AbstractTypeExtension
         if ($options['footable']['enabled']) {
             $fOptions = array(
                 'breakpoints' => array(
-                    'phone'  => $options['footable']['breakpoints_phone'],
+                    'phone' => $options['footable']['breakpoints_phone'],
                     'tablet' => $options['footable']['breakpoints_tablet'],
                 ),
                 'striped' => array(
@@ -71,11 +71,11 @@ class FootableExtension extends AbstractTypeExtension
             $footableResolver = new OptionsResolver();
 
             $footableResolver->setDefaults(array(
-                'enabled'            => true,
-                'delay'              => null,
-                'breakpoints_phone'  => 767,
+                'enabled' => true,
+                'delay' => null,
+                'breakpoints_phone' => 767,
                 'breakpoints_tablet' => 991,
-                'add_row_toggle'     => null,
+                'add_row_toggle' => null,
             ));
 
             $footableResolver->setAllowedTypes('enabled', 'bool');

@@ -81,11 +81,11 @@ class FootableColumnExtension extends AbstractTypeExtension
             $footableResolver = new OptionsResolver();
 
             $footableResolver->setDefaults(array(
-                'hide'   => null,
+                'hide' => null,
                 'ignore' => null,
                 'toggle' => null,
-                'name'   => null,
-                'type'   => null,
+                'name' => null,
+                'type' => null,
             ));
 
             $footableResolver->setAllowedTypes('hide', array('null', 'string', 'array'));

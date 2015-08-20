@@ -34,8 +34,8 @@ class PanelCellType extends AbstractType
     {
         if (null !== $options['type']) {
             $cOpts = array_replace($options['options'], array(
-                'wrapped'       => false,
-                'mapped'        => true,
+                'wrapped' => false,
+                'mapped' => true,
                 'property_path' => null !== $options['property_path'] ? $options['property_path'] : null,
             ));
 
@@ -44,10 +44,10 @@ class PanelCellType extends AbstractType
 
         if (null !== $options['help']) {
             $hOpts = array_replace($options['options'], array(
-                'label'   => '?',
-                'style'   => 'info',
-                'size'    => 'xs',
-                'attr'    => array('class' => 'panel-cell-help'),
+                'label' => '?',
+                'style' => 'info',
+                'size' => 'xs',
+                'attr' => array('class' => 'panel-cell-help'),
                 'popover' => $options['help'],
             ));
 
@@ -82,14 +82,14 @@ class PanelCellType extends AbstractType
         $labelAttr['class'] = trim($class);
 
         $view->vars = array_replace($view->vars, array(
-            'control_attr'     => $options['control_attr'],
-            'layout_col_size'  => $options['layout_size'],
+            'control_attr' => $options['control_attr'],
+            'layout_col_size' => $options['layout_size'],
             'layout_col_width' => $options['layout'],
-            'layout_col_max'   => $options['layout_max'],
-            'label_style'      => $options['label_style'],
-            'label_attr'       => $labelAttr,
-            'rendered'         => $options['rendered'],
-            'hidden'           => $options['hidden'],
+            'layout_col_max' => $options['layout_max'],
+            'label_style' => $options['label_style'],
+            'label_attr' => $labelAttr,
+            'rendered' => $options['rendered'],
+            'hidden' => $options['hidden'],
         ));
     }
 
@@ -116,30 +116,30 @@ class PanelCellType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'inherit_data'   => true,
-            'type'           => null,
-            'options'        => array(),
-            'control_attr'   => array(),
-            'layout_size'    => 'sm',
-            'layout'         => 12,
-            'layout_max'     => 12,
-            'label_style'    => null,
-            'rendered'       => true,
-            'hidden'         => false,
-            'help'           => null,
+            'inherit_data' => true,
+            'type' => null,
+            'options' => array(),
+            'control_attr' => array(),
+            'layout_size' => 'sm',
+            'layout' => 12,
+            'layout_max' => 12,
+            'label_style' => null,
+            'rendered' => true,
+            'hidden' => false,
+            'help' => null,
         ));
 
         $resolver->addAllowedTypes(array(
-            'type'           => array('null', 'string', 'Sonatra\Bundle\BlockBundle\Block\BlockTypeInterface'),
-            'options'        => 'array',
-            'control_attr'   => 'array',
-            'layout_size'    => 'string',
-            'layout'         => 'int',
-            'layout_max'     => 'int',
-            'label_style'    => array('null', 'string'),
-            'rendered'       => 'bool',
-            'hidden'         => 'bool',
-            'help'           => array('null', 'string', 'array'),
+            'type' => array('null', 'string', 'Sonatra\Bundle\BlockBundle\Block\BlockTypeInterface'),
+            'options' => 'array',
+            'control_attr' => 'array',
+            'layout_size' => 'string',
+            'layout' => 'int',
+            'layout_max' => 'int',
+            'label_style' => array('null', 'string'),
+            'rendered' => 'bool',
+            'hidden' => 'bool',
+            'help' => array('null', 'string', 'array'),
         ));
 
         $resolver->addAllowedValues(array(
@@ -172,7 +172,7 @@ class PanelCellType extends AbstractType
             }
 
             $value = array_replace(array(
-                'html'      => true,
+                'html' => true,
                 'placement' => 'auto top',
             ), $value);
 

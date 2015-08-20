@@ -46,19 +46,19 @@ class TableExtension extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'render_id'        => true,
-            'responsive'       => true,
-            'row_number'       => true,
-            'selectable'       => false,
+            'render_id' => true,
+            'responsive' => true,
+            'row_number' => true,
+            'selectable' => false,
             'multi_selectable' => false,
-            'selected'         => false,
+            'selected' => false,
         ));
 
         $resolver->addAllowedTypes(array(
-            'row_number'       => 'bool',
-            'selectable'       => 'bool',
+            'row_number' => 'bool',
+            'selectable' => 'bool',
             'multi_selectable' => 'bool',
-            'selected'         => 'bool',
+            'selected' => 'bool',
         ));
 
         $resolver->setNormalizer('selectable', function (Options $options, $value) {

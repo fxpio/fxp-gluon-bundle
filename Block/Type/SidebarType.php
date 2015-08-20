@@ -63,13 +63,13 @@ class SidebarType extends AbstractType
         }
 
         $view->vars = array_replace($view->vars, array(
-            'style'         => $options['style'],
-            'attr'          => $attr,
+            'style' => $options['style'],
+            'attr' => $attr,
             'sticky_header' => $options['sticky_header'],
-            'toggle_label'  => $options['toggle_label'],
-            'opened'        => $options['opened'],
-            'locked'        => $options['locked'],
-            'position'      => 'right' === $options['position'] ? $options['position'] : 'left',
+            'toggle_label' => $options['toggle_label'],
+            'opened' => $options['opened'],
+            'locked' => $options['locked'],
+            'position' => 'right' === $options['position'] ? $options['position'] : 'left',
         ));
     }
 
@@ -91,17 +91,17 @@ class SidebarType extends AbstractType
         };
 
         $resolver->setDefaults(array(
-            'open_on_hover'    => null,
-            'force_toggle'     => $forceToggle,
-            'min_lock_width'   => null,
-            'sticky_header'    => false,
-            'style'            => 'default',
-            'toggle_label'     => 'Sidebar toggle',
-            'toggle_id'        => null,
-            'opened'           => false,
-            'locked'           => false,
-            'position'         => null,
-            'scrollbar'        => null,
+            'open_on_hover' => null,
+            'force_toggle' => $forceToggle,
+            'min_lock_width' => null,
+            'sticky_header' => false,
+            'style' => 'default',
+            'toggle_label' => 'Sidebar toggle',
+            'toggle_id' => null,
+            'opened' => false,
+            'locked' => false,
+            'position' => null,
+            'scrollbar' => null,
             'disable_keyboard' => $disableKeyboard,
         ));
 

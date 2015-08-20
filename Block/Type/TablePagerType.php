@@ -82,17 +82,17 @@ class TablePagerType extends AbstractType
 
         $view->vars = array_replace($view->vars, array(
             'source' => $source,
-            'attr'   => array_replace($view->vars['attr'], array(
-                'data-table-pager'    => 'true',
-                'data-locale'         => $source->getLocale(),
-                'data-page-size'      => $source->getPageSize(),
-                'data-page-number'    => $source->getPageNumber(),
-                'data-size'           => $source->getSize(),
-                'data-parameters'     => json_encode($source->getParameters()),
-                'data-ajax-id'        => null === $options['route'] ? $view->parent->vars['id'] : null,
-                'data-url'            => $url,
+            'attr' => array_replace($view->vars['attr'], array(
+                'data-table-pager' => 'true',
+                'data-locale' => $source->getLocale(),
+                'data-page-size' => $source->getPageSize(),
+                'data-page-number' => $source->getPageNumber(),
+                'data-size' => $source->getSize(),
+                'data-parameters' => json_encode($source->getParameters()),
+                'data-ajax-id' => null === $options['route'] ? $view->parent->vars['id'] : null,
+                'data-url' => $url,
                 'data-multi-sortable' => $options['multi_sortable'] ? 'true' : 'false',
-                'data-sort-order'     => json_encode($sortOrder),
+                'data-sort-order' => json_encode($sortOrder),
             )),
         ));
 
@@ -116,23 +116,23 @@ class TablePagerType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'locale'               => \Locale::getDefault(),
-            'page_size'            => null,
-            'page_number'          => null,
-            'route'                => null,
-            'route_parameters'     => array(),
+            'locale' => \Locale::getDefault(),
+            'page_size' => null,
+            'page_number' => null,
+            'route' => null,
+            'route_parameters' => array(),
             'route_reference_type' => RouterInterface::ABSOLUTE_PATH,
-            'multi_sortable'       => false,
+            'multi_sortable' => false,
         ));
 
         $resolver->addAllowedTypes(array(
-            'locale'               => 'string',
-            'page_size'            => array('null', 'int'),
-            'page_number'          => array('null', 'int'),
-            'route'                => array('null', 'string'),
-            'route_parameters'     => 'array',
+            'locale' => 'string',
+            'page_size' => array('null', 'int'),
+            'page_number' => array('null', 'int'),
+            'route' => array('null', 'string'),
+            'route_parameters' => 'array',
             'route_reference_type' => 'bool',
-            'multi_sortable'       => 'bool',
+            'multi_sortable' => 'bool',
         ));
     }
 

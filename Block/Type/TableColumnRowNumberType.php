@@ -27,16 +27,16 @@ class TableColumnRowNumberType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'max_width'  => 1,
-            'min_width'  => 1,
-            'footable'   => array(
+            'max_width' => 1,
+            'min_width' => 1,
+            'footable' => array(
                 'ignore' => true,
             ),
             'label_attr' => array(
-                'class'  => 'table-row-number',
+                'class' => 'table-row-number',
             ),
             'attr' => array(
-                'class'  => 'table-row-number',
+                'class' => 'table-row-number',
             ),
         ));
     }

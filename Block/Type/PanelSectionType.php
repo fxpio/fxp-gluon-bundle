@@ -33,7 +33,7 @@ class PanelSectionType extends AbstractType
     {
         if (!BlockUtil::isEmpty($options['label'])) {
             $builder->add('_heading', 'heading', array(
-                'size'  => 6,
+                'size' => 6,
                 'label' => $options['label'],
             ));
         }
@@ -41,8 +41,8 @@ class PanelSectionType extends AbstractType
         if ($options['collapsible']) {
             $builder->add('_panel_section_actions', 'panel_actions', array());
             $builder->get('_panel_section_actions')->add('_button_collapse', 'button', array(
-                'label'   => '',
-                'attr'    => array('class' => 'btn-panel-collapse'),
+                'label' => '',
+                'attr' => array('class' => 'btn-panel-collapse'),
                 'prepend' => '<span class="caret"></span>',
             ));
         }
@@ -115,13 +115,13 @@ class PanelSectionType extends AbstractType
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
         $view->vars = array_replace($view->vars, array(
-            'rendered'         => $options['rendered'],
-            'collapsible'      => $options['collapsible'],
-            'collapsed'        => $options['collapsed'],
-            'hidden_if_empty'  => $options['hidden_if_empty'],
-            'column'           => $options['column'],
-            'layout_max'       => $options['layout_max'],
-            'layout_size'      => $options['layout_size'],
+            'rendered' => $options['rendered'],
+            'collapsible' => $options['collapsible'],
+            'collapsed' => $options['collapsed'],
+            'hidden_if_empty' => $options['hidden_if_empty'],
+            'column' => $options['column'],
+            'layout_max' => $options['layout_max'],
+            'layout_size' => $options['layout_size'],
             'cell_label_style' => $options['cell_label_style'],
         ));
     }
@@ -175,25 +175,25 @@ class PanelSectionType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'inherit_data'     => true,
-            'rendered'         => true,
-            'collapsible'      => false,
-            'collapsed'        => false,
-            'hidden_if_empty'  => true,
-            'column'           => null,
-            'layout_max'       => null,
-            'layout_size'      => null,
+            'inherit_data' => true,
+            'rendered' => true,
+            'collapsible' => false,
+            'collapsed' => false,
+            'hidden_if_empty' => true,
+            'column' => null,
+            'layout_max' => null,
+            'layout_size' => null,
             'cell_label_style' => null,
         ));
 
         $resolver->addAllowedTypes(array(
-            'rendered'         => 'bool',
-            'collapsible'      => 'bool',
-            'collapsed'        => 'bool',
-            'hidden_if_empty'  => 'bool',
-            'column'           => array('null', 'int'),
-            'layout_max'       => array('null', 'int'),
-            'layout_size'      => array('null', 'string'),
+            'rendered' => 'bool',
+            'collapsible' => 'bool',
+            'collapsed' => 'bool',
+            'hidden_if_empty' => 'bool',
+            'column' => array('null', 'int'),
+            'layout_max' => array('null', 'int'),
+            'layout_size' => array('null', 'string'),
             'cell_label_style' => array('null', 'string'),
         ));
     }
