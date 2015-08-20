@@ -2,10 +2,15 @@
     {%- require_style '@bower/sonatra-jquery-sidebar/less/sidebar.less' -%}
     {%- require_script   '@bower/jquery/dist/jquery.js'
                         '?@bower/hammerjs/hammer.js'
-                        '?@bower/sonatra-hammer-scroll/js/sticky-header.js'
+                        '?@bower/sonatra-jquery-scroller/js/scroller.js'
+                        '?@bower/sonatra-jquery-scroller/js/sticky-header.js'
                         '@bower/sonatra-jquery-sidebar/js/sidebar.js' -%}
 
-    {%- set attr = attr|merge({'class': ('sidebar-trigger ' ~ attr.class|default(''))|trim}) -%}
+    {%- set attr = attr|merge({'class': ('sidebar sidebar-' ~ style ~ ' ' ~ attr.class|default(''))|trim}) -%}
+
+    {%- if opened or locked -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-open-init')|trim}) -%}
+    {%- endif -%}
 
     {%- if 'right' == position -%}
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-right')|trim}) -%}
@@ -21,15 +26,12 @@
 
     {%- spaceless -%}
     <div{{ block('widget_container_attributes') }}>
-        <a class="sidebar-toggle" href="#"><span class="sr-only">{{ toggle_label|trans({}, translation_domain) }}</span><i class="fa fa-sidebar-toggle"></i></a>
-        <div class="sidebar-wrapper sidebar-{{ style }}{% if opened or locked %} sidebar-open-init{% endif %}">
-            <ul class="sidebar-menu">
-                {{- value|raw -}}
-                {%- for child in block -%}
-                    {{- block_widget(child) -}}
-                {%- endfor -%}
-            </ul>
-        </div>
+        <ul class="sidebar-menu">
+            {{- value|raw -}}
+            {%- for child in block -%}
+                {{- block_widget(child) -}}
+            {%- endfor -%}
+        </ul>
     </div>
     {%- endspaceless -%}
 {%- endblock sidebar_widget %}

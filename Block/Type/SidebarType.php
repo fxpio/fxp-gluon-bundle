@@ -35,7 +35,7 @@ class SidebarType extends AbstractType
         $attr['data-locked'] = $this->formatBoolean($options['locked']);
 
         if (null !== $options['sticky_header']) {
-            $attr['data-sidebar-sticky-header'] = $this->formatBoolean($options['sticky_header']);
+            $attr['data-scroller---sticky-header'] = $this->formatBoolean($options['sticky_header']);
         }
 
         if (null !== $options['position']) {
@@ -43,7 +43,7 @@ class SidebarType extends AbstractType
         }
 
         if (null !== $options['scrollbar']) {
-            $attr['data-hammer-scrollbar'] = $this->formatBoolean($options['scrollbar']);
+            $attr['data-scroller--scrollbar'] = $this->formatBoolean($options['scrollbar']);
         }
 
         if (null !== $options['disable_keyboard']) {
@@ -66,7 +66,6 @@ class SidebarType extends AbstractType
             'style' => $options['style'],
             'attr' => $attr,
             'sticky_header' => $options['sticky_header'],
-            'toggle_label' => $options['toggle_label'],
             'opened' => $options['opened'],
             'locked' => $options['locked'],
             'position' => 'right' === $options['position'] ? $options['position'] : 'left',
@@ -96,7 +95,6 @@ class SidebarType extends AbstractType
             'min_lock_width' => null,
             'sticky_header' => false,
             'style' => 'default',
-            'toggle_label' => 'Sidebar toggle',
             'toggle_id' => null,
             'opened' => false,
             'locked' => false,
@@ -110,7 +108,6 @@ class SidebarType extends AbstractType
         $resolver->setAllowedTypes('min_lock_width', array('null', 'int'));
         $resolver->setAllowedTypes('sticky_header', array('null', 'bool'));
         $resolver->setAllowedTypes('style', 'string');
-        $resolver->setAllowedTypes('toggle_label', 'string');
         $resolver->setAllowedTypes('toggle_id', array('null', 'string'));
         $resolver->setAllowedTypes('opened', array('bool', 'string'));
         $resolver->setAllowedTypes('locked', 'bool');
@@ -141,10 +138,6 @@ class SidebarType extends AbstractType
      */
     protected function formatBoolean($value)
     {
-        if ($value) {
-            return 'true';
-        }
-
-        return 'false';
+        return $value ? 'true' : 'false';
     }
 }

@@ -7,9 +7,21 @@ packages:
         patterns:
             - "fonts/*"
             - "js/footable.js"
+    @bower/bootstrap-filestyle:
+        patterns:
+            - "src/bootstrap-filestyle.js"
+    @bower/moment:
+        patterns:
+            - "moment.js"
+    @bower/hammerjs:
+        patterns:
+            - "hammer.js"
+    @bower/jquery-knob:
+            patterns:
+                - "js/jquery-knob.js"
     @bower/select2:
         patterns:
-            - "select2.js"
+            - "dist/js/select2.js"
     @bower/sonatra-bootstrap-nav-footable:
         patterns:
             - "js/nav-footable.js"
@@ -28,9 +40,10 @@ packages:
     @bower/sonatra-footable-striped:
         patterns:
             - "js/footable-striped.js"
-    @bower/sonatra-hammer-scroll:
+    @bower/sonatra-jquery-scroller:
         patterns:
-            - "js/hammer-scroll.js"
+            - "js/scroller.js"
+            - "js/sticky-header.js"
     @bower/sonatra-jquery-datetime-picker:
         patterns:
             - "js/datetime-picker.js"
@@ -47,9 +60,9 @@ packages:
     @bower/sonatra-jquery-table-select:
         patterns:
             - "js/table-select.js"
-    @bower/sonatra-select2-hammer-scroll:
+    @bower/sonatra-select2-scroller:
         patterns:
-            - "js/select2-hammer-scroll.js"
+            - "js/select2-scroller.js"
     @bower/sonatra-select2-responsive:
         patterns:
             - "js/select2-responsive.js"
@@ -62,9 +75,6 @@ packages:
     sonatra_gluon_bundle:
         patterns:
             - "assetic/less/*"
-    runr_website_bundle:
-        patterns:
-            - "!*"
 
 asset_replacement:
     "@bower/bootstrap/less/bootstrap.less": "sonatra_gluon_bundle/assetic/less/bootstrap.less"
@@ -87,8 +97,8 @@ asset_replacement:
     "@bower/sonatra-footable-striped/less/footable-striped.less": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
     "@bower/sonatra-footable-striped/css/footable-striped.css": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
 
-    "@bower/sonatra-hammer-scroll/less/hammer-scroll.less": "sonatra_gluon_bundle/assetic/less/hammer-scroll.less"
-    "@bower/sonatra-hammer-scroll/css/hammer-scroll.css": "sonatra_gluon_bundle/assetic/less/hammer-scroll.less"
+    "@bower/sonatra-jquery-scroller/less/scroller.less": "sonatra_gluon_bundle/assetic/less/scroller.less"
+    "@bower/sonatra-jquery-scroller/css/scroller.css": "sonatra_gluon_bundle/assetic/less/scroller.less"
 
     "@bower/sonatra-jquery-datetime-picker/less/datetime-picker.less": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
     "@bower/sonatra-jquery-datetime-picker/css/datetime-picker.css": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
@@ -106,8 +116,8 @@ asset_replacement:
     "@bower/sonatra-jquery-table-select/less/table-select.less": "sonatra_gluon_bundle/assetic/less/jquery-table-select.less"
     "@bower/sonatra-jquery-table-select/css/table-select.css": "sonatra_gluon_bundle/assetic/less/jquery-table-select.less"
 
-    "@bower/sonatra-select2-hammer-scroll/less/select2-hammer-scroll.less": "sonatra_gluon_bundle/assetic/less/select2-hammer-scroll.less"
-    "@bower/sonatra-select2-hammer-scroll/css/select2-hammer-scroll.css": "sonatra_gluon_bundle/assetic/less/select2-hammer-scroll.less"
+    "@bower/select2-bootstrap-theme/src/build.less": "sonatra_gluon_bundle/assetic/less/select2-bootstrap-theme.less"
+    "@bower/select2-bootstrap-theme/dist/select2-bootstrap.css": "sonatra_gluon_bundle/assetic/less/select2-bootstrap-theme.less"
 
     "@bower/sonatra-select2-responsive/less/select2-responsive.less": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
     "@bower/sonatra-select2-responsive/css/select2-responsive.css": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
@@ -131,8 +141,8 @@ asset_replacement:
     "@bower/sonatra-theme-gluon/less/footable-striped/footable-striped.less": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
     "@bower/sonatra-theme-gluon/css/footable-striped.css": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
 
-    "@bower/sonatra-theme-gluon/less/hammer-scroll/hammer-scroll.less": "sonatra_gluon_bundle/assetic/less/hammer-scroll.less"
-    "@bower/sonatra-theme-gluon/css/sonatra-hammer-scroll.css": "sonatra_gluon_bundle/assetic/less/hammer-scroll.less"
+    "@bower/sonatra-theme-gluon/less/scroller/scroller.less": "sonatra_gluon_bundle/assetic/less/scroller.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-scroller.css": "sonatra_gluon_bundle/assetic/less/scroller.less"
 
     "@bower/sonatra-theme-gluon/less/jquery-datetime-picker/jquery-datetime-picker.less": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
     "@bower/sonatra-theme-gluon/css/sonatra-jquery-datetime-picker.css": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
@@ -148,8 +158,8 @@ asset_replacement:
     "@bower/sonatra-theme-gluon/less/jquery-table-select/jquery-table-select.less": "sonatra_gluon_bundle/assetic/less/jquery-table-select.less"
     "@bower/sonatra-theme-gluon/css/sonatra-jquery-table-select.css": "sonatra_gluon_bundle/assetic/less/jquery-table-select.less"
 
-    "@bower/sonatra-theme-gluon/less/select2-hammer-scroll/select2-hammer-scroll.less": "sonatra_gluon_bundle/assetic/less/select2-hammer-scroll.less"
-    "@bower/sonatra-theme-gluon/css/sonatra-select2-hammer-scroll.css": "sonatra_gluon_bundle/assetic/less/select2-hammer-scroll.less"
+    "@bower/sonatra-theme-gluon/less/select2-bootstrap-theme/select2-bootstrap-theme.less": "sonatra_gluon_bundle/assetic/less/select2-bootstrap-theme.less"
+    "@bower/sonatra-theme-gluon/css/select2-bootstrap-theme.css": "sonatra_gluon_bundle/assetic/less/select2-bootstrap-theme.less"
 
     "@bower/sonatra-theme-gluon/less/select2-responsive/select2-responsive.less": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
     "@bower/sonatra-theme-gluon/css/sonatra-select2-responsive.css": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
