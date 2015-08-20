@@ -153,7 +153,7 @@ class PanelRowType extends AbstractType
             if ($colNumMax % $value !== 0) {
                 $msg = 'Result of %s is not an integer. The Panel row\'s column must be an integer after division per %s.';
 
-                throw new InvalidConfigurationException(sprintf($msg, $colNumMax/$value, $colNumMax));
+                throw new InvalidConfigurationException(sprintf($msg, $colNumMax / $value, $colNumMax));
             }
 
             return $value;
