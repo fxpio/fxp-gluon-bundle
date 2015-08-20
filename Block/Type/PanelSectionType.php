@@ -150,7 +150,7 @@ class PanelSectionType extends AbstractType
 
                 unset($view->children[$name]);
             } elseif (in_array('panel_row', $child->vars['block_prefixes'])) {
-                $hasRow++;
+                ++$hasRow;
 
                 if (!$hasRenderedRow && $child->vars['rendered']) {
                     $hasRenderedRow = true;
