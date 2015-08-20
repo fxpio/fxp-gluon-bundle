@@ -28,7 +28,7 @@ class ConfigurationPass implements CompilerPassInterface
     {
         $parser = new Parser();
         $refl = new \ReflectionClass($this);
-        $path = dirname(dirname($refl->getFileName())).'/Resources/config/require_asset.yml';
+        $path = dirname(dirname(dirname($refl->getFileName()))).'/Resources/config/require_asset.yml';
         $config = $parser->parse(file_get_contents($path));
 
         if ($container->getParameter('sonatra_gluon.config.auto_configuration')) {
