@@ -55,16 +55,10 @@ class PanelListType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            //'inherit_data'  => true,
             'selected' => null,
-            //'route_name'    => null,
-            //'route_options' => array(),
-            //'route_list_id' => 'list',
             'groups' => array(),
         ));
 
-        //$resolver->setAllowedTypes('route_name', 'string');
-        //$resolver->setAllowedTypes('route_options', 'array');
         $resolver->setAllowedTypes('groups', 'array');
     }
 
