@@ -1,0 +1,47 @@
+{%- extends "SonatraBootstrapBundle::base.html.twig" -%}
+
+{%- require_style   '@bower/bootstrap/less/bootstrap.less'
+                    '@bower/bootstrap/less/theme.less'
+                    'google_fonts'
+                    '@bower/font-awesome/css/font-awesome.css'
+                    'sonatra_gluon_bundle/assetic/less/gluon.less'
+-%}
+
+{%- block metadata -%}
+    {{- parent() -}}
+    <meta http-equiv="Content-Language" content="{{ app.request.locale }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {%- if theme_color is defined -%}
+        <meta name="theme-color" content="{{ theme_color }}">
+    {%- endif -%}
+    {%- if msapplication.asset is defined and msapplication.color is defined -%}
+        <meta name="msapplication-TileImage" content="{{ asset(msapplication.asset) }}">
+        <meta name="msapplication-TileColor" content="{{ msapplication.color }}">
+    {%- endif -%}
+    <meta name="hostname" content="{{ app.request.host }}">
+    {%- if app.user.username is defined -%}
+        <meta name="user-login" content="{{ app.user.username }}">
+    {%- endif -%}
+    {%- if is_dotcom is defined  and is_dotcom == true -%}
+        <meta name="is-dotcom" content="true">
+    {%- endif -%}
+{%- endblock metadata -%}
+
+{%- block links -%}
+    {{- parent() -}}
+    {%- if fluidicon is defined -%}
+        {%- if fluidicon is not iterable -%}
+            {% set fluidicon = {asset: fluidicon} %}
+        {%- endif -%}
+        {%- if fluidicon is iterable and fluidicon.asset is defined -%}
+            <link rel="fluid-icon" type="image/png" href="{{ app.request.uriForPath(asset(fluidicon.asset)) }}"{% if fluidicon.title is defined %} title="{{ fluidicon.title }}"{% endif %}>
+        {%- endif -%}
+    {%- endif -%}
+    {%- if icons is defined and icons is iterable -%}
+        {%- for icon in icons -%}
+            {%- if icon.rel is defined and icon.sizes is defined and icon.asset is defined -%}
+                <link rel="{{ icon.rel }}" sizes="{{ icon.sizes }}" href="{{ asset(icon.asset) }}">
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endblock links -%}
