@@ -410,12 +410,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/fxp-require-asset.git",
-                "reference": "624a8977f1dfb6debf16230a656c143b8317d8b5"
+                "reference": "908185ab0cc3a149c8742e4d3b1db2a240970549"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/624a8977f1dfb6debf16230a656c143b8317d8b5",
-                "reference": "624a8977f1dfb6debf16230a656c143b8317d8b5",
+                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/908185ab0cc3a149c8742e4d3b1db2a240970549",
+                "reference": "908185ab0cc3a149c8742e4d3b1db2a240970549",
                 "shasum": ""
             },
             "require": {
@@ -464,7 +464,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2015-08-03 22:08:33"
+            "time": "2015-08-20 17:56:07"
         },
         {
             "name": "fxp/require-asset-bundle",
@@ -472,12 +472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/francoispluchino/FxpRequireAssetBundle.git",
-                "reference": "0467a32442d908dabd4b5305e1d81767eeb3d432"
+                "reference": "4f9fd6958defe3e5790767bf82ae7b87c4ff8545"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/FxpRequireAssetBundle/zipball/0467a32442d908dabd4b5305e1d81767eeb3d432",
-                "reference": "0467a32442d908dabd4b5305e1d81767eeb3d432",
+                "url": "https://api.github.com/repos/francoispluchino/FxpRequireAssetBundle/zipball/4f9fd6958defe3e5790767bf82ae7b87c4ff8545",
+                "reference": "4f9fd6958defe3e5790767bf82ae7b87c4ff8545",
                 "shasum": ""
             },
             "require": {
@@ -525,7 +525,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2015-07-30 13:27:30"
+            "time": "2015-08-20 22:04:47"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -3629,12 +3629,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-theme-gluon.git",
-                "reference": "2911c2441993d4f68b2e6d86306ed1e53d8caeb6"
+                "reference": "06cce9d16fbe70b8724cd6ee99369d038dda888a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-theme-gluon/zipball/2911c2441993d4f68b2e6d86306ed1e53d8caeb6",
-                "reference": "2911c2441993d4f68b2e6d86306ed1e53d8caeb6",
+                "url": "https://api.github.com/repos/sonatra/sonatra-theme-gluon/zipball/06cce9d16fbe70b8724cd6ee99369d038dda888a",
+                "reference": "06cce9d16fbe70b8724cd6ee99369d038dda888a",
                 "shasum": ""
             },
             "require": {
