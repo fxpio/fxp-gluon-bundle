@@ -42,7 +42,7 @@ packages:
             - "js/footable-striped.js"
     @bower/sonatra-jquery-scroller:
         patterns:
-            - "js/scroller.js"
+            - "js/jquery-scroller.js"
             - "js/sticky-header.js"
     @bower/sonatra-jquery-datetime-picker:
         patterns:
@@ -60,9 +60,12 @@ packages:
     @bower/sonatra-jquery-table-select:
         patterns:
             - "js/table-select.js"
+    @bower/select2-bootstrap-theme:
+        patterns:
+            - "!*"
     @bower/sonatra-select2-scroller:
         patterns:
-            - "js/select2-scroller.js"
+            - "js/select2-jquery-scroller.js"
     @bower/sonatra-select2-responsive:
         patterns:
             - "js/select2-responsive.js"
@@ -97,8 +100,8 @@ asset_replacement:
     "@bower/sonatra-footable-striped/less/footable-striped.less": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
     "@bower/sonatra-footable-striped/css/footable-striped.css": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
 
-    "@bower/sonatra-jquery-scroller/less/scroller.less": "sonatra_gluon_bundle/assetic/less/scroller.less"
-    "@bower/sonatra-jquery-scroller/css/scroller.css": "sonatra_gluon_bundle/assetic/less/scroller.less"
+    "@bower/sonatra-jquery-scroller/less/scroller.less": "sonatra_gluon_bundle/assetic/less/jquery-scroller.less"
+    "@bower/sonatra-jquery-scroller/css/scroller.css": "sonatra_gluon_bundle/assetic/less/jquery-scroller.less"
 
     "@bower/sonatra-jquery-datetime-picker/less/datetime-picker.less": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
     "@bower/sonatra-jquery-datetime-picker/css/datetime-picker.css": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
@@ -141,8 +144,8 @@ asset_replacement:
     "@bower/sonatra-theme-gluon/less/footable-striped/footable-striped.less": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
     "@bower/sonatra-theme-gluon/css/footable-striped.css": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
 
-    "@bower/sonatra-theme-gluon/less/scroller/scroller.less": "sonatra_gluon_bundle/assetic/less/scroller.less"
-    "@bower/sonatra-theme-gluon/css/sonatra-scroller.css": "sonatra_gluon_bundle/assetic/less/scroller.less"
+    "@bower/sonatra-theme-gluon/less/jquery-scroller/jquery-scroller.less": "sonatra_gluon_bundle/assetic/less/jquery-scroller.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-jquery-scroller.css": "sonatra_gluon_bundle/assetic/less/jquery-scroller.less"
 
     "@bower/sonatra-theme-gluon/less/jquery-datetime-picker/jquery-datetime-picker.less": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
     "@bower/sonatra-theme-gluon/css/sonatra-jquery-datetime-picker.css": "sonatra_gluon_bundle/assetic/less/jquery-datetime-picker.less"
