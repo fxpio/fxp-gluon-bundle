@@ -45,3 +45,12 @@
         {%- endfor -%}
     {%- endif -%}
 {%- endblock links -%}
+
+{%- block body -%}
+    {%- set body_main_attr = body_main_attr|default({class: 'container-main'}) -%}
+    <div{% for attrname, attrvalue in body_main_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+        {%- block body_main -%}
+        {%- endblock body_main -%}
+    </div>
+
+{%- endblock body -%}
