@@ -1,22 +1,26 @@
 {%- extends "SonatraGluonBundle::base.html.twig" -%}
 
-{%- set logo_src = logo_src|default('bundles/sonatragluon/logo.svg') -%}
+{%- trans_default_domain 'FOSUserBundle' -%}
+
+{%- set logo_src = logo_src|default('bundles/sonatragluon/logo_inverse.svg') -%}
 {%- set logo_alt = logo_alt|default('Sonatra') -%}
 
-{%- block title %}Login{% endblock title -%}
+{%- block title %}{{ 'layout.login'|trans }}{% endblock title -%}
 
 {%- block body -%}
 {% spaceless %}
-    {%- trans_default_domain 'FOSUserBundle' -%}
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-account-wrapper">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="navbar-brand"><img src="{{ asset(logo_src) }}" alt="{{ logo_alt }}"></span>
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="account-wrapper">
-                    <div class="logo-wrapper">
-                        <img src="{{ asset(logo_src) }}" alt="{{ logo_alt }}" />
-                    </div>
-
                     {%- if error -%}
                         <div class="alert alert-danger">
                             {{ error|trans }}
