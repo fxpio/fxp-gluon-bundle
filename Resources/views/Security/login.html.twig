@@ -1,5 +1,10 @@
 {%- extends "SonatraGluonBundle::base.html.twig" -%}
 
+{%- require_script  '@bower/jquery/dist/jquery.js',
+                    '@bower/sonatra-theme-gluon/js/floating-label.js'
+                    '@bower/sonatra-jquery-ripple/js/ripple.js'
+-%}
+
 {%- trans_default_domain 'FOSUserBundle' -%}
 
 {%- set logo_src = logo_src|default('bundles/sonatragluon/logo_inverse.svg') -%}
@@ -9,76 +14,70 @@
 
 {%- block body_main -%}
 {% spaceless %}
-    <nav class="navbar navbar-inverse navbar-static-top navbar-account-wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-account-wrapper affix">
         <div class="container">
-            <div class="navbar-header">
-                <span class="navbar-brand"><img src="{{ asset(logo_src) }}" alt="{{ logo_alt }}"></span>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{{ vendor_url }}"><img src="{{ asset(logo_src) }}" alt="{{ logo_alt }}"></a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
+            <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
                 <div class="account-wrapper">
                     {%- if error -%}
                         <div class="alert alert-danger">
-                            {{ error|trans }}
+                            {{ error.message|trans }}
                         </div>
                     {%- endif -%}
 
                     <form action="{{ path("fos_user_security_check") }}" method="post">
-                        <section class="panel">
-                            <div class="input-group">
-                                <label class="input-group-addon" for="username">
-                                    <span class="sr-only">{{ 'security.login.username'|trans|replace({':': ''}) }}</span>
-                                    <i class="fa fa-user"></i>
+                        <div class="form-group">
+                            <div class="floating-group">
+                                <input type="text" data-floating-label class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" />
+                                <span class="floating-bar"></span>
+                                <label for="username">{{ 'security.login.username'|trans|replace({':': ''}) }}</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="floating-group">
+                                <input type="password" data-floating-label class="form-control" id="password" name="_password" required="required" />
+                                <span class="floating-bar"></span>
+                                <label for="password">{{ 'security.login.password'|trans|replace({':': ''}) }}</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group account-links clearfix">
+                            <a href="{{ path("fos_user_resetting_request") }}" class="pull-right help">{{ 'security.login.forget_password'|trans }}</a>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="remember_me" name="_remember_me" class="form-control-md input-primary" value="on" checked="checked" />
+                                    <span class="form-control-md-style"></span>
+                                    <span>{{ 'security.login.remember_me'|trans }}</span>
                                 </label>
-                                <input type="text" class="form-control input-lg" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.username'|trans|replace({':': ''}) }}" />
                             </div>
+                        </div>
 
-                            <div class="input-group">
-                               <label class="input-group-addon" for="password">
-                                    <span class="sr-only">{{ 'security.login.password'|trans|replace({':': ''}) }}</span>
-                                    <i class="fa fa-key"></i>
-                                </label>
-                                <input type="password" class="form-control input-lg" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans|replace({':': ''}) }}" />
-                            </div>
-                        </section>
-
-                        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-lg btn-primary btn-block" />
-
-                        <section class="account-links clearfix">
-                            <div class="pull-left">
-                                <div class="checkbox">
-                                    <label class="form-control-fa">
-                                        <input type="checkbox" id="remember_me" name="_remember_me" class="form-control-fa input-danger" value="on" checked="checked" />
-                                        <i class="fa form-control-fa-style"></i>
-                                        <span>{{ 'security.login.remember_me'|trans }}</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="pull-right">
-                                <a href="{{ path("fos_user_resetting_request") }}" class="pull-right help">{{ 'security.login.forget_password'|trans }}</a>
-                            </div>
-                        </section>
+                        <div class="form-group buttons">
+                            <a class="btn btn-default btn-ripple pull-left" href="{{ path("fos_user_registration_register") }}">{{ 'security.login.new_account'|trans }}</a>
+                            <button type="submit" id="_submit" name="_submit" class="btn btn-accent btn-raised btn-ripple pull-right">{{ 'security.login.submit'|trans }}</button>
+                            <div class="clearfix"></div>
+                        </div>
 
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     </form>
-
-                    <span class="or" data-text="{{ 'security.login.or'|trans }}"></span>
-
-                    <a class="btn btn-lg btn-accent btn-block" href="{{ path("fos_user_registration_register") }}">{{ 'security.login.new_account'|trans }}</a>
-                    <span class="footer-link">{{ vendor_copyright }} <a href="{{ vendor_url }}" class="text-accent">{{ vendor_name }}</a></span>
                 </div>
             </div>
         </div>
     </div>
 {% endspaceless %}
 {%- endblock body_main -%}
-
-{%- block javascripts -%}
-{%- endblock javascripts -%}
 
 {%- block javascript_global -%}
 <script>
