@@ -60,6 +60,9 @@ packages:
     @bower/sonatra-jquery-table-select:
         patterns:
             - "js/table-select.js"
+    @bower/sonatra-jquery-ripple:
+            patterns:
+                - "js/ripple.js"
     @bower/select2-bootstrap-theme:
         patterns:
             - "!*"
