@@ -18,7 +18,8 @@
 {% endblock form_widget_simple -%}
 
 {% block textarea_widget -%}
-    {%- require_script '@bower/sonatra-theme-gluon/js/floating-label.js' -%}
+    {%- require_script '@bower/sonatra-theme-gluon/js/floating-label.js'
+                        '?@bower/sonatra-theme-gluon/js/resizing-textarea.js' -%}
     {{ block('base2_textarea_widget') }}
 {% endblock textarea_widget -%}
 
