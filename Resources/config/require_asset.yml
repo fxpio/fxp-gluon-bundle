@@ -75,6 +75,7 @@ packages:
     @bower/sonatra-theme-gluon:
         patterns:
             - "js/floating-label.js"
+            - "js/resizing-textarea.js"
     sonatra_bootstrap_bundle:
         patterns:
             - "!assetic/less/bootstrap.less"
