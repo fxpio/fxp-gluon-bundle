@@ -1,7 +1,8 @@
 {% block table_pager_widget %}
-    {%- require_style    '@bower/sonatra-jquery-table-pager/less/table-pager.less'
+    {%- require_style   '@bower/sonatra-jquery-table-pager/less/table-pager.less'
                         '@bower/sonatra-jquery-table-pager/less/table-sort.less' -%}
-    {%- require_script '@bower/sonatra-jquery-table-pager/js/table-pager.js' -%}
+    {%- require_script  '@bower/sonatra-jquery-table-pager/js/table-pager.js'
+                        '@bower/sonatra-theme-gluon/js/table-pager-default.js'-%}
 
     {%- set attr = attr|merge({'class': ('table-pager ' ~ attr.class|default(''))|trim}) -%}
 
