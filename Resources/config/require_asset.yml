@@ -105,6 +105,9 @@ asset_replacement:
     "@bower/sonatra-footable-striped/less/footable-striped.less": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
     "@bower/sonatra-footable-striped/css/footable-striped.css": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
 
+    "@bower/sonatra-jquery-ripple/less/ripple.less": "sonatra_gluon_bundle/assetic/less/jquery-ripple.less"
+    "@bower/sonatra-jquery-ripple/css/ripple.css": "sonatra_gluon_bundle/assetic/less/jquery-ripple.less"
+
     "@bower/sonatra-jquery-scroller/less/scroller.less": "sonatra_gluon_bundle/assetic/less/jquery-scroller.less"
     "@bower/sonatra-jquery-scroller/css/scroller.css": "sonatra_gluon_bundle/assetic/less/jquery-scroller.less"
 
@@ -148,6 +151,9 @@ asset_replacement:
 
     "@bower/sonatra-theme-gluon/less/footable-striped/footable-striped.less": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
     "@bower/sonatra-theme-gluon/css/footable-striped.css": "sonatra_gluon_bundle/assetic/less/footable-striped.less"
+
+    "@bower/sonatra-theme-gluon/less/jquery-ripple/jquery-ripple.less": "sonatra_gluon_bundle/assetic/less/jquery-ripple.less"
+    "@bower/sonatra-theme-gluon/css/sonatra-jquery-ripple.css": "sonatra_gluon_bundle/assetic/less/jquery-ripple.less"
 
     "@bower/sonatra-theme-gluon/less/jquery-scroller/jquery-scroller.less": "sonatra_gluon_bundle/assetic/less/jquery-scroller.less"
     "@bower/sonatra-theme-gluon/css/sonatra-jquery-scroller.css": "sonatra_gluon_bundle/assetic/less/jquery-scroller.less"
