@@ -46,8 +46,8 @@
                     {%- require_script '@bower/sonatra-jquery-table-select/js/table-select.js' -%}
 
                     <div class="btn-group">
-                        <span class="btn btn-{{ block.parent.vars.column_selection_stype|default('secondary') }} table-select-count disabled"></span>
-                        <button class="btn btn-{{ block.parent.vars.column_selection_stype|default('secondary') }} table-select-clear fa fa-times"></button>
+                        <span class="btn btn-{{ block.parent.vars.column_selection_stype|default('accent') }} table-select-count disabled"></span>
+                        <button class="btn btn-{{ block.parent.vars.column_selection_stype|default('accent') }} table-select-clear fa fa-times"></button>
                     </div>
                 {%- endif -%}
             </div>

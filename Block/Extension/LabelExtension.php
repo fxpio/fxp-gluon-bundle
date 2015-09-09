@@ -27,7 +27,7 @@ class LabelExtension extends AbstractTypeExtension
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->addAllowedValues(array(
-            'style' => array('secondary'),
+            'style' => array('accent'),
         ));
     }
 

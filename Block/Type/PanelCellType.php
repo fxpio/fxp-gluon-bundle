@@ -148,7 +148,7 @@ class PanelCellType extends AbstractType
                 null,
                 'default',
                 'primary',
-                'secondary',
+                'accent',
                 'success',
                 'info',
                 'warning',

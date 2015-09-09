@@ -84,7 +84,7 @@ class TableColumnSelectType extends AbstractType
             'multiple' => false,
             'selected' => false,
             'max_selection' => null,
-            'style' => 'secondary',
+            'style' => 'accent',
             'options' => array(),
             'max_width' => 34,
             'width' => 34,

@@ -44,7 +44,7 @@ class CheckboxExtension extends AbstractTypeExtension
 
         $resolver->setAllowedTypes('style', array('null', 'string'));
 
-        $resolver->setAllowedValues('style', array(null, 'default', 'primary', 'secondary', 'success', 'info', 'warning', 'danger', 'link'));
+        $resolver->setAllowedValues('style', array(null, 'default', 'primary', 'accent', 'success', 'info', 'warning', 'danger', 'link'));
     }
 
     /**

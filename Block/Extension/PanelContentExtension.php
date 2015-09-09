@@ -65,7 +65,7 @@ class PanelContentExtension extends AbstractTypeExtension
             'style' => array(
                 null,
                 'primary-box',
-                'secondary-box',
+                'accent-box',
                 'success-box',
                 'info-box',
                 'warning-box',
