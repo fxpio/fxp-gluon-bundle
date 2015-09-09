@@ -76,6 +76,7 @@ packages:
         patterns:
             - "js/floating-label.js"
             - "js/resizing-textarea.js"
+            - "js/table-pager-default.js"
     sonatra_bootstrap_bundle:
         patterns:
             - "!assetic/less/bootstrap.less"
