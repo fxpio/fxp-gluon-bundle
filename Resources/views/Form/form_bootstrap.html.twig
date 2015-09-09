@@ -1,11 +1,26 @@
 {%- use 'SonatraFormExtensionsBundle:Form:form_div_layout.html.twig' with
         select2_widget_content as base_select2_widget_content -%}
 {%- use 'SonatraBootstrapBundle:Form:form_bootstrap.html.twig' with
+        form_widget_simple as base2_form_widget_simple,
+        textarea_widget as base2_textarea_widget,
         datetime_widget as base2_datetime_widget,
         date_widget as base2_date_widget,
         time_widget as base2_time_widget,
         choice_widget as base_choice_widget,
         collection_widget as base2_collection_widget -%}
+
+{% block form_widget_simple -%}
+    {%- set type = type|default('text') -%}
+    {%- if type not in ['submit', 'radio', 'checkbox', 'button'] -%}
+        {%- require_script '@bower/sonatra-theme-gluon/js/floating-label.js' -%}
+    {%- endif -%}
+    {{ block('base2_form_widget_simple') }}
+{% endblock form_widget_simple -%}
+
+{% block textarea_widget -%}
+    {%- require_script '@bower/sonatra-theme-gluon/js/floating-label.js' -%}
+    {{ block('base2_textarea_widget') }}
+{% endblock textarea_widget -%}
 
 {% block checkbox_widget_content -%}
     {%- set label_attr = label_attr|merge({'class': ('form-control-fa ' ~ label_attr.class|default(''))|trim}) -%}
