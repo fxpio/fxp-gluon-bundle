@@ -32,18 +32,26 @@
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
                 <div class="account-wrapper">
+                    {%- set has_error = false -%}
                     {%- if error -%}
-                        <div class="alert alert-danger">
-                            {{ error.message|trans }}
-                        </div>
+                        {%- if error.message != 'Bad credentials.' -%}
+                            <div class="alert alert-danger">
+                                {{ error.message|trans({}, 'messages') }}
+                            </div>
+                        {% else %}
+                            {%- set has_error = true -%}
+                        {%- endif -%}
                     {%- endif -%}
 
                     <form action="{{ path("fos_user_security_check") }}" method="post">
                         <div class="form-group">
-                            <div class="floating-group">
+                            <div class="floating-group{% if has_error %} has-error{% endif %}">
                                 <input type="text" data-floating-label class="form-control{% if last_username %} has-floating-content{% endif %}" id="username" name="_username" value="{{ last_username }}" required="required" />
                                 <span class="floating-bar"></span>
-                                <label for="username">{{ 'security.login.username'|trans|replace({':': ''}) }}</label>
+                                <label for="username">{{ 'resetting.request.username'|trans|replace({':': ''}) }}</label>
+                                {%- if has_error -%}
+                                    <div class="help-block">{{ error.message|trans({}, 'messages') }}</div>
+                                {%- endif -%}
                             </div>
                         </div>
 
