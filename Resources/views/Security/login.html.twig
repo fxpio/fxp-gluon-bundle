@@ -41,7 +41,7 @@
                     <form action="{{ path("fos_user_security_check") }}" method="post">
                         <div class="form-group">
                             <div class="floating-group">
-                                <input type="text" data-floating-label class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" />
+                                <input type="text" data-floating-label class="form-control{% if last_username %} has-floating-content{% endif %}" id="username" name="_username" value="{{ last_username }}" required="required" />
                                 <span class="floating-bar"></span>
                                 <label for="username">{{ 'security.login.username'|trans|replace({':': ''}) }}</label>
                             </div>
