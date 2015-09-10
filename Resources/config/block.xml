@@ -13,6 +13,10 @@
             <tag name="sonatra_block.type" alias="sidebar" />
         </service>
 
+        <service id="sonatra_gluon.block.type.sidebar_header" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarHeaderType">
+            <tag name="sonatra_block.type" alias="sidebar_header" />
+        </service>
+
         <service id="sonatra_gluon.block.type.sidebar_group" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarGroupType">
             <tag name="sonatra_block.type" alias="sidebar_group" />
         </service>

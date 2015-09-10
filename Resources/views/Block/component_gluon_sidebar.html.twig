@@ -46,6 +46,19 @@
 {%- endblock sidebar_widget %}
 
 
+{% block sidebar_header_widget -%}
+    {%- set attr = attr|merge({'class': ('sidebar-header ' ~ attr.class|default(''))|trim}) -%}
+
+    {%- spaceless -%}
+        <li{{ block('widget_container_attributes') }}>
+            {{- label|trans({}, translation_domain) }}
+            {{- value|raw -}}
+            {{- block('block_rows') -}}
+        </li>
+    {%- endspaceless -%}
+{%- endblock sidebar_header_widget %}
+
+
 {% block sidebar_group_widget -%}
     {%- set attr = attr|merge({'class': ('sidebar-group ' ~ attr.class|default(''))|trim}) -%}
 
