@@ -25,6 +25,14 @@
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-locked')|trim}) -%}
     {%- endif -%}
 
+    {%- if full_locked -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-full-locked')|trim}) -%}
+    {%- endif -%}
+
+    {%- if fixed_top -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-fixed-top')|trim}) -%}
+    {%- endif -%}
+
     {%- spaceless -%}
     <div{{ block('widget_container_attributes') }}>
         <ul class="sidebar-menu">

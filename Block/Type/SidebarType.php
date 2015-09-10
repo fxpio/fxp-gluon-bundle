@@ -68,6 +68,8 @@ class SidebarType extends AbstractType
             'sticky_header' => $options['sticky_header'],
             'opened' => $options['opened'],
             'locked' => $options['locked'],
+            'full_locked' => $options['full_locked'],
+            'fixed_top' => $options['fixed_top'],
             'position' => 'right' === $options['position'] ? $options['position'] : 'left',
         ));
     }
@@ -92,6 +94,8 @@ class SidebarType extends AbstractType
         $resolver->setDefaults(array(
             'open_on_hover' => null,
             'force_toggle' => $forceToggle,
+            'fixed_top' => false,
+            'full_locked' => false,
             'min_lock_width' => null,
             'sticky_header' => false,
             'style' => 'default',
@@ -105,6 +109,8 @@ class SidebarType extends AbstractType
 
         $resolver->setAllowedTypes('open_on_hover', array('null', 'bool'));
         $resolver->setAllowedTypes('force_toggle', array('bool', 'string'));
+        $resolver->setAllowedTypes('fixed_top', 'bool');
+        $resolver->setAllowedTypes('full_locked', 'bool');
         $resolver->setAllowedTypes('min_lock_width', array('null', 'int'));
         $resolver->setAllowedTypes('sticky_header', array('null', 'bool'));
         $resolver->setAllowedTypes('style', 'string');
