@@ -49,7 +49,7 @@
 {%- endblock links -%}
 
 {%- block body -%}
-    {%- set body_main_attr = body_main_attr|default({class: 'container-main'}) -%}
+    {%- set body_main_attr = body_main_attr|merge({'class': ('container-main ' ~ body_main_attr.class|default(''))|trim}) -%}
     <div{% for attrname, attrvalue in body_main_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
         {%- block body_main -%}
         {%- endblock body_main -%}
