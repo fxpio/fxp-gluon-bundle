@@ -29,6 +29,10 @@
             <tag name="sonatra_block.type" alias="nav_scrollable" />
         </service>
 
+        <service id="sonatra_gluon.block.type.navbar_title" class="Sonatra\Bundle\GluonBundle\Block\Type\NavbarTitleType">
+            <tag name="sonatra_block.type" alias="navbar_title" />
+        </service>
+
         <service id="sonatra_gluon.block.type_extension.button" class="Sonatra\Bundle\GluonBundle\Block\Extension\ButtonExtension">
             <tag name="sonatra_block.type_extension" alias="button" />
         </service>

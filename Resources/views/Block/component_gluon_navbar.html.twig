@@ -1,0 +1,11 @@
+{% block navbar_title_widget -%}
+    {%- set attr = attr|merge({'class': ('navbar-title ' ~ attr.class|default(''))|trim}) -%}
+
+    {%- spaceless -%}
+        <div{{ block('widget_container_attributes') }}>
+            {{- label|trans({}, translation_domain) }}
+            {{- value|raw -}}
+            {{- block('block_rows') -}}
+        </div>
+    {%- endspaceless -%}
+{%- endblock navbar_title_widget %}
