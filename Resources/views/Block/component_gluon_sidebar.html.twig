@@ -35,7 +35,7 @@
 
     {%- spaceless -%}
     <div{{ block('widget_container_attributes') }}>
-        <ul class="sidebar-menu">
+        <ul class="sidebar-menu{% if with_icons %} with-icons{% endif %}">
             {{- value|raw -}}
             {%- for child in block -%}
                 {{- block_widget(child) -}}
