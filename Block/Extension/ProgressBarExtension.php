@@ -12,6 +12,8 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
+use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -24,10 +26,33 @@ class ProgressBarExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
+    public function buildView(BlockView $view, BlockInterface $block, array $options)
+    {
+        $view->vars = array_replace($view->vars, array(
+            'indeterminate' => $options['indeterminate'],
+            'floating_label' => $options['floating_label'],
+            'large' => $options['large'],
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function configureOptions(OptionsResolver $resolver)
     {
+        $resolver->setDefaults(array(
+            'indeterminate' => false,
+            'floating_label' => false,
+            'large' => false,
+        ));
+
+        $resolver->addAllowedTypes('indeterminate', 'bool');
+        $resolver->addAllowedTypes('floating_label', array('bool', 'string'));
+        $resolver->addAllowedTypes('large', 'bool');
+
         $resolver->addAllowedValues(array(
             'style' => array('accent'),
+            'floating_label' => array(true, false, 'hover'),
         ));
     }
 

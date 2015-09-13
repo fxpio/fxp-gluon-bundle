@@ -4,7 +4,8 @@
         panel_widget as base_panel_widget,
         panel_body_widget as base_panel_body_widget,
         panel_footer_widget as base_panel_footer_widget,
-        table_widget as base_table_widget -%}
+        table_widget as base_table_widget,
+        progress_bar_widget as base_progress_bar_widget -%}
 
 {% block navbar_header_toggle_button -%}
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#{{ collapse_id }}">
@@ -164,3 +165,22 @@
         {%- endinline_script -%}
     {%- endif -%}
 {%- endblock table_widget %}
+
+
+{% block progress_bar_widget -%}
+    {%- require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
+
+    {%- if indeterminate -%}
+        {%- set progress_class = progress_class|default('') ~ ' progress-indeterminate' -%}
+    {%- endif -%}
+    {%- if floating_label -%}
+        {%- set progress_class = progress_class|default('') ~ ' progress-floating-label' -%}
+    {%- endif -%}
+    {%- if floating_label == 'hover' -%}
+        {%- set progress_class = progress_class|default('') ~ ' on-hover' -%}
+    {%- endif -%}
+    {%- if large -%}
+        {%- set progress_class = progress_class|default('') ~ ' progress-lg' -%}
+    {%- endif -%}
+    {{- block('base_progress_bar_widget') -}}
+{%- endblock progress_bar_widget %}
