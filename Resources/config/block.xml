@@ -29,6 +29,10 @@
             <tag name="sonatra_block.type" alias="nav_scrollable" />
         </service>
 
+        <service id="sonatra_gluon.block.type.navbar_flex" class="Sonatra\Bundle\GluonBundle\Block\Type\NavbarFlexType">
+            <tag name="sonatra_block.type" alias="navbar_flex" />
+        </service>
+
         <service id="sonatra_gluon.block.type.navbar_title" class="Sonatra\Bundle\GluonBundle\Block\Type\NavbarTitleType">
             <tag name="sonatra_block.type" alias="navbar_title" />
         </service>

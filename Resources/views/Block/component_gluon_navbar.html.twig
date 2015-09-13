@@ -9,3 +9,15 @@
         </div>
     {%- endspaceless -%}
 {%- endblock navbar_title_widget %}
+
+{% block navbar_flex_widget -%}
+    {%- require_style   '@bower/bootstrap/less/bootstrap.less'
+                        '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
+    {%- set attr = attr|merge({'class': ('navbar-flex ' ~ attr.class|default(''))|trim}) -%}
+
+    <div{{ block('widget_container_attributes') }}>
+        {{- label|trans({}, translation_domain) -}}
+        {{- value|raw -}}
+        {{- block('block_rows') -}}
+    </div>
+{%- endblock navbar_flex_widget %}
