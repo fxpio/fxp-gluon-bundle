@@ -11,7 +11,6 @@
 
 namespace Sonatra\Bundle\GluonBundle\DependencyInjection;
 
-use Fxp\Component\RequireAsset\Assetic\Util\ResourceUtils;
 use Fxp\Component\RequireAsset\Tag\Config\RequireStyleTagConfiguration;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\DependencyInjection\Definition;
@@ -39,6 +38,7 @@ class SonatraGluonExtension extends Extension
         $loader->load('response.xml');
         $loader->load('block.xml');
         $loader->load('form.xml');
+        $loader->load('twig.xml');
         $loader->load('assetic_variables.xml');
 
         $container->setParameter('sonatra_gluon.config.auto_configuration', $config['auto_configuration']);
@@ -54,22 +54,34 @@ class SonatraGluonExtension extends Extension
      */
     protected function configGoogleFonts(array $config, ContainerBuilder $container)
     {
-        $url = 'https://fonts.googleapis.com/css?family=%s:%s';
+        $inputs = $this->configGoogleTypeFonts('icon', $config['icons']);
+        $inputs = array_merge($inputs, $this->configGoogleTypeFonts('css', $config['fonts']));
+
+        $container->setParameter('sonatra_gluon.template.google_fonts', $inputs);
+    }
+
+    /**
+     * Configures the google font resource.
+     *
+     * @param string $type  The google font type
+     * @param array  $fonts The google fonts
+     *
+     * @return array The urls of fonts
+     */
+    protected function configGoogleTypeFonts($type, array $fonts)
+    {
+        $url = 'https://fonts.googleapis.com/%s?family=%s:%s';
         $inputs = array();
 
-        /* @var array $weights */
-        foreach ($config['fonts'] as $name => $weights) {
+        foreach ($fonts as $name => $weights) {
             $name = str_replace(' ', '+', $name);
             $weights = implode(',', $weights);
-            $inputs[] = sprintf($url, $name, $weights);
+            $inputs[] = rtrim(sprintf($url, $type, $name, $weights), ':');
         }
 
-        if (count($inputs) > 0) {
-            $this->addGoogleFontsLoader($container);
-            $this->addGoogleFontsResource($container, $config, $inputs);
-            $this->addTwigRequireTag($container, $config['common_name'], $config['attributes']);
-        }
+        return $inputs;
     }
+
 
     /**
      * Configure the font awesome.
@@ -82,42 +94,6 @@ class SonatraGluonExtension extends Extension
         if ($config['enabled']) {
             $this->addTwigRequireTag($container, $config['path'], $config['attributes']);
         }
-    }
-
-    /**
-     * Add google fonts loader.
-     *
-     * @param ContainerBuilder $container The container builder
-     */
-    protected function addGoogleFontsLoader(ContainerBuilder $container)
-    {
-        $def = new Definition('Symfony\Bundle\AsseticBundle\Factory\Loader\ConfigurationLoader');
-        $def->setPublic(false);
-        $def->addTag('assetic.formula_loader', array('alias' => 'google_fonts_loader'));
-        $container->setDefinition('sonatra_gluon.assetic.loader.google_fonts', $def);
-    }
-
-    /**
-     * Add google fonts resource.
-     *
-     * @param ContainerBuilder $container The container builder
-     * @param array            $config    The config of fonts resource
-     * @param array            $inputs    The list of font stylesheets
-     */
-    protected function addGoogleFontsResource(ContainerBuilder $container, array $config, array $inputs)
-    {
-        $prefix = $container->getParameter('fxp_require_asset.output_prefix').'/';
-        $args = array($config['common_name'] => array(
-            $inputs,
-            ResourceUtils::cleanDebugFilters($config['filters'], $container->getParameter('assetic.debug')),
-            array_merge($config['options'], array('output' => $prefix.$config['output'], 'debug' => false)),
-        ));
-
-        $definition = new Definition('Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource', array($args));
-        $definition->setPublic(false);
-        $definition->addTag('assetic.formula_resource', array('loader' => 'google_fonts_loader'));
-
-        $container->setDefinition('sonatra_gluon.assetic.resource.google_fonts', $definition);
     }
 
     /**
