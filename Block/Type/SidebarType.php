@@ -62,6 +62,10 @@ class SidebarType extends AbstractType
             $attr['data-toggle-id'] = $options['toggle_id'];
         }
 
+        if ($options['menu_context']) {
+            $attr['data-sidebar-context'] = 'true';
+        }
+
         $view->vars = array_replace($view->vars, array(
             'style' => $options['style'],
             'attr' => $attr,
@@ -107,6 +111,7 @@ class SidebarType extends AbstractType
             'scrollbar' => null,
             'disable_keyboard' => $disableKeyboard,
             'with_icons' => false,
+            'menu_context' => false,
         ));
 
         $resolver->setAllowedTypes('open_on_hover', array('null', 'bool'));
@@ -123,6 +128,7 @@ class SidebarType extends AbstractType
         $resolver->setAllowedTypes('scrollbar', array('null', 'bool'));
         $resolver->setAllowedTypes('disable_keyboard', array('null', 'bool'));
         $resolver->setAllowedTypes('with_icons', 'bool');
+        $resolver->setAllowedTypes('menu_context', 'bool');
 
         $resolver->setAllowedValues('force_toggle', array(false, true, 'always'));
         $resolver->setAllowedValues('style', array('default', 'inverse'));
