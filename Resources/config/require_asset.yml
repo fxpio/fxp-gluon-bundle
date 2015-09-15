@@ -78,6 +78,7 @@ packages:
             - "js/resizing-textarea.js"
             - "js/table-pager-default.js"
             - "js/sidebar-context.js"
+            - "js/ios-shrink.js"
     sonatra_bootstrap_bundle:
         patterns:
             - "!assetic/less/bootstrap.less"

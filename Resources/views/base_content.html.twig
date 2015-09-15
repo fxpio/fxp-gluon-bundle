@@ -6,6 +6,8 @@
                     'sonatra_gluon_bundle/assetic/less/gluon.less'
 -%}
 
+{%- require_script  '@bower/sonatra_theme_gluon/js/ios-shrink.js' -%}
+
 {%- block stylesheets -%}
     {{- stylesheet_google_fonts() -}}
     {{- parent() -}}
