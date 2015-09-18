@@ -1,0 +1,10 @@
+{%- use 'SonatraBootstrapBundle:Block:block_bootstrap_fields.html.twig' with
+        image_widget as base_image_widget -%}
+
+{% block image_widget -%}
+    {%- if ripple is defined and ripple -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' img-ripple')|trim}) -%}
+    {%- endif -%}
+
+    {{- block('base_image_widget') -}}
+{%- endblock image_widget %}

@@ -1,11 +1,21 @@
 {%- use 'SonatraBootstrapBundle:Block:component_bootstrap.html.twig' with
+        nav_item_widget as base_nav_item_widget,
         navbar_brand_widget as base_navbar_brand_widget,
+        button_widget as base_button_widget,
         dropdown_widget as base_dropdown_widget,
         panel_widget as base_panel_widget,
         panel_body_widget as base_panel_body_widget,
         panel_footer_widget as base_panel_footer_widget,
         table_widget as base_table_widget,
         progress_bar_widget as base_progress_bar_widget -%}
+
+{% block nav_item_widget -%}
+    {%- if ripple is defined and ripple -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' btn-ripple')|trim}) -%}
+    {%- endif -%}
+
+    {{- block('base_nav_item_widget') -}}
+{%- endblock nav_item_widget %}
 
 {% block navbar_header_toggle_button -%}
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#{{ collapse_id }}">
@@ -24,10 +34,22 @@
     {%- require_style '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
 {%- endblock navbar_brand_widget %}
 
+{% block button_widget -%}
+    {%- if ripple is defined and ripple -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' btn-ripple')|trim}) -%}
+    {%- endif -%}
+
+    {{- block('base_button_widget') -}}
+{%- endblock button_widget %}
+
 {% block dropdown_widget -%}
     {%- require_style   '@bower/sonatra-bootstrap-dropdown-position/less/dropdown-position.less' -%}
     {%- require_script  '@bower/jquery/dist/jquery.js'
                         '@bower/sonatra-bootstrap-dropdown-position/js/dropdown-position.js' -%}
+    {%- if ripple is defined and ripple -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' dropdown-ripple')|trim}) -%}
+    {%- endif -%}
+
     {{- block('base_dropdown_widget') -}}
 {%- endblock dropdown_widget %}
 
