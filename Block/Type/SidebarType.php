@@ -35,7 +35,7 @@ class SidebarType extends AbstractType
         $attr['data-locked'] = $this->formatBoolean($options['locked']);
 
         if (null !== $options['sticky_header']) {
-            $attr['data-jquery-scroller---sticky-header'] = $this->formatBoolean($options['sticky_header']);
+            $attr['data-scroller-sticky-header'] = $this->formatBoolean($options['sticky_header']);
         }
 
         if (null !== $options['position']) {
@@ -43,7 +43,7 @@ class SidebarType extends AbstractType
         }
 
         if (null !== $options['scrollbar']) {
-            $attr['data-jquery-scroller--scrollbar'] = $this->formatBoolean($options['scrollbar']);
+            $attr['data-scroller-scrollbar'] = $this->formatBoolean($options['scrollbar']);
         }
 
         if (null !== $options['disable_keyboard']) {
