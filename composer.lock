@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f2f37e5fc9d3d46ab9f981525b92448f",
+    "hash": "4cd7760a86df1fe3421d83d712f3e921",
+    "content-hash": "eaad1d238fa27f4bc27074cc5de612f9",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -414,7 +415,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/908185ab0cc3a149c8742e4d3b1db2a240970549",
+                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/dc3525c09fa27d221e22e671b08a36ba8318a515",
                 "reference": "908185ab0cc3a149c8742e4d3b1db2a240970549",
                 "shasum": ""
             },
@@ -476,7 +477,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/FxpRequireAssetBundle/zipball/4f9fd6958defe3e5790767bf82ae7b87c4ff8545",
+                "url": "https://api.github.com/repos/francoispluchino/FxpRequireAssetBundle/zipball/36d21750527aaf05029a8a9f76d3fd5739cd937b",
                 "reference": "4f9fd6958defe3e5790767bf82ae7b87c4ff8545",
                 "shasum": ""
             },
@@ -755,7 +756,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/5bde3af0a3767eef2bc1103ed4fe6b5327bd9ac8",
+                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/9fb1392370b9d4651f7cdf618b242f0f9b77b43f",
                 "reference": "5bde3af0a3767eef2bc1103ed4fe6b5327bd9ac8",
                 "shasum": ""
             },
@@ -2888,6 +2889,36 @@
             "description": "Nice, downward compatible, touchable, jQuery dial."
         },
         {
+            "name": "bower-asset/jquery-pjax",
+            "version": "v1.9.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/defunkt/jquery-pjax.git",
+                "reference": "8d8a3bc2e215585cba7ed275d0628ca569804be6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/defunkt/jquery-pjax/zipball/8d8a3bc2e215585cba7ed275d0628ca569804be6",
+                "reference": "8d8a3bc2e215585cba7ed275d0628ca569804be6",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.8"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "./jquery.pjax.js",
+                "bower-asset-ignore": [
+                    ".travis.yml",
+                    "Gemfile",
+                    "Gemfile.lock",
+                    "vendor/",
+                    "script/",
+                    "test/"
+                ]
+            }
+        },
+        {
             "name": "bower-asset/moment",
             "version": "2.10.6",
             "source": {
@@ -3676,6 +3707,67 @@
                 "frontend",
                 "theme"
             ]
+        },
+        {
+            "name": "bower-asset/sonatra-theme-gluon-pjax",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/sonatra-theme-gluon-pjax.git",
+                "reference": "5434eb78381f09b30a59c96b973865907b56183d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/sonatra-theme-gluon-pjax/zipball/5434eb78381f09b30a59c96b973865907b56183d",
+                "reference": "5434eb78381f09b30a59c96b973865907b56183d",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery-pjax": "dev-1.9.*|1.9.*",
+                "bower-asset/sonatra-theme-gluon": "dev-default|*"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "js/app-pjax.js",
+                    "js/components/bootstrap-affix.js",
+                    "js/components/bootstrap-carousel.js",
+                    "js/components/bootstrap-filestyle.js",
+                    "js/components/bootstrap-modal.js",
+                    "js/components/bootstrap-scrollspy.js",
+                    "js/components/sonatra-bootstrap-nav-scroll.js",
+                    "js/components/sonatra-bootstrap-panel-collapse.js",
+                    "js/components/sonatra-gluon-floating-label.js",
+                    "js/components/sonatra-gluon-resizing-textarea.js",
+                    "js/components/sonatra-gluon-sidebar-context.js",
+                    "js/components/sonatra-jquery-datetime-picker.js",
+                    "js/components/sonatra-jquery-ripple.js",
+                    "js/components/sonatra-jquery-scroller.js",
+                    "js/components/sonatra-jquery-scroller-sticky-header.js",
+                    "js/components/sonatra-jquery-sidebar.js",
+                    "js/components/sonatra-jquery-table-pager.js",
+                    "js/components/sonatra-jquery-table-pager-footable.js",
+                    "js/components/sonatra-jquery-table-select.js",
+                    "js/components/sonatra-select2-responsive.js",
+                    "js/components/sonatra-select2-scroller.js"
+                ],
+                "bower-asset-ignore": [
+                    "doc",
+                    "README.md"
+                ],
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Default theme of Sonatra with PJAX",
+            "keywords": [
+                "frontend",
+                "pjax",
+                "theme"
+            ]
         }
     ],
     "aliases": [],
@@ -3688,6 +3780,7 @@
         "sonatra/ajax-bundle": 20,
         "bower-asset/select2-bootstrap-theme": 20,
         "bower-asset/sonatra-theme-gluon": 20,
+        "bower-asset/sonatra-theme-gluon-pjax": 20,
         "bower-asset/sonatra-bootstrap-dropdown-position": 20,
         "bower-asset/sonatra-bootstrap-nav-scroll": 20,
         "bower-asset/sonatra-bootstrap-nav-footable": 20,

@@ -28,6 +28,7 @@
         "symfony/finder": "~2.7",
         "bower-asset/select2-bootstrap-theme": "0.1.*@dev",
         "bower-asset/sonatra-theme-gluon": "1.0.*@dev",
+        "bower-asset/sonatra-theme-gluon-pjax": "1.0.*@dev",
         "bower-asset/sonatra-bootstrap-dropdown-position": "1.0.*@dev",
         "bower-asset/sonatra-bootstrap-nav-scroll": "1.0.*@dev",
         "bower-asset/sonatra-bootstrap-nav-footable": "1.0.*@dev",
