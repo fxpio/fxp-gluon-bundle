@@ -79,6 +79,29 @@ packages:
             - "js/table-pager-default.js"
             - "js/sidebar-context.js"
             - "js/ios-shrink.js"
+    @bower/sonatra-theme-gluon-pjax:
+        patterns:
+            - "js/app-pjax.js"
+            - "js/components/bootstrap-affix.js"
+            - "js/components/bootstrap-modal.js"
+            - "js/components/bootstrap-scrollspy.js"
+            - "js/components/bootstrap-carousel.js"
+            - "js/components/bootstrap-filestyle.js"
+            - "js/components/sonatra-jquery-scroller.js"
+            - "js/components/sonatra-jquery-scroller-sticky-header.js"
+            - "js/components/sonatra-jquery-datetime-picker.js"
+            - "js/components/sonatra-jquery-ripple.js"
+            - "js/components/sonatra-jquery-sidebar.js"
+            - "js/components/sonatra-jquery-table-pager.js"
+            - "js/components/sonatra-jquery-table-pager-footable.js"
+            - "js/components/sonatra-jquery-table-select.js"
+            - "js/components/sonatra-bootstrap-nav-scroll.js"
+            - "js/components/sonatra-bootstrap-panel-collapse.js"
+            - "js/components/sonatra-select2-responsive.js"
+            - "js/components/sonatra-select2-scroller.js"
+            - "js/components/sonatra-gluon-floating-label.js"
+            - "js/components/sonatra-gluon-resizing-textarea.js"
+            - "js/components/sonatra-gluon-sidebar-context.js"
     sonatra_bootstrap_bundle:
         patterns:
             - "!assetic/less/bootstrap.less"
@@ -182,3 +205,6 @@ asset_replacement:
 
     "@bower/sonatra-theme-gluon/less/gluon/gluon.less": "sonatra_gluon_bundle/assetic/less/gluon.less"
     "@bower/sonatra-theme-gluon/css/gluon.css": "sonatra_gluon_bundle/assetic/less/gluon.less"
+
+    "@bower/sonatra-theme-gluon-pjax/css/app-pjax.css": "sonatra_gluon_bundle/assetic/less/app-pjax.less"
+    "@bower/sonatra-theme-gluon-pjax/less/app-pjax.less": "sonatra_gluon_bundle/assetic/less/app-pjax.less"
