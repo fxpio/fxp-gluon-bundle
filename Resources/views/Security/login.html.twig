@@ -46,7 +46,7 @@
                     <form action="{{ path("fos_user_security_check") }}" method="post">
                         <div class="form-group">
                             <div class="floating-group{% if has_error %} has-error{% endif %}">
-                                <input type="text" data-floating-label class="form-control{% if last_username %} has-floating-content{% endif %}" id="username" name="_username" value="{{ last_username }}" required="required" />
+                                <input type="text" data-floating-label class="form-control{% if last_username %} has-floating-content{% endif %}" id="username" name="_username" value="{{ last_username }}" required="required" autocorrect="off" autocapitalize="off" spellcheck="false" />
                                 <span class="floating-bar"></span>
                                 <label for="username">{{ 'resetting.request.username'|trans|replace({':': ''}) }}</label>
                                 {%- if has_error -%}
@@ -57,7 +57,7 @@
 
                         <div class="form-group">
                             <div class="floating-group">
-                                <input type="password" data-floating-label class="form-control" id="password" name="_password" required="required" />
+                                <input type="password" data-floating-label class="form-control" id="password" name="_password" required="required" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
                                 <span class="floating-bar"></span>
                                 <label for="password">{{ 'security.login.password'|trans|replace({':': ''}) }}</label>
                             </div>
