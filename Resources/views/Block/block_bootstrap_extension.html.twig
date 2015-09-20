@@ -1,0 +1,18 @@
+{%- use 'SonatraBootstrapBundle:Block:block_bootstrap_extension.html.twig' with
+    extension_tooltip_javascript as base_extension_tooltip_javascript -%}
+
+{% block extension_tooltip_javascript -%}
+    {{ block('base_extension_tooltip_javascript') }}
+    {%- if tooltip_id is defined -%}
+        {%- inline_script position='pjax_content' -%}
+        <script>
+            $(document).appPjax('addRegister', function (appPjax) {
+                $('#{{ tooltip_id }}', appPjax.$container).tooltip();
+            });
+            $(document).appPjax('addUnregister', function (appPjax) {
+                $('#{{ tooltip_id }}', appPjax.$container).tooltip('destroy');
+            });
+        </script>
+        {%- endinline_script -%}
+    {%- endif -%}
+{%- endblock extension_tooltip_javascript %}
