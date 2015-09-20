@@ -1,0 +1,9 @@
+{%- block body_main_content -%}
+{%- endblock body_main_content -%}
+
+{%- block javascript_global -%}
+    <script>
+        {{- inlineScriptsPosition() -}}
+    </script>
+{%- endblock javascript_global -%}
+{{- renderAssetTags(false) -}}
