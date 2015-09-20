@@ -1,6 +1,7 @@
 {%- use 'SonatraBootstrapBundle:Block:block_bootstrap_extension.html.twig' with
     extension_tooltip_javascript as base_extension_tooltip_javascript,
-    extension_popover_javascript as base_extension_popover_javascript -%}
+    extension_popover_javascript as base_extension_popover_javascript,
+    extension_scroll_spy_javascript as base_extension_scroll_spy_javascript -%}
 
 {% block extension_tooltip_javascript -%}
     {{ block('base_extension_tooltip_javascript') }}
@@ -34,3 +35,21 @@
         {%- endinline_script -%}
     {%- endif -%}
 {%- endblock extension_popover_javascript %}
+
+
+{% block extension_scroll_spy_javascript -%}
+    {{ block('base_extension_scroll_spy_javascript') }}
+    {%- if scroll_spy is defined -%}
+        {%- inline_script position='pjax_content' -%}
+        <script>
+            $(document).appPjax('addRegister', function (appPjax) {
+                $('{{ scroll_spy.on }}', appPjax.$container).scrollspy({ target: '#{{ scroll_spy.target }}'{% if scroll_spy.offset is not null %}, offset: {{ scroll_spy.offset }}{% endif %} });
+            });
+            $(document).appPjax('addUnregister', function (appPjax) {
+                var spy = $('{{ scroll_spy.on }}').data('bs.scrollspy');
+                spy.$scrollElement.off('scroll.bs.scrollspy', $.proxy(spy.process, spy));
+            });
+        </script>
+        {%- endinline_script -%}
+    {%- endif -%}
+{%- endblock extension_scroll_spy_javascript %}
