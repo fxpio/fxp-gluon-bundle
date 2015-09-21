@@ -26,16 +26,14 @@
 {% endblock textarea_widget -%}
 
 {% block checkbox_widget_content -%}
-    {%- set label_attr = label_attr|merge({'class': ('form-control-fa ' ~ label_attr.class|default(''))|trim}) -%}
+    {%- set attr = attr|merge({'class': ('form-control-md ' ~ attr.class|default(''))|trim}) -%}
     {%- if style -%}
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' input-' ~ style)|trim}) -%}
     {%- endif -%}
     <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
         <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
-        <i class="fa form-control-fa-style"></i>
-        {%- if label != ' ' -%}
-            <span>{{ label|trans({}, translation_domain) }}</span>
-        {%- endif -%}
+        <span class="form-control-md-style"></span>
+        <span>{% if label != ' ' %}{{ label|trans({}, translation_domain) }}{% endif %}</span>
     </label>
 {%- endblock checkbox_widget_content %}
 
