@@ -14,6 +14,14 @@
     {%- if type not in ['submit', 'radio', 'checkbox', 'button'] -%}
         {%- require_script  '@bower/jquery/dist/jquery.js',
                             '@bower/sonatra-theme-gluon/js/floating-label.js' -%}
+
+        {%- block form_widget_simple_before_content -%}
+            <div class="floating-group">
+        {%- endblock -%}
+        {%- block form_widget_simple_after_content -%}
+            <span class="floating-bar"></span>
+            </div>
+        {%- endblock -%}
     {%- endif -%}
     {{ block('base2_form_widget_simple') }}
 {% endblock form_widget_simple -%}
