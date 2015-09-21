@@ -13,6 +13,10 @@
             <tag name="form.type_extension" alias="checkbox" />
         </service>
 
+        <service id="sonatra_gluon.form.type_extension.textarea" class="Sonatra\Bundle\GluonBundle\Form\Extension\TextareaExtension">
+            <tag name="form.type_extension" alias="textarea" />
+        </service>
+
         <service id="sonatra_gluon.form.type.toggle" class="Sonatra\Bundle\GluonBundle\Form\Type\ToggleType">
             <tag name="form.type" alias="toggle" />
         </service>
