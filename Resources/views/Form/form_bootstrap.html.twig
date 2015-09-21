@@ -31,6 +31,14 @@
                         '@bower/sonatra-theme-gluon/js/floating-label.js'
                         '?@bower/sonatra-theme-gluon/js/resizing-textarea.js' -%}
     {{ block('base2_textarea_widget') }}
+    {%- block textarea_widget_before_content -%}
+        <div class="floating-group">
+    {%- endblock -%}
+    {%- block textarea_widget_after_content -%}
+        <span class="floating-bar"></span>
+        </div>
+    {%- endblock -%}
+
 {% endblock textarea_widget -%}
 
 {% block checkbox_widget_content -%}
