@@ -62,6 +62,7 @@ class PanelButtonsType extends AbstractType
 
             $attr = $child->getOption('attr');
             $attr['data-class-nav'] = $options['class_nav'];
+            $attr['data-content-selector'] = '.nav-btn-group';
             $child->setOption('attr', $attr);
 
         // button
