@@ -7,7 +7,8 @@
         date_widget as base2_date_widget,
         time_widget as base2_time_widget,
         choice_widget as base_choice_widget,
-        collection_widget as base2_collection_widget -%}
+        collection_widget as base2_collection_widget,
+        button_widget as base_button_widget -%}
 
 {% block form_widget_simple -%}
     {%- set type = type|default('text') -%}
@@ -149,3 +150,12 @@
     {%- set attr = attr|merge({'data-select2-jquery-scroller': 'true', 'data-select2-responsive': 'true'}) -%}
     {{- block('base_select2_widget_content') -}}
 {%- endblock select2_widget_content %}
+
+
+{% block button_widget -%}
+    {%- if raised is defined and raised -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' btn-raised')|trim}) -%}
+    {%- endif -%}
+
+    {{- block('base_button_widget') -}}
+{%- endblock button_widget %}
