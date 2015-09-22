@@ -112,12 +112,12 @@ class PanelButtonsType extends AbstractType
             'inherit_data' => true,
             'scrollable' => true,
             'class_nav' => 'nav-btn-group',
-            'button_size' => 'sm',
+            'button_size' => null,
         ));
 
         $resolver->setAllowedTypes('scrollable', 'bool');
         $resolver->setAllowedTypes('class_nav', 'string');
-        $resolver->setAllowedTypes('button_size', 'string');
+        $resolver->setAllowedTypes('button_size', array('null', 'string'));
     }
 
     /**
