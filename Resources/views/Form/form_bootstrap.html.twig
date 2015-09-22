@@ -157,5 +157,9 @@
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' btn-raised')|trim}) -%}
     {%- endif -%}
 
+    {%- if ripple is defined and ripple -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' btn-ripple')|trim}) -%}
+    {%- endif -%}
+
     {{- block('base_button_widget') -}}
 {%- endblock button_widget %}
