@@ -12,7 +12,6 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
-use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
@@ -27,13 +26,6 @@ use Symfony\Component\OptionsResolver\Options;
  */
 class PanelRowType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildBlock(BlockBuilderInterface $builder, array $options)
-    {
-    }
-
     /**
      * {@inheritdoc}
      */
