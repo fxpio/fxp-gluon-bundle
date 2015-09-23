@@ -26,10 +26,10 @@
         {%- inline_script position='pjax_content' -%}
         <script>
             $(document).appPjax('addRegister', function (appPjax) {
-                $('#{{ tooltip_id }}', appPjax.$container).popover();
+                $('#{{ popover_id }}', appPjax.$container).popover();
             });
             $(document).appPjax('addUnregister', function (appPjax) {
-                $('#{{ tooltip_id }}', appPjax.$container).popover('destroy');
+                $('#{{ popover_id }}', appPjax.$container).popover('destroy');
             });
         </script>
         {%- endinline_script -%}
