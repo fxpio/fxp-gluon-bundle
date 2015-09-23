@@ -19,6 +19,9 @@ use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\PropertyAccess\PropertyAccess;
+use Symfony\Component\PropertyAccess\PropertyAccessor;
+use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
 /**
  * Panel Cell Block Type.
@@ -28,20 +31,25 @@ use Symfony\Component\OptionsResolver\Options;
 class PanelCellType extends AbstractType
 {
     /**
+     * @var PropertyAccessor
+     */
+    private $propertyAccessor;
+
+    /**
+     * Constructor.
+     *
+     * @param PropertyAccessorInterface $propertyAccessor The property accessor
+     */
+    public function __construct(PropertyAccessorInterface $propertyAccessor = null)
+    {
+        $this->propertyAccessor = $propertyAccessor ?: PropertyAccess::createPropertyAccessor();
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
-        if (null !== $options['type']) {
-            $cOpts = array_replace($options['options'], array(
-                'wrapped' => false,
-                'mapped' => true,
-                'property_path' => null !== $options['property_path'] ? $options['property_path'] : null,
-            ));
-
-            $builder->add($builder->getName(), $options['type'], $cOpts);
-        }
-
         if (null !== $options['help']) {
             $hOpts = array_replace($options['options'], array(
                 'label' => '?',
@@ -71,6 +79,15 @@ class PanelCellType extends AbstractType
      */
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
+        if ($options['property_path'] && (is_object($block->getData()) || is_array($block->getData()))) {
+            $value = $this->propertyAccessor->getValue($block->getData(), $options['property_path']);
+
+            $view->vars = array_replace($view->vars, array(
+                'data' => $value,
+                'value' => $value,
+            ));
+        }
+
         $labelAttr = $view->vars['label_attr'];
         $class = isset($labelAttr['class']) ? $labelAttr['class'] : '';
         $class = trim('control-label '.$class);
@@ -90,6 +107,8 @@ class PanelCellType extends AbstractType
             'label_attr' => $labelAttr,
             'rendered' => $options['rendered'],
             'hidden' => $options['hidden'],
+            'value_type' => $options['type'],
+            'value_options' => $options['options'],
         ));
     }
 
@@ -104,10 +123,6 @@ class PanelCellType extends AbstractType
                 unset($view->children[$name]);
             }
         }
-
-        if (!is_scalar($view->vars['value'])) {
-            $view->vars['value'] = '';
-        }
     }
 
     /**
@@ -116,7 +131,9 @@ class PanelCellType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'inherit_data' => true,
+            'inherit_data' => function (Options $options) {
+                return null !== $options['property_path'];
+            },
             'type' => null,
             'options' => array(),
             'control_attr' => array(),

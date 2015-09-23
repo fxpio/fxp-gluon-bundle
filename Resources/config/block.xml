@@ -121,6 +121,7 @@
         </service>
 
         <service id="sonatra_gluon.block.type.panel_cell" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellType">
+            <argument type="service" id="property_accessor"/>
             <tag name="sonatra_block.type" alias="panel_cell" />
         </service>
 
