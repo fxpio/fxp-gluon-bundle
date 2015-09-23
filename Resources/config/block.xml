@@ -9,6 +9,12 @@
     </parameters>
 
     <services>
+        <service id="sonatra_gluon.block.type.lookup" class="Sonatra\Bundle\GluonBundle\Block\Type\LookupType">
+            <argument type="service" id="router" />
+            <argument type="service" id="property_accessor"/>
+            <tag name="sonatra_block.type" alias="lookup" />
+        </service>
+
         <service id="sonatra_gluon.block.type.sidebar" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarType">
             <tag name="sonatra_block.type" alias="sidebar" />
         </service>

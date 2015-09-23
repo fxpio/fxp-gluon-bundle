@@ -8,3 +8,9 @@
 
     {{- block('base_image_widget') -}}
 {%- endblock image_widget %}
+
+{% block lookup_widget -%}
+    {%- if (label is not empty or value is not empty) and attr.href is defined and attr.href is not empty -%}
+        {{- block('link_widget') -}}
+    {%- endif -%}
+{%- endblock lookup_widget %}
