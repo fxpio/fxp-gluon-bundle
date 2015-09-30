@@ -138,6 +138,18 @@
                         '?@bower/sonatra-select2-jquery-scroller/js/select2-jquery-scroller.js' -%}
     {%- set attr = attr|merge({'data-select2-jquery-scroller': 'true', 'data-select2-responsive': 'true'}) -%}
     {{- block('base_select2_widget_content') -}}
+
+    {%- inline_script position='pjax_content' -%}
+    <script>
+        $(document).appPjax('addRegister', function () {
+            {{- block('select2_widget_content_js') -}}
+        });
+        $(document).appPjax('addUnregister', function () {
+            $( '#{{ id }}' ).off('change.sonatra_select2');
+            $( '#{{ id }}' ).select2('destroy');
+        });
+    </script>
+    {%- endinline_script -%}
 {%- endblock select2_widget_content %}
 
 
