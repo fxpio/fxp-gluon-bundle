@@ -17,6 +17,10 @@
             <tag name="form.type_extension" alias="textarea" />
         </service>
 
+        <service id="sonatra_gluon.form.type_extension.collection" class="Sonatra\Bundle\GluonBundle\Form\Extension\CollectionExtension">
+            <tag name="form.type_extension" alias="collection" />
+        </service>
+
         <service id="sonatra_gluon.form.type_extension.button_ripple" class="Sonatra\Bundle\GluonBundle\Form\Extension\RippleExtension">
             <tag name="form.type_extension" alias="button" />
             <argument>button</argument>
