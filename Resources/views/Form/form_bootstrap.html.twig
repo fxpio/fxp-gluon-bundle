@@ -99,6 +99,23 @@
         {{- form_widget(selector) -}}
     {%- else -%}
         {{- block('base2_collection_widget') -}}
+
+        {%- inline_script position='pjax_content' -%}
+        <script>
+            $(document).appPjax('addRegister', function () {
+                {{- block('collection_widget_content_js') -}}
+            });
+            $(document).appPjax('addUnregister', function () {
+                {%- if btn_add is defined and prototype is defined -%}
+                    $('#{{ btn_add.vars.id }}').off('click.st.bootstrap');
+                {%- endif -%}
+
+                {%- if allow_delete and prototype is defined -%}
+                    $('#{{ id }}').off('click.st.bootstrap', 'button.btn-remove');
+                {%- endif -%}
+            });
+        </script>
+        {%- endinline_script -%}
     {%- endif -%}
 {%- endblock collection_widget %}
 
