@@ -87,27 +87,16 @@
 
 {% block choice_widget -%}
     {%- if select2 is defined -%}
-        {%- set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim})}) -%}
-        {%- if select2.ajax or select2.tags is defined -%}
-            {%- set form_widget_simple_block_name = 'select2_widget_content' -%}
-            {{- block('form_widget_simple') -}}
-        {%- else -%}
-            {{- block('select2_widget_content') -}}
-        {%- endif -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' select2')|trim}) -%}
+        {{- block('select2_widget_content') -}}
     {%- else -%}
         {{- block('base_choice_widget') -}}
     {%- endif -%}
 {%- endblock choice_widget %}
 
 {% block collection_widget -%}
-    {%- if select2 is defined -%}
-        {%- set select2 = select2|merge({'wrapper_attr': select2.wrapper_attr|merge({'class': (select2.wrapper_attr.class|default('') ~ ' clearfix')|trim})}) -%}
-        {%- if select2.ajax or select2.tags is defined -%}
-            {%- set form_widget_simple_block_name = 'select2_widget_content' -%}
-            {{- block('form_widget_simple') -}}
-        {%- else -%}
-            {{- block('select2_widget_content') -}}
-        {%- endif -%}
+    {%- if selector is defined -%}
+        {{- form_widget(selector) -}}
     {%- else -%}
         {{- block('base2_collection_widget') -}}
     {%- endif -%}
