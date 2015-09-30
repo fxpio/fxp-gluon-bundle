@@ -157,7 +157,7 @@ asset_replacement:
 
     "@bower/sonatra-select2-responsive/less/select2-responsive.less": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
     "@bower/sonatra-select2-responsive/css/select2-responsive.css": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
-    "@bower/select2/select2.css": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
+    "@bower/select2/dist/css/select2.css": "sonatra_gluon_bundle/assetic/less/select2-responsive.less"
 
     "@bower/sonatra-theme-gluon/less/bootstrap/bootstrap.less": "sonatra_gluon_bundle/assetic/less/bootstrap.less"
     "@bower/sonatra-theme-gluon/css/bootstrap.css": "sonatra_gluon_bundle/assetic/less/bootstrap.less"
