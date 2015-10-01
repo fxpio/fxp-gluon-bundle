@@ -85,6 +85,7 @@ packages:
             - "js/app-pjax.js"
             - "js/components/bootstrap-affix.js"
             - "js/components/bootstrap-modal.js"
+            - "js/components/bootstrap-dropdown.js"
             - "js/components/bootstrap-scrollspy.js"
             - "js/components/bootstrap-carousel.js"
             - "js/components/bootstrap-filestyle.js"
