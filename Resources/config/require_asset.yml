@@ -79,6 +79,7 @@ packages:
             - "js/table-pager-default.js"
             - "js/sidebar-context.js"
             - "js/ios-shrink.js"
+            - "js/footable-destroy.js"
     @bower/sonatra-theme-gluon-pjax:
         patterns:
             - "js/app-pjax.js"

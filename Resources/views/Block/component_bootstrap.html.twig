@@ -183,6 +183,7 @@
                             '?@bower/sonatra-footable-striped/less/footable-striped.less' -%}
         {%- require_script   '@bower/jquery/dist/jquery.js'
                             '@bower/footable/js/footable.js'
+                            '@bower/sonatra-theme-gluon/js/footable-destroy.js'
                             '?@bower/sonatra-footable-responsive/js/footable-responsive.js'
                             '?@bower/sonatra-footable-striped/js/footable-striped.js'
                             '?@bower/sonatra-bootstrap-nav-footable/js/nav-footable.js'
@@ -190,6 +191,17 @@
         {%- inline_script -%}
         <script>
             $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
+        </script>
+        {%- endinline_script -%}
+
+        {%- inline_script position='pjax_content' -%}
+        <script>
+            $(document).appPjax('addRegister', function () {
+                $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
+            });
+            $(document).appPjax('addUnregister', function () {
+                window.destroyFootable('#{{ id }}');
+            });
         </script>
         {%- endinline_script -%}
     {%- endif -%}
