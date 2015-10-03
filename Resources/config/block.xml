@@ -183,5 +183,9 @@
             <tag name="sonatra_block.type" alias="table_column_select" />
             <argument>%sonatra_gluon.block.resource.content_formatter%</argument>
         </service>
+
+        <service id="sonatra_gluon.block.type.spinner" class="Sonatra\Bundle\GluonBundle\Block\Type\SpinnerType">
+            <tag name="sonatra_block.type" alias="spinner" />
+        </service>
     </services>
 </container>
