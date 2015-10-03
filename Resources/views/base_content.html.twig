@@ -55,7 +55,7 @@
 {%- endblock links -%}
 
 {%- block body -%}
-    {%- set body_main_attr = body_main_attr|default({})|merge({'class': ('container-main ' ~ body_main_attr.class|default(''))|trim}) -%}
+    {%- set body_main_attr = body_main_attr|default({})|merge({'class': ('container-main ' ~ body_main_attr.class|default(''))|trim, 'data-dropdown-position-container': 'true'}) -%}
     <div{% for attrname, attrvalue in body_main_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
         {%- block body_main -%}
         {%- endblock body_main -%}
