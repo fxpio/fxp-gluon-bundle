@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
+use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -52,6 +53,11 @@ class FabType extends AbstractType
     {
         $resolver->setDefaults(array(
             'absolute_position' => null,
+            'dropup' => function(Options $options) {
+                return in_array($options['absolute_position'], array('bottom_left', 'bottom_right'))
+                    ? true
+                    : false;
+            },
         ));
 
         $resolver->addAllowedTypes('absolute_position', array('null', 'string'));
