@@ -197,5 +197,22 @@
         <service id="sonatra_gluon.block.type.spinner" class="Sonatra\Bundle\GluonBundle\Block\Type\SpinnerType">
             <tag name="sonatra_block.type" alias="spinner" />
         </service>
+
+        <service id="sonatra_gluon.block.type.fab" class="Sonatra\Bundle\GluonBundle\Block\Type\FabType">
+            <tag name="sonatra_block.type" alias="fab" />
+        </service>
+
+        <service id="sonatra_gluon.block.type.fab_dropdown" class="Sonatra\Bundle\GluonBundle\Block\Type\FabDropdownType">
+            <tag name="sonatra_block.type" alias="fab_dropdown" />
+        </service>
+
+        <service id="sonatra_gluon.block.type.fab_dropdown_item" class="Sonatra\Bundle\GluonBundle\Block\Type\FabDropdownItemType">
+            <tag name="sonatra_block.type" alias="fab_dropdown_item" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.ripple_fab_dropdown_item" class="Sonatra\Bundle\GluonBundle\Block\Extension\RippleExtension">
+            <tag name="sonatra_block.type_extension" alias="fab_dropdown_item" />
+            <argument>fab_dropdown_item</argument>
+        </service>
     </services>
 </container>
