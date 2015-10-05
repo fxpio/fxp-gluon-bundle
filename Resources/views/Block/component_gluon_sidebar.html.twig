@@ -91,6 +91,10 @@
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-item-mini')|trim}) -%}
     {%- endif -%}
 
+    {%- if data_item is not empty -%}
+        {%- set link_attr = link_attr|merge({'data-item': data_item}) -%}
+    {%- endif -%}
+
     {%- if active and not disabled -%}
         {%- set link_attr = link_attr|merge({'class': (link_attr.class|default('') ~ ' active')|trim}) -%}
     {%- endif -%}

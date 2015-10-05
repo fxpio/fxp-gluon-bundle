@@ -41,6 +41,7 @@ class SidebarItemType extends AbstractType
             'disabled' => $options['disabled'],
             'mini' => $options['mini'],
             'context_menu' => $options['context_menu'],
+            'data_item' => $options['data_item'],
         ));
     }
 
@@ -57,6 +58,7 @@ class SidebarItemType extends AbstractType
             'chained_block' => true,
             'mini' => false,
             'context_menu' => false,
+            'data_item' => null,
         ));
 
         $resolver->setAllowedTypes('src', array('null', 'string'));
@@ -65,6 +67,7 @@ class SidebarItemType extends AbstractType
         $resolver->setAllowedTypes('disabled', 'bool');
         $resolver->setAllowedTypes('mini', 'bool');
         $resolver->setAllowedTypes('context_menu', 'bool');
+        $resolver->setAllowedTypes('data_item', array('null', 'string'));
 
         $resolver->setNormalizer('src', function (Options $options, $value = null) {
             if (isset($options['data'])) {
