@@ -62,6 +62,10 @@
 {% block sidebar_group_widget -%}
     {%- set attr = attr|merge({'class': ('sidebar-group ' ~ attr.class|default(''))|trim}) -%}
 
+    {%- if context_menu -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-menu-context')|trim}) -%}
+    {%- endif -%}
+
     {%- spaceless -%}
     <li{{ block('widget_container_attributes') }}>
         <span{% for attrname, attrvalue in group_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
@@ -78,6 +82,10 @@
 
 {% block sidebar_item_widget -%}
     {%- set attr = attr|merge({'class': ('sidebar-item ' ~ attr.class|default(''))|trim}) -%}
+
+    {%- if context_menu -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-menu-context')|trim}) -%}
+    {%- endif -%}
 
     {%- if mini -%}
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-item-mini')|trim}) -%}

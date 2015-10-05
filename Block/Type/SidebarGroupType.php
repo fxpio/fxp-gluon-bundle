@@ -30,6 +30,7 @@ class SidebarGroupType extends AbstractType
     {
         $view->vars = array_replace($view->vars, array(
             'group_attr' => $options['group_attr'],
+            'context_menu' => $options['context_menu'],
         ));
     }
 
@@ -40,9 +41,11 @@ class SidebarGroupType extends AbstractType
     {
         $resolver->setDefaults(array(
             'group_attr' => array(),
+            'context_menu' => false,
         ));
 
         $resolver->setAllowedTypes('group_attr', 'array');
+        $resolver->setAllowedTypes('context_menu', 'bool');
     }
 
     /**
