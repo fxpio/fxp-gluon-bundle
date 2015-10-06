@@ -17,7 +17,7 @@
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-right')|trim}) -%}
     {%- endif -%}
 
-    {%- if opened is sameas('force') or locked -%}
+    {%- if opened is same as('force') or locked -%}
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-force-open')|trim}) -%}
     {%- endif -%}
 
