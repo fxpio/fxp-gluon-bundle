@@ -3,7 +3,7 @@
 
     {%- spaceless -%}
         <div{{ block('widget_container_attributes') }}>
-            {{- label|trans({}, translation_domain) }}
+            {{- label }}
             {{- value|raw -}}
             {{- block('block_rows') -}}
         </div>
@@ -16,7 +16,7 @@
     {%- set attr = attr|merge({'class': ('navbar-flex ' ~ attr.class|default(''))|trim}) -%}
 
     <div{{ block('widget_container_attributes') }}>
-        {{- label|trans({}, translation_domain) -}}
+        {{- label -}}
         {{- value|raw -}}
         {{- block('block_rows') -}}
     </div>

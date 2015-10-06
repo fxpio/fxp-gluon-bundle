@@ -51,7 +51,7 @@
         <span class="{{ wrapper_class }}">
             <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
             <span class="form-control-md-style"></span>
-            <span>{% if label != ' ' %}{{ label|trans({}, translation_domain) }}{% endif %}</span>
+            <span>{% if label != ' ' %}{{ label }}{% endif %}</span>
         </span>
     </label>
 {%- endblock checkbox_widget_content %}
@@ -66,7 +66,7 @@
         <span class="form-control-md">
             <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
             <span class="form-control-md-style"></span>
-            <span>{% if label != ' ' %}{{ label|trans({}, translation_domain) }}{% endif %}</span>
+            <span>{% if label != ' ' %}{{ label }}{% endif %}</span>
         </span>
     </label>
 {%- endblock radio_widget_content %}
