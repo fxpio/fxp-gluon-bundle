@@ -106,59 +106,55 @@ class PanelExtension extends AbstractTypeExtension
             'recursive_style' => false,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'border_top_style' => array('null', 'string'),
-            'cell_label_style' => array('null', 'string'),
-            'cell_layout_size' => array('null', 'string'),
-            'collapsible' => 'bool',
-            'collapsed' => 'bool',
-            'panels_rendered' => 'bool',
-            'hidden_if_empty' => 'bool',
-            'recursive_style' => 'bool',
-        ));
+        $resolver->addAllowedTypes('border_top_style', array('null', 'string'));
+        $resolver->addAllowedTypes('cell_label_style', array('null', 'string'));
+        $resolver->addAllowedTypes('cell_layout_size', array('null', 'string'));
+        $resolver->addAllowedTypes('collapsible', 'bool');
+        $resolver->addAllowedTypes('collapsed', 'bool');
+        $resolver->addAllowedTypes('panels_rendered', 'bool');
+        $resolver->addAllowedTypes('hidden_if_empty', 'bool');
+        $resolver->addAllowedTypes('recursive_style', 'bool');
 
-        $resolver->addAllowedValues(array(
-            'style' => array(
-                null,
-                'accent',
-                'primary-box',
-                'accent-box',
-                'success-box',
-                'info-box',
-                'warning-box',
-                'danger-box',
-                'default-wire',
-                'primary-wire',
-                'accent-wire',
-                'success-wire',
-                'info-wire',
-                'warning-wire',
-                'danger-wire',
-                'default-frame',
-                'primary-frame',
-                'accent-frame',
-                'success-frame',
-                'info-frame',
-                'warning-frame',
-                'danger-frame',
-                'default-lite',
-                'primary-lite',
-                'accent-lite',
-                'success-lite',
-                'info-lite',
-                'warning-lite',
-                'danger-lite',
-            ),
-            'border_top_style' => array(
-                null,
-                'default',
-                'primary',
-                'accent',
-                'success',
-                'info',
-                'warning',
-                'danger',
-            ),
+        $resolver->addAllowedValues('style', array(
+            null,
+            'accent',
+            'primary-box',
+            'accent-box',
+            'success-box',
+            'info-box',
+            'warning-box',
+            'danger-box',
+            'default-wire',
+            'primary-wire',
+            'accent-wire',
+            'success-wire',
+            'info-wire',
+            'warning-wire',
+            'danger-wire',
+            'default-frame',
+            'primary-frame',
+            'accent-frame',
+            'success-frame',
+            'info-frame',
+            'warning-frame',
+            'danger-frame',
+            'default-lite',
+            'primary-lite',
+            'accent-lite',
+            'success-lite',
+            'info-lite',
+            'warning-lite',
+            'danger-lite',
+        ));
+        $resolver->addAllowedValues('border_top_style', array(
+            null,
+            'default',
+            'primary',
+            'accent',
+            'success',
+            'info',
+            'warning',
+            'danger',
         ));
     }
 

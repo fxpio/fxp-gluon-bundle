@@ -50,6 +50,11 @@ class TableColumnLinkType extends AbstractType
             'formatter' => 'twig',
         ));
 
+        $resolver->addAllowedTypes('link_options', 'array');
+        $resolver->addAllowedTypes('route_name', array('null', 'string'));
+        $resolver->addAllowedTypes('route_options', 'array');
+        $resolver->addAllowedTypes('route_absolute', 'bool');
+
         $resolver->setNormalizer('formatter_options', function (Options $options, $value) {
             $variables = isset($value['variables']) ? $value['variables'] : array();
             $variables['link_options'] = $options['link_options'];
@@ -65,13 +70,6 @@ class TableColumnLinkType extends AbstractType
 
             return $value;
         });
-
-        $resolver->addAllowedTypes(array(
-            'link_options' => 'array',
-            'route_name' => array('null', 'string'),
-            'route_options' => 'array',
-            'route_absolute' => 'bool',
-        ));
     }
 
     /**

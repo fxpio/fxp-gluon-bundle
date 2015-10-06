@@ -73,9 +73,7 @@ class FootableColumnExtension extends AbstractTypeExtension
             'footable' => array(),
         ));
 
-        $resolver->addAllowedTypes(array(
-            'footable' => 'array',
-        ));
+        $resolver->addAllowedTypes('footable', 'array');
 
         $resolver->setNormalizer('footable', function (Options $options, $value) {
             $footableResolver = new OptionsResolver();
@@ -94,9 +92,7 @@ class FootableColumnExtension extends AbstractTypeExtension
             $footableResolver->setAllowedTypes('name', array('null', 'string'));
             $footableResolver->setAllowedTypes('type', array('null', 'string'));
 
-            $footableResolver->addAllowedValues(array(
-                'type' => array(null, 'alpha', 'numeric'),
-            ));
+            $footableResolver->addAllowedValues('type', array(null, 'alpha', 'numeric'));
 
             $footableResolver->setNormalizer('hide', function (Options $options, $value) {
                 $allowed = array('phone', 'tablet', 'default', 'all');

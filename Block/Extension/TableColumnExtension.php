@@ -51,15 +51,11 @@ class TableColumnExtension extends AbstractTypeExtension
             'width' => null,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'align' => array('null', 'string'),
-            'min_width' => array('null', 'int'),
-            'max_width' => array('null', 'int'),
-        ));
+        $resolver->addAllowedTypes('align', array('null', 'string'));
+        $resolver->addAllowedTypes('min_width', array('null', 'int'));
+        $resolver->addAllowedTypes('max_width', array('null', 'int'));
 
-        $resolver->addAllowedValues(array(
-            'align' => array(null, 'left', 'center', 'right'),
-        ));
+        $resolver->addAllowedValues('align', array(null, 'left', 'center', 'right'));
 
         $resolver->setNormalizer('label_attr', function (Options $options, $value) {
             $class = isset($value['class']) ? $value['class'] : '';

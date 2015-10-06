@@ -63,9 +63,7 @@ class FootableExtension extends AbstractTypeExtension
             'footable' => array(),
         ));
 
-        $resolver->addAllowedTypes(array(
-            'footable' => 'array',
-        ));
+        $resolver->addAllowedTypes('footable', 'array');
 
         $resolver->setNormalizer('footable', function (Options $options, $value) {
             $footableResolver = new OptionsResolver();

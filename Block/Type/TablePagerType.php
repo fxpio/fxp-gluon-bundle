@@ -125,15 +125,13 @@ class TablePagerType extends AbstractType
             'multi_sortable' => false,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'locale' => 'string',
-            'page_size' => array('null', 'int'),
-            'page_number' => array('null', 'int'),
-            'route' => array('null', 'string'),
-            'route_parameters' => 'array',
-            'route_reference_type' => 'bool',
-            'multi_sortable' => 'bool',
-        ));
+        $resolver->addAllowedTypes('locale', 'string');
+        $resolver->addAllowedTypes('page_size', array('null', 'int'));
+        $resolver->addAllowedTypes('page_number', array('null', 'int'));
+        $resolver->addAllowedTypes('route', array('null', 'string'));
+        $resolver->addAllowedTypes('route_parameters', 'array');
+        $resolver->addAllowedTypes('route_reference_type', 'bool');
+        $resolver->addAllowedTypes('multi_sortable', 'bool');
     }
 
     /**

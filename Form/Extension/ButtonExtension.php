@@ -44,9 +44,7 @@ class ButtonExtension extends AbstractTypeExtension
 
         $resolver->addAllowedTypes('raised', 'bool');
 
-        $resolver->addAllowedValues(array(
-            'style' => array('accent'),
-        ));
+        $resolver->addAllowedValues('style', array('accent'));
     }
 
     /**

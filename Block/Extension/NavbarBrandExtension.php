@@ -42,9 +42,7 @@ class NavbarBrandExtension extends AbstractTypeExtension
             'switchable' => false,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'switchable' => 'bool',
-        ));
+        $resolver->addAllowedTypes('switchable', 'bool');
     }
 
     /**

@@ -57,20 +57,16 @@ class PanelContentExtension extends AbstractTypeExtension
             'style' => null,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'style' => array('null', 'string'),
-        ));
+        $resolver->addAllowedTypes('style', array('null', 'string'));
 
-        $resolver->addAllowedValues(array(
-            'style' => array(
-                null,
-                'primary-box',
-                'accent-box',
-                'success-box',
-                'info-box',
-                'warning-box',
-                'danger-box',
-            ),
+        $resolver->addAllowedValues('style', array(
+            null,
+            'primary-box',
+            'accent-box',
+            'success-box',
+            'info-box',
+            'warning-box',
+            'danger-box',
         ));
     }
 

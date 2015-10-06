@@ -54,12 +54,10 @@ class TableExtension extends AbstractTypeExtension
             'selected' => false,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'row_number' => 'bool',
-            'selectable' => 'bool',
-            'multi_selectable' => 'bool',
-            'selected' => 'bool',
-        ));
+        $resolver->addAllowedTypes('row_number', 'bool');
+        $resolver->addAllowedTypes('selectable', 'bool');
+        $resolver->addAllowedTypes('multi_selectable', 'bool');
+        $resolver->addAllowedTypes('selected', 'bool');
 
         $resolver->setNormalizer('selectable', function (Options $options, $value) {
             if ($options['multi_selectable']) {

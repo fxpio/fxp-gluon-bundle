@@ -187,16 +187,14 @@ class PanelSectionType extends AbstractType
             'cell_label_style' => null,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'rendered' => 'bool',
-            'collapsible' => 'bool',
-            'collapsed' => 'bool',
-            'hidden_if_empty' => 'bool',
-            'column' => array('null', 'int'),
-            'layout_max' => array('null', 'int'),
-            'layout_size' => array('null', 'string'),
-            'cell_label_style' => array('null', 'string'),
-        ));
+        $resolver->addAllowedTypes('rendered', 'bool');
+        $resolver->addAllowedTypes('collapsible', 'bool');
+        $resolver->addAllowedTypes('collapsed', 'bool');
+        $resolver->addAllowedTypes('hidden_if_empty', 'bool');
+        $resolver->addAllowedTypes('column', array('null', 'int'));
+        $resolver->addAllowedTypes('layout_max', array('null', 'int'));
+        $resolver->addAllowedTypes('layout_size', array('null', 'string'));
+        $resolver->addAllowedTypes('cell_label_style', array('null', 'string'));
     }
 
     /**

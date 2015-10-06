@@ -126,14 +126,12 @@ class PanelRowType extends AbstractType
             'cell_label_style' => null,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'rendered' => 'bool',
-            'hidden_if_empty' => 'bool',
-            'column' => 'int',
-            'layout_max' => 'int',
-            'layout_size' => array('null', 'string'),
-            'cell_label_style' => array('null', 'string'),
-        ));
+        $resolver->addAllowedTypes('rendered', 'bool');
+        $resolver->addAllowedTypes('hidden_if_empty', 'bool');
+        $resolver->addAllowedTypes('column', 'int');
+        $resolver->addAllowedTypes('layout_max', 'int');
+        $resolver->addAllowedTypes('layout_size', array('null', 'string'));
+        $resolver->addAllowedTypes('cell_label_style', array('null', 'string'));
 
         $resolver->setNormalizer('column', function (Options $options, $value) {
             $colNumMax = $options['layout_max'];

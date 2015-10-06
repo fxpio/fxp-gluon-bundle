@@ -146,31 +146,27 @@ class PanelCellType extends AbstractType
             'help' => null,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'type' => array('null', 'string', 'Sonatra\Bundle\BlockBundle\Block\BlockTypeInterface'),
-            'options' => 'array',
-            'control_attr' => 'array',
-            'layout_size' => 'string',
-            'layout' => 'int',
-            'layout_max' => 'int',
-            'label_style' => array('null', 'string'),
-            'rendered' => 'bool',
-            'hidden' => 'bool',
-            'help' => array('null', 'string', 'array'),
-        ));
+        $resolver->addAllowedTypes('type', array('null', 'string', 'Sonatra\Bundle\BlockBundle\Block\BlockTypeInterface'));
+        $resolver->addAllowedTypes('options', 'array');
+        $resolver->addAllowedTypes('control_attr', 'array');
+        $resolver->addAllowedTypes('layout_size', 'string');
+        $resolver->addAllowedTypes('layout', 'int');
+        $resolver->addAllowedTypes('layout_max', 'int');
+        $resolver->addAllowedTypes('label_style', array('null', 'string'));
+        $resolver->addAllowedTypes('rendered', 'bool');
+        $resolver->addAllowedTypes('hidden', 'bool');
+        $resolver->addAllowedTypes('help', array('null', 'string', 'array'));
 
-        $resolver->addAllowedValues(array(
-            'layout_size' => array('sm', 'md', 'lg'),
-            'label_style' => array(
-                null,
-                'default',
-                'primary',
-                'accent',
-                'success',
-                'info',
-                'warning',
-                'danger',
-            ),
+        $resolver->addAllowedValues('layout_size', array('sm', 'md', 'lg'));
+        $resolver->addAllowedValues('label_style', array(
+            null,
+            'default',
+            'primary',
+            'accent',
+            'success',
+            'info',
+            'warning',
+            'danger',
         ));
 
         $resolver->setNormalizer('layout', function (Options $options, $value) {

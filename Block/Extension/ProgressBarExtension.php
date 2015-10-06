@@ -50,10 +50,8 @@ class ProgressBarExtension extends AbstractTypeExtension
         $resolver->addAllowedTypes('floating_label', array('bool', 'string'));
         $resolver->addAllowedTypes('large', 'bool');
 
-        $resolver->addAllowedValues(array(
-            'style' => array('accent'),
-            'floating_label' => array(true, false, 'hover'),
-        ));
+        $resolver->addAllowedValues('style', array('accent'));
+        $resolver->addAllowedValues('floating_label', array(true, false, 'hover'));
     }
 
     /**

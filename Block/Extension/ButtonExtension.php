@@ -26,9 +26,7 @@ class ButtonExtension extends AbstractTypeExtension
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->addAllowedValues(array(
-            'style' => array('accent', 'navbar'),
-        ));
+        $resolver->addAllowedValues('style', array('accent', 'navbar'));
     }
 
     /**

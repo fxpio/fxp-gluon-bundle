@@ -54,9 +54,7 @@ class TableColumnPagerExtension extends AbstractTypeExtension
             'sortable' => false,
         ));
 
-        $resolver->addAllowedTypes(array(
-            'sortable' => 'bool',
-        ));
+        $resolver->addAllowedTypes('sortable', 'bool');
     }
 
     /**

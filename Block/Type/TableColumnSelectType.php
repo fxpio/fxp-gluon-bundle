@@ -94,6 +94,12 @@ class TableColumnSelectType extends AbstractType
             ),
         ));
 
+        $resolver->addAllowedTypes('multiple', 'bool');
+        $resolver->addAllowedTypes('selected', 'bool');
+        $resolver->addAllowedTypes('max_selection', array('null', 'int'));
+        $resolver->addAllowedTypes('style', array('null', 'string'));
+        $resolver->addAllowedTypes('options', 'array');
+
         $resolver->setNormalizer('formatter_options', function (Options $options, $value) {
             $variables = isset($value['variables']) ? $value['variables'] : array();
             $variables['multiple'] = $options['multiple'];
@@ -112,14 +118,6 @@ class TableColumnSelectType extends AbstractType
 
             return $value;
         });
-
-        $resolver->addAllowedTypes(array(
-            'multiple' => 'bool',
-            'selected' => 'bool',
-            'max_selection' => array('null', 'int'),
-            'style' => array('null', 'string'),
-            'options' => 'array',
-        ));
     }
 
     /**

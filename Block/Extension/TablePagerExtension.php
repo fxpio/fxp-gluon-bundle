@@ -58,10 +58,8 @@ class TablePagerExtension extends AbstractTypeExtension
             'pager_options' => array(),
         ));
 
-        $resolver->addAllowedTypes(array(
-            'pager' => 'bool',
-            'pager_options' => 'array',
-        ));
+        $resolver->addAllowedTypes('pager', 'bool');
+        $resolver->addAllowedTypes('pager_options', 'array');
     }
 
     /**
