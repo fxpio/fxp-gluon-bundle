@@ -13,16 +13,20 @@
 {% block form_widget_simple -%}
     {%- set type = type|default('text') -%}
     {%- if type not in ['submit', 'radio', 'checkbox', 'button'] -%}
+        {%- if floating_label|default(false) is same as(true) -%}
         {%- require_script  '@bower/jquery/dist/jquery.js',
                             '@bower/sonatra-theme-gluon/js/floating-label.js' -%}
+        {%- endif -%}
 
-        {%- block form_widget_simple_before_content -%}
-            <div class="floating-group">
-        {%- endblock -%}
-        {%- block form_widget_simple_after_content -%}
-            <span class="floating-bar"></span>
-            </div>
-        {%- endblock -%}
+        {%- if not(prepend_string is defined or prepend_form is defined or prepend_block is defined or append_string is defined or append_form is defined or append_block is defined) -%}
+            {%- block form_widget_simple_before_content -%}
+                <div class="floating-group">
+            {%- endblock -%}
+            {%- block form_widget_simple_after_content -%}
+                <span class="floating-bar"></span>
+                </div>
+            {%- endblock -%}
+        {%- endif -%}
     {%- endif -%}
     {{ block('base2_form_widget_simple') }}
 {% endblock form_widget_simple -%}
