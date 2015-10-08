@@ -99,6 +99,10 @@
             {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ border_top_style ~ '-top')|trim}) -%}
         {%- endif -%}
 
+        {%- if panel_main -%}
+            {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-main')|trim}) -%}
+        {%- endif -%}
+
         {%- if collapsible -%}
             {%- require_style '@bower/sonatra-bootstrap-panel-collapse/less/panel-collapse.less' -%}
             {%- require_script '@bower/sonatra-bootstrap-panel-collapse/js/panel-collapse.js' -%}
