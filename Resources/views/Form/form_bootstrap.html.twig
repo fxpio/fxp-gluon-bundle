@@ -21,7 +21,7 @@
 
 {% block form_widget_simple -%}
     {%- set type = type|default('text') -%}
-    {%- if type not in ['submit', 'radio', 'checkbox', 'button'] -%}
+    {%- if type not in ['submit', 'radio', 'checkbox', 'button', 'hidden'] -%}
         {%- if floating_label|default(false) is same as(true) -%}
         {%- require_script  '@bower/jquery/dist/jquery.js',
                             '@bower/sonatra-theme-gluon/js/floating-label.js' -%}
