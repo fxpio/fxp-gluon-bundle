@@ -137,10 +137,7 @@ class PanelSectionType extends AbstractType
 
         foreach ($view->children as $name => $child) {
             if (in_array('heading', $child->vars['block_prefixes'])) {
-                $class = isset($child->vars['attr']['class']) ? $child->vars['attr']['class'] : '';
-                $class .= ' panel-section-title';
-
-                $child->vars['attr']['class'] = trim($class);
+                BlockUtil::addAttributeClass($child, 'panel-section-title');
 
                 $view->vars['panel_section_heading'] = $child;
                 unset($view->children[$name]);

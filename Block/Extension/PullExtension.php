@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\Exception\InvalidOptionsException;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -45,15 +46,9 @@ class PullExtension extends AbstractTypeExtension
      */
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
-        $attr = &$view->vars['attr'];
-
-        if (!array_key_exists('class', $attr)) {
-            $attr['class'] = '';
-        }
-
         if (is_array($options['pull'])) {
             foreach ($options['pull'] as $pull) {
-                $attr['class'] = trim($attr['class'].' '.$options['pull_prefix'].'pull-'.$pull);
+                BlockUtil::addAttributeClass($view, $options['pull_prefix'].'pull-'.$pull);
             }
         }
     }

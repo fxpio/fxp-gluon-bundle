@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 
 /**
  * Nav Scrollable Block Type.
@@ -28,10 +29,7 @@ class NavScrollableType extends AbstractType
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
         if (null !== $view->parent && in_array('navbar', $view->parent->vars['block_prefixes'])) {
-            $class = isset($view->parent->vars['attr']['class']) ? $view->parent->vars['attr']['class'] : '';
-            $class .= ' has-nav-scrollable';
-
-            $view->parent->vars['attr']['class'] = trim($class);
+            BlockUtil::addAttributeClass($view->parent, 'has-nav-scrollable');
         }
     }
 
@@ -40,16 +38,10 @@ class NavScrollableType extends AbstractType
      */
     public function finishView(BlockView $view, BlockInterface $block, array $options)
     {
-        $class = isset($view->vars['attr']['class']) ? $view->vars['attr']['class'] : '';
-
         foreach ($view->children as $child) {
             if (in_array('nav', $child->vars['block_prefixes'])) {
-                $class = trim('is-nav-'.$child->vars['style'].' '.$class);
+                BlockUtil::addAttributeClass($child, 'is-nav-'.$child->vars['style'], true);
             }
-        }
-
-        if ('' !== $class) {
-            $view->vars['attr']['class'] = $class;
         }
     }
 

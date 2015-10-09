@@ -88,15 +88,9 @@ class PanelCellType extends AbstractType
             ));
         }
 
-        $labelAttr = $view->vars['label_attr'];
-        $class = isset($labelAttr['class']) ? $labelAttr['class'] : '';
-        $class = trim('control-label '.$class);
-
         if (null !== $options['label_style']) {
-            $class .= ' control-label-'.$options['label_style'];
+            BlockUtil::addAttributeClass($view, 'control-label-'.$options['label_style']);
         }
-
-        $labelAttr['class'] = trim($class);
 
         $view->vars = array_replace($view->vars, array(
             'control_attr' => $options['control_attr'],
@@ -104,7 +98,6 @@ class PanelCellType extends AbstractType
             'layout_col_width' => $options['layout'],
             'layout_col_max' => $options['layout_max'],
             'label_style' => $options['label_style'],
-            'label_attr' => $labelAttr,
             'rendered' => $options['rendered'],
             'hidden' => $options['hidden'],
             'value_type' => $options['type'],

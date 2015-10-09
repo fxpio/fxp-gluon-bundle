@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -40,9 +41,7 @@ class FabType extends AbstractType
         if (isset($view->vars['dropdown']) && in_array($options['absolute_position'], array('top_right', 'bottom_right'))) {
             /* @var BlockView $dropView */
             $dropView = $view->vars['dropdown'];
-            $dropAttr = &$dropView->vars['attr'];
-            $dropAttr['class'] = array_key_exists('class', $dropAttr) ? $dropAttr['class'] : '';
-            $dropAttr['class'] = trim($dropAttr['class'].' fab-pull-right');
+            BlockUtil::addAttributeClass($dropView, 'fab-pull-right');
         }
     }
 
