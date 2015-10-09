@@ -29,5 +29,50 @@
         <service id="sonatra_gluon.form.type.toggle" class="Sonatra\Bundle\GluonBundle\Form\Type\ToggleType">
             <tag name="form.type" alias="toggle" />
         </service>
+
+        <service id="sonatra_gluon.form.type_extension.floating_label.text" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+            <tag name="form.type_extension" alias="text" />
+            <argument>text</argument>
+        </service>
+
+        <service id="sonatra_gluon.form.type_extension.floating_label.integer" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+            <tag name="form.type_extension" alias="integer" />
+            <argument>integer</argument>
+        </service>
+
+        <service id="sonatra_gluon.form.type_extension.floating_label.money" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+            <tag name="form.type_extension" alias="money" />
+            <argument>money</argument>
+        </service>
+
+        <service id="sonatra_gluon.form.type_extension.floating_label.number" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+            <tag name="form.type_extension" alias="number" />
+            <argument>number</argument>
+        </service>
+
+        <service id="sonatra_gluon.form.type_extension.floating_label.percent" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+            <tag name="form.type_extension" alias="percent" />
+            <argument>percent</argument>
+        </service>
+
+        <service id="sonatra_gluon.form.type_extension.floating_label.textarea" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+            <tag name="form.type_extension" alias="textarea" />
+            <argument>textarea</argument>
+        </service>
+
+        <service id="sonatra_gluon.form.type_extension.floating_label.datetime" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+            <tag name="form.type_extension" alias="datetime" />
+            <argument>datetime</argument>
+        </service>
+
+        <service id="sonatra_gluon.form.type_extension.floating_label.date" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+            <tag name="form.type_extension" alias="date" />
+            <argument>date</argument>
+        </service>
+
+        <service id="sonatra_gluon.form.type_extension.floating_label.time" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+            <tag name="form.type_extension" alias="time" />
+            <argument>time</argument>
+        </service>
     </services>
 </container>

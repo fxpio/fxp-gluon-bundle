@@ -2,6 +2,7 @@
         select2_widget_content as base_select2_widget_content -%}
 {%- use 'SonatraBootstrapBundle:Form:form_bootstrap.html.twig' with
         form_widget_simple as base2_form_widget_simple,
+        form_label as base2_form_label,
         textarea_widget as base2_textarea_widget,
         datetime_widget as base2_datetime_widget,
         date_widget as base2_date_widget,
@@ -9,6 +10,14 @@
         choice_widget as base_choice_widget,
         collection_widget as base2_collection_widget,
         button_widget as base_button_widget -%}
+
+{% block form_label -%}
+    {%- if floating_label|default(false) is not same as(true) -%}
+        {{ block('base2_form_label') }}
+    {%- endif -%}
+{%- endblock form_label %}
+
+
 
 {% block form_widget_simple -%}
     {%- set type = type|default('text') -%}
@@ -34,9 +43,11 @@
 {%- endblock form_widget_simple %}
 
 {% block textarea_widget -%}
+    {%- if floating_label|default(false) is same as(true) -%}
     {%- require_script  '@bower/jquery/dist/jquery.js',
                         '@bower/sonatra-theme-gluon/js/floating-label.js'
                         '?@bower/sonatra-theme-gluon/js/resizing-textarea.js' -%}
+    {%- endif -%}
     {%- set textarea_widget_before_content -%}
         <div class="floating-group">
     {%- endset -%}
