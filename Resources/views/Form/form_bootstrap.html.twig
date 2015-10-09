@@ -107,7 +107,9 @@
 
 {% block collection_widget -%}
     {%- if selector is defined -%}
+        {{- block('addon_start') -}}
         {{- form_widget(selector) -}}
+        {{- block('addon_end') -}}
     {%- else -%}
         {{- block('base2_collection_widget') -}}
 
