@@ -17,16 +17,18 @@
         {%- require_script  '@bower/jquery/dist/jquery.js',
                             '@bower/sonatra-theme-gluon/js/floating-label.js' -%}
         {%- endif -%}
+        {%- set form_widget_simple_before_content -%}
+            <div class="floating-group">
+        {%- endset -%}
 
-        {%- if not(prepend_string is defined or prepend_form is defined or prepend_block is defined or append_string is defined or append_form is defined or append_block is defined) -%}
-            {%- block form_widget_simple_before_content -%}
-                <div class="floating-group">
-            {%- endblock -%}
-            {%- block form_widget_simple_after_content -%}
-                <span class="floating-bar"></span>
-                </div>
-            {%- endblock -%}
-        {%- endif -%}
+        {%- set form_widget_simple_after_content -%}
+            <span class="floating-bar"></span>
+            {%- if floating_label|default(false) is same as(true) -%}
+                {%- set label_attr = label_attr|merge({'class': ('control-label ' ~ label_attr.class|default(''))|trim}) -%}
+                {{ block('base_form_label') }}
+            {%- endif -%}
+            </div>
+        {%- endset -%}
     {%- endif -%}
     {{ block('base2_form_widget_simple') }}
 {%- endblock form_widget_simple %}
@@ -35,14 +37,19 @@
     {%- require_script  '@bower/jquery/dist/jquery.js',
                         '@bower/sonatra-theme-gluon/js/floating-label.js'
                         '?@bower/sonatra-theme-gluon/js/resizing-textarea.js' -%}
-    {{ block('base2_textarea_widget') }}
-    {%- block textarea_widget_before_content -%}
+    {%- set textarea_widget_before_content -%}
         <div class="floating-group">
-    {%- endblock -%}
-    {%- block textarea_widget_after_content -%}
+    {%- endset -%}
+
+    {%- set textarea_widget_after_content -%}
         <span class="floating-bar"></span>
+        {%- if floating_label|default(false) is same as(true) -%}
+            {%- set label_attr = label_attr|merge({'class': ('control-label ' ~ label_attr.class|default(''))|trim}) -%}
+            {{ block('base_form_label') }}
+        {%- endif -%}
         </div>
-    {%- endblock -%}
+    {%- endset -%}
+    {{ block('base2_textarea_widget') }}
 
 {%- endblock textarea_widget %}
 
