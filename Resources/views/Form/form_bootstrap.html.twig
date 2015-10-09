@@ -8,6 +8,7 @@
         date_widget as base2_date_widget,
         time_widget as base2_time_widget,
         choice_widget as base_choice_widget,
+        base_choice_widget_collapsed as base2_choice_widget_collapsed,
         collection_widget as base2_collection_widget,
         button_widget as base_button_widget -%}
 
@@ -115,6 +116,20 @@
         {{- block('base_choice_widget') -}}
     {%- endif -%}
 {%- endblock choice_widget %}
+
+{% block base_choice_widget_collapsed -%}
+    {%- if floating_label|default(false) -%}
+        <div class="floating-group">
+    {%- endif -%}
+
+    {{- block('base2_choice_widget_collapsed') -}}
+
+    {%- if floating_label|default(false) -%}
+        {%- set label_attr = label_attr|merge({'class': ('control-label top-floating-label-choice' ~ label_attr.class|default(''))|trim}) -%}
+        {{ block('base_form_label') }}
+        </div>
+    {%- endif -%}
+{%- endblock base_choice_widget_collapsed %}
 
 {% block collection_widget -%}
     {%- if selector is defined -%}
