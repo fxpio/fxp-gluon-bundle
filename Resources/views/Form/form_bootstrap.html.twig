@@ -205,11 +205,12 @@
     {%- require_script '@bower/jquery/dist/jquery.js', '@bower/moment/moment.js', '@bower/hammerjs/hammer.js', '@bower/jquery-knob/js/jquery-knob.js', '@bower/sonatra-jquery-datetime-picker/js/datetime-picker.js' -%}
     {%- require_style '@bower/sonatra-jquery-datetime-picker/less/datetime-picker.less' -%}
 
-    {%- set append_icon = append_icon|default('fa fa-calendar-o') -%}
+    {%- set append_icon = append_icon|default('<span class="fa fa-calendar-o"></span>') -%}
+    {%- set append_btn_style = append_btn_style|default('btn-default') -%}
     {%- set append_type = 'btn' -%}
     {%- set append_string -%}
-        <button class="btn btn-default" type="button" id="{{ id ~ '_datetime_btn' }}">
-            <span class="{{ append_icon }}"></span>
+        <button class="btn {{ append_btn_style }}" type="button" id="{{ id ~ '_datetime_btn' }}">
+            {{ append_icon|raw }}
         </button>
     {%- endset -%}
     {{- block('base2_datetime_widget') -}}
@@ -220,7 +221,7 @@
 {%- endblock date_widget %}
 
 {% block time_widget -%}
-    {%- set append_icon = append_icon|default('fa fa-clock-o') -%}
+    {%- set append_icon = append_icon|default('<span class="fa fa-clock-o"></span>') -%}
     {%- set type= 'text' -%}
     {{- block('datetime_widget') -}}
 {%- endblock time_widget %}
