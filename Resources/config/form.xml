@@ -80,13 +80,9 @@
             <argument>file</argument>
         </service>
 
-        <service id="sonatra_gluon.form.type_extension.floating_label.choice" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
+        <service id="sonatra_gluon.form.type_extension.floating_label.choice" class="Sonatra\Bundle\GluonBundle\Form\Extension\StaticFloatingLabelExtension">
             <tag name="form.type_extension" alias="choice" />
             <argument>choice</argument>
-        </service>
-
-        <service id="sonatra_gluon.form.type_extension.choice" class="Sonatra\Bundle\GluonBundle\Form\Extension\ChoiceExtension">
-            <tag name="form.type_extension" alias="choice" />
         </service>
     </services>
 </container>

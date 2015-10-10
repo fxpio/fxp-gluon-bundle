@@ -12,34 +12,16 @@
 namespace Sonatra\Bundle\GluonBundle\Form\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
-use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\OptionsResolver\Options;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Floating Label Form Extension.
  *
  * @author François Pluchino <francois.pluchino@sonatra.com>
  */
-class FloatingLabelExtension extends AbstractTypeExtension
+class FloatingLabelExtension extends StaticFloatingLabelExtension
 {
-    /**
-     * @var string
-     */
-    protected $extendedType;
-
-    /**
-     * Constructor.
-     *
-     * @param string $extendedType The extended block type
-     */
-    public function __construct($extendedType)
-    {
-        $this->extendedType = $extendedType;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -53,34 +35,6 @@ class FloatingLabelExtension extends AbstractTypeExtension
             }
         }
 
-        $view->vars = array_replace($view->vars, array(
-            'floating_label' => $options['floating_label'],
-        ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'floating_label' => false,
-        ));
-
-        $resolver->setAllowedTypes('floating_label', 'bool');
-
-        $resolver->setNormalizer('floating_label', function (Options $options, $value) {
-            return $options['layout'] === 'horizontal'
-                ? false
-                : $value;
-        });
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getExtendedType()
-    {
-        return $this->extendedType;
+        parent::buildView($view, $block, $options);
     }
 }
