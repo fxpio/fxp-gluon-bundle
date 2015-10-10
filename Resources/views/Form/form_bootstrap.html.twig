@@ -149,12 +149,36 @@
 
     {{- block('base2_choice_widget_expanded') -}}
 {%- endblock choice_widget_expanded %}
+
 {% block collection_widget -%}
     {%- if selector is defined -%}
         {{- block('addon_start') -}}
+
+        {%- if floating_label|default(false) -%}
+            <div class="floating-group">
+        {%- endif -%}
         {{- form_widget(selector) -}}
+
+        {%- if floating_label|default(false) -%}
+            {%- set label_attr = label_attr|merge({'class': ('control-label top-floating-label' ~ label_attr.class|default(''))|trim}) -%}
+            {{ block('base_form_label') }}
+            </div>
+        {%- endif -%}
+
         {{- block('addon_end') -}}
     {%- else -%}
+        {%- set collection_widget_before_content -%}
+            <div class="floating-group">
+            {%- if floating_label|default(false) is same as(true) -%}
+                {%- set label_attr = label_attr|merge({'class': ('control-label top-floating-label' ~ label_attr.class|default(''))|trim}) -%}
+                {{ block('base_form_label') }}
+            {%- endif -%}
+        {%- endset -%}
+
+        {%- set collection_widget_after_content -%}
+            </div>
+        {%- endset -%}
+
         {{- block('base2_collection_widget') -}}
 
         {%- inline_script position='pjax_content' -%}
