@@ -5,6 +5,11 @@
                         '@bower/sonatra-theme-gluon/js/table-pager-default.js'-%}
 
     {%- set attr = attr|merge({'class': ('table-pager ' ~ attr.class|default(''))|trim}) -%}
+    {%- set btnStartPageStyle = btnStartPageStyle|default('fa fa-step-backward') -%}
+    {%- set btnPreviousPageStyle = btnPreviousPageStyle|default('fa fa-angle-double-left') -%}
+    {%- set btnNextPageStyle = btnNextPageStyle|default('fa fa-angle-double-right') -%}
+    {%- set btnEndPageStyle = btnEndPageStyle|default('fa fa-step-forward') -%}
+    {%- set btnRefreshStyle = btnRefreshStyle|default('fa fa-refresh') -%}
 
     {%- spaceless -%}
         <div{{ block('widget_container_attributes') }}>
@@ -15,8 +20,8 @@
                     </select>
                 </div>
                 <div class="btn-group">
-                    <button type="button" disabled="disabled" class="table-pager-start-page btn btn-default fa fa-step-backward"></button>
-                    <button type="button" disabled="disabled" class="table-pager-previous-page btn btn-default fa fa-angle-double-left"></button>
+                    <button type="button" disabled="disabled" class="table-pager-start-page btn btn-default {{ btnStartPageStyle }}"></button>
+                    <button type="button" disabled="disabled" class="table-pager-previous-page btn btn-default {{ btnPreviousPageStyle }}"></button>
                 </div>
                 <div class="btn-group">
                     <div class="floating-group">
@@ -27,13 +32,13 @@
                     <span class="table-pager-page-count">{{ source.pageCount }}</span>
                 </div>
                 <div class="btn-group">
-                    <button type="button" disabled="disabled" class="table-pager-next-page btn btn-default fa fa-angle-double-right"></button>
-                    <button type="button" disabled="disabled" class="table-pager-end-page btn btn-default fa fa-step-forward"></button>
+                    <button type="button" disabled="disabled" class="table-pager-next-page btn btn-default {{ btnNextPageStyle }}"></button>
+                    <button type="button" disabled="disabled" class="table-pager-end-page btn btn-default {{ btnEndPageStyle }}"></button>
                 </div>
             </div>
             <div class="table-pager-group group2">
                 <div class="btn-group">
-                    <button type="button" disabled="disabled" class="table-pager-refresh btn btn-default fa fa-refresh"></button>
+                    <button type="button" disabled="disabled" class="table-pager-refresh btn btn-default {{ btnRefreshStyle }}"></button>
                 </div>
                 <div class="btn-group">
                     <div class="btn btn-default disabled table-pager-elements">
