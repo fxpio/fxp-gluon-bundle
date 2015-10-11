@@ -40,7 +40,7 @@ class NavScrollableType extends AbstractType
     {
         foreach ($view->children as $child) {
             if (in_array('nav', $child->vars['block_prefixes'])) {
-                BlockUtil::addAttributeClass($child, 'is-nav-'.$child->vars['style'], true);
+                BlockUtil::addAttributeClass($view, 'is-nav-'.$child->vars['style'], true);
             }
         }
     }
