@@ -1,4 +1,5 @@
 {%- use 'SonatraBootstrapBundle:Block:block_bootstrap.html.twig' with
+        block_label as base2_block_label,
         block_widget_simple as base2_block_widget_simple,
         checkbox_widget as base2_checkbox_widget,
         radio_widget as base2_radio_widget,
@@ -10,6 +11,7 @@
         extension_scroll_spy_javascript as base2_extension_scroll_spy_javascript -%}
 
 {%- use 'SonatraGluonBundle:Block:block_bootstrap_addon.html.twig' -%}
+{%- use 'SonatraGluonBundle:Block:block_bootstrap_floating_label.html.twig' -%}
 {%- use 'SonatraGluonBundle:Block:block_bootstrap_container.html.twig' -%}
 {%- use 'SonatraGluonBundle:Block:block_bootstrap_extension.html.twig' -%}
 {%- use 'SonatraGluonBundle:Block:block_bootstrap_fields.html.twig' -%}

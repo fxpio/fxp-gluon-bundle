@@ -13,6 +13,10 @@
             <tag name="sonatra_block.type_extension" alias="field" />
         </service>
 
+        <service id="sonatra_gluon.block.type_extension.field.floating_label" class="Sonatra\Bundle\GluonBundle\Block\Extension\FloatingLabelExtension">
+            <tag name="sonatra_block.type_extension" alias="field" />
+        </service>
+
         <service id="sonatra_gluon.block.type.lookup" class="Sonatra\Bundle\GluonBundle\Block\Type\LookupType">
             <argument type="service" id="router" />
             <argument type="service" id="property_accessor"/>

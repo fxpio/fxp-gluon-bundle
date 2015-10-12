@@ -1,8 +1,10 @@
 {% block checkbox_widget -%}
     {%- set checkbox_widget_before_content -%}
         {{- block('block_addon_start') -}}
+        {{- block('block_floating_label_start') -}}
     {%- endset -%}
     {%- set checkbox_widget_after_content -%}
+        {{- block('block_floating_label_end') -}}
         {{- block('block_addon_end') -}}
     {%- endset -%}
 
@@ -12,8 +14,10 @@
 {% block radio_widget -%}
     {%- set radio_widget_before_content -%}
         {{- block('block_addon_start') -}}
+        {{- block('block_floating_label_start') -}}
     {%- endset -%}
     {%- set radio_widget_after_content -%}
+        {{- block('block_floating_label_end') -}}
         {{- block('block_addon_end') -}}
     {%- endset -%}
 
@@ -23,8 +27,10 @@
 {% block choice_widget -%}
     {%- set choice_widget_before_content -%}
         {{- block('block_addon_start') -}}
+        {{- block('block_floating_label_start') -}}
     {%- endset -%}
     {%- set choice_widget_after_content -%}
+        {{- block('block_floating_label_end') -}}
         {{- block('block_addon_end') -}}
     {%- endset -%}
 
@@ -34,8 +40,10 @@
 {% block collection_widget -%}
     {%- set collection_widget_before_content -%}
         {{- block('block_addon_start') -}}
+        {{- block('block_floating_label_start') -}}
     {%- endset -%}
     {%- set collection_widget_after_content -%}
+        {{- block('block_floating_label_end') -}}
         {{- block('block_addon_end') -}}
     {%- endset -%}
 
