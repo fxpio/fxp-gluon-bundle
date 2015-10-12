@@ -9,7 +9,7 @@
     </parameters>
 
     <services>
-        <service id="sonatra_gluon.block.type_extension.field" class="Sonatra\Bundle\GluonBundle\Block\Extension\AddonExtension">
+        <service id="sonatra_gluon.block.type_extension.field.addon" class="Sonatra\Bundle\GluonBundle\Block\Extension\AddonExtension">
             <tag name="sonatra_block.type_extension" alias="field" />
         </service>
 
