@@ -1,0 +1,10 @@
+{% block block_widget_simple -%}
+    {%- set block_widget_simple_before_content -%}
+        {{- block('block_addon_start') -}}
+    {%- endset -%}
+    {%- set block_widget_simple_after_content -%}
+        {{- block('block_addon_end') -}}
+    {%- endset -%}
+
+    {{- block('base2_block_widget_simple') -}}
+{%- endblock block_widget_simple %}

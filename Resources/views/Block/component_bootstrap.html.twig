@@ -9,8 +9,7 @@
         table_widget as base_table_widget,
         progress_bar_widget as base_progress_bar_widget -%}
 
-{%- use 'SonatraGluonBundle:Block:block_bootstrap_extension.html.twig' -%}
-{%- use 'SonatraGluonBundle:Block:block_bootstrap_fields.html.twig' -%}
+{%- use 'SonatraGluonBundle:Block:block_bootstrap.html.twig' -%}
 
 {% block nav_item_widget -%}
     {%- if ripple is defined and ripple -%}
