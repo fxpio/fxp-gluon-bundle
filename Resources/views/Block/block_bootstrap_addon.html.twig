@@ -7,7 +7,7 @@
         <div {% for attrname, attrvalue in addon_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
     {%- endif -%}
 
-    {%- set prepend_attr = prepend_attr|default({})|merge({'class': ('field-group-' ~ prepend_type ~ ' ' ~ (prepend_attr.class|default('')))|trim}) -%}
+    {%- set prepend_attr = prepend_attr|default({})|merge({'class': ('field-group-' ~ prepend_type|default('addon') ~ ' ' ~ (prepend_attr.class|default('')))|trim}) -%}
 
     {%- if prepend_string is defined -%}
         <span {% for attrname, attrvalue in prepend_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ prepend_string|raw }}</span>
@@ -21,7 +21,7 @@
 
 {% block block_addon_end -%}
     {%- require_style '@bower/bootstrap/less/bootstrap.less' -%}
-    {%- set append_attr = append_attr|default({})|merge({'class': ('field-group-' ~ append_type ~ ' ' ~ (append_attr.class|default('')))|trim}) -%}
+    {%- set append_attr = append_attr|default({})|merge({'class': ('field-group-' ~ append_type|default('addon') ~ ' ' ~ (append_attr.class|default('')))|trim}) -%}
 
     {%- if append_string is defined -%}
         <span {% for attrname, attrvalue in append_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ append_string|raw }}</span>
