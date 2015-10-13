@@ -51,7 +51,7 @@ class PanelCellType extends AbstractType
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
         if (null !== $options['help']) {
-            $hOpts = array_replace($options['options'], array(
+            $hOpts = array_replace($options['help_options'], array(
                 'label' => '?',
                 'style' => 'info',
                 'size' => 'xs',
@@ -102,8 +102,8 @@ class PanelCellType extends AbstractType
             'label_style' => $options['label_style'],
             'rendered' => $options['rendered'],
             'hidden' => $options['hidden'],
-            'value_type' => $options['type'],
-            'value_options' => $options['options'],
+            'value_formatter' => $options['formatter'],
+            'value_formatter_options' => $options['formatter_options'],
         ));
     }
 
@@ -129,8 +129,8 @@ class PanelCellType extends AbstractType
             'inherit_data' => function (Options $options) {
                 return null !== $options['property_path'];
             },
-            'type' => null,
-            'options' => array(),
+            'formatter' => null,
+            'formatter_options' => array(),
             'control_attr' => array(),
             'layout_size' => 'sm',
             'layout' => 12,
@@ -139,10 +139,11 @@ class PanelCellType extends AbstractType
             'rendered' => true,
             'hidden' => false,
             'help' => null,
+            'help_options' => array(),
         ));
 
-        $resolver->addAllowedTypes('type', array('null', 'string', 'Sonatra\Bundle\BlockBundle\Block\BlockTypeInterface'));
-        $resolver->addAllowedTypes('options', 'array');
+        $resolver->addAllowedTypes('formatter', array('null', 'string', 'Sonatra\Bundle\BlockBundle\Block\BlockTypeInterface'));
+        $resolver->addAllowedTypes('formatter_options', 'array');
         $resolver->addAllowedTypes('control_attr', 'array');
         $resolver->addAllowedTypes('layout_size', 'string');
         $resolver->addAllowedTypes('layout', 'int');
@@ -151,6 +152,7 @@ class PanelCellType extends AbstractType
         $resolver->addAllowedTypes('rendered', 'bool');
         $resolver->addAllowedTypes('hidden', 'bool');
         $resolver->addAllowedTypes('help', array('null', 'string', 'array'));
+        $resolver->addAllowedTypes('help_options', 'array');
 
         $resolver->addAllowedValues('layout_size', array('sm', 'md', 'lg'));
         $resolver->addAllowedValues('label_style', array(

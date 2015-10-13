@@ -99,8 +99,8 @@
                 {%- set control_attr = control_attr|merge({'class': (control_attr.class|default('') ~ ' block-control')|trim}) -%}
 
                 <div{% for attrname, attrvalue in control_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
-                    {% if value_type is not null %}
-                        {%- set value = value|block_formatter(value_type, value_options) -%}
+                    {% if value_formatter is not null %}
+                        {%- set value = value|block_formatter(value_formatter, value_formatter_options) -%}
                     {%- endif -%}
                     {{- value|raw -}}
                     {%- for child in block -%}
