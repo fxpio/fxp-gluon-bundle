@@ -29,7 +29,7 @@
                             '@bower/sonatra-theme-gluon/js/floating-label.js' -%}
         {%- endif -%}
         {%- set form_widget_simple_before_content -%}
-            <div class="floating-group">
+            <div class="floating-group{% if errors|length > 0 %} has-error{% endif %}">
         {%- endset -%}
 
         {%- set form_widget_simple_after_content -%}
@@ -38,6 +38,7 @@
                 {%- set label_attr = label_attr|merge({'class': ('control-label ' ~ label_attr.class|default(''))|trim}) -%}
                 {{ block('base_form_label') }}
             {%- endif -%}
+            {{- form_errors(form) -}}
             </div>
         {%- endset -%}
     {%- endif -%}
@@ -51,7 +52,7 @@
                         '?@bower/sonatra-theme-gluon/js/resizing-textarea.js' -%}
     {%- endif -%}
     {%- set textarea_widget_before_content -%}
-        <div class="floating-group">
+        <div class="floating-group{% if errors|length > 0 %} has-error{% endif %}">
     {%- endset -%}
 
     {%- set textarea_widget_after_content -%}
@@ -60,6 +61,7 @@
             {%- set label_attr = label_attr|merge({'class': ('control-label ' ~ label_attr.class|default(''))|trim}) -%}
             {{ block('base_form_label') }}
         {%- endif -%}
+        {{- form_errors(form) -}}
         </div>
     {%- endset -%}
     {{ block('base2_textarea_widget') }}
@@ -120,7 +122,7 @@
 
 {% block base_choice_widget_collapsed -%}
     {%- if floating_label|default(false) -%}
-        <div class="floating-group">
+        <div class="floating-group{% if errors|length > 0 %} has-error{% endif %}">
     {%- endif -%}
 
     {{- block('base2_choice_widget_collapsed') -}}
@@ -135,7 +137,7 @@
 {% block choice_widget_expanded -%}
     {%- set choice_widget_expanded_before_content -%}
         {%- if floating_label|default(false) -%}
-            <div class="floating-group">
+            <div class="floating-group{% if errors|length > 0 %} has-error{% endif %}">
         {%- endif -%}
     {%- endset -%}
 
@@ -145,6 +147,7 @@
             {{ block('base_form_label') }}
             </div>
         {%- endif -%}
+        {{- form_errors(form) -}}
     {%- endset -%}
 
     {{- block('base2_choice_widget_expanded') -}}
@@ -155,7 +158,7 @@
         {{- block('addon_start') -}}
 
         {%- if floating_label|default(false) -%}
-            <div class="floating-group">
+            <div class="floating-group{% if errors|length > 0 %} has-error{% endif %}">
         {%- endif -%}
         {{- form_widget(selector) -}}
 
@@ -165,10 +168,11 @@
             </div>
         {%- endif -%}
 
+        {{- form_errors(form) -}}
         {{- block('addon_end') -}}
     {%- else -%}
         {%- set collection_widget_before_content -%}
-            <div class="floating-group">
+            <div class="floating-group{% if errors|length > 0 %} has-error{% endif %}">
             {%- if floating_label|default(false) is same as(true) -%}
                 {%- set label_attr = label_attr|merge({'class': ('control-label top-floating-label' ~ label_attr.class|default(''))|trim}) -%}
                 {{ block('base_form_label') }}
