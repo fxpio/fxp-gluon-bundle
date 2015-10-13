@@ -113,6 +113,20 @@
     {%- endif -%}
 {%- endblock panel_cell_widget %}
 
+{% block panel_cell_label -%}
+    {%- if has_form is defined -%}
+        {% set block_label_content = 'panel_cell_label_content' %}
+    {%- endif -%}
+
+    {{- block('block_label') -}}
+{%- endblock panel_cell_label %}
+
+{% block panel_cell_label_content -%}
+    <label for="{{ has_form.vars.id }}">
+        {{- block('block_label_content') -}}
+    </label>
+{%- endblock panel_cell_label_content %}
+
 
 {% block panel_cell_spacer_widget -%}
     {%- set attr = attr|merge({'class': ('panel-cell-spacer ' ~ attr.class|default(''))|trim}) -%}

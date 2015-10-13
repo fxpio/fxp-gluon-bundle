@@ -116,6 +116,8 @@ class PanelCellType extends AbstractType
             if (in_array('button', $child->vars['block_prefixes'])) {
                 $view->vars['button_help'] = $child;
                 unset($view->children[$name]);
+            } elseif (in_array('form', $child->vars['block_prefixes']) && isset($child->vars['block_form'])) {
+                $view->vars['has_form'] = $child->vars['block_form'];
             }
         }
     }
