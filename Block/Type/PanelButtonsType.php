@@ -66,7 +66,7 @@ class PanelButtonsType extends AbstractType
             $child->setOption('attr', $attr);
 
         // button
-        } elseif (BlockUtil::isValidBlock('button', $child)) {
+        } elseif (BlockUtil::isValidBlock(array('button', 'form', 'form_button', 'form_submit'), $child)) {
             $parent = $this->findParentButtons($block);
 
             if ($parent !== $block) {
@@ -79,7 +79,7 @@ class PanelButtonsType extends AbstractType
 
         // other
         } else {
-            $msg = 'The "panel_buttons" child block (name: "%s") must be a "button" block type';
+            $msg = 'The "panel_buttons" child block (name: "%s") must be a "button", "form", "form_button" or "form_submit" block type';
             throw new InvalidConfigurationException(sprintf($msg, $child->getName()));
         }
     }
