@@ -28,8 +28,9 @@
         {%- require_script  '@bower/jquery/dist/jquery.js',
                             '@bower/sonatra-theme-gluon/js/floating-label.js' -%}
         {%- endif -%}
+
         {%- set form_widget_simple_before_content -%}
-            <div class="floating-group{% if errors|length > 0 %} has-error{% endif %}">
+            <div class="floating-group{% if addon_attr is not defined and errors|length > 0 %} has-error{% endif %}">
         {%- endset -%}
 
         {%- set form_widget_simple_after_content -%}
@@ -51,8 +52,11 @@
                         '@bower/sonatra-theme-gluon/js/floating-label.js'
                         '?@bower/sonatra-theme-gluon/js/resizing-textarea.js' -%}
     {%- endif -%}
+    {%- if addon_attr is defined and errors|length > 0 -%}
+        {%- set addon_attr = addon_attr|merge({'class': (addon_attr.class|default('') ~ ' has-error')|trim}) -%}
+    {%- endif -%}
     {%- set textarea_widget_before_content -%}
-        <div class="floating-group{% if errors|length > 0 %} has-error{% endif %}">
+        <div class="floating-group{% if addon_attr is not defined and errors|length > 0 %} has-error{% endif %}">
     {%- endset -%}
 
     {%- set textarea_widget_after_content -%}
