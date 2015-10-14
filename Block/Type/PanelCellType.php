@@ -17,6 +17,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\PropertyAccess\PropertyAccess;
@@ -117,8 +118,24 @@ class PanelCellType extends AbstractType
                 $view->vars['button_help'] = $child;
                 unset($view->children[$name]);
             } elseif (in_array('form', $child->vars['block_prefixes']) && isset($child->vars['block_form'])) {
-                $child->vars['block_form']->vars['label'] = ' ';
-                $view->vars['has_form'] = $child->vars['block_form'];
+                /* @var FormView $form */
+                $form = $child->vars['block_form'];
+                $view->vars['has_form'] = $form;
+
+                $form->vars['label'] = ' ';
+
+                if ($form->vars['required']) {
+                    BlockUtil::addAttributeClass($view, 'required', false, 'label_attr');
+                }
+
+                if (in_array('repeated', $form->vars['block_prefixes'])) {
+                    BlockUtil::addAttributeClass($view, 'block-repeated', false, 'control_attr');
+
+                    foreach ($form->children as $childForm) {
+                        $childForm->vars['display_label'] = false;
+                        break;
+                    }
+                }
             }
         }
     }
