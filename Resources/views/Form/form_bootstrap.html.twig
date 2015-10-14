@@ -73,6 +73,7 @@
     {%- if style -%}
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' input-' ~ style)|trim}) -%}
     {%- endif -%}
+
     <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
         <span class="{{ wrapper_class }}">
             <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
@@ -80,6 +81,7 @@
             <span>{% if label != ' ' %}{{ label }}{% endif %}</span>
         </span>
     </label>
+    {{- form_errors(form) -}}
 {%- endblock checkbox_widget_content %}
 
 
@@ -95,6 +97,7 @@
             <span>{% if label != ' ' %}{{ label }}{% endif %}</span>
         </span>
     </label>
+    {{- form_errors(form) -}}
 {%- endblock radio_widget_content %}
 
 
