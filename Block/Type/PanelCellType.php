@@ -104,6 +104,7 @@ class PanelCellType extends AbstractType
             'layout_col_size' => $options['layout_size'],
             'layout_col_width' => $options['layout'],
             'layout_col_max' => $options['layout_max'],
+            'layout_style' => $options['layout_style'],
             'label_style' => $options['label_style'],
             'rendered' => $options['rendered'],
             'hidden' => $options['hidden'],
@@ -159,6 +160,7 @@ class PanelCellType extends AbstractType
             'layout_size' => 'sm',
             'layout' => 12,
             'layout_max' => 12,
+            'layout_style' => null,
             'label_style' => null,
             'rendered' => true,
             'hidden' => false,
@@ -177,6 +179,7 @@ class PanelCellType extends AbstractType
         $resolver->addAllowedTypes('layout_size', 'string');
         $resolver->addAllowedTypes('layout', 'int');
         $resolver->addAllowedTypes('layout_max', 'int');
+        $resolver->addAllowedTypes('layout_size', array('null', 'string'));
         $resolver->addAllowedTypes('label_style', array('null', 'string'));
         $resolver->addAllowedTypes('rendered', 'bool');
         $resolver->addAllowedTypes('hidden', 'bool');
@@ -185,6 +188,7 @@ class PanelCellType extends AbstractType
         $resolver->addAllowedTypes('form_name', array('null', 'string'));
 
         $resolver->addAllowedValues('layout_size', array('sm', 'md', 'lg'));
+        $resolver->addAllowedValues('layout_style', array(null, 'horizontal', 'vertical'));
         $resolver->addAllowedValues('label_style', array(
             null,
             'default',

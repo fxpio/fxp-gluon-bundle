@@ -97,6 +97,10 @@ class PanelSectionType extends AbstractType
                 $cOptions['layout_size'] = $block->getOption('layout_size');
             }
 
+            if (null !== $block->getOption('layout_style') && null === $child->getOption('layout_style')) {
+                $cOptions['layout_style'] = $block->getOption('layout_style');
+            }
+
             if (null !== $block->getOption('cell_label_style') && null === $child->getOption('cell_label_style')) {
                 $cOptions['cell_label_style'] = $block->getOption('cell_label_style');
             }
@@ -123,6 +127,7 @@ class PanelSectionType extends AbstractType
             'column' => $options['column'],
             'layout_max' => $options['layout_max'],
             'layout_size' => $options['layout_size'],
+            'layout_style' => $options['layout_style'],
             'cell_label_style' => $options['cell_label_style'],
         ));
     }
@@ -181,6 +186,7 @@ class PanelSectionType extends AbstractType
             'column' => null,
             'layout_max' => null,
             'layout_size' => null,
+            'layout_style' => null,
             'cell_label_style' => null,
         ));
 
@@ -191,6 +197,7 @@ class PanelSectionType extends AbstractType
         $resolver->addAllowedTypes('column', array('null', 'int'));
         $resolver->addAllowedTypes('layout_max', array('null', 'int'));
         $resolver->addAllowedTypes('layout_size', array('null', 'string'));
+        $resolver->addAllowedTypes('layout_style', array('null', 'string'));
         $resolver->addAllowedTypes('cell_label_style', array('null', 'string'));
     }
 

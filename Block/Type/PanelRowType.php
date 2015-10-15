@@ -60,6 +60,10 @@ class PanelRowType extends AbstractType
             $cOptions['layout_size'] = $block->getOption('layout_size');
         }
 
+        if (null !== $block->getOption('layout_style') && null === $child->getOption('layout_style')) {
+            $cOptions['layout_style'] = $block->getOption('layout_style');
+        }
+
         if (null !== $block->getOption('cell_label_style') && null === $child->getOption('label_style')) {
             $cOptions['label_style'] = $block->getOption('cell_label_style');
         }
@@ -78,6 +82,7 @@ class PanelRowType extends AbstractType
             'column' => $options['column'],
             'layout_max' => $options['layout_max'],
             'layout_size' => $options['layout_size'],
+            'layout_style' => $options['layout_style'],
             'cell_label_style' => $options['cell_label_style'],
         ));
     }
@@ -123,6 +128,7 @@ class PanelRowType extends AbstractType
             'column' => 1,
             'layout_max' => 12,
             'layout_size' => null,
+            'layout_style' => null,
             'cell_label_style' => null,
         ));
 
@@ -131,6 +137,7 @@ class PanelRowType extends AbstractType
         $resolver->addAllowedTypes('column', 'int');
         $resolver->addAllowedTypes('layout_max', 'int');
         $resolver->addAllowedTypes('layout_size', array('null', 'string'));
+        $resolver->addAllowedTypes('layout_style', array('null', 'string'));
         $resolver->addAllowedTypes('cell_label_style', array('null', 'string'));
 
         $resolver->setNormalizer('column', function (Options $options, $value) {

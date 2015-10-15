@@ -89,7 +89,7 @@
         <div{{ block('widget_container_attributes') }}>
 
         {%- if not(hidden) -%}
-            <div class="panel-cell-wrapper">
+            <div class="panel-cell-wrapper{% if layout_style == 'vertical' %}-vertical{% endif %}">
                 {{- block_label(block) -}}
                 {%- if button_help is defined -%}
                     <div class="panel-block-help">
