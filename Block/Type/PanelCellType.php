@@ -62,6 +62,10 @@ class PanelCellType extends AbstractType
 
             $builder->add($builder->getName().'_help', 'button', $hOpts);
         }
+
+        if (null !== $options['form_name']) {
+            $builder->add($options['form_name'], 'form', array('block_name' => $options['form_name']));
+        }
     }
 
     /**
@@ -160,6 +164,11 @@ class PanelCellType extends AbstractType
             'hidden' => false,
             'help' => null,
             'help_options' => array(),
+            'form_name' => function (Options $options) {
+                return is_string($options['property_path'])
+                    ? $options['property_path']
+                    : null;
+            },
         ));
 
         $resolver->addAllowedTypes('formatter', array('null', 'string', 'Sonatra\Bundle\BlockBundle\Block\BlockTypeInterface'));
@@ -173,6 +182,7 @@ class PanelCellType extends AbstractType
         $resolver->addAllowedTypes('hidden', 'bool');
         $resolver->addAllowedTypes('help', array('null', 'string', 'array'));
         $resolver->addAllowedTypes('help_options', 'array');
+        $resolver->addAllowedTypes('form_name', array('null', 'string'));
 
         $resolver->addAllowedValues('layout_size', array('sm', 'md', 'lg'));
         $resolver->addAllowedValues('label_style', array(
