@@ -148,6 +148,13 @@ class PanelExtension extends AbstractTypeExtension
             'info-lite',
             'warning-lite',
             'danger-lite',
+            'default-pref',
+            'primary-pref',
+            'accent-pref',
+            'success-pref',
+            'info-pref',
+            'warning-pref',
+            'danger-pref',
         ));
         $resolver->addAllowedValues('border_top_style', array(
             null,

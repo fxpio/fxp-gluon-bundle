@@ -149,6 +149,19 @@
             <tag name="sonatra_block.type" alias="panel_cell" />
         </service>
 
+        <service id="sonatra_gluon.block.type.panel_cell_pref" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellPrefType">
+            <tag name="sonatra_block.type" alias="panel_cell_pref" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.panel_cell_pref.addon" class="Sonatra\Bundle\GluonBundle\Block\Extension\AddonExtension">
+            <tag name="sonatra_block.type_extension" alias="panel_cell_pref" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.panel_cell_pref.ripple" class="Sonatra\Bundle\GluonBundle\Block\Extension\RippleExtension">
+            <tag name="sonatra_block.type_extension" alias="panel_cell_pref" />
+            <argument>image</argument>
+        </service>
+
         <service id="sonatra_gluon.block.type.panel_cell_spacer" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellSpacerType">
             <tag name="sonatra_block.type" alias="panel_cell_spacer" />
         </service>
