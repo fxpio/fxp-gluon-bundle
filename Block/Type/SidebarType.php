@@ -76,6 +76,7 @@ class SidebarType extends AbstractType
             'fixed_top' => $options['fixed_top'],
             'position' => 'right' === $options['position'] ? $options['position'] : 'left',
             'with_icons' => $options['with_icons'],
+            'disabled' => $options['disabled'],
         ));
     }
 
@@ -112,6 +113,7 @@ class SidebarType extends AbstractType
             'disable_keyboard' => $disableKeyboard,
             'with_icons' => false,
             'menu_context' => false,
+            'disabled' => false,
         ));
 
         $resolver->setAllowedTypes('open_on_hover', array('null', 'bool'));
@@ -129,6 +131,7 @@ class SidebarType extends AbstractType
         $resolver->setAllowedTypes('disable_keyboard', array('null', 'bool'));
         $resolver->setAllowedTypes('with_icons', 'bool');
         $resolver->setAllowedTypes('menu_context', 'bool');
+        $resolver->setAllowedTypes('disabled', 'bool');
 
         $resolver->setAllowedValues('force_toggle', array(false, true, 'always'));
         $resolver->setAllowedValues('style', array('default', 'inverse'));

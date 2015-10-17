@@ -9,7 +9,7 @@
 
     {%- set attr = attr|merge({'class': ('sidebar sidebar-' ~ style ~ ' ' ~ attr.class|default(''))|trim}) -%}
 
-    {%- if opened or locked -%}
+    {%- if not(disabled) and (opened or locked) -%}
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-open-init')|trim}) -%}
     {%- endif -%}
 
@@ -31,6 +31,10 @@
 
     {%- if fixed_top -%}
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-fixed-top')|trim}) -%}
+    {%- endif -%}
+
+    {%- if disabled -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-disabled')|trim}) -%}
     {%- endif -%}
 
     {%- spaceless -%}
