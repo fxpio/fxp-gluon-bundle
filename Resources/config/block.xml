@@ -65,6 +65,10 @@
             <argument>button</argument>
         </service>
 
+        <service id="sonatra_gluon.block.type.button_navbar" class="Sonatra\Bundle\GluonBundle\Block\Type\ButtonNavbarType">
+            <tag name="sonatra_block.type" alias="button_navbar" />
+        </service>
+
         <service id="sonatra_gluon.block.type_extension.label" class="Sonatra\Bundle\GluonBundle\Block\Extension\LabelExtension">
             <tag name="sonatra_block.type_extension" alias="label" />
         </service>
