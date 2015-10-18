@@ -78,6 +78,7 @@ packages:
             - "js/resizing-textarea.js"
             - "js/table-pager-default.js"
             - "js/sidebar-context.js"
+            - "js/navbar-sidebar.js"
             - "js/ios-shrink.js"
             - "js/footable-destroy.js"
     @bower/sonatra-theme-gluon-pjax:
@@ -104,6 +105,7 @@ packages:
             - "js/components/sonatra-gluon-floating-label.js"
             - "js/components/sonatra-gluon-resizing-textarea.js"
             - "js/components/sonatra-gluon-sidebar-context.js"
+            - "js/components/sonatra-gluon-navbar-sidebar.js"
     sonatra_bootstrap_bundle:
         patterns:
             - "!assetic/less/bootstrap.less"
