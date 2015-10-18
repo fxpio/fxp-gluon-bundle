@@ -191,11 +191,8 @@
 
         {{- block('base2_collection_widget') -}}
 
-        {%- inline_script position='pjax_content' -%}
+        {%- inline_script -%}
         <script>
-            $(document).appPjax('addRegister', function () {
-                {{- block('collection_widget_content_js') -}}
-            });
             $(document).appPjax('addUnregister', function () {
                 {%- if btn_add is defined and prototype is defined -%}
                     $('#{{ btn_add.vars.id }}').off('click.st.bootstrap');
@@ -248,14 +245,11 @@
     {%- set attr = attr|merge({'data-select2-jquery-scroller': 'true', 'data-select2-responsive': 'true'}) -%}
     {{- block('base_select2_widget_content') -}}
 
-    {%- inline_script position='pjax_content' -%}
+    {%- inline_script -%}
     <script>
-        $(document).appPjax('addRegister', function () {
-            {{- block('select2_widget_content_js') -}}
-        });
         $(document).appPjax('addUnregister', function () {
-            $( '#{{ id }}' ).off('change.sonatra_select2');
-            $( '#{{ id }}' ).select2('destroy');
+            $('#{{ id }}').off('change.sonatra_select2');
+            $('#{{ id }}').select2('destroy');
         });
     </script>
     {%- endinline_script -%}

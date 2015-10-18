@@ -62,3 +62,11 @@
     </div>
 
 {%- endblock body -%}
+
+{%- block javascript_global -%}
+    <script>
+        $(window).load(function() {
+            $(document).appPjax('executeMainScripts');
+        });
+    </script>
+{%- endblock javascript_global -%}

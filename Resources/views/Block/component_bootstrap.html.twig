@@ -194,14 +194,6 @@
         {%- inline_script -%}
         <script>
             $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
-        </script>
-        {%- endinline_script -%}
-
-        {%- inline_script position='pjax_content' -%}
-        <script>
-            $(document).appPjax('addRegister', function () {
-                $( '#{{ id }}' ).footable({{ footable_options|json_encode|raw }});
-            });
             $(document).appPjax('addUnregister', function () {
                 window.destroyFootable('#{{ id }}');
             });

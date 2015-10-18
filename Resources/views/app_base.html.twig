@@ -14,7 +14,7 @@
     <script>
         window.pjaxMainScripts = undefined === window.pjaxMainScripts ? [] : window.pjaxMainScripts;
         window.pjaxMainScripts.push(function() {
-            {{- inlineScriptsPosition('pjax_content') -}}
+            {{- inlineScriptsPosition() -}}
         });
     </script>
 {%- endblock body_main -%}

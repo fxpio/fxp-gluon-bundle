@@ -1,13 +1,10 @@
 {% block extension_tooltip_javascript -%}
     {{ block('base2_extension_tooltip_javascript') }}
     {%- if tooltip_id is defined -%}
-        {%- inline_script position='pjax_content' -%}
+        {%- inline_script -%}
         <script>
-            $(document).appPjax('addRegister', function (appPjax) {
-                $('#{{ tooltip_id }}', appPjax.$container).tooltip();
-            });
             $(document).appPjax('addUnregister', function (appPjax) {
-                $('#{{ tooltip_id }}', appPjax.$container).tooltip('destroy');
+                $('#{{ tooltip_id }}').tooltip('destroy');
             });
         </script>
         {%- endinline_script -%}
@@ -18,13 +15,10 @@
 {% block extension_popover_javascript -%}
     {{ block('base2_extension_popover_javascript') }}
     {%- if popover_id is defined -%}
-        {%- inline_script position='pjax_content' -%}
+        {%- inline_script -%}
         <script>
-            $(document).appPjax('addRegister', function (appPjax) {
-                $('#{{ popover_id }}', appPjax.$container).popover();
-            });
-            $(document).appPjax('addUnregister', function (appPjax) {
-                $('#{{ popover_id }}', appPjax.$container).popover('destroy');
+            $(document).appPjax('addUnregister', function () {
+                $('#{{ popover_id }}').popover('destroy');
             });
         </script>
         {%- endinline_script -%}
@@ -35,12 +29,9 @@
 {% block extension_scroll_spy_javascript -%}
     {{ block('base2_extension_scroll_spy_javascript') }}
     {%- if scroll_spy is defined -%}
-        {%- inline_script position='pjax_content' -%}
+        {%- inline_script -%}
         <script>
-            $(document).appPjax('addRegister', function (appPjax) {
-                $('{{ scroll_spy.on }}', appPjax.$container).scrollspy({ target: '#{{ scroll_spy.target }}'{% if scroll_spy.offset is not null %}, offset: {{ scroll_spy.offset }}{% endif %} });
-            });
-            $(document).appPjax('addUnregister', function (appPjax) {
+            $(document).appPjax('addUnregister', function () {
                 var spy = $('{{ scroll_spy.on }}').data('bs.scrollspy');
                 spy.$scrollElement.off('scroll.bs.scrollspy', $.proxy(spy.process, spy));
             });
