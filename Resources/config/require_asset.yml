@@ -1,4 +1,7 @@
 packages:
+    @bower/jquery-pjax:
+        patterns:
+            - "jquery.pjax.js"
     @bower/font-awesome:
         patterns:
             - "css/font-awesome.css"
@@ -106,6 +109,9 @@ packages:
             - "js/components/sonatra-gluon-resizing-textarea.js"
             - "js/components/sonatra-gluon-sidebar-context.js"
             - "js/components/sonatra-gluon-navbar-sidebar.js"
+    doctrine_bundle:
+        patterns:
+            - !*
     sonatra_bootstrap_bundle:
         patterns:
             - "!assetic/less/bootstrap.less"
