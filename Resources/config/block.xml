@@ -248,5 +248,11 @@
             <tag name="sonatra_block.type_extension" alias="fab_dropdown_item" />
             <argument>fab_dropdown_item</argument>
         </service>
+
+        <service id="sonatra_gluon.block.type_extension.headroom.fab" class="Sonatra\Bundle\GluonBundle\Block\Extension\HeadroomExtension">
+            <tag name="sonatra_block.type_extension" alias="fab" />
+            <argument>fab</argument>
+            <argument>btn_group_attr</argument>
+        </service>
     </services>
 </container>

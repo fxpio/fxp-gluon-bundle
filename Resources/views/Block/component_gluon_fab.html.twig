@@ -4,7 +4,8 @@
 
     {%- if absolute_position is not empty -%}
         {%- if dropdown is not defined -%}
-            <div class="btn-group btn-group-fab-{{ absolute_position }}">
+            {%- set btn_group_attr = btn_group_attr|default({})|merge({'class': ('btn-group btn-group-fab-' ~ absolute_position ~ ' ' ~ btn_group_attr.class|default(''))|trim}) -%}
+            <div{% for attrname, attrvalue in btn_group_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
         {%- else -%}
             {%- set btn_group_attr = btn_group_attr|default({})|merge({'class': (btn_group_attr.class|default('') ~ ' btn-group-fab-' ~ absolute_position)|trim}) -%}
         {%- endif -%}
