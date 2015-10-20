@@ -2,6 +2,9 @@ packages:
     @bower/jquery-pjax:
         patterns:
             - "jquery.pjax.js"
+    @bower/headroom.js:
+        patterns:
+            - "dist/headroom.js"
     @bower/font-awesome:
         patterns:
             - "css/font-awesome.css"
@@ -84,6 +87,7 @@ packages:
             - "js/navbar-sidebar.js"
             - "js/ios-shrink.js"
             - "js/footable-destroy.js"
+            - "js/jquery-headroom.js"
     @bower/sonatra-theme-gluon-pjax:
         patterns:
             - "js/app-pjax.js"
@@ -101,6 +105,7 @@ packages:
             - "js/components/sonatra-jquery-table-pager.js"
             - "js/components/sonatra-jquery-table-pager-footable.js"
             - "js/components/sonatra-jquery-table-select.js"
+            - "js/components/sonatra-jquery-headroom.js"
             - "js/components/sonatra-bootstrap-nav-scroll.js"
             - "js/components/sonatra-bootstrap-panel-collapse.js"
             - "js/components/sonatra-select2-responsive.js"

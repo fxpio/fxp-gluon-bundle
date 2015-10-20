@@ -21,6 +21,11 @@
             <tag name="sonatra_block.type_extension" alias="navbar" />
         </service>
 
+        <service id="sonatra_gluon.block.type_extension.headroom.navbar" class="Sonatra\Bundle\GluonBundle\Block\Extension\HeadroomExtension">
+            <tag name="sonatra_block.type_extension" alias="navbar" />
+            <argument>navbar</argument>
+        </service>
+
         <service id="sonatra_gluon.block.type.lookup" class="Sonatra\Bundle\GluonBundle\Block\Type\LookupType">
             <argument type="service" id="router" />
             <argument type="service" id="property_accessor"/>
