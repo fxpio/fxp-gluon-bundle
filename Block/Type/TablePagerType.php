@@ -15,6 +15,7 @@ use Sonatra\Bundle\AjaxBundle\AjaxEvents;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Sonatra\Bundle\GluonBundle\Event\GetAjaxTableEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -96,6 +97,18 @@ class TablePagerType extends AbstractType
             )),
         ));
 
+        if (null !== $options['affix_target']) {
+            BlockUtil::addAttribute($view, 'data-affix-target', $options['affix_target']);
+        }
+
+        if (null !== $options['affix_min_height']) {
+            BlockUtil::addAttribute($view, 'data-affix-min-height', $options['affix_min_height']);
+        }
+
+        if (null !== $options['affix_class']) {
+            BlockUtil::addAttribute($view, 'data-affix-class', $options['affix_class']);
+        }
+
         foreach ($source->getColumns() as $child) {
             /* @var BlockInterface $child */
             if ($child->getOption('sortable')) {
@@ -123,6 +136,9 @@ class TablePagerType extends AbstractType
             'route_parameters' => array(),
             'route_reference_type' => RouterInterface::ABSOLUTE_PATH,
             'multi_sortable' => false,
+            'affix_target' => null,
+            'affix_min_height' => null,
+            'affix_class' => null,
         ));
 
         $resolver->addAllowedTypes('locale', 'string');
