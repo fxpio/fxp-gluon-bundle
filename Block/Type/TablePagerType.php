@@ -85,6 +85,7 @@ class TablePagerType extends AbstractType
             'source' => $source,
             'attr' => array_replace($view->vars['attr'], array(
                 'data-table-pager' => 'true',
+                'data-table-id' => $view->parent->vars['id'],
                 'data-locale' => $source->getLocale(),
                 'data-page-size' => $source->getPageSize(),
                 'data-page-number' => $source->getPageNumber(),
@@ -115,11 +116,6 @@ class TablePagerType extends AbstractType
                 $view->vars['attr']['data-sortable'] = 'true';
                 break;
             }
-        }
-
-        if (array_key_exists('data-table-select', $view->parent->vars['attr'])
-                && 'true' === $view->parent->vars['attr']['data-table-select']) {
-            $view->vars['attr']['data-table-id'] = $view->parent->vars['id'];
         }
     }
 
