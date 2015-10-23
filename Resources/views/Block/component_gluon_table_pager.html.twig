@@ -10,6 +10,8 @@
     {%- set btnNextPageStyle = btnNextPageStyle|default('fa fa-angle-double-right') -%}
     {%- set btnEndPageStyle = btnEndPageStyle|default('fa fa-step-forward') -%}
     {%- set btnRefreshStyle = btnRefreshStyle|default('fa fa-refresh') -%}
+    {%- set selectCountStyle = selectCountStyle|default('fa-wrap') -%}
+    {%- set selectClearStyle = selectClearStyle|default('fa fa-times') -%}
 
     {%- spaceless -%}
         <div{{ block('widget_container_attributes') }}>
@@ -56,8 +58,8 @@
                         {%- require_script '@bower/sonatra-jquery-table-select/js/table-select.js' -%}
 
                         <div class="btn-group">
-                            <span class="btn btn-{{ block.parent.vars.column_selection_stype|default('accent') }} table-select-count disabled"></span>
-                            <button class="btn btn-{{ block.parent.vars.column_selection_stype|default('accent') }} table-select-clear fa fa-times"></button>
+                            <span class="btn btn-{{ block.parent.vars.column_selection_stype|default('default') }} table-select-count disabled {{ selectCountStyle }}"></span>
+                            <button class="btn btn-{{ block.parent.vars.column_selection_stype|default('accent') }} table-select-clear {{ selectClearStyle }}"></button>
                         </div>
                     {%- endif -%}
                 </div>
