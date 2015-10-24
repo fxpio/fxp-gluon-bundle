@@ -24,6 +24,21 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class TableColumnPagerExtension extends AbstractTypeExtension
 {
     /**
+     * @var string
+     */
+    protected $extendedType;
+
+    /**
+     * Constructor.
+     *
+     * @param string $extendedType The extended block type
+     */
+    public function __construct($extendedType = 'table_column')
+    {
+        $this->extendedType = $extendedType;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function buildView(BlockView $view, BlockInterface $block, array $options)
@@ -62,6 +77,6 @@ class TableColumnPagerExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'table_column';
+        return $this->extendedType;
     }
 }

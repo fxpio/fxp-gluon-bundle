@@ -228,6 +228,27 @@
             <argument>%sonatra_gluon.block.resource.content_formatter%</argument>
         </service>
 
+        <service id="sonatra_gluon.block.type.table_list" class="Sonatra\Bundle\GluonBundle\Block\Type\TableListType">
+            <tag name="sonatra_block.type" alias="table_list" />
+        </service>
+
+        <service id="sonatra_gluon.block.type.table_column_list_adapter" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnListAdapterType">
+            <tag name="sonatra_block.type" alias="table_column_list_adapter" />
+        </service>
+
+        <service id="sonatra_gluon.block.type.table_column_list_sort" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnListSortableType">
+            <tag name="sonatra_block.type" alias="table_column_list_sort" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.table_column_list_sort" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnExtension">
+            <tag name="sonatra_block.type_extension" alias="table_column_list_sort" />
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.table_column_list_sort_pager" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnPagerExtension">
+            <tag name="sonatra_block.type_extension" alias="table_column_list_sort" />
+            <argument>table_column_list_sort</argument>
+        </service>
+
         <service id="sonatra_gluon.block.type.spinner" class="Sonatra\Bundle\GluonBundle\Block\Type\SpinnerType">
             <tag name="sonatra_block.type" alias="spinner" />
         </service>

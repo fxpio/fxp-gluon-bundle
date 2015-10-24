@@ -10,6 +10,7 @@
     {%- set btnNextPageStyle = btnNextPageStyle|default('fa fa-angle-double-right') -%}
     {%- set btnEndPageStyle = btnEndPageStyle|default('fa fa-step-forward') -%}
     {%- set btnRefreshStyle = btnRefreshStyle|default('fa fa-refresh') -%}
+    {%- set btnSortListStyle = btnSortListStyle|default('fa fa-sort-amount-asc') -%}
     {%- set selectCountStyle = selectCountStyle|default('fa-wrap') -%}
     {%- set selectClearStyle = selectClearStyle|default('fa fa-times') -%}
 
@@ -40,6 +41,13 @@
                     </div>
                 </div>
                 <div class="table-pager-group group2">
+                    {%- if sort_columns is defined -%}
+                        <div class="btn-group">
+                            <button type="button" disabled="disabled" class="table-pager-list-sort btn btn-default {{ btnSortListStyle}}" data-toggle="dropdown"></button>
+                            {{- sblock(sort_columns) -}}
+                        </div>
+                    {%- endif -%}
+
                     <div class="btn-group">
                         <button type="button" disabled="disabled" class="table-pager-refresh btn btn-default {{ btnRefreshStyle }}"></button>
                     </div>
