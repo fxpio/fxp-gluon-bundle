@@ -30,7 +30,7 @@
         {%- endif -%}
 
         {%- set form_widget_simple_before_content -%}
-            <div class="floating-group{% if addon_attr is not defined and errors|length > 0 %} has-error{% endif %}">
+            <div class="floating-group{% if errors|length > 0 %} has-error{% endif %}">
         {%- endset -%}
 
         {%- set form_widget_simple_after_content -%}
