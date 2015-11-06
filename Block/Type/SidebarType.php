@@ -114,6 +114,8 @@ class SidebarType extends AbstractType
             'with_icons' => false,
             'menu_context' => false,
             'disabled' => false,
+            'selection' => null,
+            'context_selection' => null,
         ));
 
         $resolver->setAllowedTypes('open_on_hover', array('null', 'bool'));
@@ -132,6 +134,8 @@ class SidebarType extends AbstractType
         $resolver->setAllowedTypes('with_icons', 'bool');
         $resolver->setAllowedTypes('menu_context', 'bool');
         $resolver->setAllowedTypes('disabled', 'bool');
+        $resolver->setAllowedTypes('selection', array('null', 'string'));
+        $resolver->setAllowedTypes('context_selection', array('null', 'string'));
 
         $resolver->setAllowedValues('force_toggle', array(false, true, 'always'));
         $resolver->setAllowedValues('style', array('default', 'inverse'));

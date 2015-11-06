@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,6 +25,32 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class SidebarItemType extends AbstractType
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
+    {
+        $isContext = $block->getOption('context_menu');
+
+        if (BlockUtil::isValidBlock('sidebar', $parent)) {
+            $sidebar = $parent;
+        } elseif (BlockUtil::isValidBlock('sidebar_group', $parent) && null !== $parent->getParent()
+                && BlockUtil::isValidBlock('sidebar', $parent->getParent())) {
+            $sidebar = $parent->getParent();
+            $isContext = $isContext || $parent->getOption('context_menu');
+        } else {
+            return;
+        }
+
+        if (null !== ($selection = $sidebar->getOption('selection'))) {
+            $block->setOption('active', $block->getOption('data_item') === $selection);
+        }
+
+        if ($isContext && null !== ($contextSelection = $sidebar->getOption('context_selection'))) {
+            $block->setOption('active', $block->getOption('data_item') === $contextSelection);
+        }
+    }
+
     /**
      * {@inheritdoc}
      */
