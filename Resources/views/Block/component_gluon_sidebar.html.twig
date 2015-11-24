@@ -55,7 +55,7 @@
 
     {%- spaceless -%}
         <li{{ block('widget_container_attributes') }}>
-            {{- label }}
+            {{- label|block_trans({}, translation_domain) -}}
             {{- value|raw -}}
             {{- block('block_rows') -}}
         </li>
@@ -73,7 +73,7 @@
     {%- spaceless -%}
     <li{{ block('widget_container_attributes') }}>
         <span{% for attrname, attrvalue in group_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
-            {{- label }}
+            {{- label|block_trans({}, translation_domain) -}}
             {{- value|raw -}}
         </span>
         <ul class="sidebar-group-menu">
@@ -110,7 +110,7 @@
     {%- spaceless -%}
         <li{{ block('widget_container_attributes') }}>
             <a{% for attrname, attrvalue in link_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
-                {{- label }}
+                {{- label|block_trans({}, translation_domain) -}}
                 {{- value|raw -}}
                 {{- block('block_rows') -}}
             </a>

@@ -95,6 +95,7 @@ class TableListType extends AbstractType
             foreach ($sortColumns as $sortColumn) {
                 $colOptions = array(
                     'label' => $sortColumn->vars['label'],
+                    'translation_domain' => $sortColumn->vars['translation_domain'],
                     'link_attr' => array_replace($sortColumn->vars['label_attr'], array(
                         'data-col-name' => $sortColumn->vars['name'],
                     )),

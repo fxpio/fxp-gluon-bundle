@@ -21,7 +21,7 @@
 
 {% block navbar_header_toggle_button -%}
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#{{ collapse_id }}">
-        <span class="sr-only">{{ label }}</span>
+        <span class="sr-only">{{ label|block_trans({}, translation_domain) }}</span>
         <i class="fa fa-navbar-toggle"></i>
     </button>
 {%- endblock navbar_header_toggle_button %}

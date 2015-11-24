@@ -50,12 +50,12 @@
 
     <li{{ block('widget_container_attributes') }}>
         <a{% for attrname, attrvalue in link_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
-        {{- label -}}
+        {{- label|block_trans({}, translation_domain) -}}
         {{- value|raw -}}
         {{- block('block_rows') -}}
         </a>
         {%- if fab_label is not null -%}
-            <span class="fab-label">{{ fab_label }}</span>
+            <span class="fab-label">{{ fab_label|block_trans({}, translation_domain) }}</span>
         {%- endif -%}
     </li>
 {%- endblock fab_dropdown_item_widget %}
