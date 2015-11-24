@@ -44,7 +44,7 @@
                     {%- if sort_columns is defined -%}
                         <div class="btn-group">
                             <button type="button" disabled="disabled" class="table-pager-list-sort btn btn-default {{ btnSortListStyle}}" data-toggle="dropdown"></button>
-                            {{- sblock(sort_columns) -}}
+                            {%- sblock sort_columns :-%}
                         </div>
                     {%- endif -%}
 

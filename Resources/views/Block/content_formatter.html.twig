@@ -16,10 +16,10 @@
         {%- endif -%}
     {%- endif -%}
 
-    {{- sblock('link', link_options) -}}
+    {%- sblock 'link' link_options :-%}
 {%- endblock table_column_link_content %}
 
 
 {% block table_column_select_content -%}
-    {{- sblock('form_checkbox', options) -}}
+    {%- sblock 'form_checkbox' options :-%}
 {%- endblock table_column_select_content %}
