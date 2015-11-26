@@ -5,6 +5,10 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <service id="sonatra_gluon.form.type_extension.choice" class="Sonatra\Bundle\GluonBundle\Form\Extension\ChoiceExtension">
+            <tag name="form.type_extension" alias="choice" />
+        </service>
+
         <service id="sonatra_gluon.form.type_extension.button" class="Sonatra\Bundle\GluonBundle\Form\Extension\ButtonExtension">
             <tag name="form.type_extension" alias="button" />
         </service>
