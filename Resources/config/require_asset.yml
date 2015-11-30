@@ -117,6 +117,9 @@ packages:
     doctrine_bundle:
         patterns:
             - !*
+    swiftmailer_bundle:
+        patterns:
+            - !views/*
     sonatra_bootstrap_bundle:
         patterns:
             - "!assetic/less/bootstrap.less"
