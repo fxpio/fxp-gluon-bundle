@@ -130,7 +130,7 @@ class TablePagerType extends AbstractType
             'page_number' => null,
             'route' => null,
             'route_parameters' => array(),
-            'route_reference_type' => RouterInterface::ABSOLUTE_PATH,
+            'route_reference_type' => (bool) RouterInterface::ABSOLUTE_PATH,
             'multi_sortable' => false,
             'affix_target' => null,
             'affix_min_height' => null,
