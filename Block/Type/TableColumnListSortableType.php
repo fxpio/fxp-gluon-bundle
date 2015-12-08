@@ -31,7 +31,7 @@ class TableColumnListSortableType extends AbstractType
      */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock('table_list', $parent)) {
+        if (!BlockUtil::isValidBlock(TableListType::class, $parent)) {
             $msg = 'The "table_column_list_sort" parent block (name: "%s") must be a "table_list" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }
@@ -76,7 +76,7 @@ class TableColumnListSortableType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'table_column_list_sort';
     }

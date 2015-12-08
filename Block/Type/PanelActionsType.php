@@ -16,6 +16,8 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelHeaderType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -30,7 +32,7 @@ class PanelActionsType extends AbstractType
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock('button', $child)) {
+        if (BlockUtil::isValidBlock(ButtonType::class, $child)) {
             $child->setOption('size', 'xs');
         }
     }
@@ -40,7 +42,7 @@ class PanelActionsType extends AbstractType
      */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock(array('panel_header', 'panel_section'), $parent)) {
+        if (!BlockUtil::isValidBlock(array(PanelHeaderType::class, PanelSectionType::class), $parent)) {
             $msg = 'The "panel_actions" parent block (name: "%s") must be a "panel_header" or "panel_section" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }
@@ -82,7 +84,7 @@ class PanelActionsType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'panel_actions';
     }

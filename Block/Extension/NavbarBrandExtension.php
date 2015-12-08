@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\NavbarBrandType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -50,6 +51,6 @@ class NavbarBrandExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'navbar_brand';
+        return NavbarBrandType::class;
     }
 }

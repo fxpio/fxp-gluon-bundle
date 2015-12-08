@@ -18,6 +18,8 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\TableHeaderType;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\TableType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -38,11 +40,13 @@ class TableListType extends AbstractType
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock(array('table_column_list_sort'), $child)) {
+        if (BlockUtil::isValidBlock(array(TableColumnListSortableType::class), $child)) {
             $block->getData()->addColumn($child);
-        } elseif (!BlockUtil::isValidBlock(array('table_header', 'table_column_select', 'table_pager', 'table_column_list_adapter'), $child)) {
-            $msg = 'The "table_list" child block (name: "%s") must be a "table_column_list_adapter" or "table_column_list_sort" block type ("%s" type given)';
-            throw new InvalidConfigurationException(sprintf($msg, $child->getName(), $child->getConfig()->getType()->getName()));
+        } elseif (!BlockUtil::isValidBlock(array(TableHeaderType::class, TableColumnSelectType::class, TablePagerType::class, TableColumnListAdapterType::class), $child)) {
+            $msg = 'The "%s" child block (name: "%s") must be a "%s" or "%s" block type ("%s" type given)';
+            throw new InvalidConfigurationException(sprintf($msg, get_class($block->getConfig()->getType()->getInnerType()),
+                $child->getName(), TableColumnListAdapterType::class, TableColumnListSortableType::class,
+                get_class($child->getConfig()->getType()->getInnerType())));
         }
     }
 
@@ -51,7 +55,7 @@ class TableListType extends AbstractType
      */
     public function removeChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock(array('table_column_list_sort'), $child)) {
+        if (!BlockUtil::isValidBlock(TableColumnListSortableType::class, $child)) {
             $block->getData()->removeColumn($child->getName());
         }
     }
@@ -126,13 +130,13 @@ class TableListType extends AbstractType
      */
     public function getParent()
     {
-        return 'table';
+        return TableType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'table_list';
     }

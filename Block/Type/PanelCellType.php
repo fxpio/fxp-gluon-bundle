@@ -73,7 +73,7 @@ class PanelCellType extends AbstractType
      */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock(array('panel_section', 'panel_row'), $parent)) {
+        if (!BlockUtil::isValidBlock(array(PanelSectionType::class, PanelRowType::class), $parent)) {
             $msg = 'The "panel_cell" parent block (name: "%s") must be a "panel_section" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }
@@ -230,7 +230,7 @@ class PanelCellType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'panel_cell';
     }

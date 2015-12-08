@@ -12,7 +12,9 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FieldType;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
@@ -89,7 +91,7 @@ class AddonExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'field';
+        return FieldType::class;
     }
 
     /**
@@ -103,7 +105,7 @@ class AddonExtension extends AbstractTypeExtension
         if (is_string($addon)) {
             return null !== $type ? $type : 'addon';
         } elseif ($addon instanceof BlockInterface) {
-            if (null === $type && BlockUtil::isValidBlock('button', $addon)) {
+            if (null === $type && BlockUtil::isValidBlock(ButtonType::class, $addon)) {
                 $type = 'btn';
             }
 

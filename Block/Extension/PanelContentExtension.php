@@ -26,16 +26,16 @@ class PanelContentExtension extends AbstractTypeExtension
     /**
      * @var string
      */
-    protected $type;
+    protected $extendedType;
 
     /**
      * Constructor.
      *
-     * @param string $type
+     * @param string $extendedType The extended block type
      */
-    public function __construct($type)
+    public function __construct($extendedType)
     {
-        $this->type = $type;
+        $this->extendedType = $extendedType;
     }
 
     /**
@@ -75,6 +75,6 @@ class PanelContentExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'panel_'.$this->type;
+        return $this->extendedType;
     }
 }

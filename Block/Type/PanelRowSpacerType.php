@@ -47,13 +47,13 @@ class PanelRowSpacerType extends AbstractType
      */
     public function getParent()
     {
-        return 'panel_row';
+        return PanelRowType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'panel_row_spacer';
     }

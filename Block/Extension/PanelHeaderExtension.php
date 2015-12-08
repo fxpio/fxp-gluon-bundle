@@ -15,6 +15,8 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelHeaderType;
+use Sonatra\Bundle\GluonBundle\Block\Type\PanelActionsType;
 
 /**
  * Panel Header Block Extension.
@@ -28,7 +30,7 @@ class PanelHeaderExtension extends AbstractTypeExtension
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock('panel_actions', $child)) {
+        if (BlockUtil::isValidBlock(PanelActionsType::class, $child)) {
             if ($block->getAttribute('already_actions')) {
                 $actions = $block->get($block->getAttribute('already_actions'));
 
@@ -65,6 +67,6 @@ class PanelHeaderExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'panel_header';
+        return PanelHeaderType::class;
     }
 }

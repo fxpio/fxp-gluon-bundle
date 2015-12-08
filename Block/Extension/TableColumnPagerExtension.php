@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\TableColumnType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -33,7 +34,7 @@ class TableColumnPagerExtension extends AbstractTypeExtension
      *
      * @param string $extendedType The extended block type
      */
-    public function __construct($extendedType = 'table_column')
+    public function __construct($extendedType = TableColumnType::class)
     {
         $this->extendedType = $extendedType;
     }

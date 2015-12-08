@@ -12,6 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 /**
  * Toggle Form Type.
@@ -25,13 +26,13 @@ class ToggleType extends AbstractType
      */
     public function getParent()
     {
-        return 'checkbox';
+        return CheckboxType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'toggle';
     }

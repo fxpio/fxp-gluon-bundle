@@ -16,7 +16,12 @@ use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\BlockType;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FormType;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
+use Symfony\Component\Form\Extension\Core\Type\ButtonType as FormButtonType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -47,7 +52,7 @@ class PanelButtonsType extends AbstractType
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
         // scrollable
-        if (BlockUtil::isValidBlock('nav_scrollable', $child)) {
+        if (BlockUtil::isValidBlock(NavScrollableType::class, $child)) {
             if ($block->getAttribute('already_nav_scrollable')) {
                 $navScrollable = $block->get($block->getAttribute('already_nav_scrollable'));
 
@@ -66,7 +71,9 @@ class PanelButtonsType extends AbstractType
             $child->setOption('attr', $attr);
 
         // button
-        } elseif (BlockUtil::isValidBlock(array('button', 'form', 'form_button', 'form_submit'), $child)) {
+        } elseif (BlockUtil::isValidBlock(ButtonType::class, $child)
+                || (BlockUtil::isValidBlock(FormType::class, $child)
+                    && in_array($child->getOption('type'), array(FormButtonType::class, SubmitType::class)))) {
             $parent = $this->findParentButtons($block);
 
             if ($parent !== $block) {
@@ -124,7 +131,7 @@ class PanelButtonsType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'panel_buttons';
     }
@@ -147,10 +154,10 @@ class PanelButtonsType extends AbstractType
         if ($block->getOption('scrollable')) {
             /* @var BlockInterface $block */
             foreach ($block->all() as $child) {
-                if (BlockUtil::isValidBlock('nav_scrollable', $child)) {
+                if (BlockUtil::isValidBlock(NavScrollableType::class, $child)) {
                     /* @var BlockInterface $child */
                     foreach ($child->all() as $subChild) {
-                        if (BlockUtil::isValidBlock('block', $subChild)) {
+                        if (BlockUtil::isValidBlock(BlockType::class, $subChild)) {
                             $parent = $subChild;
                             break;
                             break;

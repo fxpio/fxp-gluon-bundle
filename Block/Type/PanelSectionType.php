@@ -17,6 +17,8 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\HeadingType;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -54,7 +56,7 @@ class PanelSectionType extends AbstractType
      */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock('panel', $parent)) {
+        if (!BlockUtil::isValidBlock(PanelType::class, $parent)) {
             $msg = 'The "panel_section" parent block (name: "%s") must be a "panel" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }
@@ -65,12 +67,12 @@ class PanelSectionType extends AbstractType
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock('heading', $child)) {
+        if (BlockUtil::isValidBlock(HeadingType::class, $child)) {
             if ($block->has('_heading')) {
                 $msg = 'The panel section block "%s" has already panel section title. Removes the label option of the panel section block.';
                 throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
             }
-        } elseif (BlockUtil::isValidBlock('panel_actions', $child)) {
+        } elseif (BlockUtil::isValidBlock(PanelActionsType::class, $child)) {
             if ($block->getAttribute('already_actions')) {
                 $actions = $block->get($block->getAttribute('already_actions'));
 
@@ -82,7 +84,7 @@ class PanelSectionType extends AbstractType
             } else {
                 $block->setAttribute('already_actions', $child->getName());
             }
-        } elseif (BlockUtil::isValidBlock('panel_row', $child)) {
+        } elseif (BlockUtil::isValidBlock(PanelRowType::class, $child)) {
             $cOptions = array();
 
             if (null !== $block->getOption('column')) {
@@ -107,7 +109,7 @@ class PanelSectionType extends AbstractType
 
             $child->setOptions($cOptions);
             $this->setLastRow($block, $child);
-        } elseif (BlockUtil::isValidBlock('panel_cell', $child)) {
+        } elseif (BlockUtil::isValidBlock(PanelCellType::class, $child)) {
             $row = $this->getLastRow($block);
             $row->add($child);
             $block->remove($child->getName());
@@ -204,7 +206,7 @@ class PanelSectionType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'panel_section';
     }
@@ -217,7 +219,7 @@ class PanelSectionType extends AbstractType
      */
     protected function setLastRow(BlockInterface $block, BlockInterface $row)
     {
-        if (!BlockUtil::isValidBlock('panel_row_spacer', $row)) {
+        if (!BlockUtil::isValidBlock(PanelRowSpacerType::class, $row)) {
             $block->setAttribute('last_row', $row->getName());
         }
     }

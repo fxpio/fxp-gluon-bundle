@@ -15,6 +15,7 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -59,7 +60,7 @@ class ButtonNavbarType extends AbstractType
             'sidebar_locked_toggle' => false,
             'home' => function (Options $options) {
                 return $options['sidebar_toggle'] || $options['sidebar_locked_toggle'];
-            }
+            },
         ));
 
         $resolver->setAllowedTypes('sidebar_toggle', 'bool');
@@ -73,13 +74,13 @@ class ButtonNavbarType extends AbstractType
      */
     public function getParent()
     {
-        return 'button';
+        return ButtonType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'button_navbar';
     }

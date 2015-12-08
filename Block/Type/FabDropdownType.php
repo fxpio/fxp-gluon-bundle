@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\DropdownType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -49,13 +50,13 @@ class FabDropdownType extends AbstractType
      */
     public function getParent()
     {
-        return 'dropdown';
+        return DropdownType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'fab_dropdown';
     }

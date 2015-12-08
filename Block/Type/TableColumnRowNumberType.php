@@ -12,6 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\TableColumnType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -46,13 +47,13 @@ class TableColumnRowNumberType extends AbstractType
      */
     public function getParent()
     {
-        return 'table_column';
+        return TableColumnType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'table_column_row_number';
     }

@@ -12,6 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -50,6 +51,6 @@ class TextareaExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'textarea';
+        return TextareaType::class;
     }
 }

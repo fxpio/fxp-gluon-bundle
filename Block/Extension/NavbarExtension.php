@@ -15,6 +15,7 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\NavbarType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -67,6 +68,6 @@ class NavbarExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'navbar';
+        return NavbarType::class;
     }
 }

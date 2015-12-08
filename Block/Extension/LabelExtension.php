@@ -12,6 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\LabelType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -34,6 +35,6 @@ class LabelExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'label';
+        return LabelType::class;
     }
 }

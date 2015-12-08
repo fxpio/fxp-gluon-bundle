@@ -15,6 +15,9 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelHeaderType;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelType;
+use Sonatra\Bundle\GluonBundle\Block\Type\PanelSectionType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -29,7 +32,7 @@ class PanelExtension extends AbstractTypeExtension
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if ($options['collapsible'] && BlockUtil::isValidBlock('panel_header', $child)) {
+        if ($options['collapsible'] && BlockUtil::isValidBlock(PanelHeaderType::class, $child)) {
             $child->add('_panel_actions', 'panel_actions', array());
             $child->get('_panel_actions')->add('_button_collapse', 'button', array(
                 'label' => '',
@@ -37,11 +40,11 @@ class PanelExtension extends AbstractTypeExtension
                 'style' => 'default',
                 'prepend' => '<span class="caret"></span>',
             ));
-        } elseif (BlockUtil::isValidBlock('panel', $child)) {
+        } elseif (BlockUtil::isValidBlock(PanelType::class, $child)) {
             if ($block->getOption('recursive_style')) {
                 $child->setOption('style', $block->getOption('style'));
             }
-        } elseif (BlockUtil::isValidBlock('panel_section', $child)) {
+        } elseif (BlockUtil::isValidBlock(PanelSectionType::class, $child)) {
             $cOptions = array();
 
             if (null !== $block->getOption('cell_label_style') && null === $child->getOption('cell_label_style')) {
@@ -173,6 +176,6 @@ class PanelExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'panel';
+        return PanelType::class;
     }
 }

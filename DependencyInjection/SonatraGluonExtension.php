@@ -82,7 +82,6 @@ class SonatraGluonExtension extends Extension
         return $inputs;
     }
 
-
     /**
      * Configure the font awesome.
      *

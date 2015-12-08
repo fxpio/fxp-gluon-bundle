@@ -15,6 +15,7 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\TableType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -67,6 +68,6 @@ class TablePagerExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'table';
+        return TableType::class;
     }
 }

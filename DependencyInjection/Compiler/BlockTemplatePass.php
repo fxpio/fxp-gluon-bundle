@@ -30,8 +30,8 @@ class BlockTemplatePass implements CompilerPassInterface
         $resources = $container->getParameter('sonatra_block.twig.resources');
         $offset = count($resources);
 
-        if (isset($configs[0]['block']['resources'])) {
-            $configResources = $configs[0]['block']['resources'];
+        if (isset($configs[0]['block_themes'])) {
+            $configResources = $configs[0]['block_themes'];
 
             $offset = array_search($configResources[count($configResources) - 1], $resources);
         }

@@ -15,6 +15,7 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -52,7 +53,7 @@ class FabType extends AbstractType
     {
         $resolver->setDefaults(array(
             'absolute_position' => null,
-            'dropup' => function(Options $options) {
+            'dropup' => function (Options $options) {
                 return in_array($options['absolute_position'], array('bottom_left', 'bottom_right'))
                     ? true
                     : false;
@@ -62,7 +63,7 @@ class FabType extends AbstractType
         $resolver->addAllowedTypes('absolute_position', array('null', 'string'));
 
         $resolver->addAllowedValues('absolute_position', array(
-            null, 'top_left', 'top_right', 'bottom_left', 'bottom_right'
+            null, 'top_left', 'top_right', 'bottom_left', 'bottom_right',
         ));
     }
 
@@ -71,13 +72,13 @@ class FabType extends AbstractType
      */
     public function getParent()
     {
-        return 'button';
+        return ButtonType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'fab';
     }

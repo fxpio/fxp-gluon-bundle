@@ -12,6 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FieldType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
@@ -33,7 +34,7 @@ class FloatingLabelExtension extends AbstractTypeExtension
      *
      * @param string $extendedType The extended block type
      */
-    public function __construct($extendedType = 'field')
+    public function __construct($extendedType = FieldType::class)
     {
         $this->extendedType = $extendedType;
     }

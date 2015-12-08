@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\ProgressBarType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -59,6 +60,6 @@ class ProgressBarExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'progress_bar';
+        return ProgressBarType::class;
     }
 }

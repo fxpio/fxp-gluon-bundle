@@ -48,7 +48,7 @@ class NavScrollableType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'nav_scrollable';
     }

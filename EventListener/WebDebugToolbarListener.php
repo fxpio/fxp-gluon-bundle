@@ -34,7 +34,7 @@ class WebDebugToolbarListener
      * Constroctor of Class.
      *
      * @param TwigEngine $templating A Twig object of template.
-     * @param String     $env        A type of environment (dev, prod, etc...).
+     * @param string     $env        A type of environment (dev, prod, etc...).
      */
     public function __construct(TwigEngine $templating, $env = self::ENV_ENABLED)
     {

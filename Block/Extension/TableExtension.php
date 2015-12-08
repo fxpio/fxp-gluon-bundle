@@ -13,6 +13,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\TableType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
@@ -73,6 +74,6 @@ class TableExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'table';
+        return TableType::class;
     }
 }

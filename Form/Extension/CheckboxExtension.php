@@ -12,6 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -52,6 +53,6 @@ class CheckboxExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return 'checkbox';
+        return CheckboxType::class;
     }
 }

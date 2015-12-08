@@ -16,6 +16,8 @@ use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelHeaderType;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -37,14 +39,14 @@ class PanelListType extends AbstractType
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock('panel', $child)) {
+        if (BlockUtil::isValidBlock(PanelType::class, $child)) {
             $panels = $block->getAttribute('panels', array());
 
             $block->remove($child->getName());
             $panels[$child->getName()] = $child;
 
             $block->setAttribute('panels', $panels);
-        } elseif (!BlockUtil::isValidBlock('panel_header', $child)) {
+        } elseif (!BlockUtil::isValidBlock(PanelHeaderType::class, $child)) {
             throw new InvalidConfigurationException('Only "panel" type child must be added into the panel list type');
         }
     }
@@ -67,13 +69,13 @@ class PanelListType extends AbstractType
      */
     public function getParent()
     {
-        return 'panel';
+        return PanelType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'panel_list';
     }

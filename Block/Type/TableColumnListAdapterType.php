@@ -15,6 +15,7 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\TableColumnType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
@@ -30,7 +31,7 @@ class TableColumnListAdapterType extends AbstractType
      */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock('table_list', $parent)) {
+        if (!BlockUtil::isValidBlock(TableListType::class, $parent)) {
             $msg = 'The "table_column_list_adapter" parent block (name: "%s") must be a "table_list" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }
@@ -62,7 +63,7 @@ class TableColumnListAdapterType extends AbstractType
         });
 
         $resolver->setNormalizer('index', function () {
-            return null;
+            return;
         });
 
         if (in_array('sortable', $resolver->getDefinedOptions())) {
@@ -77,13 +78,13 @@ class TableColumnListAdapterType extends AbstractType
      */
     public function getParent()
     {
-        return 'table_column';
+        return TableColumnType::class;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'table_column_list_adapter';
     }

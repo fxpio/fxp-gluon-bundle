@@ -30,7 +30,7 @@ class OptimizeResponseListener
     /**
      * Constroctor of Class.
      *
-     * @param String $env A type of environment (dev, prod, etc...)
+     * @param string $env A type of environment (dev, prod, etc...)
      */
     public function __construct($env = self::ENV_ENABLED)
     {

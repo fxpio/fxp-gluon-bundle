@@ -23,7 +23,7 @@ class SidebarHeaderType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'sidebar_header';
     }
