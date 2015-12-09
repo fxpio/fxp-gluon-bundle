@@ -32,7 +32,7 @@ class PanelExtension extends AbstractTypeExtension
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if ($options['collapsible'] && BlockUtil::isValidBlock(PanelHeaderType::class, $child)) {
+        if ($options['collapsible'] && BlockUtil::isBlockType($child, PanelHeaderType::class)) {
             $child->add('_panel_actions', 'panel_actions', array());
             $child->get('_panel_actions')->add('_button_collapse', 'button', array(
                 'label' => '',
@@ -40,11 +40,11 @@ class PanelExtension extends AbstractTypeExtension
                 'style' => 'default',
                 'prepend' => '<span class="caret"></span>',
             ));
-        } elseif (BlockUtil::isValidBlock(PanelType::class, $child)) {
+        } elseif (BlockUtil::isBlockType($child, PanelType::class)) {
             if ($block->getOption('recursive_style')) {
                 $child->setOption('style', $block->getOption('style'));
             }
-        } elseif (BlockUtil::isValidBlock(PanelSectionType::class, $child)) {
+        } elseif (BlockUtil::isBlockType($child, PanelSectionType::class)) {
             $cOptions = array();
 
             if (null !== $block->getOption('cell_label_style') && null === $child->getOption('cell_label_style')) {

@@ -30,7 +30,7 @@ class PanelHeaderExtension extends AbstractTypeExtension
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock(PanelActionsType::class, $child)) {
+        if (BlockUtil::isBlockType($child, PanelActionsType::class)) {
             if ($block->getAttribute('already_actions')) {
                 $actions = $block->get($block->getAttribute('already_actions'));
 

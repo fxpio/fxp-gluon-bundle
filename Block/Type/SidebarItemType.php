@@ -32,10 +32,10 @@ class SidebarItemType extends AbstractType
     {
         $isContext = $block->getOption('context_menu');
 
-        if (BlockUtil::isValidBlock(SidebarType::class, $parent)) {
+        if (BlockUtil::isBlockType($parent, SidebarType::class)) {
             $sidebar = $parent;
-        } elseif (BlockUtil::isValidBlock(SidebarGroupType::class, $parent) && null !== $parent->getParent()
-                && BlockUtil::isValidBlock(SidebarType::class, $parent->getParent())) {
+        } elseif (BlockUtil::isBlockType($parent, SidebarGroupType::class) && null !== $parent->getParent()
+                && BlockUtil::isBlockType($parent->getParent(), SidebarType::class)) {
             $sidebar = $parent->getParent();
             $isContext = $isContext || $parent->getOption('context_menu');
         } else {

@@ -56,7 +56,7 @@ class PanelSectionType extends AbstractType
      */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock(PanelType::class, $parent)) {
+        if (!BlockUtil::isBlockType($parent, PanelType::class)) {
             $msg = 'The "panel_section" parent block (name: "%s") must be a "panel" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }
@@ -67,12 +67,12 @@ class PanelSectionType extends AbstractType
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock(HeadingType::class, $child)) {
+        if (BlockUtil::isBlockType($child, HeadingType::class)) {
             if ($block->has('_heading')) {
                 $msg = 'The panel section block "%s" has already panel section title. Removes the label option of the panel section block.';
                 throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
             }
-        } elseif (BlockUtil::isValidBlock(PanelActionsType::class, $child)) {
+        } elseif (BlockUtil::isBlockType($child, PanelActionsType::class)) {
             if ($block->getAttribute('already_actions')) {
                 $actions = $block->get($block->getAttribute('already_actions'));
 
@@ -84,7 +84,7 @@ class PanelSectionType extends AbstractType
             } else {
                 $block->setAttribute('already_actions', $child->getName());
             }
-        } elseif (BlockUtil::isValidBlock(PanelRowType::class, $child)) {
+        } elseif (BlockUtil::isBlockType($child, PanelRowType::class)) {
             $cOptions = array();
 
             if (null !== $block->getOption('column')) {
@@ -109,7 +109,7 @@ class PanelSectionType extends AbstractType
 
             $child->setOptions($cOptions);
             $this->setLastRow($block, $child);
-        } elseif (BlockUtil::isValidBlock(PanelCellType::class, $child)) {
+        } elseif (BlockUtil::isBlockType($child, PanelCellType::class)) {
             $row = $this->getLastRow($block);
             $row->add($child);
             $block->remove($child->getName());
@@ -219,7 +219,7 @@ class PanelSectionType extends AbstractType
      */
     protected function setLastRow(BlockInterface $block, BlockInterface $row)
     {
-        if (!BlockUtil::isValidBlock(PanelRowSpacerType::class, $row)) {
+        if (!BlockUtil::isBlockType($row, PanelRowSpacerType::class)) {
             $block->setAttribute('last_row', $row->getName());
         }
     }

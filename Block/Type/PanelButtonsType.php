@@ -52,7 +52,7 @@ class PanelButtonsType extends AbstractType
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
         // scrollable
-        if (BlockUtil::isValidBlock(NavScrollableType::class, $child)) {
+        if (BlockUtil::isBlockType($child, NavScrollableType::class)) {
             if ($block->getAttribute('already_nav_scrollable')) {
                 $navScrollable = $block->get($block->getAttribute('already_nav_scrollable'));
 
@@ -71,8 +71,8 @@ class PanelButtonsType extends AbstractType
             $child->setOption('attr', $attr);
 
         // button
-        } elseif (BlockUtil::isValidBlock(ButtonType::class, $child)
-                || (BlockUtil::isValidBlock(FormType::class, $child)
+        } elseif (BlockUtil::isBlockType($child, ButtonType::class)
+                || (BlockUtil::isBlockType($child, FormType::class)
                     && in_array($child->getOption('type'), array(FormButtonType::class, SubmitType::class)))) {
             $parent = $this->findParentButtons($block);
 
@@ -154,10 +154,10 @@ class PanelButtonsType extends AbstractType
         if ($block->getOption('scrollable')) {
             /* @var BlockInterface $block */
             foreach ($block->all() as $child) {
-                if (BlockUtil::isValidBlock(NavScrollableType::class, $child)) {
+                if (BlockUtil::isBlockType($child, NavScrollableType::class)) {
                     /* @var BlockInterface $child */
                     foreach ($child->all() as $subChild) {
-                        if (BlockUtil::isValidBlock(BlockType::class, $subChild)) {
+                        if (BlockUtil::isBlockType($subChild, BlockType::class)) {
                             $parent = $subChild;
                             break;
                             break;

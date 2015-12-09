@@ -105,7 +105,7 @@ class AddonExtension extends AbstractTypeExtension
         if (is_string($addon)) {
             return null !== $type ? $type : 'addon';
         } elseif ($addon instanceof BlockInterface) {
-            if (null === $type && BlockUtil::isValidBlock(ButtonType::class, $addon)) {
+            if (null === $type && BlockUtil::isBlockType($addon, ButtonType::class)) {
                 $type = 'btn';
             }
 

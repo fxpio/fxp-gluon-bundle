@@ -32,7 +32,7 @@ class PanelActionsType extends AbstractType
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock(ButtonType::class, $child)) {
+        if (BlockUtil::isBlockType($child, ButtonType::class)) {
             $child->setOption('size', 'xs');
         }
     }
@@ -42,7 +42,7 @@ class PanelActionsType extends AbstractType
      */
     public function addParent(BlockInterface $parent, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock(array(PanelHeaderType::class, PanelSectionType::class), $parent)) {
+        if (!BlockUtil::isBlockType($parent, array(PanelHeaderType::class, PanelSectionType::class))) {
             $msg = 'The "panel_actions" parent block (name: "%s") must be a "panel_header" or "panel_section" block type';
             throw new InvalidConfigurationException(sprintf($msg, $block->getName()));
         }

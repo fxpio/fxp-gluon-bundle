@@ -39,14 +39,14 @@ class PanelListType extends AbstractType
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock(PanelType::class, $child)) {
+        if (BlockUtil::isBlockType($child, PanelType::class)) {
             $panels = $block->getAttribute('panels', array());
 
             $block->remove($child->getName());
             $panels[$child->getName()] = $child;
 
             $block->setAttribute('panels', $panels);
-        } elseif (!BlockUtil::isValidBlock(PanelHeaderType::class, $child)) {
+        } elseif (!BlockUtil::isBlockType($child, PanelHeaderType::class)) {
             throw new InvalidConfigurationException('Only "panel" type child must be added into the panel list type');
         }
     }

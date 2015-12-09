@@ -40,9 +40,9 @@ class TableListType extends AbstractType
      */
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (BlockUtil::isValidBlock(array(TableColumnListSortableType::class), $child)) {
+        if (BlockUtil::isBlockType($child, array(TableColumnListSortableType::class))) {
             $block->getData()->addColumn($child);
-        } elseif (!BlockUtil::isValidBlock(array(TableHeaderType::class, TableColumnSelectType::class, TablePagerType::class, TableColumnListAdapterType::class), $child)) {
+        } elseif (!BlockUtil::isBlockType($child, array(TableHeaderType::class, TableColumnSelectType::class, TablePagerType::class, TableColumnListAdapterType::class))) {
             $msg = 'The "%s" child block (name: "%s") must be a "%s" or "%s" block type ("%s" type given)';
             throw new InvalidConfigurationException(sprintf($msg, get_class($block->getConfig()->getType()->getInnerType()),
                 $child->getName(), TableColumnListAdapterType::class, TableColumnListSortableType::class,
@@ -55,7 +55,7 @@ class TableListType extends AbstractType
      */
     public function removeChild(BlockInterface $child, BlockInterface $block, array $options)
     {
-        if (!BlockUtil::isValidBlock(TableColumnListSortableType::class, $child)) {
+        if (!BlockUtil::isBlockType($child, TableColumnListSortableType::class)) {
             $block->getData()->removeColumn($child->getName());
         }
     }
