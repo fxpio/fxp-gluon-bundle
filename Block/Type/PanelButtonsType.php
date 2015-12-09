@@ -20,6 +20,7 @@ use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\BlockType;
 use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FormType;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
+use Sonatra\Bundle\FormExtensionsBundle\Form\Util\FormUtil;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType as FormButtonType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -37,8 +38,8 @@ class PanelButtonsType extends AbstractType
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
         if ($options['scrollable']) {
-            $builder->add('_nav_scrollable', 'nav_scrollable');
-            $builder->get('_nav_scrollable')->add('_navButtonGroup', 'block', array(
+            $builder->add('_nav_scrollable', NavScrollableType::class);
+            $builder->get('_nav_scrollable')->add('_navButtonGroup', BlockType::class, array(
                 'attr' => array(
                     'class' => $options['class_nav'],
                 ),
@@ -73,7 +74,7 @@ class PanelButtonsType extends AbstractType
         // button
         } elseif (BlockUtil::isBlockType($child, ButtonType::class)
                 || (BlockUtil::isBlockType($child, FormType::class)
-                    && in_array($child->getOption('type'), array(FormButtonType::class, SubmitType::class)))) {
+                    && FormUtil::isFormType($child->getForm(), array(\Symfony\Component\Form\Extension\Core\Type\FormType::class, FormButtonType::class, SubmitType::class)))) {
             $parent = $this->findParentButtons($block);
 
             if ($parent !== $block) {
@@ -81,12 +82,18 @@ class PanelButtonsType extends AbstractType
             }
 
             if (null === $child->getOption('size')) {
-                $child->setOption('size', $options['button_size']);
+                if (null !== $child->getForm() && FormUtil::isFormType($child->getForm(), \Symfony\Component\Form\Extension\Core\Type\FormType::class)) {
+                    $fOtps = $child->getOption('options');
+                    $fOtps['size'] = $options['button_size'];
+                    $child->setOption('options', $fOtps);
+                } else {
+                    $child->setOption('size', $options['button_size']);
+                }
             }
 
         // other
         } else {
-            $msg = 'The "panel_buttons" child block (name: "%s") must be a "button", "form", "form_button" or "form_submit" block type';
+            $msg = 'The "panel_buttons" child block (name: "%s") must be a "button" or "form" block type';
             throw new InvalidConfigurationException(sprintf($msg, $child->getName()));
         }
     }
