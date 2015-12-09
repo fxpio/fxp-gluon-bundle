@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "360f8d593ac4b34d30f30e5009e84f14",
-    "content-hash": "c8eb73670311f28e3aadffc53b2db4f2",
+    "hash": "daecad6a1e66fe05553b71820504b1b1",
+    "content-hash": "5664a7cea640a0f6bdd153a385e967c0",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -607,16 +607,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32"
+                "reference": "5f727f8859ceb0f6ccf5d5e73a382b501abf5d43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/a208865a5aeffc2dbbef2a5b3409887272d93f32",
-                "reference": "a208865a5aeffc2dbbef2a5b3409887272d93f32",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/5f727f8859ceb0f6ccf5d5e73a382b501abf5d43",
+                "reference": "5f727f8859ceb0f6ccf5d5e73a382b501abf5d43",
                 "shasum": ""
             },
             "require": {
@@ -651,7 +651,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-12-01 02:52:15"
+            "time": "2015-12-09 17:01:19"
         },
         {
             "name": "psr/log",
@@ -744,12 +744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBlockBundle.git",
-                "reference": "c32fafb9c68d0d92b5be8cbc1e2130ea5f8c1f2c"
+                "reference": "7ddfc2f7d55a6158b9c64f1e6da041704c5ab4f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/c32fafb9c68d0d92b5be8cbc1e2130ea5f8c1f2c",
-                "reference": "c32fafb9c68d0d92b5be8cbc1e2130ea5f8c1f2c",
+                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/7ddfc2f7d55a6158b9c64f1e6da041704c5ab4f2",
+                "reference": "7ddfc2f7d55a6158b9c64f1e6da041704c5ab4f2",
                 "shasum": ""
             },
             "require": {
@@ -795,7 +795,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2015-12-08 15:12:09"
+            "time": "2015-12-09 18:50:35"
         },
         {
             "name": "sonatra/bootstrap-bundle",
@@ -803,12 +803,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBootstrapBundle.git",
-                "reference": "0eaf5e327a203f929cb1a6aa0be40cb7eecbbdad"
+                "reference": "c7c4a4c00bda02cd07d4363b0b0c5a15c58eca67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/0eaf5e327a203f929cb1a6aa0be40cb7eecbbdad",
-                "reference": "0eaf5e327a203f929cb1a6aa0be40cb7eecbbdad",
+                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/c7c4a4c00bda02cd07d4363b0b0c5a15c58eca67",
+                "reference": "c7c4a4c00bda02cd07d4363b0b0c5a15c58eca67",
                 "shasum": ""
             },
             "require": {
@@ -862,7 +862,75 @@
                 "block",
                 "template"
             ],
-            "time": "2015-12-08 16:30:40"
+            "time": "2015-12-09 19:25:51"
+        },
+        {
+            "name": "sonatra/form-extensions-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/SonatraFormExtensionsBundle.git",
+                "reference": "012d2020d07d8a930007974d2a0babbf3fa85334"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/SonatraFormExtensionsBundle/zipball/012d2020d07d8a930007974d2a0babbf3fa85334",
+                "reference": "012d2020d07d8a930007974d2a0babbf3fa85334",
+                "shasum": ""
+            },
+            "require": {
+                "fxp/require-asset": "1.0.*@dev",
+                "fxp/require-asset-bundle": "1.0.*@dev",
+                "php": ">=5.5.0",
+                "sonatra/ajax-bundle": "1.0.*@dev",
+                "symfony/form": "~2.8|~3.0",
+                "symfony/framework-bundle": "~2.8|~3.0",
+                "symfony/serializer": "~2.8|~3.0"
+            },
+            "require-dev": {
+                "bower-asset/select2": "4.0.*",
+                "bower-asset/sonatra-jquery-datetime-picker": "1.0.*@dev",
+                "doctrine/orm": "~2.5",
+                "symfony/doctrine-bridge": "~2.8|~3.0"
+            },
+            "suggest": {
+                "fxp/composer-asset-plugin": "For manage NPM/Bower dependencies with Composer"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonatra\\Bundle\\FormExtensionsBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Pluchino",
+                    "email": "francois.pluchino@sonatra.com"
+                }
+            ],
+            "description": "Add new form types for Symfony2",
+            "homepage": "https://github.com/sonatra/SonatraFormExtensionsBundle",
+            "keywords": [
+                "ajax",
+                "date",
+                "datetime",
+                "form",
+                "hammerjs",
+                "knob",
+                "picker",
+                "select2",
+                "time"
+            ],
+            "time": "2015-12-09 19:15:53"
         },
         {
             "name": "symfony/asset",
@@ -4275,6 +4343,7 @@
         "sonatra/block-bundle": 20,
         "fxp/require-asset": 20,
         "fxp/require-asset-bundle": 20,
+        "sonatra/form-extensions-bundle": 20,
         "sonatra/bootstrap-bundle": 20,
         "sonatra/ajax-bundle": 20,
         "bower-asset/select2-bootstrap-theme": 20,
