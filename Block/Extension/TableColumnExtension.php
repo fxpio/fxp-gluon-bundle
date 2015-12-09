@@ -26,6 +26,21 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class TableColumnExtension extends AbstractTypeExtension
 {
     /**
+     * @var string
+     */
+    protected $extendedType;
+
+    /**
+     * Constructor.
+     *
+     * @param string $extendedType The extended block type
+     */
+    public function __construct($extendedType = TableColumnType::class)
+    {
+        $this->extendedType = $extendedType;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function buildView(BlockView $view, BlockInterface $block, array $options)
@@ -108,6 +123,6 @@ class TableColumnExtension extends AbstractTypeExtension
      */
     public function getExtendedType()
     {
-        return TableColumnType::class;
+        return $this->extendedType;
     }
 }
