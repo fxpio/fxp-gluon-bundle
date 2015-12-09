@@ -14,6 +14,8 @@ namespace Sonatra\Bundle\GluonBundle\Block\Extension;
 use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\TableType;
+use Sonatra\Bundle\GluonBundle\Block\Type\TableColumnRowNumberType;
+use Sonatra\Bundle\GluonBundle\Block\Type\TableColumnSelectType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
@@ -30,11 +32,11 @@ class TableExtension extends AbstractTypeExtension
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
         if ($options['row_number']) {
-            $builder->add('_row_number', 'table_column_row_number');
+            $builder->add('_row_number', TableColumnRowNumberType::class);
         }
 
         if ($options['selectable']) {
-            $builder->add('_selectable', 'table_column_select', array(
+            $builder->add('_selectable', TableColumnSelectType::class, array(
                 'multiple' => $options['multi_selectable'],
                 'selected' => $options['selected'],
             ));

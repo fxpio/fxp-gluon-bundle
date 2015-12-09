@@ -17,6 +17,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\HeadingType;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -34,15 +35,15 @@ class PanelSectionType extends AbstractType
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
         if (!BlockUtil::isEmpty($options['label'])) {
-            $builder->add('_heading', 'heading', array(
+            $builder->add('_heading', HeadingType::class, array(
                 'size' => 6,
                 'label' => $options['label'],
             ));
         }
 
         if ($options['collapsible']) {
-            $builder->add('_panel_section_actions', 'panel_actions', array());
-            $builder->get('_panel_section_actions')->add('_button_collapse', 'button', array(
+            $builder->add('_panel_section_actions', PanelActionsType::class, array());
+            $builder->get('_panel_section_actions')->add('_button_collapse', ButtonType::class, array(
                 'label' => '',
                 'attr' => array('class' => 'btn-panel-collapse'),
                 'style' => 'default',
@@ -244,7 +245,7 @@ class PanelSectionType extends AbstractType
 
         // new row
         $rowName = BlockUtil::createUniqueName();
-        $block->add($rowName, 'panel_row');
+        $block->add($rowName, PanelRowType::class);
 
         return $block->get($rowName);
     }

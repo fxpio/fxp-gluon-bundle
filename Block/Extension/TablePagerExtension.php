@@ -16,6 +16,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\TableType;
+use Sonatra\Bundle\GluonBundle\Block\Type\TablePagerType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -31,7 +32,7 @@ class TablePagerExtension extends AbstractTypeExtension
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
         if ($options['pager']) {
-            $builder->add('pager', 'table_pager', $options['pager_options']);
+            $builder->add('pager', TablePagerType::class, $options['pager_options']);
         }
     }
 

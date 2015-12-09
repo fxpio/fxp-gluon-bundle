@@ -18,6 +18,8 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\DropdownItemType;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\DropdownType;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\TableHeaderType;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\TableType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -94,7 +96,7 @@ class TableListType extends AbstractType
         if (count($sortColumns) > 0) {
             /* @var BlockFactoryInterface $factory */
             $factory = $block->getConfig()->getAttribute('block_factory');
-            $sortDropdown = $factory->create('dropdown', null, array('ripple' => true, 'wrapper' => false, 'attr' => array('class' => 'table-pager-list-sort-menu')));
+            $sortDropdown = $factory->create(DropdownType::class, null, array('ripple' => true, 'wrapper' => false, 'attr' => array('class' => 'table-pager-list-sort-menu')));
 
             foreach ($sortColumns as $sortColumn) {
                 $colOptions = array(
@@ -104,7 +106,7 @@ class TableListType extends AbstractType
                         'data-col-name' => $sortColumn->vars['name'],
                     )),
                 );
-                $sortDropdown->add($sortColumn->vars['name'], 'dropdown_item', $colOptions);
+                $sortDropdown->add($sortColumn->vars['name'], DropdownItemType::class, $colOptions);
             }
 
             $view->vars['pager']->vars['sort_columns'] = $sortDropdown;

@@ -15,8 +15,11 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FormType;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\TwigType;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\TableColumnType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
 
@@ -48,13 +51,16 @@ class TableColumnSelectType extends AbstractType
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
         if ($options['multiple']) {
-            $builder->add(BlockUtil::createUniqueName(), 'form_checkbox', array(
-                'required' => false,
-                'label' => ' ',
-                'data' => $options['selected'],
-                'style' => $options['style'],
-                'attr' => array(
-                    'data-multi-selectable-all' => 'true',
+            $builder->add(BlockUtil::createUniqueName(), FormType::class, array(
+                'type' => CheckboxType::class,
+                'options' => array(
+                    'required' => false,
+                    'label' => ' ',
+                    'data' => $options['selected'],
+                    'style' => $options['style'],
+                    'attr' => array(
+                        'data-multi-selectable-all' => 'true',
+                    ),
                 ),
             ));
         }
@@ -89,7 +95,7 @@ class TableColumnSelectType extends AbstractType
             'options' => array(),
             'max_width' => 34,
             'width' => 34,
-            'formatter' => 'twig',
+            'formatter' => TwigType::class,
             'footable' => array(
                 'ignore' => true,
             ),

@@ -16,7 +16,9 @@ use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FormType;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
@@ -60,11 +62,11 @@ class PanelCellType extends AbstractType
                 'popover' => $options['help'],
             ));
 
-            $builder->add($builder->getName().'_help', 'button', $hOpts);
+            $builder->add($builder->getName().'_help', ButtonType::class, $hOpts);
         }
 
         if (null !== $options['form_name']) {
-            $builder->add($options['form_name'], 'form', array('block_name' => $options['form_name']));
+            $builder->add($options['form_name'], FormType::class, array('block_name' => $options['form_name']));
         }
     }
 

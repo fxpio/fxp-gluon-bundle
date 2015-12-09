@@ -12,6 +12,7 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\TwigType;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\TableColumnType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\Options;
@@ -48,7 +49,7 @@ class TableColumnLinkType extends AbstractType
             'route_name' => null,
             'route_options' => array(),
             'route_absolute' => false,
-            'formatter' => 'twig',
+            'formatter' => TwigType::class,
         ));
 
         $resolver->addAllowedTypes('link_options', 'array');

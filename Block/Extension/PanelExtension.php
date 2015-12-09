@@ -15,8 +15,10 @@ use Sonatra\Bundle\BlockBundle\Block\AbstractTypeExtension;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelHeaderType;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\PanelType;
+use Sonatra\Bundle\GluonBundle\Block\Type\PanelActionsType;
 use Sonatra\Bundle\GluonBundle\Block\Type\PanelSectionType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -33,8 +35,8 @@ class PanelExtension extends AbstractTypeExtension
     public function addChild(BlockInterface $child, BlockInterface $block, array $options)
     {
         if ($options['collapsible'] && BlockUtil::isBlockType($child, PanelHeaderType::class)) {
-            $child->add('_panel_actions', 'panel_actions', array());
-            $child->get('_panel_actions')->add('_button_collapse', 'button', array(
+            $child->add('_panel_actions', PanelActionsType::class, array());
+            $child->get('_panel_actions')->add('_button_collapse', ButtonType::class, array(
                 'label' => '',
                 'attr' => array('class' => 'btn-panel-collapse'),
                 'style' => 'default',

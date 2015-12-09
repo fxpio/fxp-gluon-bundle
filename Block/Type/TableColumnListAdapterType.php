@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\TwigType;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\TableColumnType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -45,7 +46,7 @@ class TableColumnListAdapterType extends AbstractType
         $resolver->setDefaults(array(
             'resource' => null,
             'resource_block' => null,
-            'formatter' => 'twig',
+            'formatter' => TwigType::class,
         ));
 
         $resolver->setAllowedTypes('resource', 'string');
