@@ -45,6 +45,7 @@ class TableColumnLinkType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
+            'attribute' => null,
             'link_options' => array(),
             'route_name' => null,
             'route_options' => array(),
@@ -52,10 +53,19 @@ class TableColumnLinkType extends AbstractType
             'formatter' => TwigType::class,
         ));
 
+        $resolver->addAllowedTypes('attribute', array('null', 'string'));
         $resolver->addAllowedTypes('link_options', 'array');
         $resolver->addAllowedTypes('route_name', array('null', 'string'));
         $resolver->addAllowedTypes('route_options', 'array');
         $resolver->addAllowedTypes('route_absolute', 'bool');
+
+        $resolver->setNormalizer('attribute', function (Options $options, $value) {
+            if (null === $value) {
+                $value = $options['index'];
+            }
+
+            return $value;
+        });
 
         $resolver->setNormalizer('formatter_options', function (Options $options, $value) {
             $variables = isset($value['variables']) ? $value['variables'] : array();
