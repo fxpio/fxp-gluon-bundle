@@ -12,9 +12,12 @@
 namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
+use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\LinkType;
+use Sonatra\Bundle\GluonBundle\Block\DataTransformer\LookupTransformer;
+use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
@@ -51,6 +54,14 @@ class LookupType extends AbstractType
     /**
      * {@inheritdoc}
      */
+    public function buildBlock(BlockBuilderInterface $builder, array $options)
+    {
+        $builder->addViewTransformer(new LookupTransformer($options['view_property_path'], $this->propertyAccessor));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
         if (null === $block->getData()) {
@@ -58,9 +69,6 @@ class LookupType extends AbstractType
         }
 
         $routeParams = $options['route_parameters'];
-        $value = null !== $options['property_path']
-            ? $this->propertyAccessor->getValue($block->getData(), $options['property_path'])
-            : null;
 
         foreach ($routeParams as $key => $params) {
             if (0 === strpos($params, '{{')) {
@@ -70,7 +78,6 @@ class LookupType extends AbstractType
         }
 
         $view->vars = array_replace($view->vars, array(
-            'value' => $value,
             'attr' => array_merge($view->vars['attr'], array(
                 'href' => $this->router->generate($options['route_name'], $routeParams, RouterInterface::ABSOLUTE_URL),
             )),
@@ -83,6 +90,9 @@ class LookupType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
+            'view_property_path' => function (Options $options) {
+                return $options['property_path'];
+            },
             'route_name' => null,
             'route_parameters' => array(),
         ));
