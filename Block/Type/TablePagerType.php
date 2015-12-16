@@ -82,6 +82,7 @@ class TablePagerType extends AbstractType
         }
 
         $view->vars = array_replace($view->vars, array(
+            'tabindex' => $options['tab_index'],
             'source' => $source,
             'attr' => array_replace($view->vars['attr'], array(
                 'data-table-pager' => 'true',
@@ -135,6 +136,7 @@ class TablePagerType extends AbstractType
             'affix_target' => null,
             'affix_min_height' => null,
             'affix_class' => null,
+            'tab_index' => 0,
         ));
 
         $resolver->addAllowedTypes('locale', 'string');
