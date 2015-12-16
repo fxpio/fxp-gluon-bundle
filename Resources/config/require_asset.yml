@@ -117,9 +117,21 @@ packages:
     doctrine_bundle:
         patterns:
             - !*
+    debug_bundle:
+        patterns:
+            - !*
+    web_profiler_bundle:
+        patterns:
+            - !*
+    security_bundle:
+        patterns:
+            - !*
     swiftmailer_bundle:
         patterns:
-            - !views/*
+            - !*
+    sonatra_block_bundle:
+        patterns:
+            - !*
     sonatra_bootstrap_bundle:
         patterns:
             - "!assetic/less/bootstrap.less"
