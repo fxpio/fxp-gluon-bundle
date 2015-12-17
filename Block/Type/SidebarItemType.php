@@ -62,6 +62,10 @@ class SidebarItemType extends AbstractType
             $linkAttr['href'] = $options['src'];
         }
 
+        if ($options['disabled'] && isset($linkAttr['tabindex'])) {
+            unset($linkAttr['tabindex']);
+        }
+
         $view->vars = array_replace($view->vars, array(
             'link_attr' => $linkAttr,
             'active' => $options['active'],

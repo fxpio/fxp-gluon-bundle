@@ -31,6 +31,10 @@ class PanelCellPrefType extends AbstractType
             BlockUtil::addAttribute($view, 'href', $options['src'], 'control_attr');
         }
 
+        if ($options['disabled'] && isset($view->vars['control_attr']['tabindex'])) {
+            unset($view->vars['control_attr']['tabindex']);
+        }
+
         $view->vars = array_replace($view->vars, array(
             'disabled' => $options['disabled'],
         ));
