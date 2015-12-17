@@ -58,7 +58,7 @@ class SidebarItemType extends AbstractType
     {
         $linkAttr = $options['link_attr'];
 
-        if (null !== $options['src']) {
+        if (null !== $options['src'] && !$options['disabled']) {
             $linkAttr['href'] = $options['src'];
         }
 
