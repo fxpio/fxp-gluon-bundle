@@ -17,6 +17,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\TableType;
 use Sonatra\Bundle\GluonBundle\Block\Type\TablePagerType;
+use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -62,6 +63,18 @@ class TablePagerExtension extends AbstractTypeExtension
 
         $resolver->addAllowedTypes('pager', 'bool');
         $resolver->addAllowedTypes('pager_options', 'array');
+
+        $resolver->setNormalizer('pager_options', function (Options $options, $value) {
+            if (!isset($value['empty_type'])) {
+                $value['empty_type'] = $options['empty_type'];
+            }
+
+            if (!isset($value['empty_options'])) {
+                $value['empty_options'] = $options['empty_options'];
+            }
+
+            return $value;
+        });
     }
 
     /**

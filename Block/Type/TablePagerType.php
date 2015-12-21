@@ -13,13 +13,17 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 
 use Sonatra\Bundle\AjaxBundle\AjaxEvents;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
+use Sonatra\Bundle\BlockBundle\Block\BlockBuilder;
+use Sonatra\Bundle\BlockBundle\Block\BlockConfigBuilder;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\TextType;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Sonatra\Bundle\GluonBundle\Event\GetAjaxTableEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -111,6 +115,15 @@ class TablePagerType extends AbstractType
             BlockUtil::addAttribute($view, 'data-affix-class', $options['affix_class']);
         }
 
+        if (null !== $options['empty_type']) {
+            /* @var BlockBuilder $config */
+            $config = $block->getConfig();
+            $factory = $config->getBlockFactory();
+            $empty = $factory->create($options['empty_type'], null, $options['empty_options']);
+
+            $view->vars['empty_block'] = $empty->createView();
+        }
+
         foreach ($source->getColumns() as $child) {
             /* @var BlockInterface $child */
             if ($child->getOption('sortable')) {
@@ -137,6 +150,14 @@ class TablePagerType extends AbstractType
             'affix_min_height' => null,
             'affix_class' => null,
             'tab_index' => 0,
+            'empty_type' => function (Options $options, $value) {
+                if (null === $value && isset($options['empty_options']['data'])) {
+                    $value = TextType::class;
+                }
+
+                return $value;
+            },
+            'empty_options' => array(),
         ));
 
         $resolver->addAllowedTypes('locale', 'string');
@@ -146,6 +167,20 @@ class TablePagerType extends AbstractType
         $resolver->addAllowedTypes('route_parameters', 'array');
         $resolver->addAllowedTypes('route_reference_type', 'bool');
         $resolver->addAllowedTypes('multi_sortable', 'bool');
+        $resolver->setAllowedTypes('empty_type', array('null', 'string'));
+        $resolver->setAllowedTypes('empty_options', 'array');
+
+        $resolver->setNormalizer('empty_options', function (Options $options, $value) {
+            if (null !== $options['empty_message'] && !isset($value['data'])) {
+                $value['data'] = $options['empty_message'];
+            }
+
+            if (!array_key_exists('wrapped', $value)) {
+                $value['wrapped'] = false;
+            }
+
+            return $value;
+        });
     }
 
     /**

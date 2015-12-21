@@ -14,6 +14,13 @@
     {%- set selectCountStyle = selectCountStyle|default('fa-wrap') -%}
     {%- set selectClearStyle = selectClearStyle|default('fa fa-times') -%}
 
+    {%- if empty_block is defined -%}
+        {%- set empty_message_value -%}
+            {%- sblock empty_block :-%}
+        {%- endset -%}
+        {%- set attr = attr|merge({'data-empty-message': empty_message_value}) -%}
+    {%- endif -%}
+
     {%- spaceless -%}
         <div{{ block('widget_container_attributes') }}>
             <div class="table-pager-container">
