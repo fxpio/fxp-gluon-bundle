@@ -113,6 +113,10 @@ class PanelCellType extends AbstractType
             'value_formatter' => $options['formatter'],
             'value_formatter_options' => $options['formatter_options'],
         ));
+
+        if ($view->vars['value'] === $options['empty_message']) {
+            $view->vars['value_formatter'] = null;
+        }
     }
 
     /**
