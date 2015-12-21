@@ -14,7 +14,6 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\AjaxBundle\AjaxEvents;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockBuilder;
-use Sonatra\Bundle\BlockBundle\Block\BlockConfigBuilder;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\TextType;
