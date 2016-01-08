@@ -1,11 +1,11 @@
 {% block table_column_link_content -%}
-    {%- set link_options = link_options|merge({label: attribute(_row_data, _column.config.getOption('attribute'))}) -%}
+    {%- set link_options = link_options|merge({label: property_path(_row_data, _column.config.getOption('data_property_path'))}) -%}
 
     {%- if route_name is not empty -%}
         {%- for optIndex, option in route_options -%}
-            {%- if option matches '{{[A-Z,a-z,0-9]+}}' -%}
+            {%- if option matches '{{[A-Z,a-z,0-9\.\\[\\]]+}}' -%}
                 {%- set option = option|slice(2, option|length - 4) -%}
-                {%- set route_options = route_options|merge({(optIndex): attribute(_row_data, option)|default(null)}) -%}
+                {%- set route_options = route_options|merge({(optIndex): property_path(_row_data, option)|default(null)}) -%}
             {%- endif -%}
         {%- endfor -%}
 
