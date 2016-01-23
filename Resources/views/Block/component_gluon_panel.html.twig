@@ -103,6 +103,9 @@
                         {%- set value = value|block_formatter(value_formatter, value_formatter_options) -%}
                     {%- endif -%}
                     {{- value|raw -}}
+                    {%- if form_cell is defined -%}
+                        {{- form_widget(form_cell) -}}
+                    {%- endif -%}
                     {%- for child in block -%}
                         {{- block_widget(child) -}}
                     {%- endfor -%}

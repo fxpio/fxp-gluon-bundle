@@ -16,7 +16,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockBuilderInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
-use Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FormType;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockFormUtil;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
 use Symfony\Component\Form\FormView;
@@ -53,6 +53,8 @@ class PanelCellType extends AbstractType
      */
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
+        $builder->setAttribute('form_name', $options['form_name']);
+
         if (null !== $options['help']) {
             $hOpts = array_replace($options['help_options'], array(
                 'label' => '?',
@@ -63,10 +65,6 @@ class PanelCellType extends AbstractType
             ));
 
             $builder->add($builder->getName().'_help', ButtonType::class, $hOpts);
-        }
-
-        if (null !== $options['form_name']) {
-            $builder->add($options['form_name'], FormType::class, array('block_name' => $options['form_name']));
         }
     }
 
@@ -94,6 +92,8 @@ class PanelCellType extends AbstractType
                 'value' => $value,
             ));
         }
+
+        $this->injectFormCell($view, $block);
 
         BlockUtil::addAttributeClass($view, 'control-label', true, 'label_attr');
 
@@ -128,27 +128,28 @@ class PanelCellType extends AbstractType
             if (in_array('button', $child->vars['block_prefixes'])) {
                 $view->vars['button_help'] = $child;
                 unset($view->children[$name]);
-            } elseif (in_array('form', $child->vars['block_prefixes']) && isset($child->vars['block_form'])) {
-                /* @var FormView $form */
-                $form = $child->vars['block_form'];
-                $view->vars['has_form'] = $form;
-                $form->vars['label'] = ' ';
+            }
+        }
 
-                if (count($form->vars['errors']) > 0) {
-                    BlockUtil::addAttributeClass($view, 'has-error', false, 'control_attr');
-                }
+        if (isset($view->vars['form_cell']) && $view->vars['form_cell'] instanceof FormView) {
+            $form = $view->vars['form_cell'];
+            $view->vars['has_form'] = $form;
+            $form->vars['label'] = ' ';
 
-                if ($form->vars['required']) {
-                    BlockUtil::addAttributeClass($view, 'required', false, 'label_attr');
-                }
+            if (count($form->vars['errors']) > 0) {
+                BlockUtil::addAttributeClass($view, 'has-error', false, 'control_attr');
+            }
 
-                if (in_array('repeated', $form->vars['block_prefixes'])) {
-                    BlockUtil::addAttributeClass($view, 'block-repeated', false, 'control_attr');
+            if ($form->vars['required']) {
+                BlockUtil::addAttributeClass($view, 'required', false, 'label_attr');
+            }
 
-                    foreach ($form->children as $childForm) {
-                        $childForm->vars['display_label'] = false;
-                        break;
-                    }
+            if (in_array('repeated', $form->vars['block_prefixes'])) {
+                BlockUtil::addAttributeClass($view, 'block-repeated', false, 'control_attr');
+
+                foreach ($form->children as $childForm) {
+                    $childForm->vars['display_label'] = false;
+                    break;
                 }
             }
         }
@@ -239,5 +240,31 @@ class PanelCellType extends AbstractType
     public function getBlockPrefix()
     {
         return 'panel_cell';
+    }
+
+    /**
+     * Inject the form of panel cell in view.
+     *
+     * @param BlockView      $view  The block view
+     * @param BlockInterface $block The block
+     */
+    protected function injectFormCell(BlockView $view, BlockInterface $block)
+    {
+        if (null !== $formPath = $block->getConfig()->getAttribute('form_name')) {
+            $parentForm = BlockFormUtil::getParentFormView($view);
+
+            if (null !== $parentForm) {
+                $formNames = explode('.', $formPath);
+                $formCell = $parentForm;
+
+                foreach ($formNames as $formName) {
+                    $formCell = $formCell->children[$formName];
+                }
+
+                if (null !== $formCell && $formCell !== $parentForm) {
+                    $view->vars['form_cell'] = $formCell;
+                }
+            }
+        }
     }
 }
