@@ -18,6 +18,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\Exception\InvalidConfigurationException;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockFormUtil;
 use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockViewUtil;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -250,7 +251,11 @@ class PanelCellType extends AbstractType
      */
     protected function injectFormCell(BlockView $view, BlockInterface $block)
     {
-        if (null !== $formPath = $block->getConfig()->getAttribute('form_name')) {
+        $section = BlockViewUtil::getParent($view, 'panel_section');
+
+        if (null !== $section
+                && $section->vars['rendered']
+                && null !== $formPath = $block->getConfig()->getAttribute('form_name')) {
             $parentForm = BlockFormUtil::getParentFormView($view);
 
             if (null !== $parentForm) {
