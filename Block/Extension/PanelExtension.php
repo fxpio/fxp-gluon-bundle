@@ -76,6 +76,7 @@ class PanelExtension extends AbstractTypeExtension
             'hidden_if_empty' => $options['hidden_if_empty'],
             'recursive_style' => $options['recursive_style'],
             'panel_main' => $options['main'],
+            'rendered' => $options['rendered'],
         ));
     }
 
@@ -111,6 +112,7 @@ class PanelExtension extends AbstractTypeExtension
             'hidden_if_empty' => true,
             'recursive_style' => false,
             'main' => false,
+            'rendered' => true,
         ));
 
         $resolver->addAllowedTypes('border_top_style', array('null', 'string'));
@@ -122,6 +124,7 @@ class PanelExtension extends AbstractTypeExtension
         $resolver->addAllowedTypes('hidden_if_empty', 'bool');
         $resolver->addAllowedTypes('recursive_style', 'bool');
         $resolver->addAllowedTypes('main', 'bool');
+        $resolver->addAllowedTypes('rendered', 'bool');
 
         $resolver->addAllowedValues('style', array(
             null,

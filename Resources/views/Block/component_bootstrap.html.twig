@@ -93,7 +93,7 @@
 
 
 {% block panel_widget -%}
-    {%- if not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0) -%}
+    {%- if rendered and (not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0)) -%}
         {%- if border_top_style is not null -%}
             {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' panel-' ~ border_top_style ~ '-top')|trim}) -%}
         {%- endif -%}
