@@ -94,8 +94,6 @@ class PanelCellType extends AbstractType
             ));
         }
 
-        $this->injectFormCell($view, $block);
-
         BlockUtil::addAttributeClass($view, 'control-label', true, 'label_attr');
 
         if (null !== $options['label_style']) {
@@ -118,6 +116,8 @@ class PanelCellType extends AbstractType
         if ($view->vars['value'] === $options['empty_message']) {
             $view->vars['value_formatter'] = null;
         }
+
+        $this->injectFormCell($view, $block);
     }
 
     /**
@@ -255,6 +255,7 @@ class PanelCellType extends AbstractType
 
         if (null !== $section
                 && $section->vars['rendered']
+                && $view->vars['rendered']
                 && null !== $formPath = $block->getConfig()->getAttribute('form_name')) {
             $parentForm = BlockFormUtil::getParentFormView($view);
 
