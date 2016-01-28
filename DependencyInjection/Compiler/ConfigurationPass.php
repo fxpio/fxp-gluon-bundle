@@ -28,17 +28,40 @@ class ConfigurationPass implements CompilerPassInterface
     {
         $parser = new Parser();
         $refl = new \ReflectionClass($this);
-        $path = dirname(dirname(dirname($refl->getFileName()))).'/Resources/config/require_asset.yml';
-        $config = $parser->parse(file_get_contents($path));
+        $dir = dirname(dirname(dirname($refl->getFileName()))).'/Resources/config';
+        $path = $dir.'/require_asset.yml';
+        $pathEnv = $dir.'/require_asset_'.$container->getParameter('kernel.environment').'.yml';
 
-        if ($container->getParameter('sonatra_gluon.config.auto_configuration')) {
-            $this->processManager($container, 'package_manager', 'addPackages', $config['packages']);
-            $this->processManager($container, 'asset_replacement_manager', 'addReplacements', $config['asset_replacement']);
+        $config = $parser->parse(file_get_contents($path));
+        $this->configure($container, $config);
+
+        if (file_exists($pathEnv)) {
+            $configEnv = $parser->parse(file_get_contents($pathEnv));
+            $this->configure($container, $configEnv);
         }
 
         /* @var ParameterBag $pb */
         $pb = $container->getParameterBag();
         $pb->remove('sonatra_gluon.config.auto_configuration');
+    }
+
+    /**
+     * Configure the require assets.
+     *
+     * @param ContainerBuilder $container The container builder
+     * @param array            $config    The config of require asset
+     */
+    protected function configure(ContainerBuilder $container, array $config)
+    {
+        if ($container->getParameter('sonatra_gluon.config.auto_configuration')) {
+            if (isset($config['packages'])) {
+                $this->processManager($container, 'package_manager', 'addPackages', $config['packages']);
+            }
+
+            if (isset($config['asset_replacement'])) {
+                $this->processManager($container, 'asset_replacement_manager', 'addReplacements', $config['asset_replacement']);
+            }
+        }
     }
 
     /**
