@@ -97,6 +97,7 @@ packages:
             - "js/components/bootstrap-scrollspy.js"
             - "js/components/bootstrap-carousel.js"
             - "js/components/bootstrap-filestyle.js"
+            - "js/components/sonatra-scroller-shrink.js"
             - "js/components/sonatra-jquery-scroller.js"
             - "js/components/sonatra-jquery-scroller-sticky-header.js"
             - "js/components/sonatra-jquery-datetime-picker.js"
