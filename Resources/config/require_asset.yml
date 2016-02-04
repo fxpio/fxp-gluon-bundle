@@ -1,84 +1,84 @@
 packages:
-    @bower/jquery-pjax:
+    "@bower/jquery-pjax":
         patterns:
             - "jquery.pjax.js"
-    @bower/headroom.js:
+    "@bower/headroom.js":
         patterns:
             - "dist/headroom.js"
-    @bower/font-awesome:
+    "@bower/font-awesome":
         patterns:
             - "css/font-awesome.css"
             - "fonts/*"
-    @bower/footable:
+    "@bower/footable":
         patterns:
             - "fonts/*"
             - "js/footable.js"
-    @bower/bootstrap-filestyle:
+    "@bower/bootstrap-filestyle":
         patterns:
             - "src/bootstrap-filestyle.js"
-    @bower/moment:
+    "@bower/moment":
         patterns:
             - "moment.js"
-    @bower/hammerjs:
+    "@bower/hammerjs":
         patterns:
             - "hammer.js"
-    @bower/jquery-knob:
+    "@bower/jquery-knob":
             patterns:
                 - "js/jquery-knob.js"
-    @bower/select2:
+    "@bower/select2":
         patterns:
             - "dist/js/select2.js"
-    @bower/sonatra-bootstrap-nav-footable:
+    "@bower/sonatra-bootstrap-nav-footable":
         patterns:
             - "js/nav-footable.js"
-    @bower/sonatra-bootstrap-dropdown-position:
+    "@bower/sonatra-bootstrap-dropdown-position":
         patterns:
             - "js/dropdown-position.js"
-    @bower/sonatra-bootstrap-nav-scroll:
+    "@bower/sonatra-bootstrap-nav-scroll":
         patterns:
             - "js/nav-scroll.js"
-    @bower/sonatra-bootstrap-panel-collapse:
+    "@bower/sonatra-bootstrap-panel-collapse":
         patterns:
             - "js/panel-collapse.js"
-    @bower/sonatra-footable-responsive:
+    "@bower/sonatra-footable-responsive":
         patterns:
             - "js/footable-responsive.js"
-    @bower/sonatra-footable-striped:
+    "@bower/sonatra-footable-striped":
         patterns:
             - "js/footable-striped.js"
-    @bower/sonatra-jquery-scroller:
+    "@bower/sonatra-jquery-scroller":
         patterns:
             - "js/scroller.js"
             - "js/sticky-header.js"
-    @bower/sonatra-jquery-datetime-picker:
+    "@bower/sonatra-jquery-datetime-picker":
         patterns:
             - "js/datetime-picker.js"
             - "!less/*"
-    @bower/sonatra-jquery-sidebar:
+    "@bower/sonatra-jquery-sidebar":
         patterns:
             - "js/sidebar.js"
-    @bower/sonatra-jquery-table-pager:
+    "@bower/sonatra-jquery-table-pager":
         patterns:
             - "js/table-pager.js"
-    @bower/sonatra-jquery-table-pager-footable:
+    "@bower/sonatra-jquery-table-pager-footable":
         patterns:
             - "js/table-pager-footable.js"
-    @bower/sonatra-jquery-table-select:
+    "@bower/sonatra-jquery-table-select":
         patterns:
             - "js/table-select.js"
-    @bower/sonatra-jquery-ripple:
+    "@bower/sonatra-jquery-ripple":
             patterns:
                 - "js/ripple.js"
-    @bower/select2-bootstrap-theme:
+    "@bower/select2-bootstrap-theme":
         patterns:
             - "!*"
-    @bower/sonatra-select2-scroller:
+    "@bower/sonatra-select2-scroller":
         patterns:
             - "js/select2-scroller.js"
-    @bower/sonatra-select2-responsive:
+    "@bower/sonatra-select2-responsive":
         patterns:
             - "js/select2-responsive.js"
-    @bower/sonatra-theme-gluon:
+    "@bower/sonatra-theme-gluon":
         patterns:
             - "js/floating-label.js"
             - "js/resizing-textarea.js"
@@ -88,7 +88,7 @@ packages:
             - "js/scroller-shrink.js"
             - "js/footable-destroy.js"
             - "js/jquery-headroom.js"
-    @bower/sonatra-theme-gluon-pjax:
+    "@bower/sonatra-theme-gluon-pjax":
         patterns:
             - "js/app-pjax.js"
             - "js/components/bootstrap-affix.js"
@@ -115,22 +115,22 @@ packages:
             - "js/components/sonatra-gluon-resizing-textarea.js"
             - "js/components/sonatra-gluon-sidebar-context.js"
             - "js/components/sonatra-gluon-navbar-sidebar.js"
-    doctrine_bundle:
+    "doctrine_bundle":
         patterns:
             - !*
-    security_bundle:
+    "security_bundle":
         patterns:
             - !*
-    swiftmailer_bundle:
+    "swiftmailer_bundle":
         patterns:
             - !*
-    sonatra_block_bundle:
+    "sonatra_block_bundle":
         patterns:
             - !*
-    sonatra_bootstrap_bundle:
+    "sonatra_bootstrap_bundle":
         patterns:
             - "!assetic/less/bootstrap.less"
-    sonatra_gluon_bundle:
+    "sonatra_gluon_bundle":
         patterns:
             - "assetic/less/*"
 
