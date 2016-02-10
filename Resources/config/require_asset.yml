@@ -28,6 +28,9 @@ packages:
     "@bower/select2":
         patterns:
             - "dist/js/select2.js"
+    "@bower/autosize":
+        patterns:
+            - "dist/autosize.js"
     "@bower/sonatra-bootstrap-nav-footable":
         patterns:
             - "js/nav-footable.js"
