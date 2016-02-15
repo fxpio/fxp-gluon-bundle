@@ -16,7 +16,7 @@
 
 {%- block body_main -%}
 {% spaceless %}
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-account-wrapper affix">
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-account-wrapper" data-spy="affix" data-offset-top="1" data-target=".container-main">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
@@ -75,10 +75,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group buttons">
-                            <a class="btn btn-default btn-ripple pull-left" tabindex="1" href="{{ path("fos_user_registration_register") }}">{{ 'security.login.new_account'|trans({}, 'messages') }}</a>
-                            <button type="submit" tabindex="1" id="_submit" name="_submit" class="btn btn-accent btn-raised btn-ripple pull-right">{{ 'security.login.submit'|trans }}</button>
-                            <div class="clearfix"></div>
+                        <div class="buttons">
+                            <div class="col-sm-6">
+                                <a class="btn btn-default btn-ripple" tabindex="1" href="{{ path("fos_user_registration_register") }}">{{ 'security.login.new_account'|trans({}, 'messages') }}</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="submit" tabindex="1" id="_submit" name="_submit" class="btn btn-accent btn-raised btn-ripple">{{ 'security.login.submit'|trans }}</button>
+                            </div>
                         </div>
 
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -89,6 +92,3 @@
     </div>
 {% endspaceless %}
 {%- endblock body_main -%}
-
-{%- block javascript_global -%}
-{%- endblock javascript_global -%}
