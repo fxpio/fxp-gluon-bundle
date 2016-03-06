@@ -1,6 +1,10 @@
 {% block table_column_link_content -%}
     {%- set link_options = link_options|merge({label: property_path(_row_data, _column.config.getOption('data_property_path'))}) -%}
 
+    {%- if link_options.label is empty -%}
+        {%- set link_options = link_options|merge({label: data}) -%}
+    {%- endif -%}
+
     {%- if route_name is not empty -%}
         {%- for optIndex, option in route_options -%}
             {%- if option matches '{{[A-Z,a-z,0-9\.\\[\\]]+}}' -%}
