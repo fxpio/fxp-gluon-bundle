@@ -45,6 +45,10 @@
             <tag name="sonatra_block.type" />
         </service>
 
+        <service id="sonatra_gluon.block.type.sidebar_divider_item" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarDividerItemType">
+            <tag name="sonatra_block.type" />
+        </service>
+
         <service id="sonatra_gluon.block.type.sidebar_item" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarItemType">
             <tag name="sonatra_block.type" />
         </service>

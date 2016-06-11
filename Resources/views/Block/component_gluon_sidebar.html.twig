@@ -84,6 +84,17 @@
 {%- endblock sidebar_group_widget %}
 
 
+{% block sidebar_divider_item_widget -%}
+    {%- set attr = attr|merge({'class': ('sidebar-divider-item ' ~ attr.class|default(''))|trim}) -%}
+
+    {%- if context_menu -%}
+        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' sidebar-menu-context')|trim}) -%}
+    {%- endif -%}
+
+    <li{{ block('widget_container_attributes') }}></li>
+{%- endblock sidebar_divider_item_widget %}
+
+
 {% block sidebar_item_widget -%}
     {%- set attr = attr|merge({'class': ('sidebar-item ' ~ attr.class|default(''))|trim}) -%}
 
