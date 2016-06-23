@@ -14,6 +14,7 @@ namespace Sonatra\Bundle\GluonBundle\Block\Type;
 use Sonatra\Bundle\BlockBundle\Block\AbstractType;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
+use Sonatra\Bundle\BlockBundle\Block\Util\BlockUtil;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -32,6 +33,10 @@ class SidebarGroupType extends AbstractType
             'group_attr' => $options['group_attr'],
             'context_menu' => $options['context_menu'],
         ));
+
+        if ($options['no_bar']) {
+            BlockUtil::addAttributeClass($view, 'no-bar', false, 'group_attr');
+        }
     }
 
     /**
@@ -42,10 +47,12 @@ class SidebarGroupType extends AbstractType
         $resolver->setDefaults(array(
             'group_attr' => array(),
             'context_menu' => false,
+            'no_bar' => false,
         ));
 
         $resolver->setAllowedTypes('group_attr', 'array');
         $resolver->setAllowedTypes('context_menu', 'bool');
+        $resolver->setAllowedTypes('no_bar', 'bool');
     }
 
     /**
