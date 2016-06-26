@@ -17,6 +17,7 @@ use Sonatra\Bundle\BlockBundle\Block\BlockInterface;
 use Sonatra\Bundle\BlockBundle\Block\BlockView;
 use Sonatra\Bundle\BootstrapBundle\Block\Type\LinkType;
 use Sonatra\Bundle\GluonBundle\Block\DataTransformer\LookupTransformer;
+use Sonatra\Bundle\RoutingExtraBundle\Routing\RouterExtraInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccess;
@@ -32,7 +33,7 @@ class LookupType extends AbstractType
     /**
      * @var RouterInterface
      */
-    private $router;
+    private $routerExtra;
 
     /**
      * @var PropertyAccessor
@@ -42,12 +43,12 @@ class LookupType extends AbstractType
     /**
      * Constructor.
      *
-     * @param RouterInterface           $router           The rooter
+     * @param RouterExtraInterface      $routerExtra      The rooter extra
      * @param PropertyAccessorInterface $propertyAccessor The property accessor
      */
-    public function __construct(RouterInterface $router, PropertyAccessorInterface $propertyAccessor = null)
+    public function __construct(RouterExtraInterface $routerExtra, PropertyAccessorInterface $propertyAccessor = null)
     {
-        $this->router = $router;
+        $this->routerExtra = $routerExtra;
         $this->propertyAccessor = $propertyAccessor ?: PropertyAccess::createPropertyAccessor();
     }
 
@@ -68,18 +69,10 @@ class LookupType extends AbstractType
             return;
         }
 
-        $routeParams = $options['route_parameters'];
-
-        foreach ($routeParams as $key => $params) {
-            if (0 === strpos($params, '{{')) {
-                $path = trim(trim(trim($params, '{{'), '}}'));
-                $routeParams[$key] = $this->propertyAccessor->getValue($block->getData(), $path);
-            }
-        }
-
         $view->vars = array_replace($view->vars, array(
             'attr' => array_merge($view->vars['attr'], array(
-                'href' => $this->router->generate($options['route_name'], $routeParams, RouterInterface::ABSOLUTE_URL),
+                'href' => $this->routerExtra->generate($options['route_name'], $options['route_parameters'],
+                    $block->getData(), RouterInterface::ABSOLUTE_URL),
             )),
         ));
     }

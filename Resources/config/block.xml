@@ -28,7 +28,7 @@
         </service>
 
         <service id="sonatra_gluon.block.type.lookup" class="Sonatra\Bundle\GluonBundle\Block\Type\LookupType">
-            <argument type="service" id="router" />
+            <argument type="service" id="sonatra_routing_extra.router_extra" />
             <argument type="service" id="property_accessor"/>
             <tag name="sonatra_block.type" />
         </service>
