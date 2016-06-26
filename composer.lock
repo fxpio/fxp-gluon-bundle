@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "daecad6a1e66fe05553b71820504b1b1",
-    "content-hash": "5664a7cea640a0f6bdd153a385e967c0",
+    "hash": "9698de901a992dc39c419ab96d6ac0c4",
+    "content-hash": "b2269248e4e5b21f3559fc0adf4b4193",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -410,13 +410,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/francoispluchino/fxp-require-asset.git",
-                "reference": "67cbc666ef900d3c5e1d494e8d4e43a78927dbb0"
+                "url": "https://github.com/fxpio/fxp-require-asset.git",
+                "reference": "d939edb7e8387dbf072ecd32dc15c3a1eaa25883"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/fxp-require-asset/zipball/67cbc666ef900d3c5e1d494e8d4e43a78927dbb0",
-                "reference": "67cbc666ef900d3c5e1d494e8d4e43a78927dbb0",
+                "url": "https://api.github.com/repos/fxpio/fxp-require-asset/zipball/d939edb7e8387dbf072ecd32dc15c3a1eaa25883",
+                "reference": "d939edb7e8387dbf072ecd32dc15c3a1eaa25883",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +454,7 @@
                 }
             ],
             "description": "Required assets helper for assetic manager and twig",
-            "homepage": "https://github.com/francoispluchino/fxp-require-asset",
+            "homepage": "https://github.com/fxpio/fxp-require-asset",
             "keywords": [
                 "asset",
                 "assetic",
@@ -465,20 +465,20 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2016-06-14 18:31:03"
+            "time": "2016-06-22 15:16:06"
         },
         {
             "name": "fxp/require-asset-bundle",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/francoispluchino/FxpRequireAssetBundle.git",
-                "reference": "48919f7c220300ecee5aa69d67f39fda2fb3a17c"
+                "url": "https://github.com/fxpio/FxpRequireAssetBundle.git",
+                "reference": "7c659ad75036a50abf30c47a47130394bcc6e380"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/francoispluchino/FxpRequireAssetBundle/zipball/48919f7c220300ecee5aa69d67f39fda2fb3a17c",
-                "reference": "48919f7c220300ecee5aa69d67f39fda2fb3a17c",
+                "url": "https://api.github.com/repos/fxpio/FxpRequireAssetBundle/zipball/7c659ad75036a50abf30c47a47130394bcc6e380",
+                "reference": "7c659ad75036a50abf30c47a47130394bcc6e380",
                 "shasum": ""
             },
             "require": {
@@ -514,7 +514,7 @@
                 }
             ],
             "description": "Symfony Bundle for required assets helper for assetic manager and twig",
-            "homepage": "https://github.com/francoispluchino/FxpRequireAssetBundle",
+            "homepage": "https://github.com/fxpio/FxpRequireAssetBundle",
             "keywords": [
                 "asset",
                 "assetic",
@@ -527,7 +527,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2016-06-14 18:29:47"
+            "time": "2016-06-22 15:19:06"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -744,12 +744,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraAjaxBundle.git",
-                "reference": "816e4c08ab401acd18eabc8371b2ec0a60fea8cd"
+                "reference": "9f37a4bf512687585635587e0fedf8f4d05ef325"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraAjaxBundle/zipball/816e4c08ab401acd18eabc8371b2ec0a60fea8cd",
-                "reference": "816e4c08ab401acd18eabc8371b2ec0a60fea8cd",
+                "url": "https://api.github.com/repos/sonatra/SonatraAjaxBundle/zipball/9f37a4bf512687585635587e0fedf8f4d05ef325",
+                "reference": "9f37a4bf512687585635587e0fedf8f4d05ef325",
                 "shasum": ""
             },
             "require": {
@@ -783,7 +783,7 @@
             "keywords": [
                 "AJAX response"
             ],
-            "time": "2016-06-14 18:42:01"
+            "time": "2016-06-15 17:09:59"
         },
         {
             "name": "sonatra/block-bundle",
@@ -850,12 +850,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBootstrapBundle.git",
-                "reference": "cb914790b78caf7d562711fcd0be2fee1f45d575"
+                "reference": "275f256984cc88b27ebfecee8058f3e207f76364"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/cb914790b78caf7d562711fcd0be2fee1f45d575",
-                "reference": "cb914790b78caf7d562711fcd0be2fee1f45d575",
+                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/275f256984cc88b27ebfecee8058f3e207f76364",
+                "reference": "275f256984cc88b27ebfecee8058f3e207f76364",
                 "shasum": ""
             },
             "require": {
@@ -909,7 +909,7 @@
                 "block",
                 "template"
             ],
-            "time": "2016-03-06 13:11:55"
+            "time": "2016-06-26 10:59:20"
         },
         {
             "name": "sonatra/form-extensions-bundle",
@@ -917,12 +917,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraFormExtensionsBundle.git",
-                "reference": "d74b23a4ee79f015d40fc5329ddbc60354688864"
+                "reference": "bf4f0bdd7984494b3039de65986e58d5f96df509"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraFormExtensionsBundle/zipball/d74b23a4ee79f015d40fc5329ddbc60354688864",
-                "reference": "d74b23a4ee79f015d40fc5329ddbc60354688864",
+                "url": "https://api.github.com/repos/sonatra/SonatraFormExtensionsBundle/zipball/bf4f0bdd7984494b3039de65986e58d5f96df509",
+                "reference": "bf4f0bdd7984494b3039de65986e58d5f96df509",
                 "shasum": ""
             },
             "require": {
@@ -977,7 +977,57 @@
                 "select2",
                 "time"
             ],
-            "time": "2016-06-15 08:05:14"
+            "time": "2016-06-15 18:00:46"
+        },
+        {
+            "name": "sonatra/routing-extra-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonatra/SonatraRoutingExtraBundle.git",
+                "reference": "ac2b4e746fe0c40ee48e7b7af1402fe37286603d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonatra/SonatraRoutingExtraBundle/zipball/ac2b4e746fe0c40ee48e7b7af1402fe37286603d",
+                "reference": "ac2b4e746fe0c40ee48e7b7af1402fe37286603d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "symfony/framework-bundle": "~2.8|~3.0",
+                "symfony/property-access": "~2.8|~3.0",
+                "symfony/routing": "~2.8|~3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonatra\\Bundle\\RoutingExtraBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Pluchino",
+                    "email": "francois.pluchino@sonatra.com"
+                }
+            ],
+            "description": "A set of extra tools for the symfony routing",
+            "homepage": "https://github.com/sonatra/SonatraRoutingExtraBundle",
+            "keywords": [
+                "bundle",
+                "extra",
+                "routing"
+            ],
+            "time": "2016-06-26 17:18:15"
         },
         {
             "name": "symfony/asset",
@@ -4564,9 +4614,10 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "sonatra/block-bundle": 20,
         "fxp/require-asset": 20,
         "fxp/require-asset-bundle": 20,
+        "sonatra/block-bundle": 20,
+        "sonatra/routing-extra-bundle": 20,
         "sonatra/form-extensions-bundle": 20,
         "sonatra/bootstrap-bundle": 20,
         "sonatra/ajax-bundle": 20,
