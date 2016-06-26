@@ -42,8 +42,6 @@ class ButtonNavbarType extends AbstractType
         if ($options['sidebar_locked_toggle']) {
             BlockUtil::addAttributeClass($view, 'sidebar-locked-toggle');
         }
-
-        BlockUtil::addAttributeClass($view, 'btn-navbar-group', false, 'btn_group_attr');
     }
 
     /**
