@@ -89,6 +89,7 @@ packages:
             - "js/sidebar-context.js"
             - "js/navbar-sidebar.js"
             - "js/navbar-modal.js"
+            - "js/navbar-dropdown-position.js"
             - "js/scroller-shrink.js"
             - "js/footable-destroy.js"
             - "js/jquery-headroom.js"
@@ -120,6 +121,7 @@ packages:
             - "js/components/sonatra-gluon-sidebar-context.js"
             - "js/components/sonatra-gluon-navbar-sidebar.js"
             - "js/components/sonatra-gluon-navbar-modal.js"
+            - "js/components/sonatra-gluon-navbar-dropdown-position.js"
     "doctrine_bundle":
         patterns:
             - !*
