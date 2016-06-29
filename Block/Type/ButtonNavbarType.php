@@ -67,6 +67,14 @@ class ButtonNavbarType extends AbstractType
         $resolver->setAllowedTypes('sidebar_locked_toggle', 'bool');
         $resolver->setAllowedTypes('render_id', 'bool');
         $resolver->setAllowedTypes('home', 'bool');
+
+        $resolver->setNormalizer('navbar_group', function (Options $options, $value) {
+            if (null === $value) {
+                $value = $options['home'] ? false : true;
+            }
+
+            return $value;
+        });
     }
 
     /**

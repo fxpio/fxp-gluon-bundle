@@ -30,7 +30,12 @@ class ButtonExtension extends AbstractTypeExtension
      */
     public function configureOptions(OptionsResolver $resolver)
     {
+        $resolver->setDefaults(array(
+            'navbar_group' => null,
+        ));
+
         $resolver->addAllowedValues('style', array('accent', 'navbar'));
+        $resolver->addAllowedTypes('navbar_group', array('null', 'bool'));
     }
 
     /**
@@ -38,7 +43,9 @@ class ButtonExtension extends AbstractTypeExtension
      */
     public function buildView(BlockView $view, BlockInterface $block, array $options)
     {
-        if ('navbar' === $options['style']) {
+        $useGroup = null === $options['navbar_group'] || true === $options['navbar_group'];
+
+        if ('navbar' === $options['style'] && $useGroup) {
             BlockUtil::addAttributeClass($view, 'btn-navbar-group', false, 'btn_group_attr');
         }
     }
