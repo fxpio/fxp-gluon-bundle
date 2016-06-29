@@ -41,7 +41,7 @@ class ButtonExtension extends AbstractTypeExtension
     /**
      * {@inheritdoc}
      */
-    public function buildView(BlockView $view, BlockInterface $block, array $options)
+    public function finishView(BlockView $view, BlockInterface $block, array $options)
     {
         $useGroup = null === $options['navbar_group'] || true === $options['navbar_group'];
 

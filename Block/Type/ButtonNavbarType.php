@@ -42,6 +42,10 @@ class ButtonNavbarType extends AbstractType
         if ($options['sidebar_locked_toggle']) {
             BlockUtil::addAttributeClass($view, 'sidebar-locked-toggle');
         }
+
+        if (null !== $options['group_attr']) {
+            $view->vars['btn_group_attr'] = $options['group_attr'];
+        }
     }
 
     /**
@@ -61,12 +65,14 @@ class ButtonNavbarType extends AbstractType
             'home' => function (Options $options) {
                 return $options['sidebar_toggle'] || $options['sidebar_locked_toggle'];
             },
+            'group_attr' => null,
         ));
 
         $resolver->setAllowedTypes('sidebar_toggle', 'bool');
         $resolver->setAllowedTypes('sidebar_locked_toggle', 'bool');
         $resolver->setAllowedTypes('render_id', 'bool');
         $resolver->setAllowedTypes('home', 'bool');
+        $resolver->setAllowedTypes('group_attr', array('null', 'array'));
 
         $resolver->setNormalizer('navbar_group', function (Options $options, $value) {
             if (null === $value) {
