@@ -30,10 +30,6 @@
             <argument>Symfony\Component\Form\Extension\Core\Type\ButtonType</argument>
         </service>
 
-        <service id="sonatra_gluon.form.type.toggle" class="Sonatra\Bundle\GluonBundle\Form\Type\ToggleType">
-            <tag name="form.type" />
-        </service>
-
         <service id="sonatra_gluon.form.type_extension.floating_label.text" class="Sonatra\Bundle\GluonBundle\Form\Extension\FloatingLabelExtension">
             <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\TextType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\TextType</argument>
