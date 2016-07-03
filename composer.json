@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.5.0",
-        "symfony/framework-bundle": "~2.8|~3.0",
+        "symfony/framework-bundle": "~3.0",
         "symfony/assetic-bundle": "~2.7",
         "kriswallsmith/assetic": "~1.3",
         "fxp/require-asset" : "1.0.*@dev",
@@ -26,8 +26,8 @@
 
     },
     "require-dev": {
-        "symfony/console": "~2.8|~3.0",
-        "symfony/finder": "~2.8|~3.0",
+        "symfony/console": "~3.0",
+        "symfony/finder": "~3.0",
         "bower-asset/select2-bootstrap-theme": "0.1.*@dev",
         "bower-asset/sonatra-theme-gluon": "1.0.*@dev",
         "bower-asset/sonatra-theme-gluon-pjax": "1.0.*@dev",
