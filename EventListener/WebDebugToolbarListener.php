@@ -33,8 +33,8 @@ class WebDebugToolbarListener
     /**
      * Constroctor of Class.
      *
-     * @param TwigEngine $templating A Twig object of template.
-     * @param string     $env        A type of environment (dev, prod, etc...).
+     * @param TwigEngine $templating A Twig object of template
+     * @param string     $env        A type of environment (dev, prod, etc...)
      */
     public function __construct(TwigEngine $templating, $env = self::ENV_ENABLED)
     {
@@ -45,7 +45,7 @@ class WebDebugToolbarListener
     /**
      * Method for a dependency injection.
      *
-     * @param FilterResponseEvent $event A event object.
+     * @param FilterResponseEvent $event A event object
      */
     public function onKernelResponse(FilterResponseEvent $event)
     {

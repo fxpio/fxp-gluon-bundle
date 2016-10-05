@@ -40,7 +40,7 @@ class OptimizeResponseListener
     /**
      * Method for a dependency injection.
      *
-     * @param FilterResponseEvent $event A event object.
+     * @param FilterResponseEvent $event A event object
      */
     public function onKernelResponse(FilterResponseEvent $event)
     {
