@@ -44,14 +44,6 @@ class GoogleFontsExtension extends \Twig_Extension
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'sonatra_gluon_google_fonts';
-    }
-
-    /**
      * Build the stylesheet links of google fonts.
      *
      * @return string

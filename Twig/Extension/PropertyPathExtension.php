@@ -49,14 +49,6 @@ class PropertyPathExtension extends \Twig_Extension
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'sonatra_gluon_property_path';
-    }
-
-    /**
      * Get the data defined by property path.
      *
      * @param mixed                             $data         The data
