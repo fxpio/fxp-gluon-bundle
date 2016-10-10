@@ -5,6 +5,11 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <service id="sonatra_gluon.form.type_extension.date" class="Sonatra\Bundle\GluonBundle\Form\Extension\DateExtension">
+            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\DateType" />
+            <argument>Symfony\Component\Form\Extension\Core\Type\DateType</argument>
+        </service>
+
         <service id="sonatra_gluon.form.type_extension.choice" class="Sonatra\Bundle\GluonBundle\Form\Extension\ChoiceExtension">
             <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\ChoiceType" />
         </service>
