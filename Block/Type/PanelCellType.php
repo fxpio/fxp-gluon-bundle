@@ -137,6 +137,11 @@ class PanelCellType extends AbstractType
             $view->vars['has_form'] = $form;
             $form->vars['label'] = ' ';
 
+            if (count($form->children) > 0) {
+                $keys = array_keys($form->children);
+                $view->vars['has_form'] = $form->children[$keys[0]];
+            }
+
             if (count($form->vars['errors']) > 0) {
                 BlockUtil::addAttributeClass($view, 'has-error', false, 'control_attr');
             }
