@@ -51,6 +51,10 @@ class DateExtension extends AbstractTypeExtension
             BlockUtil::addAttribute($view->children['month'], 'placeholder', 5);
             BlockUtil::addAttribute($view->children['day'], 'placeholder', 23);
 
+            $view->children['year']->vars['translation_domain'] = false;
+            $view->children['month']->vars['translation_domain'] = false;
+            $view->children['day']->vars['translation_domain'] = false;
+
             $view->children['year']->vars['attr'] = array_merge(
                 $view->children['year']->vars['attr'],
                 $options['text_attr']
@@ -63,8 +67,6 @@ class DateExtension extends AbstractTypeExtension
                 $view->children['day']->vars['attr'],
                 $options['text_attr']
             );
-
-
         }
 
         if (isset($view->vars['date_pattern'])) {
