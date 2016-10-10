@@ -234,7 +234,12 @@
 {% block time_widget -%}
     {%- set append_icon = append_icon|default('<span class="fa fa-clock-o"></span>') -%}
     {%- set type= 'text' -%}
-    {{- block('datetime_widget') -}}
+
+    {%- if widget == 'single_text' -%}
+        {{- block('datetime_widget') -}}
+    {%- else -%}
+        {{- block('base2_time_widget') -}}
+    {%- endif -%}
 {%- endblock time_widget %}
 
 {% block select2_widget_content -%}
