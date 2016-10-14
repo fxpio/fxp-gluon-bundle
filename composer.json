@@ -19,7 +19,7 @@
         "fxp/require-asset" : "1.0.*@dev",
         "fxp/require-asset-bundle" : "1.0.*@dev",
         "sonatra/block-bundle": "1.0.*@dev",
-        "sonatra/routing-extra-bundle": "1.0.x-dev",
+        "sonatra/routing-extra-bundle": "1.0.*@dev",
         "sonatra/form-extensions-bundle": "1.0.*@dev",
         "sonatra/bootstrap-bundle": "1.0.*@dev",
         "sonatra/ajax-bundle": "1.0.*@dev"

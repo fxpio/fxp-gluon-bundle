@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e02e326a1f33729a6a3b3a0334dc4fa9",
-    "content-hash": "4613d099f877a8cffb55d25d6193d748",
+    "hash": "507b5560fc5b0042bbf6df804ac82619",
+    "content-hash": "62aa09ca7cee631b54b7edeb5b7fd6b7",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -411,12 +411,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fxpio/fxp-require-asset.git",
-                "reference": "dd152182aa1226112776dcdb2785450b3d806abe"
+                "reference": "71537437626e8ff5c2f3e3a70755460973715588"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fxpio/fxp-require-asset/zipball/dd152182aa1226112776dcdb2785450b3d806abe",
-                "reference": "dd152182aa1226112776dcdb2785450b3d806abe",
+                "url": "https://api.github.com/repos/fxpio/fxp-require-asset/zipball/71537437626e8ff5c2f3e3a70755460973715588",
+                "reference": "71537437626e8ff5c2f3e3a70755460973715588",
                 "shasum": ""
             },
             "require": {
@@ -441,7 +441,10 @@
             "autoload": {
                 "psr-4": {
                     "Fxp\\Component\\RequireAsset\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -465,7 +468,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2016-10-05 08:29:07"
+            "time": "2016-10-14 11:27:02"
         },
         {
             "name": "fxp/require-asset-bundle",
@@ -473,12 +476,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fxpio/FxpRequireAssetBundle.git",
-                "reference": "ae0845c49560930f7c0741afa1f175780823050b"
+                "reference": "939ca4b394cb554007fbf0eca108924995d7a973"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fxpio/FxpRequireAssetBundle/zipball/ae0845c49560930f7c0741afa1f175780823050b",
-                "reference": "ae0845c49560930f7c0741afa1f175780823050b",
+                "url": "https://api.github.com/repos/fxpio/FxpRequireAssetBundle/zipball/939ca4b394cb554007fbf0eca108924995d7a973",
+                "reference": "939ca4b394cb554007fbf0eca108924995d7a973",
                 "shasum": ""
             },
             "require": {
@@ -501,7 +504,10 @@
             "autoload": {
                 "psr-4": {
                     "Fxp\\Bundle\\RequireAssetBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -527,7 +533,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2016-10-05 08:33:51"
+            "time": "2016-10-14 11:32:22"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -702,16 +708,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "shasum": ""
             },
             "require": {
@@ -745,7 +751,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-09-19 16:02:08"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "sonatra/ajax-bundle",
@@ -753,12 +759,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraAjaxBundle.git",
-                "reference": "90ba69a630009af7a174d717441900a5824b36ce"
+                "reference": "ff82ce5f24391eb6b5734f802809b0197eb950cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraAjaxBundle/zipball/90ba69a630009af7a174d717441900a5824b36ce",
-                "reference": "90ba69a630009af7a174d717441900a5824b36ce",
+                "url": "https://api.github.com/repos/sonatra/SonatraAjaxBundle/zipball/ff82ce5f24391eb6b5734f802809b0197eb950cb",
+                "reference": "ff82ce5f24391eb6b5734f802809b0197eb950cb",
                 "shasum": ""
             },
             "require": {
@@ -775,7 +781,10 @@
             "autoload": {
                 "psr-4": {
                     "Sonatra\\Bundle\\AjaxBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -792,7 +801,7 @@
             "keywords": [
                 "AJAX response"
             ],
-            "time": "2016-07-03 11:37:05"
+            "time": "2016-10-14 11:40:01"
         },
         {
             "name": "sonatra/block-bundle",
@@ -800,12 +809,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBlockBundle.git",
-                "reference": "b69c57e953b9290ff487f4c003f39166f27b0bf0"
+                "reference": "9bf4ec7d8d0556a04bd72862874cb7bb7b9d41ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/b69c57e953b9290ff487f4c003f39166f27b0bf0",
-                "reference": "b69c57e953b9290ff487f4c003f39166f27b0bf0",
+                "url": "https://api.github.com/repos/sonatra/SonatraBlockBundle/zipball/9bf4ec7d8d0556a04bd72862874cb7bb7b9d41ed",
+                "reference": "9bf4ec7d8d0556a04bd72862874cb7bb7b9d41ed",
                 "shasum": ""
             },
             "require": {
@@ -832,7 +841,10 @@
             "autoload": {
                 "psr-4": {
                     "Sonatra\\Bundle\\BlockBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -851,7 +863,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2016-10-05 09:42:53"
+            "time": "2016-10-14 11:55:44"
         },
         {
             "name": "sonatra/bootstrap-bundle",
@@ -859,12 +871,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraBootstrapBundle.git",
-                "reference": "cdb96a1b5f260459579275b13a6b5225d152179b"
+                "reference": "ab6ab47da030636ab26fb7c37f0a0b76e55f9e03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/cdb96a1b5f260459579275b13a6b5225d152179b",
-                "reference": "cdb96a1b5f260459579275b13a6b5225d152179b",
+                "url": "https://api.github.com/repos/sonatra/SonatraBootstrapBundle/zipball/ab6ab47da030636ab26fb7c37f0a0b76e55f9e03",
+                "reference": "ab6ab47da030636ab26fb7c37f0a0b76e55f9e03",
                 "shasum": ""
             },
             "require": {
@@ -918,7 +930,7 @@
                 "block",
                 "template"
             ],
-            "time": "2016-10-05 09:56:56"
+            "time": "2016-10-10 16:14:35"
         },
         {
             "name": "sonatra/form-extensions-bundle",
@@ -926,12 +938,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraFormExtensionsBundle.git",
-                "reference": "5a34b48a6048a2bb8e0c0421fa7582f47667e451"
+                "reference": "6cd51b03232b33235fda7bbc6481ab521fb1051d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraFormExtensionsBundle/zipball/5a34b48a6048a2bb8e0c0421fa7582f47667e451",
-                "reference": "5a34b48a6048a2bb8e0c0421fa7582f47667e451",
+                "url": "https://api.github.com/repos/sonatra/SonatraFormExtensionsBundle/zipball/6cd51b03232b33235fda7bbc6481ab521fb1051d",
+                "reference": "6cd51b03232b33235fda7bbc6481ab521fb1051d",
                 "shasum": ""
             },
             "require": {
@@ -961,7 +973,10 @@
             "autoload": {
                 "psr-4": {
                     "Sonatra\\Bundle\\FormExtensionsBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -986,7 +1001,7 @@
                 "select2",
                 "time"
             ],
-            "time": "2016-09-09 08:29:20"
+            "time": "2016-10-14 11:54:34"
         },
         {
             "name": "sonatra/routing-extra-bundle",
@@ -994,12 +1009,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/SonatraRoutingExtraBundle.git",
-                "reference": "eac80cd066209dfa7373d918233add4c76a733b0"
+                "reference": "03d097feb55723df79e3c9b0974110508e390dab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/SonatraRoutingExtraBundle/zipball/eac80cd066209dfa7373d918233add4c76a733b0",
-                "reference": "eac80cd066209dfa7373d918233add4c76a733b0",
+                "url": "https://api.github.com/repos/sonatra/SonatraRoutingExtraBundle/zipball/03d097feb55723df79e3c9b0974110508e390dab",
+                "reference": "03d097feb55723df79e3c9b0974110508e390dab",
                 "shasum": ""
             },
             "require": {
@@ -1017,7 +1032,10 @@
             "autoload": {
                 "psr-4": {
                     "Sonatra\\Bundle\\RoutingExtraBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1036,7 +1054,7 @@
                 "extra",
                 "routing"
             ],
-            "time": "2016-07-03 11:44:28"
+            "time": "2016-10-14 11:52:15"
         },
         {
             "name": "symfony/asset",
@@ -3398,16 +3416,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.26.0",
+            "version": "v1.26.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "81c2b5fd36581370c7731387f05dcdb577050513"
+                "reference": "a09d8ee17ac1cfea29ed60c83960ad685c6a898d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/81c2b5fd36581370c7731387f05dcdb577050513",
-                "reference": "81c2b5fd36581370c7731387f05dcdb577050513",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/a09d8ee17ac1cfea29ed60c83960ad685c6a898d",
+                "reference": "a09d8ee17ac1cfea29ed60c83960ad685c6a898d",
                 "shasum": ""
             },
             "require": {
@@ -3455,7 +3473,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-10-02 16:19:13"
+            "time": "2016-10-05 18:57:41"
         }
     ],
     "packages-dev": [],
