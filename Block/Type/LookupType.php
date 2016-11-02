@@ -31,7 +31,7 @@ use Symfony\Component\Routing\RouterInterface;
 class LookupType extends AbstractType
 {
     /**
-     * @var RouterInterface
+     * @var RouterExtraInterface
      */
     private $routerExtra;
 
