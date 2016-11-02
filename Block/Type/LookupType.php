@@ -58,6 +58,7 @@ class LookupType extends AbstractType
     public function buildBlock(BlockBuilderInterface $builder, array $options)
     {
         $builder->addViewTransformer(new LookupTransformer($options['view_property_path'], $this->propertyAccessor));
+        $builder->setAttribute('route_parameters', $options['route_parameters']);
     }
 
     /**
@@ -71,7 +72,8 @@ class LookupType extends AbstractType
 
         $view->vars = array_replace($view->vars, array(
             'attr' => array_merge($view->vars['attr'], array(
-                'href' => $this->routerExtra->generate($options['route_name'], $options['route_parameters'],
+                'href' => $this->routerExtra->generate($options['route_name'],
+                    $block->getAttribute('route_parameters'),
                     $block->getData(), RouterInterface::ABSOLUTE_URL),
             )),
         ));
