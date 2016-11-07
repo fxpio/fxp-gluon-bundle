@@ -9,277 +9,277 @@
     </parameters>
 
     <services>
-        <service id="sonatra_gluon.block.type_extension.field.addon" class="Sonatra\Bundle\GluonBundle\Block\Extension\AddonExtension">
+        <service id="sonatra_gluon.block.type_extension.field.addon" class="Sonatra\Component\Gluon\Block\Extension\AddonExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FieldType" />
             <argument>Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FieldType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.field.floating_label" class="Sonatra\Bundle\GluonBundle\Block\Extension\FloatingLabelExtension">
+        <service id="sonatra_gluon.block.type_extension.field.floating_label" class="Sonatra\Component\Gluon\Block\Extension\FloatingLabelExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\FieldType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.navbar" class="Sonatra\Bundle\GluonBundle\Block\Extension\NavbarExtension">
+        <service id="sonatra_gluon.block.type_extension.navbar" class="Sonatra\Component\Gluon\Block\Extension\NavbarExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\NavbarType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.headroom.navbar" class="Sonatra\Bundle\GluonBundle\Block\Extension\HeadroomExtension">
+        <service id="sonatra_gluon.block.type_extension.headroom.navbar" class="Sonatra\Component\Gluon\Block\Extension\HeadroomExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\NavbarType" />
             <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\NavbarType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type.lookup" class="Sonatra\Bundle\GluonBundle\Block\Type\LookupType">
+        <service id="sonatra_gluon.block.type.lookup" class="Sonatra\Component\Gluon\Block\Type\LookupType">
             <argument type="service" id="sonatra_routing_extra.router_extra" />
             <argument type="service" id="property_accessor"/>
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.sidebar" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarType">
+        <service id="sonatra_gluon.block.type.sidebar" class="Sonatra\Component\Gluon\Block\Type\SidebarType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.sidebar_header" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarHeaderType">
+        <service id="sonatra_gluon.block.type.sidebar_header" class="Sonatra\Component\Gluon\Block\Type\SidebarHeaderType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.sidebar_group" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarGroupType">
+        <service id="sonatra_gluon.block.type.sidebar_group" class="Sonatra\Component\Gluon\Block\Type\SidebarGroupType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.sidebar_divider_item" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarDividerItemType">
+        <service id="sonatra_gluon.block.type.sidebar_divider_item" class="Sonatra\Component\Gluon\Block\Type\SidebarDividerItemType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.sidebar_item" class="Sonatra\Bundle\GluonBundle\Block\Type\SidebarItemType">
+        <service id="sonatra_gluon.block.type.sidebar_item" class="Sonatra\Component\Gluon\Block\Type\SidebarItemType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.nav_scrollable" class="Sonatra\Bundle\GluonBundle\Block\Type\NavScrollableType">
+        <service id="sonatra_gluon.block.type.nav_scrollable" class="Sonatra\Component\Gluon\Block\Type\NavScrollableType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.navbar_flex" class="Sonatra\Bundle\GluonBundle\Block\Type\NavbarFlexType">
+        <service id="sonatra_gluon.block.type.navbar_flex" class="Sonatra\Component\Gluon\Block\Type\NavbarFlexType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.navbar_title" class="Sonatra\Bundle\GluonBundle\Block\Type\NavbarTitleType">
+        <service id="sonatra_gluon.block.type.navbar_title" class="Sonatra\Component\Gluon\Block\Type\NavbarTitleType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.button" class="Sonatra\Bundle\GluonBundle\Block\Extension\ButtonExtension">
+        <service id="sonatra_gluon.block.type_extension.button" class="Sonatra\Component\Gluon\Block\Extension\ButtonExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.ripple_button" class="Sonatra\Bundle\GluonBundle\Block\Extension\RippleExtension">
-            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType" />
-            <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType</argument>
-        </service>
-
-        <service id="sonatra_gluon.block.type_extension.raised_button" class="Sonatra\Bundle\GluonBundle\Block\Extension\RaisedExtension">
+        <service id="sonatra_gluon.block.type_extension.ripple_button" class="Sonatra\Component\Gluon\Block\Extension\RippleExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType" />
             <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type.button_navbar" class="Sonatra\Bundle\GluonBundle\Block\Type\ButtonNavbarType">
+        <service id="sonatra_gluon.block.type_extension.raised_button" class="Sonatra\Component\Gluon\Block\Extension\RaisedExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType" />
+            <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\ButtonType</argument>
+        </service>
+
+        <service id="sonatra_gluon.block.type.button_navbar" class="Sonatra\Component\Gluon\Block\Type\ButtonNavbarType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.label" class="Sonatra\Bundle\GluonBundle\Block\Extension\LabelExtension">
+        <service id="sonatra_gluon.block.type_extension.label" class="Sonatra\Component\Gluon\Block\Extension\LabelExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\LabelType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.progress_bar" class="Sonatra\Bundle\GluonBundle\Block\Extension\ProgressBarExtension">
+        <service id="sonatra_gluon.block.type_extension.progress_bar" class="Sonatra\Component\Gluon\Block\Extension\ProgressBarExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\ProgressBarType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.panel" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelExtension">
+        <service id="sonatra_gluon.block.type_extension.panel" class="Sonatra\Component\Gluon\Block\Extension\PanelExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\PanelType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.checkbox" class="Sonatra\Bundle\GluonBundle\Block\Extension\CheckboxExtension">
+        <service id="sonatra_gluon.block.type_extension.checkbox" class="Sonatra\Component\Gluon\Block\Extension\CheckboxExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BlockBundle\Block\Extension\Core\Type\CheckboxType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.navbar_brand" class="Sonatra\Bundle\GluonBundle\Block\Extension\NavbarBrandExtension">
+        <service id="sonatra_gluon.block.type_extension.navbar_brand" class="Sonatra\Component\Gluon\Block\Extension\NavbarBrandExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\NavbarBrandType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.panel_header_content" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelContentExtension">
+        <service id="sonatra_gluon.block.type_extension.panel_header_content" class="Sonatra\Component\Gluon\Block\Extension\PanelContentExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\PanelHeaderType" />
             <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\PanelHeaderType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.panel_body_content" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelContentExtension">
+        <service id="sonatra_gluon.block.type_extension.panel_body_content" class="Sonatra\Component\Gluon\Block\Extension\PanelContentExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\PanelBodyType" />
             <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\PanelBodyType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.panel_footer_content" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelContentExtension">
+        <service id="sonatra_gluon.block.type_extension.panel_footer_content" class="Sonatra\Component\Gluon\Block\Extension\PanelContentExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\PanelFooterType" />
             <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\PanelFooterType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.panel_header" class="Sonatra\Bundle\GluonBundle\Block\Extension\PanelHeaderExtension">
+        <service id="sonatra_gluon.block.type_extension.panel_header" class="Sonatra\Component\Gluon\Block\Extension\PanelHeaderExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\PanelHeaderType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.pull_dropdown" class="Sonatra\Bundle\GluonBundle\Block\Extension\PullExtension">
+        <service id="sonatra_gluon.block.type_extension.pull_dropdown" class="Sonatra\Component\Gluon\Block\Extension\PullExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\DropdownType" />
             <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\DropdownType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.ripple_dropdown" class="Sonatra\Bundle\GluonBundle\Block\Extension\RippleExtension">
+        <service id="sonatra_gluon.block.type_extension.ripple_dropdown" class="Sonatra\Component\Gluon\Block\Extension\RippleExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\DropdownType" />
             <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\DropdownType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.ripple_nav_item" class="Sonatra\Bundle\GluonBundle\Block\Extension\RippleExtension">
+        <service id="sonatra_gluon.block.type_extension.ripple_nav_item" class="Sonatra\Component\Gluon\Block\Extension\RippleExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\NavItemType" />
             <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\NavItemType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.ripple_image" class="Sonatra\Bundle\GluonBundle\Block\Extension\RippleExtension">
+        <service id="sonatra_gluon.block.type_extension.ripple_image" class="Sonatra\Component\Gluon\Block\Extension\RippleExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\ImageType" />
             <argument>Sonatra\Bundle\BootstrapBundle\Block\Type\ImageType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type.panel_actions" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelActionsType">
+        <service id="sonatra_gluon.block.type.panel_actions" class="Sonatra\Component\Gluon\Block\Type\PanelActionsType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.panel_buttons" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelButtonsType">
+        <service id="sonatra_gluon.block.type.panel_buttons" class="Sonatra\Component\Gluon\Block\Type\PanelButtonsType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.panel_section" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelSectionType">
+        <service id="sonatra_gluon.block.type.panel_section" class="Sonatra\Component\Gluon\Block\Type\PanelSectionType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.panel_row" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelRowType">
+        <service id="sonatra_gluon.block.type.panel_row" class="Sonatra\Component\Gluon\Block\Type\PanelRowType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.panel_row_spacer" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelRowSpacerType">
+        <service id="sonatra_gluon.block.type.panel_row_spacer" class="Sonatra\Component\Gluon\Block\Type\PanelRowSpacerType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.panel_cell" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellType">
+        <service id="sonatra_gluon.block.type.panel_cell" class="Sonatra\Component\Gluon\Block\Type\PanelCellType">
             <argument type="service" id="property_accessor"/>
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.panel_cell_pref" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellPrefType">
+        <service id="sonatra_gluon.block.type.panel_cell_pref" class="Sonatra\Component\Gluon\Block\Type\PanelCellPrefType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.panel_cell_pref.addon" class="Sonatra\Bundle\GluonBundle\Block\Extension\AddonExtension">
-            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellPrefType" />
-            <argument>Sonatra\Bundle\GluonBundle\Block\Type\PanelCellPrefType</argument>
+        <service id="sonatra_gluon.block.type_extension.panel_cell_pref.addon" class="Sonatra\Component\Gluon\Block\Extension\AddonExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Gluon\Block\Type\PanelCellPrefType" />
+            <argument>Sonatra\Component\Gluon\Block\Type\PanelCellPrefType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.panel_cell_pref.ripple" class="Sonatra\Bundle\GluonBundle\Block\Extension\RippleExtension">
-            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellPrefType" />
-            <argument>Sonatra\Bundle\GluonBundle\Block\Type\PanelCellPrefType</argument>
+        <service id="sonatra_gluon.block.type_extension.panel_cell_pref.ripple" class="Sonatra\Component\Gluon\Block\Extension\RippleExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Gluon\Block\Type\PanelCellPrefType" />
+            <argument>Sonatra\Component\Gluon\Block\Type\PanelCellPrefType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type.panel_cell_spacer" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelCellSpacerType">
+        <service id="sonatra_gluon.block.type.panel_cell_spacer" class="Sonatra\Component\Gluon\Block\Type\PanelCellSpacerType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.panel_list" class="Sonatra\Bundle\GluonBundle\Block\Type\PanelListType">
+        <service id="sonatra_gluon.block.type.panel_list" class="Sonatra\Component\Gluon\Block\Type\PanelListType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.table" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableExtension">
+        <service id="sonatra_gluon.block.type_extension.table" class="Sonatra\Component\Gluon\Block\Extension\TableExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\TableType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.table_pager" class="Sonatra\Bundle\GluonBundle\Block\Extension\TablePagerExtension">
+        <service id="sonatra_gluon.block.type_extension.table_pager" class="Sonatra\Component\Gluon\Block\Extension\TablePagerExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\TableType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.table_column" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnExtension">
+        <service id="sonatra_gluon.block.type_extension.table_column" class="Sonatra\Component\Gluon\Block\Extension\TableColumnExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\TableColumnType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.table_column_pager" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnPagerExtension">
+        <service id="sonatra_gluon.block.type_extension.table_column_pager" class="Sonatra\Component\Gluon\Block\Extension\TableColumnPagerExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\TableColumnType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.footable" class="Sonatra\Bundle\GluonBundle\Block\Extension\FootableExtension">
+        <service id="sonatra_gluon.block.type_extension.footable" class="Sonatra\Component\Gluon\Block\Extension\FootableExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\TableType" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.footable_column" class="Sonatra\Bundle\GluonBundle\Block\Extension\FootableColumnExtension">
+        <service id="sonatra_gluon.block.type_extension.footable_column" class="Sonatra\Component\Gluon\Block\Extension\FootableColumnExtension">
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\BootstrapBundle\Block\Type\TableColumnType" />
         </service>
 
-        <service id="sonatra_gluon.block.type.table_pager" class="Sonatra\Bundle\GluonBundle\Block\Type\TablePagerType">
+        <service id="sonatra_gluon.block.type.table_pager" class="Sonatra\Component\Gluon\Block\Type\TablePagerType">
             <tag name="sonatra_block.type" />
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="request_stack" />
             <argument type="service" id="router" />
         </service>
 
-        <service id="sonatra_gluon.block.type.table_column_row_number" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnRowNumberType">
+        <service id="sonatra_gluon.block.type.table_column_row_number" class="Sonatra\Component\Gluon\Block\Type\TableColumnRowNumberType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.table_column_link" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnLinkType">
-            <tag name="sonatra_block.type" />
-            <argument>%sonatra_gluon.block.resource.content_formatter%</argument>
-        </service>
-
-        <service id="sonatra_gluon.block.type.table_column_select" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnSelectType">
+        <service id="sonatra_gluon.block.type.table_column_link" class="Sonatra\Component\Gluon\Block\Type\TableColumnLinkType">
             <tag name="sonatra_block.type" />
             <argument>%sonatra_gluon.block.resource.content_formatter%</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type.table_list" class="Sonatra\Bundle\GluonBundle\Block\Type\TableListType">
+        <service id="sonatra_gluon.block.type.table_column_select" class="Sonatra\Component\Gluon\Block\Type\TableColumnSelectType">
+            <tag name="sonatra_block.type" />
+            <argument>%sonatra_gluon.block.resource.content_formatter%</argument>
+        </service>
+
+        <service id="sonatra_gluon.block.type.table_list" class="Sonatra\Component\Gluon\Block\Type\TableListType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.table_column_list_adapter" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnListAdapterType">
+        <service id="sonatra_gluon.block.type.table_column_list_adapter" class="Sonatra\Component\Gluon\Block\Type\TableColumnListAdapterType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.table_column_list_sort" class="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnListSortableType">
+        <service id="sonatra_gluon.block.type.table_column_list_sort" class="Sonatra\Component\Gluon\Block\Type\TableColumnListSortableType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.table_column_list_sort" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnExtension">
-            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnListSortableType" />
-            <argument>Sonatra\Bundle\GluonBundle\Block\Type\TableColumnListSortableType</argument>
+        <service id="sonatra_gluon.block.type_extension.table_column_list_sort" class="Sonatra\Component\Gluon\Block\Extension\TableColumnExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Gluon\Block\Type\TableColumnListSortableType" />
+            <argument>Sonatra\Component\Gluon\Block\Type\TableColumnListSortableType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.table_column_list_sort_pager" class="Sonatra\Bundle\GluonBundle\Block\Extension\TableColumnPagerExtension">
-            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\GluonBundle\Block\Type\TableColumnListSortableType" />
-            <argument>Sonatra\Bundle\GluonBundle\Block\Type\TableColumnListSortableType</argument>
+        <service id="sonatra_gluon.block.type_extension.table_column_list_sort_pager" class="Sonatra\Component\Gluon\Block\Extension\TableColumnPagerExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Gluon\Block\Type\TableColumnListSortableType" />
+            <argument>Sonatra\Component\Gluon\Block\Type\TableColumnListSortableType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type.spinner" class="Sonatra\Bundle\GluonBundle\Block\Type\SpinnerType">
+        <service id="sonatra_gluon.block.type.spinner" class="Sonatra\Component\Gluon\Block\Type\SpinnerType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.fab" class="Sonatra\Bundle\GluonBundle\Block\Type\FabType">
+        <service id="sonatra_gluon.block.type.fab" class="Sonatra\Component\Gluon\Block\Type\FabType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.fab_dropdown" class="Sonatra\Bundle\GluonBundle\Block\Type\FabDropdownType">
+        <service id="sonatra_gluon.block.type.fab_dropdown" class="Sonatra\Component\Gluon\Block\Type\FabDropdownType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type.fab_dropdown_item" class="Sonatra\Bundle\GluonBundle\Block\Type\FabDropdownItemType">
+        <service id="sonatra_gluon.block.type.fab_dropdown_item" class="Sonatra\Component\Gluon\Block\Type\FabDropdownItemType">
             <tag name="sonatra_block.type" />
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.ripple_fab_dropdown_item" class="Sonatra\Bundle\GluonBundle\Block\Extension\RippleExtension">
-            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\GluonBundle\Block\Type\FabDropdownItemType" />
-            <argument>Sonatra\Bundle\GluonBundle\Block\Type\FabDropdownItemType</argument>
+        <service id="sonatra_gluon.block.type_extension.ripple_fab_dropdown_item" class="Sonatra\Component\Gluon\Block\Extension\RippleExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Gluon\Block\Type\FabDropdownItemType" />
+            <argument>Sonatra\Component\Gluon\Block\Type\FabDropdownItemType</argument>
         </service>
 
-        <service id="sonatra_gluon.block.type_extension.headroom.fab" class="Sonatra\Bundle\GluonBundle\Block\Extension\HeadroomExtension">
-            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Bundle\GluonBundle\Block\Type\FabType" />
-            <argument>Sonatra\Bundle\GluonBundle\Block\Type\FabType</argument>
+        <service id="sonatra_gluon.block.type_extension.headroom.fab" class="Sonatra\Component\Gluon\Block\Extension\HeadroomExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Gluon\Block\Type\FabType" />
+            <argument>Sonatra\Component\Gluon\Block\Type\FabType</argument>
             <argument>btn_group_attr</argument>
         </service>
     </services>

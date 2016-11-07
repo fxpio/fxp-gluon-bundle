@@ -6,7 +6,7 @@
 
     <parameters>
         <parameter key="sonatra_gluon.web_debug_toolbar.listener.class">Sonatra\Bundle\GluonBundle\EventListener\WebDebugToolbarListener</parameter>
-        <parameter key="sonatra_gluon.optimize_response.class">Sonatra\Bundle\GluonBundle\EventListener\OptimizeResponseListener</parameter>
+        <parameter key="sonatra_gluon.optimize_response.class">Sonatra\Component\Gluon\EventListener\OptimizeResponseListener</parameter>
     </parameters>
 
     <services>

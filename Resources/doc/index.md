@@ -3,7 +3,7 @@ Getting Started With Sonatra GluonBundle
 
 ## Prerequisites
 
-This version of the bundle requires Symfony 2.4+ and Sonatra BootstrapBundle.
+This version of the bundle requires Symfony 3+.
 
 ## Installation
 
@@ -17,7 +17,7 @@ Installation is a quick, 2 step process:
 
 Add Sonatra GluonBundle in your composer.json:
 
-```js
+```json
 {
     "require": {
         "sonatra/gluon-bundle": "~1.0"
@@ -28,7 +28,7 @@ Add Sonatra GluonBundle in your composer.json:
 Or tell composer to download the bundle by running the command:
 
 ```bash
-$ php composer.phar update sonatra/web-interface-bundle
+$ php composer.phar require sonatra/gluon-bundle:"~1.0"
 ```
 
 Composer will install the bundle to your project's `vendor/sonatra` directory.

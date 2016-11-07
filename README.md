@@ -7,22 +7,15 @@ Sonatra Gluon Bundle
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sonatra/SonatraGluonBundle/master.svg)](https://scrutinizer-ci.com/g/sonatra/SonatraGluonBundle?branch=master)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/f0bf3d98-f059-4251-954b-92bc1f4589dc.svg)](https://insight.sensiolabs.com/projects/f0bf3d98-f059-4251-954b-92bc1f4589dc)
 
-The Sonatra GluonBundle is a complet web responsive interface using Twitter Bootstrap.
+The Sonatra GluonBundle is a complete web responsive interface using Twitter Bootstrap.
 
 Features include:
 
-- All stylesheet theme of [Sonatra Theme Gluon](https://github.com/sonatra/sonatra-theme-gluon)
+- All features of [Sonatra Gluon](https://github.com/sonatra/sonatra-gluon)
 - Optimiser HTML response (remove space, breakline, etc...)
 - Google Fonts stylesheet builder
-- Block types:
-  - Sidebar (with group items)
-  - Nav scrollable
-  - Panel actions
-  - Panel buttons
-  - Panel sections
-  - Panel rows (with spacer)
-  - Panel cell (with spacer)
-  - Responsive table and dynamic with pager
+- Twig template of all blocks of Gluon
+- Twig template of all forms of Gluon
 
 Documentation
 -------------
@@ -48,7 +41,7 @@ About
 -----
 
 Sonatra GluonBundle is a [sonatra](https://github.com/sonatra) initiative.
-See also the list of [contributors](https://github.com/sonatra/SonatraGluonBundle/contributors).
+See also the list of [contributors](https://github.com/sonatra/SonatraGluonBundle/graphs/contributors).
 
 Reporting an issue or a feature request
 ---------------------------------------
