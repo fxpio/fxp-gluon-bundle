@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "A complete web responsive interface using Twitter Bootstrap",
     "keywords": ["web interface", "ui", "responsive", "admin", "landing", "twitter", "bootstrap", "website"],
-    "homepage": "https://github.com/sonatra/SonatraGluonBundle",
+    "homepage": "https://github.com/sonatra/sonatra-gluon-bundle",
     "license": "MIT",
     "authors": [
         {

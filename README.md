@@ -2,9 +2,9 @@ Sonatra Gluon Bundle
 ====================
 
 [![Latest Version](https://img.shields.io/packagist/v/sonatra/gluon-bundle.svg)](https://packagist.org/packages/sonatra/gluon-bundle)
-[![Build Status](https://img.shields.io/travis/sonatra/SonatraGluonBundle/master.svg)](https://travis-ci.org/sonatra/SonatraGluonBundle)
-[![Coverage Status](https://img.shields.io/coveralls/sonatra/SonatraGluonBundle/master.svg)](https://coveralls.io/r/sonatra/SonatraGluonBundle?branch=master)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sonatra/SonatraGluonBundle/master.svg)](https://scrutinizer-ci.com/g/sonatra/SonatraGluonBundle?branch=master)
+[![Build Status](https://img.shields.io/travis/sonatra/sonatra-gluon-bundle/master.svg)](https://travis-ci.org/sonatra/sonatra-gluon-bundle)
+[![Coverage Status](https://img.shields.io/coveralls/sonatra/sonatra-gluon-bundle/master.svg)](https://coveralls.io/r/sonatra/sonatra-gluon-bundle?branch=master)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/sonatra/sonatra-gluon-bundle/master.svg)](https://scrutinizer-ci.com/g/sonatra/sonatra-gluon-bundle?branch=master)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/f0bf3d98-f059-4251-954b-92bc1f4589dc.svg)](https://insight.sensiolabs.com/projects/f0bf3d98-f059-4251-954b-92bc1f4589dc)
 
 The Sonatra GluonBundle is a complete web responsive interface using Twitter Bootstrap.
@@ -41,12 +41,12 @@ About
 -----
 
 Sonatra GluonBundle is a [sonatra](https://github.com/sonatra) initiative.
-See also the list of [contributors](https://github.com/sonatra/SonatraGluonBundle/graphs/contributors).
+See also the list of [contributors](https://github.com/sonatra/sonatra-gluon-bundle/graphs/contributors).
 
 Reporting an issue or a feature request
 ---------------------------------------
 
-Issues and feature requests are tracked in the [Github issue tracker](https://github.com/sonatra/SonatraGluonBundle/issues).
+Issues and feature requests are tracked in the [Github issue tracker](https://github.com/sonatra/sonatra-gluon-bundle/issues).
 
 When reporting a bug, it may be a good idea to reproduce it in a basic project
 built using the [Symfony Standard Edition](https://github.com/symfony/symfony-standard)
