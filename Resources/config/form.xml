@@ -6,92 +6,92 @@
 
     <services>
         <service id="sonatra_gluon.form.type_extension.date" class="Sonatra\Component\Gluon\Form\Extension\DateExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\DateType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\DateType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\DateType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.choice" class="Sonatra\Component\Gluon\Form\Extension\ChoiceExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\ChoiceType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\ChoiceType" />
         </service>
 
         <service id="sonatra_gluon.form.type_extension.button" class="Sonatra\Component\Gluon\Form\Extension\ButtonExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\ButtonType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\ButtonType" />
         </service>
 
         <service id="sonatra_gluon.form.type_extension.checkbox" class="Sonatra\Component\Gluon\Form\Extension\CheckboxExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\CheckboxType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\CheckboxType" />
         </service>
 
         <service id="sonatra_gluon.form.type_extension.textarea" class="Sonatra\Component\Gluon\Form\Extension\TextareaExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\TextareaType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\TextareaType" />
         </service>
 
         <service id="sonatra_gluon.form.type_extension.collection" class="Sonatra\Component\Gluon\Form\Extension\CollectionExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\CollectionType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\CollectionType" />
         </service>
 
         <service id="sonatra_gluon.form.type_extension.button_ripple" class="Sonatra\Component\Gluon\Form\Extension\RippleExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\ButtonType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\ButtonType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\ButtonType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.text" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\TextType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\TextType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\TextType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.integer" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\IntegerType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\IntegerType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\IntegerType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.money" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\MoneyType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\MoneyType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\MoneyType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.number" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\NumberType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\NumberType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\NumberType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.percent" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\PercentType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\PercentType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\PercentType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.textarea" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\TextareaType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\TextareaType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\TextareaType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.datetime" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\DateTimeType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\DateTimeType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\DateTimeType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.date" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\DateType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\DateType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\DateType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.time" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\TimeType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\TimeType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\TimeType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.file" class="Sonatra\Component\Gluon\Form\Extension\FloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\FileType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\FileType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.choice" class="Sonatra\Component\Gluon\Form\Extension\StaticFloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\ChoiceType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\ChoiceType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         </service>
 
         <service id="sonatra_gluon.form.type_extension.floating_label.collection" class="Sonatra\Component\Gluon\Form\Extension\StaticFloatingLabelExtension">
-            <tag name="form.type_extension" extended-type="Symfony\Component\Form\Extension\Core\Type\CollectionType" />
+            <tag name="form.type_extension" priority="100" extended-type="Symfony\Component\Form\Extension\Core\Type\CollectionType" />
             <argument>Symfony\Component\Form\Extension\Core\Type\CollectionType</argument>
         </service>
     </services>
