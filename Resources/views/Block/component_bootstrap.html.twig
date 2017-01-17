@@ -37,8 +37,12 @@
 {%- endblock navbar_brand_widget %}
 
 {% block button_widget -%}
-    {%- if raised is defined and raised -%}
-        {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' btn-raised')|trim}) -%}
+    {%- if raised is defined -%}
+        {%- if raised is same as(true) -%}
+            {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' btn-raised')|trim}) -%}
+        {%- elseif raised == 'flat' -%}
+            {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' btn-flat-raised')|trim}) -%}
+        {%- endif -%}
     {%- endif -%}
 
     {%- if ripple is defined and ripple -%}
