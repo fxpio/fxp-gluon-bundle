@@ -11,11 +11,11 @@
 
 namespace Sonatra\Bundle\GluonBundle;
 
-use Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler\ConfigurationPass;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler\FormTemplatePass;
 use Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler\BlockTemplatePass;
+use Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler\ConfigurationPass;
+use Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler\FormTemplatePass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * @author François Pluchino <francois.pluchino@sonatra.com>
