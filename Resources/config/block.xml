@@ -302,5 +302,10 @@
             <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Bootstrap\Block\Type\PanelSectionType" />
             <argument>Sonatra\Component\Bootstrap\Block\Type\PanelSectionType</argument>
         </service>
+
+        <service id="sonatra_gluon.block.type_extension.rendered_fab" class="Sonatra\Component\Gluon\Block\Extension\RenderedExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Gluon\Block\Type\FabType" />
+            <argument>Sonatra\Component\Gluon\Block\Type\FabType</argument>
+        </service>
     </services>
 </container>
