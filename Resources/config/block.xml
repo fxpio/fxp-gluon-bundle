@@ -282,5 +282,25 @@
             <argument>Sonatra\Component\Gluon\Block\Type\FabType</argument>
             <argument>btn_group_attr</argument>
         </service>
+
+        <service id="sonatra_gluon.block.type_extension.rendered_panel" class="Sonatra\Component\Gluon\Block\Extension\RenderedExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Bootstrap\Block\Type\PanelType" />
+            <argument>Sonatra\Component\Bootstrap\Block\Type\PanelType</argument>
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.rendered_panel_section" class="Sonatra\Component\Gluon\Block\Extension\RenderedExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Bootstrap\Block\Type\PanelCellType" />
+            <argument>Sonatra\Component\Bootstrap\Block\Type\PanelCellType</argument>
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.rendered_panel_row" class="Sonatra\Component\Gluon\Block\Extension\RenderedExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Bootstrap\Block\Type\PanelRowType" />
+            <argument>Sonatra\Component\Bootstrap\Block\Type\PanelRowType</argument>
+        </service>
+
+        <service id="sonatra_gluon.block.type_extension.rendered_panel_cell" class="Sonatra\Component\Gluon\Block\Extension\RenderedExtension">
+            <tag name="sonatra_block.type_extension" extended-type="Sonatra\Component\Bootstrap\Block\Type\PanelSectionType" />
+            <argument>Sonatra\Component\Bootstrap\Block\Type\PanelSectionType</argument>
+        </service>
     </services>
 </container>
