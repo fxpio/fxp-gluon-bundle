@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "83ebc3fdbc05b6434da1dee0ea78599e",
-    "content-hash": "82ea07fc2a558616a69407d437eafcf3",
+    "hash": "0f4830b761cbcab49db2e2d30010d848",
+    "content-hash": "5de2b30f7a9beeec966cfef9b592e694",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -534,16 +534,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-block.git",
-                "reference": "422d383330534d0cfd8cd7d26359e72eeb48b1a0"
+                "reference": "5d113cb8ba43bdc464d7c29382b6696bd7ade191"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-block/zipball/422d383330534d0cfd8cd7d26359e72eeb48b1a0",
-                "reference": "422d383330534d0cfd8cd7d26359e72eeb48b1a0",
+                "url": "https://api.github.com/repos/sonatra/sonatra-block/zipball/5d113cb8ba43bdc464d7c29382b6696bd7ade191",
+                "reference": "5d113cb8ba43bdc464d7c29382b6696bd7ade191",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.0",
+                "php": ">=7.0.0",
                 "symfony/event-dispatcher": "~3.0",
                 "symfony/form": "~3.0",
                 "symfony/options-resolver": "~3.0"
@@ -556,7 +556,7 @@
                 "symfony/templating": "~3.0",
                 "symfony/translation": "~3.0",
                 "symfony/validator": "~3.0",
-                "twig/twig": "~1.27"
+                "twig/twig": "~2.0"
             },
             "suggest": {
                 "doctrine/orm": "For doctrine block type"
@@ -592,7 +592,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2017-01-18 12:34:25"
+            "time": "2017-01-18 14:56:01"
         },
         {
             "name": "sonatra/block-bundle",
@@ -932,12 +932,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-gluon.git",
-                "reference": "a23526cc15fa5b7f88630faba30d3685ae745f74"
+                "reference": "f15341da25f524cf3ab7f0f7791d69cf3ec05d9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-gluon/zipball/a23526cc15fa5b7f88630faba30d3685ae745f74",
-                "reference": "a23526cc15fa5b7f88630faba30d3685ae745f74",
+                "url": "https://api.github.com/repos/sonatra/sonatra-gluon/zipball/f15341da25f524cf3ab7f0f7791d69cf3ec05d9f",
+                "reference": "f15341da25f524cf3ab7f0f7791d69cf3ec05d9f",
                 "shasum": ""
             },
             "require": {
@@ -1008,7 +1008,7 @@
                 "web interface",
                 "website"
             ],
-            "time": "2017-01-18 12:30:11"
+            "time": "2017-01-18 13:33:17"
         },
         {
             "name": "sonatra/routing-extra",
@@ -3028,7 +3028,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=7.0.0"
     },
     "platform-dev": []
 }
