@@ -1,4 +1,5 @@
 {% block sidebar_widget -%}
+{%- if rendered -%}
     {%- require_style   '?@bower/sonatra-jquery-scroller/css/scroller.css'
                         '@bower/sonatra-jquery-sidebar/less/sidebar.less' -%}
     {%- require_script  '@bower/jquery/dist/jquery.js'
@@ -47,10 +48,12 @@
         </ul>
     </div>
     {%- endspaceless -%}
+{%- endif -%}
 {%- endblock sidebar_widget %}
 
 
 {% block sidebar_header_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('sidebar-header ' ~ attr.class|default(''))|trim}) -%}
 
     {%- spaceless -%}
@@ -60,10 +63,12 @@
             {{- block('block_rows') -}}
         </li>
     {%- endspaceless -%}
+{%- endif -%}
 {%- endblock sidebar_header_widget %}
 
 
 {% block sidebar_group_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('sidebar-group ' ~ attr.class|default(''))|trim}) -%}
 
     {%- if context_menu -%}
@@ -81,10 +86,12 @@
         </ul>
     </li>
     {%- endspaceless -%}
+{%- endif -%}
 {%- endblock sidebar_group_widget %}
 
 
 {% block sidebar_divider_item_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('sidebar-divider-item ' ~ attr.class|default(''))|trim}) -%}
 
     {%- if context_menu -%}
@@ -92,10 +99,12 @@
     {%- endif -%}
 
     <li{{ block('widget_container_attributes') }}></li>
+{%- endif -%}
 {%- endblock sidebar_divider_item_widget %}
 
 
 {% block sidebar_item_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('sidebar-item ' ~ attr.class|default(''))|trim}) -%}
 
     {%- if context_menu -%}
@@ -127,4 +136,5 @@
             </a>
         </li>
     {%- endspaceless -%}
+{%- endif -%}
 {%- endblock sidebar_item_widget %}

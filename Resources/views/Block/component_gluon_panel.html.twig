@@ -1,4 +1,5 @@
 {% block panel_actions_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('panel-actions ' ~ attr.class|default(''))|trim}) -%}
 
     <div{{ block('widget_container_attributes') }}>
@@ -10,10 +11,12 @@
             {{- block_widget(panel_button_collapse) -}}
         {%- endif -%}
     </div>
+{%- endif -%}
 {%- endblock panel_actions_widget %}
 
 
 {% block panel_buttons_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('panel-buttons ' ~ attr.class|default(''))|trim}) -%}
 
     <div{{ block('widget_container_attributes') }}>
@@ -22,11 +25,13 @@
             {{- block_widget(child) -}}
         {%- endfor -%}
     </div>
+{%- endif -%}
 {%- endblock panel_buttons_widget %}
 
 
 {% block panel_section_widget -%}
-    {%- if rendered and (not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0)) -%}
+{%- if rendered -%}
+    {%- if not(hidden_if_empty) or (hidden_if_empty and block.children|length > 0) -%}
         {%- set attr = attr|merge({'class': ('panel-section container-fluid ' ~ attr.class|default(''))|trim}) -%}
 
         {%- if collapsible -%}
@@ -59,85 +64,95 @@
             {%- endfor -%}
         </div>
     {%- endif -%}
+{%- endif -%}
 {%- endblock panel_section_widget %}
 
 
 {% block panel_row_widget -%}
-    {%- if rendered -%}
-        {%- set attr = attr|merge({'class': ('panel-row row ' ~ attr.class|default(''))|trim}) -%}
+{%- if rendered -%}
+    {%- set attr = attr|merge({'class': ('panel-row row ' ~ attr.class|default(''))|trim}) -%}
 
-        <div{{ block('widget_container_attributes') }}>
-            {{- value|raw -}}
-            {%- for child in block -%}
-                {{- block_widget(child) -}}
-            {%- endfor -%}
-        </div>
-    {%- endif -%}
+    <div{{ block('widget_container_attributes') }}>
+        {{- value|raw -}}
+        {%- for child in block -%}
+            {{- block_widget(child) -}}
+        {%- endfor -%}
+    </div>
+{%- endif -%}
 {%- endblock panel_row_widget %}
 
 {% block panel_row_spacer_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('panel-row-spacer' ~ attr.class|default(''))|trim}) -%}
 
     {{- block('panel_row_widget') -}}
+{%- endif -%}
 {%- endblock panel_row_spacer_widget %}
 
 
 {% block panel_cell_widget -%}
-    {%- if rendered -%}
-        {%- set attr = attr|merge({'class': ('panel-cell col-' ~ layout_col_size ~ '-' ~ layout_col_width ~ ' ' ~ attr.class|default(''))|trim}) -%}
+{%- if rendered -%}
+    {%- set attr = attr|merge({'class': ('panel-cell col-' ~ layout_col_size ~ '-' ~ layout_col_width ~ ' ' ~ attr.class|default(''))|trim}) -%}
 
-        <div{{ block('widget_container_attributes') }}>
+    <div{{ block('widget_container_attributes') }}>
 
-        {%- if not(hidden) -%}
-            <div class="panel-cell-wrapper{% if layout_style == 'vertical' %}-vertical{% endif %}">
-                {{- block_label(block) -}}
-                {%- if button_help is defined -%}
-                    <div class="panel-block-help">
-                        {{- block_widget(button_help) -}}
-                    </div>
-                {%- endif -%}
-                {%- set control_attr = control_attr|merge({'class': (control_attr.class|default('') ~ ' block-control')|trim}) -%}
-
-                <div{% for attrname, attrvalue in control_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
-                    {% if value_formatter is not null %}
-                        {%- set value = value|block_formatter(value_formatter, value_formatter_options) -%}
-                    {%- endif -%}
-                    {{- value|raw -}}
-                    {%- if form_cell is defined -%}
-                        {{- form_widget(form_cell) -}}
-                    {%- endif -%}
-                    {%- for child in block -%}
-                        {{- block_widget(child) -}}
-                    {%- endfor -%}
+    {%- if not(hidden) -%}
+        <div class="panel-cell-wrapper{% if layout_style == 'vertical' %}-vertical{% endif %}">
+            {{- block_label(block) -}}
+            {%- if button_help is defined -%}
+                <div class="panel-block-help">
+                    {{- block_widget(button_help) -}}
                 </div>
+            {%- endif -%}
+            {%- set control_attr = control_attr|merge({'class': (control_attr.class|default('') ~ ' block-control')|trim}) -%}
+
+            <div{% for attrname, attrvalue in control_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>
+                {% if value_formatter is not null %}
+                    {%- set value = value|block_formatter(value_formatter, value_formatter_options) -%}
+                {%- endif -%}
+                {{- value|raw -}}
+                {%- if form_cell is defined -%}
+                    {{- form_widget(form_cell) -}}
+                {%- endif -%}
+                {%- for child in block -%}
+                    {{- block_widget(child) -}}
+                {%- endfor -%}
             </div>
-        {%- endif -%}
         </div>
     {%- endif -%}
+    </div>
+{%- endif -%}
 {%- endblock panel_cell_widget %}
 
 {% block panel_cell_label -%}
+{%- if rendered -%}
     {%- if has_form is defined -%}
         {% set block_label_content = 'panel_cell_label_content' %}
     {%- endif -%}
 
     {{- block('block_label') -}}
+{%- endif -%}
 {%- endblock panel_cell_label %}
 
 {% block panel_cell_label_content -%}
+{%- if rendered -%}
     <label for="{{ has_form.vars.id }}">
         {{- block('block_label_content') -}}
     </label>
+{%- endif -%}
 {%- endblock panel_cell_label_content %}
 
 
 {% block panel_cell_spacer_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('panel-cell-spacer ' ~ attr.class|default(''))|trim}) -%}
 
     {{- block('panel_cell_widget') -}}
+{%- endif -%}
 {% endblock panel_cell_spacer_widget %}
 
 {% block panel_cell_pref_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('panel-cell-pref ' ~ attr.class|default(''))|trim}) -%}
 
     {%- if rendered -%}
@@ -181,12 +196,15 @@
         {%- endif -%}
         </div>
     {%- endif -%}
+{%- endif -%}
 {% endblock panel_cell_pref_widget %}
 
 
 {% block panel_list_widget -%}
+{%- if rendered -%}
     {%- require_style    '@bower/bootstrap/less/bootstrap.less'
                         '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
 
     {{- block('panel_widget') -}}
+{%- endif -%}
 {%- endblock panel_list_widget %}

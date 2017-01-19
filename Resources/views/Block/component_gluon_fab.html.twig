@@ -1,5 +1,5 @@
 {% block fab_widget -%}
-    {%- if rendered -%}
+{%- if rendered -%}
         {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' btn-fab')|trim}) -%}
         {%- set caret = false -%}
 
@@ -17,11 +17,12 @@
         {%- if dropdown is not defined and absolute_position is not empty -%}
             </div>
         {%- endif -%}
-    {%- endif -%}
+{%- endif -%}
 {%- endblock fab_widget %}
 
 
 {% block fab_dropdown_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': (attr.class|default('') ~ ' dropdown-fab')|trim}) -%}
 
     {%- if mask_content -%}
@@ -29,9 +30,11 @@
     {%- endif -%}
 
     {{- block('dropdown_widget') -}}
+{%- endif -%}
 {%- endblock fab_dropdown_widget %}
 
 {% block fab_dropdown_item_widget -%}
+{%- if rendered -%}
     {%- set link_attr = link_attr|merge({'class': (link_attr.class|default('') ~ ' btn btn-fab')|trim}) -%}
 
     {%- if style is not null -%}
@@ -60,4 +63,5 @@
             <span class="fab-label">{{ fab_label|block_trans({}, translation_domain) }}</span>
         {%- endif -%}
     </li>
+{%- endif -%}
 {%- endblock fab_dropdown_item_widget %}

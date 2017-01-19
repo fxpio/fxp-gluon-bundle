@@ -1,4 +1,5 @@
 {% block nav_scrollable_widget -%}
+{%- if rendered -%}
     {%- require_style   '@bower/sonatra-jquery-scroller/less/scroller.less'
                         '@bower/sonatra-bootstrap-nav-scroll/less/nav-scroll.less'
                         '@bower/sonatra-bootstrap-dropdown-position/less/dropdown-position.less'-%}
@@ -13,4 +14,5 @@
             {{- block_widget(child) -}}
         {%- endfor -%}
     </div>
+{%- endif -%}
 {%- endblock nav_scrollable_widget %}

@@ -1,4 +1,5 @@
 {% block table_pager_widget %}
+{%- if rendered -%}
     {%- require_style   '@bower/sonatra-jquery-table-pager/less/table-pager.less'
                         '@bower/sonatra-jquery-table-pager/less/table-sort.less' -%}
     {%- require_script  '@bower/sonatra-jquery-table-pager/js/table-pager.js'
@@ -84,4 +85,5 @@
             </div>
         </div>
     {%- endspaceless -%}
+{%- endif -%}
 {%- endblock table_pager_widget %}

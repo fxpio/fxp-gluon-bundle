@@ -1,4 +1,5 @@
 {% block navbar_title_widget -%}
+{%- if rendered -%}
     {%- set attr = attr|merge({'class': ('navbar-title ' ~ attr.class|default(''))|trim}) -%}
 
     {%- spaceless -%}
@@ -8,9 +9,12 @@
             {{- block('block_rows') -}}
         </div>
     {%- endspaceless -%}
+{%- endif -%}
 {%- endblock navbar_title_widget %}
 
+
 {% block navbar_flex_widget -%}
+{%- if rendered -%}
     {%- require_style   '@bower/bootstrap/less/bootstrap.less'
                         '@bower/sonatra-theme-gluon/less/bootstrap-theme/bootstrap-theme.less' -%}
     {%- set attr = attr|merge({'class': ('navbar-flex ' ~ attr.class|default(''))|trim}) -%}
@@ -20,4 +24,5 @@
         {{- value|raw -}}
         {{- block('block_rows') -}}
     </div>
+{%- endif -%}
 {%- endblock navbar_flex_widget %}
