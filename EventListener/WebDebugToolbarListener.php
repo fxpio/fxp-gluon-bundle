@@ -92,7 +92,7 @@ class WebDebugToolbarListener
 
         if (false !== $pos = $posrFunction($content, '</head>')) {
             $toolbar = "\n".str_replace("\n", '', $this->templating->render(
-                'SonatraGluonBundle:Profiler:toolbar_css.html.twig',
+                '@SonatraGluon/Profiler/toolbar_css.html.twig',
                 array('token' => $response->headers->get('X-Debug-Token'))
                 ))."\n";
             $content = $substrFunction($content, 0, $pos).$toolbar.$substrFunction($content, $pos);

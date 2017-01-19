@@ -534,12 +534,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-block.git",
-                "reference": "5d113cb8ba43bdc464d7c29382b6696bd7ade191"
+                "reference": "e7471801ad6f9e4515eaeb9f5d6564b97c9b2050"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-block/zipball/5d113cb8ba43bdc464d7c29382b6696bd7ade191",
-                "reference": "5d113cb8ba43bdc464d7c29382b6696bd7ade191",
+                "url": "https://api.github.com/repos/sonatra/sonatra-block/zipball/e7471801ad6f9e4515eaeb9f5d6564b97c9b2050",
+                "reference": "e7471801ad6f9e4515eaeb9f5d6564b97c9b2050",
                 "shasum": ""
             },
             "require": {
@@ -592,7 +592,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2017-01-18 14:56:01"
+            "time": "2017-01-19 11:33:44"
         },
         {
             "name": "sonatra/block-bundle",
@@ -600,12 +600,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-block-bundle.git",
-                "reference": "0562bcaa78b83cbc5da37cf09348eb662b45f213"
+                "reference": "7394c19e82f95814acc9c2ebde56dd00ee280fd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-block-bundle/zipball/0562bcaa78b83cbc5da37cf09348eb662b45f213",
-                "reference": "0562bcaa78b83cbc5da37cf09348eb662b45f213",
+                "url": "https://api.github.com/repos/sonatra/sonatra-block-bundle/zipball/7394c19e82f95814acc9c2ebde56dd00ee280fd8",
+                "reference": "7394c19e82f95814acc9c2ebde56dd00ee280fd8",
                 "shasum": ""
             },
             "require": {
@@ -654,7 +654,7 @@
                 "ui",
                 "user interface"
             ],
-            "time": "2017-01-18 12:40:54"
+            "time": "2017-01-19 11:48:28"
         },
         {
             "name": "sonatra/bootstrap",
@@ -662,12 +662,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-bootstrap.git",
-                "reference": "85aa674ab2c1664aa23cdad4610e0306a49325c2"
+                "reference": "7f26d43632b18697a6c5af17cf49e47ac2943d81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap/zipball/85aa674ab2c1664aa23cdad4610e0306a49325c2",
-                "reference": "85aa674ab2c1664aa23cdad4610e0306a49325c2",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap/zipball/7f26d43632b18697a6c5af17cf49e47ac2943d81",
+                "reference": "7f26d43632b18697a6c5af17cf49e47ac2943d81",
                 "shasum": ""
             },
             "require": {
@@ -716,7 +716,7 @@
                 "block",
                 "template"
             ],
-            "time": "2017-01-18 13:30:49"
+            "time": "2017-01-19 14:41:10"
         },
         {
             "name": "sonatra/bootstrap-bundle",
@@ -724,12 +724,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-bootstrap-bundle.git",
-                "reference": "56d8ae0605a159eb86e3359d9dd31e035af03fe7"
+                "reference": "64aaa0863fd02906b956a5be211302b55db0878c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-bundle/zipball/56d8ae0605a159eb86e3359d9dd31e035af03fe7",
-                "reference": "56d8ae0605a159eb86e3359d9dd31e035af03fe7",
+                "url": "https://api.github.com/repos/sonatra/sonatra-bootstrap-bundle/zipball/64aaa0863fd02906b956a5be211302b55db0878c",
+                "reference": "64aaa0863fd02906b956a5be211302b55db0878c",
                 "shasum": ""
             },
             "require": {
@@ -739,6 +739,7 @@
                 "php": ">=5.6.0",
                 "sonatra/block": "1.0.*@dev",
                 "sonatra/block-bundle": "1.0.*@dev",
+                "sonatra/bootstrap": "1.0.*@dev",
                 "symfony/assetic-bundle": "~2.7",
                 "symfony/framework-bundle": "~3.0"
             },
@@ -787,7 +788,7 @@
                 "block",
                 "template"
             ],
-            "time": "2017-01-18 13:32:13"
+            "time": "2017-01-19 14:43:24"
         },
         {
             "name": "sonatra/form-extensions",
@@ -795,27 +796,27 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-form-extensions.git",
-                "reference": "0ec599a93d113be2e61f66cf197d955b303ba608"
+                "reference": "d48fb288a8556ea394ae43a18b40b92eea91b98f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-form-extensions/zipball/0ec599a93d113be2e61f66cf197d955b303ba608",
-                "reference": "0ec599a93d113be2e61f66cf197d955b303ba608",
+                "url": "https://api.github.com/repos/sonatra/sonatra-form-extensions/zipball/d48fb288a8556ea394ae43a18b40b92eea91b98f",
+                "reference": "d48fb288a8556ea394ae43a18b40b92eea91b98f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.0",
                 "sonatra/ajax": "1.0.*@dev",
-                "symfony/event-dispatcher": "~3.0",
-                "symfony/form": "~3.0",
-                "symfony/http-foundation": "~3.0",
-                "symfony/property-access": "~3.0",
-                "symfony/routing": "~3.0",
-                "symfony/serializer": "~3.0"
+                "symfony/event-dispatcher": "~3.2",
+                "symfony/form": "~3.2",
+                "symfony/http-foundation": "~3.2",
+                "symfony/property-access": "~3.2",
+                "symfony/routing": "~3.2",
+                "symfony/serializer": "~3.2"
             },
             "require-dev": {
                 "doctrine/orm": "~2.5",
-                "symfony/doctrine-bridge": "~3.0"
+                "symfony/doctrine-bridge": "~3.2"
             },
             "suggest": {
                 "bower-asset/select2": "The Select2 jquery plugin",
@@ -859,7 +860,7 @@
                 "select2",
                 "time"
             ],
-            "time": "2017-01-18 13:27:34"
+            "time": "2017-01-19 14:13:54"
         },
         {
             "name": "sonatra/form-extensions-bundle",
@@ -867,12 +868,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-form-extensions-bundle.git",
-                "reference": "23c70bd74c89d78e912c2ceb41d836f65a89f1e3"
+                "reference": "cc2c1b0244698ab7312ce34750f8105d43ec452f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-form-extensions-bundle/zipball/23c70bd74c89d78e912c2ceb41d836f65a89f1e3",
-                "reference": "23c70bd74c89d78e912c2ceb41d836f65a89f1e3",
+                "url": "https://api.github.com/repos/sonatra/sonatra-form-extensions-bundle/zipball/cc2c1b0244698ab7312ce34750f8105d43ec452f",
+                "reference": "cc2c1b0244698ab7312ce34750f8105d43ec452f",
                 "shasum": ""
             },
             "require": {
@@ -880,8 +881,8 @@
                 "sonatra/ajax": "~1.0@dev",
                 "sonatra/ajax-bundle": "~1.0@dev",
                 "sonatra/form-extensions": "~1.0@dev",
-                "symfony/framework-bundle": "~3.0",
-                "symfony/twig-bundle": "~3.0"
+                "symfony/framework-bundle": "~3.2",
+                "symfony/twig-bundle": "~3.2"
             },
             "require-dev": {
                 "fxp/require-asset": "~1.0@dev",
@@ -924,7 +925,7 @@
                 "select2",
                 "time"
             ],
-            "time": "2017-01-18 13:28:39"
+            "time": "2017-01-19 14:11:17"
         },
         {
             "name": "sonatra/gluon",
@@ -932,12 +933,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonatra/sonatra-gluon.git",
-                "reference": "f15341da25f524cf3ab7f0f7791d69cf3ec05d9f"
+                "reference": "61c46c606ff4203452239d0b9040acc45e973c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonatra/sonatra-gluon/zipball/f15341da25f524cf3ab7f0f7791d69cf3ec05d9f",
-                "reference": "f15341da25f524cf3ab7f0f7791d69cf3ec05d9f",
+                "url": "https://api.github.com/repos/sonatra/sonatra-gluon/zipball/61c46c606ff4203452239d0b9040acc45e973c4b",
+                "reference": "61c46c606ff4203452239d0b9040acc45e973c4b",
                 "shasum": ""
             },
             "require": {
@@ -1008,7 +1009,7 @@
                 "web interface",
                 "website"
             ],
-            "time": "2017-01-18 13:33:17"
+            "time": "2017-01-19 14:57:09"
         },
         {
             "name": "sonatra/routing-extra",

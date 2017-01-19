@@ -37,8 +37,8 @@ class BlockTemplatePass implements CompilerPassInterface
         }
 
         array_splice($resources, $offset, 0, array(
-            'SonatraGluonBundle:Block:component_bootstrap.html.twig',
-            'SonatraGluonBundle:Block:component_gluon.html.twig',
+            '@SonatraGluon/Block/component_bootstrap.html.twig',
+            '@SonatraGluon/Block/component_gluon.html.twig',
         ));
 
         $container->setParameter('sonatra_block.twig.resources', $resources);

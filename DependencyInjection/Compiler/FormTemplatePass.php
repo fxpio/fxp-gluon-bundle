@@ -37,7 +37,7 @@ class FormTemplatePass implements CompilerPassInterface
         }
 
         array_splice($resources, $offset, 0, array(
-            'SonatraGluonBundle:Form:form_bootstrap.html.twig',
+            '@SonatraGluon/Form/form_bootstrap.html.twig',
         ));
 
         $container->setParameter('twig.form.resources', $resources);
