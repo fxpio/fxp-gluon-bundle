@@ -97,6 +97,7 @@ packages:
         patterns:
             - "js/app-pjax.js"
             - "js/navbar-app-pjax.js"
+            - "js/table-pager-pjax.js"
             - "js/components/bootstrap-affix.js"
             - "js/components/bootstrap-modal.js"
             - "js/components/bootstrap-dropdown.js"
@@ -111,6 +112,7 @@ packages:
             - "js/components/sonatra-jquery-sidebar.js"
             - "js/components/sonatra-jquery-table-pager.js"
             - "js/components/sonatra-jquery-table-pager-footable.js"
+            - "js/components/sonatra-jquery-table-pager-pjax.js"
             - "js/components/sonatra-jquery-table-select.js"
             - "js/components/sonatra-jquery-headroom.js"
             - "js/components/sonatra-bootstrap-nav-scroll.js"
