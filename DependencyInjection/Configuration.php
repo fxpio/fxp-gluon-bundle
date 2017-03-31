@@ -100,7 +100,7 @@ class Configuration implements ConfigurationInterface
         $node = $treeBuilder->root('font_awesome');
 
         $node
-            ->canBeDisabled()
+            ->canBeEnabled()
             ->children()
                 ->scalarNode('path')->defaultValue('@bower/font-awesome/css/font-awesome.css')->end()
                 ->arrayNode('attributes')

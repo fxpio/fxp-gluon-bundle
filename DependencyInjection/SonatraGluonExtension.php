@@ -39,7 +39,6 @@ class SonatraGluonExtension extends Extension
         $loader->load('block.xml');
         $loader->load('form.xml');
         $loader->load('twig.xml');
-        $loader->load('assetic_variables.xml');
 
         $container->setParameter('sonatra_gluon.config.auto_configuration', $config['auto_configuration']);
         $this->configGoogleFonts($config['google_fonts'], $container);
@@ -99,7 +98,7 @@ class SonatraGluonExtension extends Extension
      * Add twig require tag.
      *
      * @param ContainerBuilder $container  The container builder
-     * @param string           $name       The assetic name of google fonts resource
+     * @param string           $name       The require asset name of google fonts resource
      * @param array            $attributes The HTML tag attributes
      */
     protected function addTwigRequireTag(ContainerBuilder $container, $name, array $attributes = array())
