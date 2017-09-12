@@ -26,7 +26,13 @@
     },
     "require-dev": {
         "symfony/console": "^3.3.0",
-        "symfony/finder": "^3.3.0"
+        "symfony/finder": "^3.3.0",
+        "foxy/foxy": "^1.0.0"
+    },
+    "config": {
+        "foxy": {
+            "enabled": false
+        }
     },
     "autoload": {
         "psr-4": { "Sonatra\\Bundle\\GluonBundle\\": "" },
