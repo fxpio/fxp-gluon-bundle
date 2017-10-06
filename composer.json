@@ -16,6 +16,7 @@
     "require": {
         "php": ">=7.0.0",
         "symfony/framework-bundle": "^3.3.0",
+        "symfony/templating": "^3.3.0",
         "sonatra/block-bundle": "^1.0.0",
         "sonatra/routing-extra-bundle": "^1.0.0",
         "sonatra/form-extensions-bundle": "^1.0.0",
