@@ -1,14 +1,14 @@
 {
-    "name": "sonatra/gluon-bundle",
+    "name": "fxp/gluon-bundle",
     "type": "symfony-bundle",
     "description": "A complete web responsive interface using Twitter Bootstrap",
     "keywords": ["web interface", "ui", "responsive", "admin", "landing", "twitter", "bootstrap", "website"],
-    "homepage": "https://github.com/sonatra/sonatra-gluon-bundle",
+    "homepage": "https://github.com/fxpio/fxp-gluon-bundle",
     "license": "MIT",
     "authors": [
         {
             "name": "François Pluchino",
-            "email": "francois.pluchino@sonatra.com"
+            "email": "francois.pluchino@gmail.com"
         }
     ],
     "minimum-stability": "dev",
@@ -17,12 +17,12 @@
         "php": "^7.1.0",
         "symfony/framework-bundle": "^3.4.0|^4.0.0",
         "symfony/templating": "^3.4.0|^4.0.0",
-        "sonatra/block-bundle": "^1.0.0",
-        "sonatra/routing-extra-bundle": "^1.0.0",
-        "sonatra/form-extensions-bundle": "^1.0.0",
-        "sonatra/bootstrap-bundle": "^1.0.0",
-        "sonatra/ajax-bundle": "^1.0.0",
-        "sonatra/gluon": "^1.0.0"
+        "fxp/block-bundle": "^1.0.0",
+        "fxp/routing-extra-bundle": "^1.0.0",
+        "fxp/form-extensions-bundle": "^1.0.0",
+        "fxp/bootstrap-bundle": "^1.0.0",
+        "fxp/ajax-bundle": "^1.0.0",
+        "fxp/gluon": "^1.0.0"
 
     },
     "require-dev": {
@@ -36,7 +36,7 @@
         }
     },
     "autoload": {
-        "psr-4": { "Sonatra\\Bundle\\GluonBundle\\": "" },
+        "psr-4": { "Fxp\\Bundle\\GluonBundle\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]

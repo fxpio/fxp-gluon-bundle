@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\GluonBundle\DependencyInjection\Compiler;
+namespace Fxp\Bundle\GluonBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Add a custom block template in sonatra_block.twig.resources.
+ * Add a custom block template in fxp_block.twig.resources.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
 class BlockTemplatePass implements CompilerPassInterface
 {
@@ -26,8 +26,8 @@ class BlockTemplatePass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $configs = $container->getExtensionConfig('sonatra_block');
-        $resources = $container->getParameter('sonatra_block.twig.resources');
+        $configs = $container->getExtensionConfig('fxp_block');
+        $resources = $container->getParameter('fxp_block.twig.resources');
         $offset = count($resources);
 
         if (isset($configs[0]['block_themes'])) {
@@ -37,10 +37,10 @@ class BlockTemplatePass implements CompilerPassInterface
         }
 
         array_splice($resources, $offset, 0, array(
-            '@SonatraGluon/Block/component_bootstrap.html.twig',
-            '@SonatraGluon/Block/component_gluon.html.twig',
+            '@FxpGluon/Block/component_bootstrap.html.twig',
+            '@FxpGluon/Block/component_gluon.html.twig',
         ));
 
-        $container->setParameter('sonatra_block.twig.resources', $resources);
+        $container->setParameter('fxp_block.twig.resources', $resources);
     }
 }

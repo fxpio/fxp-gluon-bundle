@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\GluonBundle\EventListener;
+namespace Fxp\Bundle\GluonBundle\EventListener;
 
 use Symfony\Bundle\TwigBundle\TwigEngine;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +21,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
  *
  * The onKernelResponse method must be connected to the kernel.response event.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
 class WebDebugToolbarListener
 {
@@ -92,7 +92,7 @@ class WebDebugToolbarListener
 
         if (false !== $pos = $posrFunction($content, '</head>')) {
             $toolbar = "\n".str_replace("\n", '', $this->templating->render(
-                '@SonatraGluon/Profiler/toolbar_css.html.twig',
+                '@FxpGluon/Profiler/toolbar_css.html.twig',
                 array('token' => $response->headers->get('X-Debug-Token'))
                 ))."\n";
             $content = $substrFunction($content, 0, $pos).$toolbar.$substrFunction($content, $pos);

@@ -1,4 +1,4 @@
-Getting Started With Sonatra GluonBundle
+Getting Started With Fxp GluonBundle
 ========================================
 
 ## Prerequisites
@@ -15,23 +15,13 @@ Installation is a quick, 2 step process:
 
 ### Step 1: Download the bundle using composer
 
-Add Sonatra GluonBundle in your composer.json:
-
-```json
-{
-    "require": {
-        "sonatra/gluon-bundle": "~1.0"
-    }
-}
-```
-
-Or tell composer to download the bundle by running the command:
+Tell composer to download the bundle by running the command:
 
 ```bash
-$ php composer.phar require sonatra/gluon-bundle:"~1.0"
+$ composer require fxp/gluon-bundle
 ```
 
-Composer will install the bundle to your project's `vendor/sonatra` directory.
+Composer will install the bundle to your project's `vendor/fxp` directory.
 
 ### Step 2: Enable the bundle
 
@@ -44,21 +34,21 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Sonatra\Bundle\GluonBundle\SonatraGluonBundle(),
+        new Fxp\Bundle\GluonBundle\FxpGluonBundle(),
     );
 }
 ```
 
 ### Step 3: Configure the bundle (optional)
 
-You can override the default configuration adding `sonatra_web_interface` tree in `app/config/config.yml`.
-For see the reference of Sonatra Gluon Configuration, execute command:
+You can override the default configuration adding `fxp_web_interface` tree in `app/config/config.yml`.
+For see the reference of Fxp Gluon Configuration, execute command:
 
 ```bash
-$ php app/console config:dump-reference SonatraGluonBundle
+$ php app/console config:dump-reference FxpGluonBundle
 ```
 
 ### Next Steps
 
 Now that you have completed the basic installation and configuration of the
-Sonatra GluonBundle, you are ready to learn about usages of the bundle.
+Fxp GluonBundle, you are ready to learn about usages of the bundle.

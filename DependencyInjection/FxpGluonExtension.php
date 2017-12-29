@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Sonatra\Bundle\GluonBundle\DependencyInjection;
+namespace Fxp\Bundle\GluonBundle\DependencyInjection;
 
 use Fxp\Component\RequireAsset\Tag\Config\RequireStyleTagConfiguration;
 use Symfony\Component\Config\Definition\Processor;
@@ -22,9 +22,9 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 /**
  * This is the class that loads and manages your bundle configuration.
  *
- * @author François Pluchino <francois.pluchino@sonatra.com>
+ * @author François Pluchino <francois.pluchino@gmail.com>
  */
-class SonatraGluonExtension extends Extension
+class FxpGluonExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -40,7 +40,7 @@ class SonatraGluonExtension extends Extension
         $loader->load('form.xml');
         $loader->load('twig.xml');
 
-        $container->setParameter('sonatra_gluon.config.auto_configuration', $config['auto_configuration']);
+        $container->setParameter('fxp_gluon.config.auto_configuration', $config['auto_configuration']);
         $this->configGoogleFonts($config['google_fonts'], $container);
         $this->configFontAwesome($config['font_awesome'], $container);
     }
@@ -56,7 +56,7 @@ class SonatraGluonExtension extends Extension
         $inputs = $this->configGoogleTypeFonts('icon', $config['icons']);
         $inputs = array_merge($inputs, $this->configGoogleTypeFonts('css', $config['fonts']));
 
-        $container->setParameter('sonatra_gluon.template.google_fonts', $inputs);
+        $container->setParameter('fxp_gluon.template.google_fonts', $inputs);
     }
 
     /**
@@ -111,6 +111,6 @@ class SonatraGluonExtension extends Extension
         $definition->setPublic(false);
         $definition->addTag('fxp_require_asset.require_tag');
 
-        $container->setDefinition('sonatra_gluon.twig.require_tag.'.$name, $definition);
+        $container->setDefinition('fxp_gluon.twig.require_tag.'.$name, $definition);
     }
 }

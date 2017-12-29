@@ -5,19 +5,19 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="twig.extension.sonatra_gluon.property_path.class">Sonatra\Component\Gluon\Twig\Extension\PropertyPathExtension</parameter>
-        <parameter key="twig.extension.sonatra_gluon.stylesheet_google_fonts.class">Sonatra\Component\Gluon\Twig\Extension\GoogleFontsExtension</parameter>
+        <parameter key="twig.extension.fxp_gluon.property_path.class">Fxp\Component\Gluon\Twig\Extension\PropertyPathExtension</parameter>
+        <parameter key="twig.extension.fxp_gluon.stylesheet_google_fonts.class">Fxp\Component\Gluon\Twig\Extension\GoogleFontsExtension</parameter>
     </parameters>
 
     <services>
-        <service id="twig.extension.sonatra_gluon.property_path" class="%twig.extension.sonatra_gluon.property_path.class%" public="false">
+        <service id="twig.extension.fxp_gluon.property_path" class="%twig.extension.fxp_gluon.property_path.class%" public="false">
             <tag name="twig.extension" />
             <argument type="service" id="property_accessor" />
         </service>
 
-        <service id="twig.extension.sonatra_gluon.stylesheet_google_fonts" class="%twig.extension.sonatra_gluon.stylesheet_google_fonts.class%" public="false">
+        <service id="twig.extension.fxp_gluon.stylesheet_google_fonts" class="%twig.extension.fxp_gluon.stylesheet_google_fonts.class%" public="false">
             <tag name="twig.extension" />
-            <argument>%sonatra_gluon.template.google_fonts%</argument>
+            <argument>%fxp_gluon.template.google_fonts%</argument>
         </service>
     </services>
 </container>
