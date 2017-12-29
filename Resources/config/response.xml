@@ -4,19 +4,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <parameters>
-        <parameter key="fxp_gluon.web_debug_toolbar.listener.class">Fxp\Bundle\GluonBundle\EventListener\WebDebugToolbarListener</parameter>
-        <parameter key="fxp_gluon.optimize_response.class">Fxp\Component\Gluon\EventListener\OptimizeResponseListener</parameter>
-    </parameters>
-
     <services>
-        <service id="fxp_gluon.web_debug_toolbar.listener" class="%fxp_gluon.web_debug_toolbar.listener.class%">
+        <service id="fxp_gluon.web_debug_toolbar.listener"
+                 class="Fxp\Bundle\GluonBundle\EventListener\WebDebugToolbarListener">
             <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" priority="-129" />
             <argument type="service" id="templating.engine.twig" />
             <argument>%kernel.environment%</argument>
         </service>
 
-        <service id="fxp_gluon.optimize_response" class="%fxp_gluon.optimize_response.class%">
+        <service id="fxp_gluon.optimize_response"
+                 class="Fxp\Component\Gluon\EventListener\OptimizeResponseListener">
             <tag name="kernel.event_listener" event="kernel.response" method="onKernelResponse" priority="-130" />
             <argument>%kernel.environment%</argument>
         </service>
