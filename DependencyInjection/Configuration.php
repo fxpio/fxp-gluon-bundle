@@ -65,7 +65,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('icons')
                     ->useAttributeAsKey('name', false)
                     ->normalizeKeys(false)
-                    ->defaultValue(array())
+                    ->defaultValue([])
                     ->prototype('array')
                         ->prototype('scalar')->end()
                     ->end()
@@ -83,10 +83,10 @@ class Configuration implements ConfigurationInterface
      */
     private function getDefaultFonts()
     {
-        return array(
-            'Open Sans' => array(400, '400italic', 600, '600italic'),
-            'Raleway' => array(100, 200),
-        );
+        return [
+            'Open Sans' => [400, '400italic', 600, '600italic'],
+            'Raleway' => [100, 200],
+        ];
     }
 
     /**

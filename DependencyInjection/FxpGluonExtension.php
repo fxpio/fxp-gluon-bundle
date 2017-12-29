@@ -70,7 +70,7 @@ class FxpGluonExtension extends Extension
     protected function configGoogleTypeFonts($type, array $fonts)
     {
         $url = 'https://fonts.googleapis.com/%s?family=%s:%s';
-        $inputs = array();
+        $inputs = [];
 
         foreach ($fonts as $name => $weights) {
             $name = str_replace(' ', '+', $name);
@@ -101,13 +101,13 @@ class FxpGluonExtension extends Extension
      * @param string           $name       The require asset name of google fonts resource
      * @param array            $attributes The HTML tag attributes
      */
-    protected function addTwigRequireTag(ContainerBuilder $container, $name, array $attributes = array())
+    protected function addTwigRequireTag(ContainerBuilder $container, $name, array $attributes = [])
     {
         $processor = new Processor();
         $configuration = new RequireStyleTagConfiguration();
-        $attributes = $processor->process($configuration->getNode(), array($attributes));
+        $attributes = $processor->process($configuration->getNode(), [$attributes]);
 
-        $definition = new Definition('Fxp\Component\RequireAsset\Tag\RequireStyleTag', array($name, $attributes));
+        $definition = new Definition('Fxp\Component\RequireAsset\Tag\RequireStyleTag', [$name, $attributes]);
         $definition->setPublic(false);
         $definition->addTag('fxp_require_asset.require_tag');
 

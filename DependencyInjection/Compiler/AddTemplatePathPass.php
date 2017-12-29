@@ -34,6 +34,6 @@ class AddTemplatePathPass implements CompilerPassInterface
         $refl = new \ReflectionClass(GetAjaxTableEvent::class);
 
         $path = dirname(dirname($refl->getFileName())).'/Resources/views';
-        $container->getDefinition('twig.loader.filesystem')->addMethodCall('addPath', array($path, 'FxpGluon'));
+        $container->getDefinition('twig.loader.filesystem')->addMethodCall('addPath', [$path, 'FxpGluon']);
     }
 }

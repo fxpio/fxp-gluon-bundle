@@ -36,9 +36,9 @@ class FormTemplatePass implements CompilerPassInterface
             $offset = array_search($configResources[count($configResources) - 1], $resources);
         }
 
-        array_splice($resources, $offset, 0, array(
+        array_splice($resources, $offset, 0, [
             '@FxpGluon/Form/form_bootstrap.html.twig',
-        ));
+        ]);
 
         $container->setParameter('twig.form.resources', $resources);
     }
