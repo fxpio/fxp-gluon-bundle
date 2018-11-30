@@ -11,7 +11,7 @@
 
 namespace Fxp\Bundle\GluonBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @author François Pluchino <francois.pluchino@gmail.com>
  */
-class ErrorController extends Controller
+class ErrorController extends AbstractController
 {
     /**
      * Display page error for dev.
