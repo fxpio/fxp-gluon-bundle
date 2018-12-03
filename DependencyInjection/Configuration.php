@@ -27,8 +27,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('fxp_gluon');
+        $treeBuilder = new TreeBuilder('fxp_gluon');
+        /* @var ArrayNodeDefinition $rootNode */
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()
@@ -48,8 +49,9 @@ class Configuration implements ConfigurationInterface
      */
     private function getGoogleFontsNode()
     {
-        $treeBuilder = new TreeBuilder();
-        $node = $treeBuilder->root('google_fonts');
+        $treeBuilder = new TreeBuilder('google_fonts');
+        /* @var ArrayNodeDefinition $node */
+        $node = $treeBuilder->getRootNode();
 
         $node
             ->addDefaultsIfNotSet()
@@ -96,8 +98,9 @@ class Configuration implements ConfigurationInterface
      */
     private function getFontAwesomeNode()
     {
-        $treeBuilder = new TreeBuilder();
-        $node = $treeBuilder->root('font_awesome');
+        $treeBuilder = new TreeBuilder('font_awesome');
+        /* @var ArrayNodeDefinition $node */
+        $node = $treeBuilder->getRootNode();
 
         $node
             ->canBeEnabled()

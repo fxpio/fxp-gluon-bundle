@@ -15,19 +15,20 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1.0",
-        "symfony/framework-bundle": "^4.1.0",
-        "symfony/templating": "^4.1.0",
-        "fxp/block-bundle": "^1.0.0",
-        "fxp/routing-extra-bundle": "^1.0.0",
-        "fxp/form-extensions-bundle": "^1.0.0",
-        "fxp/bootstrap-bundle": "^1.0.0",
-        "fxp/ajax-bundle": "^1.0.0",
+        "symfony/framework-bundle": "^4.2.0",
+        "symfony/templating": "^4.2.0",
+        "fxp/block-bundle": "^1.1.0",
+        "fxp/routing-extra-bundle": "^1.1.0",
+        "fxp/form-extensions-bundle": "^1.1.0",
+        "fxp/bootstrap-bundle": "^1.1.0",
+        "fxp/ajax-bundle": "^1.1.0",
         "fxp/gluon": "^1.0.0"
 
     },
     "require-dev": {
-        "symfony/console": "^4.1.0",
-        "symfony/finder": "^4.1.0",
+        "symfony/console": "^4.2.0",
+        "symfony/finder": "^4.2.0",
+        "fxp/require-asset-bundle": "^1.1.0",
         "foxy/foxy": "^1.0.0"
     },
     "config": {
@@ -43,7 +44,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "1.1-dev"
         }
     }
 }
