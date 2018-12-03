@@ -9,22 +9,20 @@
     </parameters>
 
     <services>
-        <service id="fxp_gluon.block.type_extension.field.addon" class="Fxp\Component\Gluon\Block\Extension\AddonExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Block\Extension\Core\Type\FieldType" />
-            <argument>Fxp\Component\Block\Extension\Core\Type\FieldType</argument>
+        <service id="fxp_gluon.block.type_extension.field.addon" class="Fxp\Component\Gluon\Block\Extension\FieldAddonExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.field.floating_label" class="Fxp\Component\Gluon\Block\Extension\FloatingLabelExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Block\Extension\Core\Type\FieldType" />
+        <service id="fxp_gluon.block.type_extension.field.floating_label" class="Fxp\Component\Gluon\Block\Extension\FieldFloatingLabelExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.navbar" class="Fxp\Component\Gluon\Block\Extension\NavbarExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\NavbarType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.headroom.navbar" class="Fxp\Component\Gluon\Block\Extension\HeadroomExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\NavbarType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\NavbarType</argument>
+        <service id="fxp_gluon.block.type_extension.headroom.navbar" class="Fxp\Component\Gluon\Block\Extension\NavbarHeadroomExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type.lookup" class="Fxp\Component\Gluon\Block\Type\LookupType" public="true">
@@ -66,17 +64,15 @@
         </service>
 
         <service id="fxp_gluon.block.type_extension.button" class="Fxp\Component\Gluon\Block\Extension\ButtonExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\ButtonType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.ripple_button" class="Fxp\Component\Gluon\Block\Extension\RippleExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\ButtonType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\ButtonType</argument>
+        <service id="fxp_gluon.block.type_extension.ripple_button" class="Fxp\Component\Gluon\Block\Extension\ButtonRippleExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.raised_button" class="Fxp\Component\Gluon\Block\Extension\RaisedExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\ButtonType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\ButtonType</argument>
+        <service id="fxp_gluon.block.type_extension.raised_button" class="Fxp\Component\Gluon\Block\Extension\ButtonRaisedExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type.button_navbar" class="Fxp\Component\Gluon\Block\Type\ButtonNavbarType" public="true">
@@ -84,62 +80,55 @@
         </service>
 
         <service id="fxp_gluon.block.type_extension.label" class="Fxp\Component\Gluon\Block\Extension\LabelExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\LabelType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.progress_bar" class="Fxp\Component\Gluon\Block\Extension\ProgressBarExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\ProgressBarType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.panel" class="Fxp\Component\Gluon\Block\Extension\PanelExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\PanelType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.checkbox" class="Fxp\Component\Gluon\Block\Extension\CheckboxExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Block\Extension\Core\Type\CheckboxType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.navbar_brand" class="Fxp\Component\Gluon\Block\Extension\NavbarBrandExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\NavbarBrandType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.panel_header_content" class="Fxp\Component\Gluon\Block\Extension\PanelContentExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\PanelHeaderType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\PanelHeaderType</argument>
+        <service id="fxp_gluon.block.type_extension.panel_header_content" class="Fxp\Component\Gluon\Block\Extension\PanelHeaderContentExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.panel_body_content" class="Fxp\Component\Gluon\Block\Extension\PanelContentExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\PanelBodyType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\PanelBodyType</argument>
+        <service id="fxp_gluon.block.type_extension.panel_body_content" class="Fxp\Component\Gluon\Block\Extension\PanelBodyContentExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.panel_footer_content" class="Fxp\Component\Gluon\Block\Extension\PanelContentExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\PanelFooterType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\PanelFooterType</argument>
+        <service id="fxp_gluon.block.type_extension.panel_footer_content" class="Fxp\Component\Gluon\Block\Extension\PanelFooterContentExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.panel_header" class="Fxp\Component\Gluon\Block\Extension\PanelHeaderExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\PanelHeaderType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.pull_dropdown" class="Fxp\Component\Gluon\Block\Extension\PullExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\DropdownType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\DropdownType</argument>
+        <service id="fxp_gluon.block.type_extension.pull_dropdown" class="Fxp\Component\Gluon\Block\Extension\DropdownPullExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.ripple_dropdown" class="Fxp\Component\Gluon\Block\Extension\RippleExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\DropdownType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\DropdownType</argument>
+        <service id="fxp_gluon.block.type_extension.ripple_dropdown" class="Fxp\Component\Gluon\Block\Extension\DropdownRippleExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.ripple_nav_item" class="Fxp\Component\Gluon\Block\Extension\RippleExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\NavItemType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\NavItemType</argument>
+        <service id="fxp_gluon.block.type_extension.ripple_nav_item" class="Fxp\Component\Gluon\Block\Extension\NavItemRippleExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.ripple_image" class="Fxp\Component\Gluon\Block\Extension\RippleExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\ImageType" />
-            <argument>Fxp\Component\Bootstrap\Block\Type\ImageType</argument>
+        <service id="fxp_gluon.block.type_extension.ripple_image" class="Fxp\Component\Gluon\Block\Extension\ImageRippleExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type.panel_actions" class="Fxp\Component\Gluon\Block\Type\PanelActionsType" public="true">
@@ -171,14 +160,12 @@
             <tag name="fxp_block.type" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.panel_cell_pref.addon" class="Fxp\Component\Gluon\Block\Extension\AddonExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Gluon\Block\Type\PanelCellPrefType" />
-            <argument>Fxp\Component\Gluon\Block\Type\PanelCellPrefType</argument>
+        <service id="fxp_gluon.block.type_extension.panel_cell_pref.addon" class="Fxp\Component\Gluon\Block\Extension\PanelCellPrefAddonExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.panel_cell_pref.ripple" class="Fxp\Component\Gluon\Block\Extension\RippleExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Gluon\Block\Type\PanelCellPrefType" />
-            <argument>Fxp\Component\Gluon\Block\Type\PanelCellPrefType</argument>
+        <service id="fxp_gluon.block.type_extension.panel_cell_pref.ripple" class="Fxp\Component\Gluon\Block\Extension\PanelCellPrefRippleExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type.panel_cell_spacer" class="Fxp\Component\Gluon\Block\Type\PanelCellSpacerType" public="true">
@@ -190,27 +177,27 @@
         </service>
 
         <service id="fxp_gluon.block.type_extension.table" class="Fxp\Component\Gluon\Block\Extension\TableExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\TableType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.table_pager" class="Fxp\Component\Gluon\Block\Extension\TablePagerExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\TableType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.table_column" class="Fxp\Component\Gluon\Block\Extension\TableColumnExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\TableColumnType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.table_column_pager" class="Fxp\Component\Gluon\Block\Extension\TableColumnPagerExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\TableColumnType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.footable" class="Fxp\Component\Gluon\Block\Extension\FootableExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\TableType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.footable_column" class="Fxp\Component\Gluon\Block\Extension\FootableColumnExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Bootstrap\Block\Type\TableColumnType" />
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type.table_pager" class="Fxp\Component\Gluon\Block\Type\TablePagerType" public="true">
@@ -247,13 +234,11 @@
         </service>
 
         <service id="fxp_gluon.block.type_extension.table_column_list_sort" class="Fxp\Component\Gluon\Block\Extension\TableColumnExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Gluon\Block\Type\TableColumnListSortableType" />
-            <argument>Fxp\Component\Gluon\Block\Type\TableColumnListSortableType</argument>
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type_extension.table_column_list_sort_pager" class="Fxp\Component\Gluon\Block\Extension\TableColumnPagerExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Gluon\Block\Type\TableColumnListSortableType" />
-            <argument>Fxp\Component\Gluon\Block\Type\TableColumnListSortableType</argument>
+            <tag name="fxp_block.type_extension" />
         </service>
 
         <service id="fxp_gluon.block.type.spinner" class="Fxp\Component\Gluon\Block\Type\SpinnerType" public="true">
@@ -272,14 +257,12 @@
             <tag name="fxp_block.type" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.ripple_fab_dropdown_item" class="Fxp\Component\Gluon\Block\Extension\RippleExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Gluon\Block\Type\FabDropdownItemType" />
-            <argument>Fxp\Component\Gluon\Block\Type\FabDropdownItemType</argument>
+        <service id="fxp_gluon.block.type_extension.ripple_fab_dropdown_item" class="Fxp\Component\Gluon\Block\Extension\FabDropdownItemRippleExtension" public="true">
+            <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.headroom.fab" class="Fxp\Component\Gluon\Block\Extension\HeadroomExtension" public="true">
-            <tag name="fxp_block.type_extension" extended-type="Fxp\Component\Gluon\Block\Type\FabType" />
-            <argument>Fxp\Component\Gluon\Block\Type\FabType</argument>
+        <service id="fxp_gluon.block.type_extension.headroom.fab" class="Fxp\Component\Gluon\Block\Extension\FabHeadroomExtension" public="true">
+            <tag name="fxp_block.type_extension" />
             <argument>btn_group_attr</argument>
         </service>
     </services>
