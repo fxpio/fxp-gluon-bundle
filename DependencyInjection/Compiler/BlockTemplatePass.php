@@ -28,12 +28,12 @@ class BlockTemplatePass implements CompilerPassInterface
     {
         $configs = $container->getExtensionConfig('fxp_block');
         $resources = $container->getParameter('fxp_block.twig.resources');
-        $offset = count($resources);
+        $offset = \count($resources);
 
         if (isset($configs[0]['block_themes'])) {
             $configResources = $configs[0]['block_themes'];
 
-            $offset = array_search($configResources[count($configResources) - 1], $resources);
+            $offset = array_search($configResources[\count($configResources) - 1], $resources);
         }
 
         array_splice($resources, $offset, 0, [

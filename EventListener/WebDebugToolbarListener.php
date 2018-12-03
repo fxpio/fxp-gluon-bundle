@@ -80,7 +80,7 @@ class WebDebugToolbarListener
      */
     protected function injectEditToolbar(Response $response)
     {
-        if (function_exists('mb_stripos')) {
+        if (\function_exists('mb_stripos')) {
             $posrFunction = 'mb_strripos';
             $substrFunction = 'mb_substr';
         } else {
