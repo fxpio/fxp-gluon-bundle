@@ -233,11 +233,11 @@
             <tag name="fxp_block.type" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.table_column_list_sort" class="Fxp\Component\Gluon\Block\Extension\TableColumnExtension" public="true">
+        <service id="fxp_gluon.block.type_extension.table_column_list_sort" class="Fxp\Component\Gluon\Block\Extension\TableColumnListSortableExtension" public="true">
             <tag name="fxp_block.type_extension" />
         </service>
 
-        <service id="fxp_gluon.block.type_extension.table_column_list_sort_pager" class="Fxp\Component\Gluon\Block\Extension\TableColumnPagerExtension" public="true">
+        <service id="fxp_gluon.block.type_extension.table_column_list_sort_pager" class="Fxp\Component\Gluon\Block\Extension\TableColumnListSortablePagerExtension" public="true">
             <tag name="fxp_block.type_extension" />
         </service>
 
